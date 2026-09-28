@@ -1,0 +1,1485 @@
+/* ===================================
+   MANUAL CLASS POPUP
+=================================== */
+
+.classallocation_popup_overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(3px);
+    z-index:999;
+}
+
+.classallocation_form_wrapper{
+    width:520px;
+    max-width:92%;
+    background:#1F1F1F;
+    border-radius:12px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+    animation:popupShow .25s ease;
+}
+
+.classallocation_form_header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.classallocation_form_title{
+    font-family:Poppins;
+    font-size:20px;
+    font-weight:500;
+    color:#fff;
+    margin:0;
+}
+
+.classallocation_form_close_icon{
+    width:20px;
+    height:20px;
+    color:#D0FF71;
+    cursor:pointer;
+}
+
+.classallocation_form_grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.classallocation_form_field{
+    display:flex;
+    flex-direction:column;
+}
+
+.classallocation_form_label{
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#E6E6E6;
+    margin-bottom:6px;
+}
+
+.classallocation_form_field input,
+.classallocation_form_field select{
+    width:100%;
+    padding:9px 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#2B2B2B;
+    color:#fff;
+    font-family:Poppins;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+.classallocation_form_field input::placeholder{
+    color:#9A9A9A;
+}
+
+.classallocation_form_full_width{
+    grid-column:1/-1;
+}
+
+.classallocation_form_full_width button{
+    width:100%;
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.classallocation_form_full_width button:hover{
+    opacity:.9;
+}
+
+.classallocation_form_full_width button:active{
+    transform:scale(.98);
+}
+
+
+.classallocation_student_popup{
+    width:650px;
+    max-width:92%;
+    max-height:85vh;
+    background:#1F1F1F;
+    border-radius:12px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+.classallocation_student_summary{
+    margin-bottom:20px;
+}
+
+.classallocation_student_summary h4{
+    font-family:Poppins;
+    font-size:15px;
+    color:#D0FF71;
+    font-weight:500;
+    margin:0;
+}
+
+.classallocation_student_table{
+    width:100%;
+    border-collapse:collapse;
+    overflow-y:auto;
+}
+
+.classallocation_student_table th{
+    background:#7C7C7C;
+    color:#171319;
+    padding:10px;
+    text-align:left;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:600;
+}
+
+.classallocation_student_table td{
+    padding:10px;
+    font-family:Poppins;
+    font-size:13px;
+    color:#fff;
+    border-bottom:1px solid #2E2E2E;
+}
+
+.classallocation_student_table tbody{
+    display:block;
+    max-height:420px;
+    overflow-y:auto;
+}
+
+.classallocation_student_table thead,
+.classallocation_student_table tbody tr{
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+
+.table_wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.allocation_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.allocation_table th,
+.allocation_table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.allocation_table th {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.allocation_table td {
+  font-size: 14px;
+}
+
+.table_empty {
+  text-align: center !important;
+  padding: 24px !important;
+}
+
+
+
+
+
+
+
+/* ==========================================================
+                    PAGE CONTAINER
+========================================================== */
+
+.classallocation_container{
+    width:98%;
+    margin-left:auto;
+    margin-right:auto;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* ==========================================================
+                    PAGE HEADER
+========================================================== */
+
+.classallocation_page_header{
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+    background:#171319;
+    border-radius:10px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+.classallocation_header_left{
+    width:45%;
+    display:flex;
+    flex-direction:column;
+}
+
+.classallocation_page_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:24px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.classallocation_page_subtitle{
+    margin-top:8px;
+    margin-bottom:0;
+    font-family:Poppins;
+    font-size:13px;
+    line-height:22px;
+    font-weight:400;
+    color:#A7A7A7;
+}
+
+/* ==========================================================
+                    LOAD ALLOCATION
+========================================================== */
+
+.classallocation_filter_wrapper{
+    width:100%;
+    margin:20px 0;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    column-gap:12px;
+}
+
+.classallocation_filter_field{
+    width:210px;
+}
+
+.classallocation_filter_select{
+    width:100%;
+    height:40px;
+    padding:0 12px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#FFFFFF;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#3A3838;
+    box-sizing:border-box;
+}
+
+.classallocation_load_btn{
+    height:40px;
+    padding:0 22px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.classallocation_load_btn:hover{
+    opacity:.9;
+}
+
+.classallocation_load_btn:active{
+    transform:scale(.97);
+}
+
+.classallocation_load_btn:disabled{
+    background:#707070;
+    color:#DADADA;
+    cursor:not-allowed;
+}
+
+/* ==========================================================
+                    STATISTICS
+========================================================== */
+
+.classallocation_statistics_wrapper{
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    height:140px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    column-gap:12px;
+    margin-bottom:20px;
+}
+
+.classallocation_statistics_card{
+    flex:1;
+    height:100%;
+    background:#1F1F1F;
+    border-radius:8px;
+    padding:16px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.classallocation_statistics_header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.classallocation_statistics_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.classallocation_statistics_icon{
+    width:18px;
+    height:18px;
+    color:#D0FF71;
+}
+
+.classallocation_statistics_body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.classallocation_statistics_line{
+    display:block;
+    font-family:Poppins;
+    font-size:28px;
+    color:#D0FF71;
+    line-height:18px;
+}
+
+.classallocation_statistics_value{
+    margin:8px 0 0;
+    font-family:Poppins;
+    font-size:30px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    EXISTING CLASSES
+========================================================== */
+
+.classallocation_existing_wrapper{
+    width:100%;
+    margin-top:10px;
+}
+
+.classallocation_existing_header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.classallocation_existing_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:18px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.classallocation_existing_subtitle{
+    display:block;
+    margin-top:4px;
+    font-family:Poppins;
+    font-size:12px;
+    color:#BDBDBD;
+}
+
+
+/* ==========================================================
+                    TABLE WRAPPER
+========================================================== */
+
+.classallocation_existing_table_wrapper{
+    width:100%;
+    overflow:hidden;
+    border-radius:8px;
+    background:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    TABLE
+========================================================== */
+
+.classallocation_existing_table{
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+
+/* ==========================================================
+                    TABLE HEADER
+========================================================== */
+
+.classallocation_existing_table_header{
+    background:#D9D9D9;
+}
+
+.classallocation_existing_table_header th{
+    padding:14px 16px;
+    text-align:left;
+}
+
+.classallocation_existing_heading{
+    margin:0;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:600;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    TABLE BODY
+========================================================== */
+
+.classallocation_existing_table_body td{
+    padding:14px 16px;
+    vertical-align:middle;
+}
+
+.classallocation_existing_row{
+    transition:.2s ease;
+}
+
+.classallocation_existing_row:nth-child(odd){
+    background:#FFFFFF;
+}
+
+.classallocation_existing_row:nth-child(even){
+    background:#FAFAFA;
+}
+
+.classallocation_existing_row:hover{
+    background:#F4F8EC;
+}
+
+.classallocation_existing_data{
+    margin:0;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    SELECT
+========================================================== */
+
+.classallocation_existing_status_select,
+.classallocation_existing_incharge_select{
+    width:100%;
+    height:34px;
+    padding:0 10px;
+    border:1px solid #E1E1E1;
+    outline:none;
+    border-radius:5px;
+    background:#FFFFFF;
+    font-family:Poppins;
+    font-size:12px;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    ACTION BUTTONS
+========================================================== */
+
+.classallocation_existing_action_wrapper{
+    display:flex;
+    align-items:center;
+    column-gap:8px;
+}
+
+.classallocation_existing_manage_btn,
+.classallocation_existing_delete_btn{
+    border:none;
+    outline:none;
+    padding:6px 12px;
+    border-radius:4px;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.classallocation_existing_manage_btn{
+    background:#D0FF71;
+    color:#171319;
+}
+
+.classallocation_existing_delete_btn{
+    background:#F1F1F1;
+    color:#C0392B;
+}
+
+.classallocation_existing_manage_btn:hover{
+    opacity:.9;
+}
+
+.classallocation_existing_delete_btn:hover{
+    background:#FFE9E9;
+}
+
+.classallocation_existing_empty{
+    padding:35px;
+    text-align:center;
+    font-family:Poppins;
+    font-size:14px;
+    color:#7B7B7B;
+}
+
+
+
+/* ==========================================================
+                    UNASSIGNED STUDENTS
+========================================================== */
+
+.classallocation_student_wrapper{
+    width:100%;
+    margin-top:25px;
+}
+
+.classallocation_student_header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.classallocation_student_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:18px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.classallocation_student_subtitle{
+    display:block;
+    margin-top:4px;
+    font-family:Poppins;
+    font-size:12px;
+    color:#BDBDBD;
+}
+
+
+/* ==========================================================
+                    TABLE WRAPPER
+========================================================== */
+
+.classallocation_student_table_wrapper{
+    width:100%;
+    overflow:hidden;
+    border-radius:8px;
+    background:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    TABLE
+========================================================== */
+
+.classallocation_student_table{
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+
+/* ==========================================================
+                    TABLE HEADER
+========================================================== */
+
+.classallocation_student_table_header{
+    background:#D9D9D9;
+}
+
+.classallocation_student_table_header th{
+    padding:14px 16px;
+    text-align:left;
+}
+
+.classallocation_student_heading{
+    margin:0;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:600;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    TABLE BODY
+========================================================== */
+
+.classallocation_student_table_body td{
+    padding:14px 16px;
+    vertical-align:middle;
+}
+
+.classallocation_student_row{
+    transition:background .2s ease;
+}
+
+.classallocation_student_row:nth-child(odd){
+    background:#FFFFFF;
+}
+
+.classallocation_student_row:nth-child(even){
+    background:#FAFAFA;
+}
+
+.classallocation_student_row:hover{
+    background:#F4F8EC;
+}
+
+.classallocation_student_data{
+    margin:0;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    CHECKBOX
+========================================================== */
+
+.classallocation_student_table input[type="checkbox"]{
+    width:16px;
+    height:16px;
+    cursor:pointer;
+}
+
+
+/* ==========================================================
+                    EMPTY STATE
+========================================================== */
+
+.classallocation_student_empty{
+    padding:35px;
+    text-align:center;
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:500;
+    color:#7B7B7B;
+}
+
+
+/* ==========================================================
+                    WORKSPACE
+========================================================== */
+
+.classallocation_workspace{
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    row-gap:20px;
+}
+
+
+/* ==========================================================
+                    COMMON CARD
+========================================================== */
+
+.classallocation_assignment_card,
+.classallocation_mode_card,
+.classallocation_distribution_card,
+.classallocation_manual_card,
+.classallocation_create_card{
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    background:#1F1F1F;
+    border-radius:10px;
+    padding:22px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    COMMON HEADER
+========================================================== */
+
+.classallocation_card_header,
+.classallocation_mode_header,
+.classallocation_distribution_header,
+.classallocation_manual_header,
+.classallocation_create_header{
+    margin-bottom:18px;
+}
+
+.classallocation_card_title,
+.classallocation_mode_title,
+.classallocation_distribution_title,
+.classallocation_manual_title,
+.classallocation_create_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:18px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.classallocation_card_subtitle,
+.classallocation_mode_subtitle,
+.classallocation_distribution_subtitle,
+.classallocation_manual_subtitle,
+.classallocation_create_subtitle{
+    margin-top:6px;
+    font-family:Poppins;
+    font-size:12px;
+    color:#B8B8B8;
+}
+
+/* ==========================================================
+                    ASSIGN EXISTING CLASS
+========================================================== */
+
+.classallocation_card_body{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.classallocation_assignment_select{
+    flex:1;
+    height:40px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    padding:0 12px;
+    background:#2C2C2C;
+    color:#FFFFFF;
+    font-family:Poppins;
+}
+
+.classallocation_primary_btn{
+    height:40px;
+    padding:0 20px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.classallocation_primary_btn:hover{
+    opacity:.92;
+}
+
+.classallocation_primary_btn:disabled{
+    background:#6F6F6F;
+    color:#DADADA;
+    cursor:not-allowed;
+}
+
+/* ==========================================================
+                    MODE BUTTONS
+========================================================== */
+
+.classallocation_mode_body{
+    display:flex;
+    gap:15px;
+}
+
+.classallocation_mode_btn{
+    flex:1;
+    height:44px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#2C2C2C;
+    color:#FFFFFF;
+    font-family:Poppins;
+    font-weight:500;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.classallocation_mode_btn_active{
+    background:#D0FF71;
+    color:#171319;
+    font-weight:600;
+}
+
+/* ==========================================================
+                    AUTO DISTRIBUTION
+========================================================== */
+
+.classallocation_distribution_body{
+    display:flex;
+    flex-direction:column;
+    row-gap:18px;
+}
+
+.classallocation_distribution_summary{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#2C2C2C;
+    padding:15px;
+    border-radius:6px;
+}
+
+.classallocation_distribution_summary span{
+    color:#CFCFCF;
+    font-family:Poppins;
+    font-size:13px;
+}
+
+.classallocation_distribution_summary strong{
+    color:#D0FF71;
+    font-family:Poppins;
+    font-size:22px;
+}
+
+.classallocation_distribution_input{
+    display:flex;
+    flex-direction:column;
+    row-gap:8px;
+}
+
+.classallocation_distribution_input label{
+    color:#FFFFFF;
+    font-size:13px;
+    font-family:Poppins;
+}
+
+.classallocation_distribution_input input{
+    height:40px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#2C2C2C;
+    color:#FFFFFF;
+    padding:0 12px;
+}
+
+
+/* ==========================================================
+                    MANUAL
+========================================================== */
+
+.classallocation_manual_summary{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.classallocation_manual_summary_item{
+    flex:1;
+    background:#2C2C2C;
+    padding:15px;
+    border-radius:6px;
+    text-align:center;
+}
+
+.classallocation_manual_summary_item span{
+    display:block;
+    color:#BEBEBE;
+    font-size:12px;
+}
+
+.classallocation_manual_summary_item strong{
+    display:block;
+    margin-top:6px;
+    color:#D0FF71;
+    font-size:24px;
+}
+
+.classallocation_manual_classes{
+    display:flex;
+    flex-direction:column;
+    row-gap:15px;
+    margin-top:20px;
+}
+
+.classallocation_manual_class_card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#2C2C2C;
+    padding:15px;
+    border-radius:8px;
+}
+
+.classallocation_manual_class_right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.classallocation_manual_class_right input{
+    width:90px;
+    height:36px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    text-align:center;
+}
+
+.classallocation_secondary_btn,
+.classallocation_remove_btn,
+.classallocation_view_btn{
+    border:none;
+    outline:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+    font-family:Poppins;
+}
+
+.classallocation_secondary_btn{
+    background:#D0FF71;
+}
+
+.classallocation_remove_btn{
+    background:#F4D5D5;
+    color:#B22A2A;
+}
+
+
+/* ==========================================================
+                    GENERATED
+========================================================== */
+
+.classallocation_generated_wrapper{
+    display:flex;
+    flex-direction:column;
+    row-gap:12px;
+    margin-top:20px;
+}
+
+.classallocation_generated_card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px;
+    border-radius:8px;
+    background:#2C2C2C;
+}
+
+.classallocation_generated_card strong{
+    display:block;
+    color:#FFFFFF;
+    font-family:Poppins;
+}
+
+.classallocation_generated_card span{
+    display:block;
+    margin-top:4px;
+    color:#BDBDBD;
+    font-size:12px;
+}
+
+.classallocation_view_btn{
+    background:#D0FF71;
+    color:#171319;
+}
+
+.classallocation_create_btn{
+    width:100%;
+    height:46px;
+    margin-top:18px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.classallocation_create_btn:hover{
+    opacity:.92;
+}
+
+.classallocation_create_btn:disabled{
+    background:#6F6F6F;
+    color:#DADADA;
+    cursor:not-allowed;
+}
+
+
+/* =========================================================
+   STUDENT TRANSFER POPUP
+========================================================= */
+
+.classallocation_transfer_popup {
+  width: min(560px, calc(100vw - 40px));
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 26px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.14);
+
+  animation: classallocationTransferPopupIn 0.18s ease-out;
+}
+
+@keyframes classallocationTransferPopupIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.classallocation_transfer_subtitle {
+  margin: 5px 0 0;
+
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #8a8a8a;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STUDENT BASIC INFO
+========================================================= */
+
+.classallocation_transfer_student {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 22px;
+  padding: 14px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+}
+
+
+.classallocation_transfer_avatar {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #111111;
+  color: #ffffff;
+
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.classallocation_transfer_student h4 {
+  margin: 0;
+
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #202020;
+}
+
+
+.classallocation_transfer_student span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+
+  color: #929292;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.classallocation_transfer_section_title {
+  margin-bottom: 13px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #303030;
+}
+
+
+/* =========================================================
+   CURRENT ACADEMIC DETAILS
+========================================================= */
+
+.classallocation_transfer_current {
+  margin-top: 20px;
+
+  padding: 17px;
+
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+
+.classallocation_transfer_current_grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.classallocation_transfer_current_grid > div {
+  min-width: 0;
+}
+
+
+.classallocation_transfer_current_grid span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+
+  color: #999999;
+}
+
+
+.classallocation_transfer_current_grid strong {
+  display: block;
+
+  overflow: hidden;
+
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+
+  color: #303030;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   TRANSFER DESTINATION
+========================================================= */
+
+.classallocation_transfer_destination {
+  margin-top: 20px;
+}
+
+
+.classallocation_transfer_destination
+.classallocation_form_field {
+  margin-bottom: 14px;
+}
+
+
+.classallocation_transfer_destination
+.classallocation_form_label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  color: #4a4a4a;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.classallocation_transfer_select {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 13px;
+
+  border: 1px solid #dddddd;
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #333333;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+
+.classallocation_transfer_select:hover {
+  border-color: #c8c8c8;
+}
+
+
+.classallocation_transfer_select:focus {
+  border-color: #222222;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+.classallocation_transfer_select:disabled {
+  background: #f5f5f5;
+
+  color: #aaaaaa;
+
+  cursor: not-allowed;
+
+  border-color: #e8e8e8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.classallocation_transfer_footer {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 24px;
+  padding-top: 18px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.classallocation_transfer_cancel_btn {
+  height: 40px;
+
+  padding: 0 17px;
+
+  border: 1px solid #dedede;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  color: #555555;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+
+.classallocation_transfer_cancel_btn:hover {
+  background: #f7f7f7;
+  border-color: #cfcfcf;
+}
+
+
+.classallocation_transfer_cancel_btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TRANSFER BUTTON
+========================================================= */
+
+.classallocation_transfer_submit_btn {
+  height: 40px;
+
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #111111;
+  color: #ffffff;
+
+  font-family: Poppins, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    opacity 0.18s ease;
+}
+
+
+.classallocation_transfer_submit_btn:hover {
+  background: #292929;
+}
+
+
+.classallocation_transfer_submit_btn:active {
+  transform: scale(0.98);
+}
+
+
+.classallocation_transfer_submit_btn:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .classallocation_transfer_popup {
+    width: calc(100vw - 24px);
+
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+
+  .classallocation_transfer_current_grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+
+  .classallocation_transfer_footer {
+    flex-direction: column-reverse;
+  }
+
+
+  .classallocation_transfer_cancel_btn,
+  .classallocation_transfer_submit_btn {
+    width: 100%;
+  }
+
+}

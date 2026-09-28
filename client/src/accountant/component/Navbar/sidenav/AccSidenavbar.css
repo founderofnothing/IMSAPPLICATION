@@ -1,0 +1,126 @@
+.accountant_sidenav_container{
+    width:100%;
+    background:#171717;
+}
+
+
+
+
+.accountant_bflogo{
+    width:20px;
+    height:20px;
+}
+.accountant_bf_logo_wrapper{
+    display: flex;
+    align-items: center;
+    column-gap:30px;
+    margin-top:30px;
+    margin-bottom:40px;
+
+}
+
+.accountant_bflogo_title{
+    font-family: poppins;
+    font-size:14px;
+    font-weight:500;text-transform: uppercase;
+    color: white;
+
+}
+.accountant_nav_menu_wrapper{
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+}
+.accountant_sidemenu_holder{
+    text-decoration: none;
+    color:white;
+}
+
+.accountant_side_nav_icon{
+    width:20px;
+    height:20px;
+}
+
+.accountant_sidemenu_holder{
+    display: flex;
+    align-items: center;
+    column-gap:20px;
+    padding-left:5px;
+    transition: 0.accountant_3s;
+}
+
+.accountant_sidemenu_holder:hover{
+    background:#D0FF71;
+    color:black;
+    width:93%;
+    border-radius:5px;
+
+}
+
+.accountant_sidenav_title{
+    font-family: poppins;
+    font-size:13px;
+    font-weight:500;text-transform: capitalize;
+}
+
+
+
+
+
+.accountant_sidemenu_holder.accountant_active {
+  background:#D0FF71;
+  color:black;
+    width:93%;
+    border-radius:5px;
+
+}
+
+.accountant_sidemenu_holder.accountant_active .accountant_side_nav_icon {
+  color: black;
+}
+
+
+
+.accountant_mobile_close {
+  display: none;
+}
+
+@media (max-width:978px) {
+
+  .accountant_mobile_close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    cursor: pointer;
+    color:#D0FF71;
+  }
+
+  .accountant_sidenav_container{
+    height:100vh;
+  }
+
+  .accountant_bf_logo_wrapper{
+    padding-left:30px;
+  }
+
+.accountant_sidemenu_holder{
+    padding-left:8px;
+}
+
+
+.accountant_sidemenu_holder.accountant_active {
+  /* background:#D0FF71; */
+  color: white;
+  background:#171717;
+  border-bottom: 2px solid #D0FF71;
+    width:95%;
+
+}
+
+.accountant_sidemenu_holder.accountant_active .accountant_side_nav_icon {
+  color:white;
+}
+
+
+
+}

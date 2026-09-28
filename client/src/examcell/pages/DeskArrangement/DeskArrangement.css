@@ -1,0 +1,594 @@
+/* ==========================================================
+                    DESK ARRANGEMENT
+========================================================== */
+
+.desk_arrangement_page{
+    width:98%;
+    min-height:100vh;
+    margin:0 auto;
+    padding-bottom:30px;
+    display:flex;
+    flex-direction:column;
+    font-family:Poppins;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    HEADER
+========================================================== */
+
+.desk_arrangement_header{
+    width:100%;
+    margin-top:20px;
+    padding:22px;
+    background:#171319;
+    border-radius:10px;
+    box-sizing:border-box;
+}
+
+.desk_arrangement_header h1{
+    margin:0;
+    font-family:Poppins;
+    font-size:24px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.desk_arrangement_header p{
+    margin:7px 0 0;
+    font-family:Poppins;
+    font-size:13px;
+    line-height:20px;
+    color:#A7A7A7;
+}
+
+
+/* ==========================================================
+                    HALL INFORMATION
+========================================================== */
+
+.desk_arrangement_hall_info{
+    width:100%;
+    margin-top:15px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.desk_arrangement_hall_info > div{
+    min-height:85px;
+    padding:15px;
+    background:#1F1F1F;
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-sizing:border-box;
+}
+
+.desk_arrangement_hall_info span{
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:500;
+    color:#A7A7A7;
+}
+
+.desk_arrangement_hall_info strong{
+    margin-top:8px;
+    font-family:Poppins;
+    font-size:17px;
+    font-weight:600;
+    color:#FFFFFF;
+    text-transform:capitalize;
+}
+
+
+/* ==========================================================
+                    COLUMN CONFIGURATION
+========================================================== */
+
+.desk_arrangement_column_config{
+    width:100%;
+    margin-top:20px;
+    padding:18px;
+    background:#1F1F1F;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+.desk_arrangement_column_config > div:first-child{
+    display:flex;
+    flex-direction:column;
+}
+
+.desk_arrangement_column_config span{
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.desk_arrangement_column_config p{
+    margin:5px 0 0;
+    font-family:Poppins;
+    font-size:11px;
+    color:#A7A7A7;
+}
+
+
+/* ==========================================================
+                    COLUMN CONTROLS
+========================================================== */
+
+.desk_arrangement_column_controls{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.desk_arrangement_column_controls button{
+    width:34px;
+    height:34px;
+    padding:0;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#2C2C2C;
+    color:#D0FF71;
+    font-family:Poppins;
+    font-size:20px;
+    line-height:34px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.desk_arrangement_column_controls button:hover{
+    background:#383838;
+}
+
+.desk_arrangement_column_controls button:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+.desk_arrangement_column_controls strong{
+    min-width:30px;
+    text-align:center;
+    font-family:Poppins;
+    font-size:16px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    LOADING
+========================================================== */
+
+.desk_arrangement_loading{
+    width:100%;
+    margin-top:20px;
+    padding:35px;
+    background:#1F1F1F;
+    border-radius:8px;
+    text-align:center;
+    box-sizing:border-box;
+    font-family:Poppins;
+    font-size:13px;
+    color:#B8B8B8;
+}
+
+
+/* ==========================================================
+                    WORKSPACE
+========================================================== */
+
+.desk_arrangement_workspace{
+    width:100%;
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(230px,1fr)
+    );
+    gap:12px;
+    align-items:start;
+}
+
+
+/* ==========================================================
+                    COLUMN
+========================================================== */
+
+.desk_arrangement_column{
+    width:100%;
+    min-width:0;
+    padding:15px;
+    background:#1F1F1F;
+    border-radius:10px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    COLUMN HEADER
+========================================================== */
+
+.desk_arrangement_column_header{
+    min-height:55px;
+    padding-bottom:13px;
+    border-bottom:1px solid #2E2E2E;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.desk_arrangement_column_header > div{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+.desk_arrangement_column_header strong{
+    font-family:Poppins;
+    font-size:16px;
+    font-weight:600;
+    color:#D0FF71;
+}
+
+.desk_arrangement_column_header span{
+    margin-top:3px;
+    font-family:Poppins;
+    font-size:11px;
+    color:#A7A7A7;
+}
+
+.desk_arrangement_column_header small{
+    padding:5px 8px;
+    border-radius:5px;
+    background:#2C2C2C;
+    white-space:nowrap;
+    font-family:Poppins;
+    font-size:10px;
+    font-weight:500;
+    color:#D0FF71;
+}
+
+
+/* ==========================================================
+                    COLUMN SIDE INDICATORS
+========================================================== */
+
+.desk_arrangement_column_left{
+    border-top:2px solid #D0FF71;
+}
+
+.desk_arrangement_column_right{
+    border-top:2px solid #D0FF71;
+}
+
+.desk_arrangement_column_middle{
+    border-top:2px solid #FFFFFF;
+}
+
+
+/* ==========================================================
+                    BENCH LIST
+========================================================== */
+
+.desk_arrangement_bench_list{
+    margin-top:13px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+
+/* ==========================================================
+                    BENCH ITEM
+========================================================== */
+
+.desk_arrangement_item{
+    width:100%;
+    min-height:62px;
+    padding:10px 11px;
+    border:1px solid #303030;
+    border-radius:7px;
+    background:#2C2C2C;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+
+    box-sizing:border-box;
+    transition:.2s ease;
+}
+
+.desk_arrangement_item:hover{
+    background:#343434;
+    border-color:#454545;
+}
+
+
+/* ==========================================================
+                    BENCH INFORMATION
+========================================================== */
+
+.desk_arrangement_item > div:first-child{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+}
+
+.desk_arrangement_item strong{
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.desk_arrangement_item span{
+    margin-top:3px;
+    font-family:Poppins;
+    font-size:10px;
+    color:#A7A7A7;
+}
+
+
+/* ==========================================================
+                    CAPACITY SELECT
+========================================================== */
+
+.desk_arrangement_item select{
+    width:115px;
+    height:34px;
+    padding:0 8px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+
+    background:#1F1F1F;
+    color:#FFFFFF;
+
+    font-family:Poppins;
+    font-size:10px;
+
+    cursor:pointer;
+    box-sizing:border-box;
+}
+
+.desk_arrangement_item select:focus{
+    box-shadow:0 0 0 1px #D0FF71;
+}
+
+.desk_arrangement_item select option{
+    background:#2C2C2C;
+    color:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    SUMMARY
+========================================================== */
+
+.desk_arrangement_summary{
+    width:100%;
+    margin-top:15px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.desk_arrangement_summary > div{
+    min-height:75px;
+    padding:14px;
+
+    background:#1F1F1F;
+    border-radius:8px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    box-sizing:border-box;
+}
+
+.desk_arrangement_summary span{
+    font-family:Poppins;
+    font-size:11px;
+    font-weight:500;
+    color:#A7A7A7;
+}
+
+.desk_arrangement_summary strong{
+    margin-top:7px;
+    font-family:Poppins;
+    font-size:18px;
+    font-weight:600;
+    color:#D0FF71;
+}
+
+
+/* ==========================================================
+                    ACTIONS
+========================================================== */
+
+.desk_arrangement_actions{
+    width:100%;
+    margin-top:15px;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:9px;
+}
+
+.desk_arrangement_actions button{
+    height:40px;
+    padding:0 18px;
+
+    border:none;
+    outline:none;
+    border-radius:5px;
+
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.desk_arrangement_actions button:first-child{
+    background:#D0FF71;
+    color:#171319;
+}
+
+.desk_arrangement_actions button:first-child:hover{
+    opacity:.9;
+}
+
+.desk_arrangement_actions button:last-child{
+    background:#2C2C2C;
+    color:#FFFFFF;
+}
+
+.desk_arrangement_actions button:last-child:hover{
+    background:#383838;
+}
+
+.desk_arrangement_actions button:active{
+    transform:scale(.97);
+}
+
+.desk_arrangement_actions button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+
+/* ==========================================================
+                    LARGE SCREENS
+========================================================== */
+
+@media (min-width:1600px){
+
+    .desk_arrangement_page{
+        width:96%;
+    }
+
+    .desk_arrangement_workspace{
+        grid-template-columns:repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+        gap:15px;
+    }
+
+}
+
+
+/* ==========================================================
+                    TABLET
+========================================================== */
+
+@media (max-width:1000px){
+
+    .desk_arrangement_hall_info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .desk_arrangement_summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .desk_arrangement_workspace{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media (max-width:600px){
+
+    .desk_arrangement_page{
+        width:94%;
+    }
+
+    .desk_arrangement_header{
+        padding:18px;
+    }
+
+    .desk_arrangement_header h1{
+        font-size:20px;
+    }
+
+    .desk_arrangement_hall_info{
+        grid-template-columns:1fr;
+    }
+
+    .desk_arrangement_column_config{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .desk_arrangement_column_controls{
+        width:100%;
+        justify-content:flex-end;
+    }
+
+    .desk_arrangement_workspace{
+        grid-template-columns:1fr;
+    }
+
+    .desk_arrangement_column{
+        padding:13px;
+    }
+
+    .desk_arrangement_summary{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .desk_arrangement_actions{
+        flex-direction:column;
+    }
+
+    .desk_arrangement_actions button{
+        width:100%;
+    }
+
+}
+
+
+/* ==========================================================
+                    SMALL MOBILE
+========================================================== */
+
+@media (max-width:400px){
+
+    .desk_arrangement_summary{
+        grid-template-columns:1fr;
+    }
+
+    .desk_arrangement_item{
+        padding:9px;
+    }
+
+    .desk_arrangement_item select{
+        width:105px;
+    }
+
+}

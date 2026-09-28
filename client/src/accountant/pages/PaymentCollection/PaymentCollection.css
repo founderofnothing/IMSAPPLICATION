@@ -1,0 +1,1295 @@
+/* =========================================================
+   PAYMENT COLLECTION
+   ACCOUNTANT MODULE
+   IMS DESIGN SYSTEM
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.payment-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 32px;
+
+  background: #f7f7f8;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.payment-header {
+  margin-bottom: 25px;
+}
+
+.payment-header h1 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 28px;
+  line-height: 1.25;
+
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+
+.payment-header p {
+  margin: 7px 0 0;
+
+  color: #77747a;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SEARCH CARD
+   ========================================================= */
+
+.payment-search-card {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr))
+    auto;
+
+  align-items: end;
+
+  gap: 16px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.payment-page .form-group {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.payment-page .form-group label {
+  margin-bottom: 8px;
+
+  color: #171319;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUT / SELECT / TEXTAREA
+   ========================================================= */
+
+.payment-page input,
+.payment-page select,
+.payment-page textarea {
+  width: 100%;
+
+  border: 1px solid #dcdadd;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.payment-page input,
+.payment-page select {
+  min-height: 44px;
+
+  padding: 0 13px;
+}
+
+.payment-page textarea {
+  min-height: 90px;
+
+  padding: 11px 13px;
+
+  resize: vertical;
+}
+
+.payment-page input::placeholder,
+.payment-page textarea::placeholder {
+  color: #aaa7ac;
+}
+
+.payment-page input:focus,
+.payment-page select:focus,
+.payment-page textarea:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px rgba(23, 19, 25, 0.06);
+}
+
+.payment-page select {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+   ========================================================= */
+
+.payment-search-card > .form-group > button {
+  min-height: 44px;
+
+  padding: 0 19px;
+
+  border: 1px solid #171319;
+  border-radius: 8px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.payment-search-card > .form-group > button:hover:not(:disabled) {
+  background: #d0ff71;
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+.payment-search-card > .form-group > button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   STUDENT PAYMENT CARD
+   ========================================================= */
+
+.student-payment-card {
+  display: grid;
+
+  grid-template-columns: 125px minmax(0, 1fr);
+
+  gap: 24px;
+
+  margin-top: 22px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   STUDENT PROFILE
+   ========================================================= */
+
+.student-payment-profile {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.student-payment-profile img {
+  width: 105px;
+  height: 105px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border: 1px solid #dedcdf;
+  border-radius: 12px;
+
+  background: #f2f1f3;
+}
+
+
+/* =========================================================
+   STUDENT DETAILS
+   ========================================================= */
+
+.student-payment-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px 14px;
+}
+
+.student-payment-row {
+  min-width: 0;
+
+  padding: 12px 13px;
+
+  border: 1px solid #e6e5e7;
+  border-radius: 8px;
+
+  background: #fafafa;
+}
+
+.student-payment-row label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #89868c;
+
+  font-size: 8px;
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.student-payment-row span {
+  display: block;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   FEE SUMMARY
+   ========================================================= */
+
+.fee-summary-card {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+.fee-summary-box {
+  min-width: 0;
+
+  padding: 19px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 12px;
+
+  box-shadow:
+    0 5px 18px rgba(23, 19, 25, 0.035);
+
+  box-sizing: border-box;
+}
+
+.fee-summary-box h4 {
+  margin: 0 0 8px;
+
+  color: #858188;
+
+  font-size: 9px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.fee-summary-box h2 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 21px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   FEE BREAKDOWN
+   ========================================================= */
+
+.fee-breakdown-card {
+  width: 100%;
+
+  margin-top: 20px;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+.fee-breakdown-card h2 {
+  margin: 0;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #e5e4e7;
+
+  color: #171319;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+.fee-breakdown-card table {
+  width: 100%;
+
+  min-width: 650px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.fee-breakdown-card thead {
+  background: #d9d9d9;
+}
+
+.fee-breakdown-card th {
+  height: 46px;
+
+  padding: 0 15px;
+
+  border-bottom: 1px solid #c9c8ca;
+
+  color: #171319;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.fee-breakdown-card td {
+  height: 55px;
+
+  padding: 10px 15px;
+
+  border-bottom: 1px solid #ecebed;
+
+  background: #ffffff;
+
+  color: #555158;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+.fee-breakdown-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fee-breakdown-card tbody tr {
+  transition: background 0.18s ease;
+}
+
+.fee-breakdown-card tbody tr:hover td {
+  background: #fafafa;
+}
+
+.fee-breakdown-card td:nth-child(2) {
+  color: #333036;
+
+  font-weight: 500;
+}
+
+.fee-breakdown-card td:nth-child(3),
+.fee-breakdown-card td:nth-child(4),
+.fee-breakdown-card td:nth-child(5) {
+  color: #171319;
+
+  font-weight: 600;
+
+  text-align: right;
+}
+
+.fee-breakdown-card th:nth-child(3),
+.fee-breakdown-card th:nth-child(4),
+.fee-breakdown-card th:nth-child(5) {
+  text-align: right;
+}
+
+
+/* =========================================================
+   PAYMENT FORM CARD
+   ========================================================= */
+
+.payment-form-card {
+  margin-top: 20px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+.payment-form-card > h2 {
+  margin: 0 0 20px;
+
+  color: #171319;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PAYMENT FORM GRID
+   ========================================================= */
+
+.payment-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+.payment-remarks {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   PAYMENT ACTION
+   ========================================================= */
+
+.payment-action {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 20px;
+  padding-top: 17px;
+
+  border-top: 1px solid #e5e4e7;
+}
+
+.payment-action button {
+  min-height: 42px;
+
+  padding: 0 20px;
+
+  border: 1px solid #171319;
+  border-radius: 8px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.payment-action button:hover:not(:disabled) {
+  background: #d0ff71;
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+.payment-action button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   =========================================================
+   RECEIPT MODAL
+   STANDARD IMS POPUP
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.receipt-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(23, 19, 25, 0.58);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  box-sizing: border-box;
+
+  animation: receiptOverlayIn 0.22s ease forwards;
+}
+
+
+/* =========================================================
+   RECEIPT MODAL
+   ========================================================= */
+
+.receipt-modal {
+  width: min(650px, 100%);
+  max-height: calc(100vh - 48px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+  border-radius: 16px;
+
+  box-shadow:
+    0 25px 70px rgba(23, 19, 25, 0.22),
+    0 8px 25px rgba(23, 19, 25, 0.08);
+
+  animation: receiptModalIn 0.25s ease forwards;
+}
+
+
+/* =========================================================
+   RECEIPT HEADER
+   ========================================================= */
+
+.receipt-modal > h2 {
+  position: relative;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  padding: 25px 27px 24px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-size: 20px;
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  letter-spacing: -0.2px;
+}
+
+.receipt-modal > h2::before {
+  content: "PAYMENT RECEIPT";
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d0ff71;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RECEIPT DETAILS
+   ========================================================= */
+
+.receipt-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  padding: 24px 27px;
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: #c8c7c9 transparent;
+}
+
+.receipt-details::-webkit-scrollbar {
+  width: 5px;
+}
+
+.receipt-details::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.receipt-details::-webkit-scrollbar-thumb {
+  background: #c8c7c9;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   RECEIPT DETAIL ITEM
+   ========================================================= */
+
+.receipt-details > div {
+  min-width: 0;
+
+  padding: 13px 14px;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.receipt-details strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #89868c;
+
+  font-size: 8px;
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.receipt-details span {
+  display: block;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   AMOUNT PAID
+   ========================================================= */
+
+.receipt-details > div:nth-child(5) {
+  border-color: #d0ff71;
+
+  background: #f7faef;
+}
+
+.receipt-details > div:nth-child(5) span {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   RECEIPT ACTIONS
+   ========================================================= */
+
+.receipt-actions {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  padding: 15px 22px;
+
+  border-top: 1px solid #e4e3e5;
+
+  background: #ffffff;
+}
+
+.receipt-actions button {
+  min-height: 38px;
+
+  padding: 0 17px;
+
+  border-radius: 7px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+.receipt-actions button:first-child {
+  border: 1px solid #171319;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+.receipt-actions button:first-child:hover {
+  background: #d0ff71;
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.receipt-actions button:last-child {
+  border: 1px solid #dedcdf;
+
+  background: #ffffff;
+  color: #171319;
+}
+
+.receipt-actions button:last-child:hover {
+  border-color: #171319;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RECEIPT ANIMATION
+   ========================================================= */
+
+@keyframes receiptOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes receiptModalIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .payment-page {
+    padding: 38px 48px;
+  }
+
+  .payment-header h1 {
+    font-size: 30px;
+  }
+
+  .student-payment-card {
+    padding: 24px;
+  }
+
+  .receipt-modal {
+    width: min(680px, 100%);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .payment-search-card {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .payment-search-card > .form-group:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .payment-search-card > .form-group:last-child > button {
+    width: fit-content;
+
+    min-width: 130px;
+  }
+
+  .fee-summary-card {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .student-payment-card {
+    grid-template-columns:
+      100px minmax(0, 1fr);
+  }
+
+  .student-payment-profile img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .payment-page {
+    padding: 24px 18px;
+  }
+
+  .student-payment-card {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .student-payment-profile {
+    justify-content: flex-start;
+  }
+
+  .student-payment-profile img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .payment-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-remarks {
+    grid-column: auto;
+  }
+
+  .receipt-modal-overlay {
+    padding: 18px;
+  }
+
+  .receipt-modal {
+    max-height: calc(100vh - 36px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .payment-page {
+    padding: 18px 14px;
+  }
+
+  .payment-header h1 {
+    font-size: 23px;
+  }
+
+  .payment-header p {
+    font-size: 11px;
+  }
+
+  .payment-search-card {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    padding: 16px;
+
+    border-radius: 11px;
+  }
+
+  .payment-search-card > .form-group:last-child {
+    grid-column: auto;
+  }
+
+  .payment-search-card > .form-group:last-child > button {
+    width: 100%;
+  }
+
+  .student-payment-card {
+    margin-top: 18px;
+
+    padding: 16px;
+
+    border-radius: 11px;
+  }
+
+  .student-payment-details {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-summary-card {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 17px;
+  }
+
+  .fee-summary-box {
+    padding: 16px 17px;
+
+    border-radius: 10px;
+  }
+
+  .fee-summary-box h2 {
+    font-size: 19px;
+  }
+
+  .fee-breakdown-card {
+    margin-top: 17px;
+
+    border-radius: 11px;
+  }
+
+  .fee-breakdown-card h2 {
+    padding: 17px 18px;
+
+    font-size: 14px;
+  }
+
+  .payment-form-card {
+    margin-top: 17px;
+
+    padding: 17px;
+
+    border-radius: 11px;
+  }
+
+  .payment-form-card > h2 {
+    font-size: 14px;
+  }
+
+  .payment-action {
+    margin-top: 17px;
+  }
+
+  .payment-action button {
+    width: 100%;
+  }
+
+
+  /* =========================
+     RECEIPT MODAL
+     ========================= */
+
+  .receipt-modal-overlay {
+    align-items: flex-end;
+
+    padding: 10px;
+  }
+
+  .receipt-modal {
+    width: 100%;
+
+    max-height: calc(100vh - 20px);
+
+    border-radius: 14px;
+  }
+
+  .receipt-modal > h2 {
+    padding: 21px 20px 20px;
+
+    font-size: 17px;
+  }
+
+  .receipt-details {
+    grid-template-columns: 1fr;
+
+    padding: 18px 20px;
+  }
+
+  .receipt-actions {
+    padding: 13px 16px;
+  }
+
+  .receipt-actions button {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .payment-page {
+    padding: 14px 10px;
+  }
+
+  .payment-header h1 {
+    font-size: 21px;
+  }
+
+  .payment-search-card {
+    padding: 14px;
+  }
+
+  .student-payment-card {
+    padding: 14px;
+  }
+
+  .fee-summary-box {
+    padding: 15px;
+  }
+
+  .payment-form-card {
+    padding: 15px;
+  }
+
+  .receipt-modal-overlay {
+    padding: 6px;
+  }
+
+  .receipt-modal {
+    max-height: calc(100vh - 12px);
+
+    border-radius: 12px;
+  }
+
+  .receipt-modal > h2 {
+    padding: 18px 17px;
+  }
+
+  .receipt-details {
+    padding: 16px 17px;
+  }
+
+  .receipt-actions {
+    padding: 11px;
+  }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .receipt-modal,
+  .receipt-modal * {
+    visibility: visible;
+  }
+
+  .receipt-modal {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    max-height: none;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+  }
+
+  .receipt-modal-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .receipt-actions {
+    display: none;
+  }
+
+  .receipt-modal > h2 {
+    background: #171319 !important;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .receipt-details > div:nth-child(5) {
+    background: #f7faef !important;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

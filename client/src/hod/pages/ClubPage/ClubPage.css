@@ -1,0 +1,2002 @@
+/* =========================================================
+   CLUB PAGE
+   IMS CLUB PORTAL
+========================================================= */
+
+.club_page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 40px 30px 70px;
+
+  box-sizing: border-box;
+
+  background: #f5f5f5;
+
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   CLUB PAGE HEADER
+========================================================= */
+
+.club_page_header {
+  width: min(1180px, 100%);
+
+  margin: 0 auto 35px;
+
+  padding: 32px 35px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: #171319;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow:
+    0 18px 45px rgba(23, 19, 25, 0.14);
+}
+
+
+/* =========================================================
+   HEADER DECORATION
+========================================================= */
+
+.club_page_header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  top: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(208, 255, 113, 0.06);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CLUB EYEBROW
+========================================================= */
+
+.club_page_eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  margin-bottom: 13px;
+
+  border-radius: 5px;
+
+  background: #d0ff71;
+
+  color: #171319;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CLUB TITLE
+========================================================= */
+
+.club_page_header h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    28px,
+    4vw,
+    48px
+  );
+
+  line-height: 1.05;
+
+  font-weight: 500;
+
+  letter-spacing: -1.8px;
+}
+
+
+/* =========================================================
+   CLUB DESCRIPTION
+========================================================= */
+
+.club_page_header p {
+  max-width: 620px;
+
+  margin: 12px 0 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SHORT TAG
+========================================================= */
+
+.club_page_meta {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 90px;
+  min-height: 90px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(
+    208,
+    255,
+    113,
+    0.28
+  );
+
+  border-radius: 18px;
+
+  background: rgba(
+    208,
+    255,
+    113,
+    0.08
+  );
+
+  flex-shrink: 0;
+}
+
+
+.club_page_meta strong {
+  color: #d0ff71;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CREATE POST
+========================================================= */
+
+.club_create_post {
+  width: min(760px, 100%);
+
+  margin: 0 auto 30px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e3e5;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(
+      23,
+      19,
+      25,
+      0.06
+    );
+}
+
+
+/* =========================================================
+   CREATE TEXTAREA
+========================================================= */
+
+.club_create_post textarea {
+  width: 100%;
+
+  min-height: 105px;
+
+  padding: 15px 16px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  outline: none;
+
+  border: 1px solid #e2e0e2;
+
+  border-radius: 11px;
+
+  background: #f8f8f8;
+
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.club_create_post textarea::placeholder {
+  color: #aaa6ac;
+}
+
+
+.club_create_post textarea:hover {
+  border-color: #d1ced2;
+}
+
+
+.club_create_post textarea:focus {
+  background: #ffffff;
+
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px rgba(
+      208,
+      255,
+      113,
+      0.55
+    );
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+.club_create_post button {
+  margin-top: 13px;
+
+  min-width: 130px;
+
+  height: 43px;
+
+  padding: 0 20px;
+
+  border: 1px solid #171319;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.club_create_post button:hover:not(:disabled) {
+  background: #d0ff71;
+
+  color: #171319;
+
+  border-color: #d0ff71;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(
+      23,
+      19,
+      25,
+      0.12
+    );
+}
+
+
+.club_create_post button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   POSTS CONTAINER
+========================================================= */
+
+.club_posts {
+  width: min(760px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   POST CARD
+========================================================= */
+
+.club_post_card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e0e2;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 12px 35px rgba(
+      23,
+      19,
+      25,
+      0.07
+    );
+
+  animation:
+    clubPostEnter 0.35s ease both;
+}
+
+
+@keyframes clubPostEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   POST HEADER
+========================================================= */
+
+.club_post_header {
+  min-height: 70px;
+
+  padding: 15px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #eeeeee;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   AUTHOR AREA
+========================================================= */
+
+.club_post_header > div {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+.club_post_header strong {
+  color: #171319;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+.club_post_header span {
+  margin-top: 2px;
+
+  color: #989399;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   POST DESCRIPTION
+========================================================= */
+
+.club_post_description {
+  padding: 20px 20px 18px;
+
+  color: #302c31;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   POST IMAGES
+========================================================= */
+
+.club_post_images {
+  width: 100%;
+
+  display: grid;
+
+  gap: 2px;
+
+  background: #171319;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ONE IMAGE
+========================================================= */
+
+.club_post_images:has(img:only-child) {
+  display: block;
+}
+
+
+.club_post_images img {
+  display: block;
+
+  width: 100%;
+
+  height: 460px;
+
+  object-fit: cover;
+
+  background: #eeeeee;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+.club_post_images img:hover {
+  opacity: 0.94;
+}
+
+
+/* =========================================================
+   TWO IMAGES
+========================================================= */
+
+.club_post_images:has(img:nth-child(2)) {
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.club_post_images:has(img:nth-child(2)) img {
+  height: 360px;
+}
+
+
+/* =========================================================
+   THREE OR MORE IMAGES
+========================================================= */
+
+.club_post_images:has(img:nth-child(3)) {
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.club_post_images:has(img:nth-child(3)) img {
+  height: 280px;
+}
+
+
+/* =========================================================
+   POST ACTIONS
+========================================================= */
+
+.club_post_actions {
+  min-height: 55px;
+
+  padding: 9px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #eeeeee;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.club_post_actions button {
+  height: 36px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.club_post_actions button:hover {
+  background: #f1f1f1;
+
+  border-color: #e3e1e3;
+}
+
+
+/* =========================================================
+   LIKE / COMMENT EMPHASIS
+========================================================= */
+
+.club_post_actions button:first-child:hover,
+.club_post_actions button:nth-child(2):hover {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.club_post_actions button:nth-last-child(2) {
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.club_post_actions button:last-child {
+  color: #8c2632;
+}
+
+
+.club_post_actions button:last-child:hover {
+  background: #fff0f1;
+
+  border-color: #f0cdd1;
+
+  color: #8c2632;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.club_posts_empty {
+  width: 100%;
+
+  padding: 70px 25px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px dashed #d9d9d9;
+
+  border-radius: 18px;
+}
+
+
+.club_posts_empty h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+
+.club_posts_empty p {
+  margin: 8px 0 0;
+
+  color: #8f8a90;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.club_posts_loading {
+  width: 100%;
+
+  padding: 60px 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  color: #77727a;
+
+  font-size: 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3e1e3;
+
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.club_pagination {
+  width: min(760px, 100%);
+
+  margin: 30px auto 0;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e0e2;
+
+  border-radius: 13px;
+}
+
+
+.club_pagination span {
+  min-width: 100px;
+
+  text-align: center;
+
+  color: #77727a;
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+
+.club_pagination button {
+  height: 36px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d9d9d9;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.club_pagination button:hover:not(:disabled) {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+}
+
+
+.club_pagination button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .club_page {
+    padding: 25px 20px 55px;
+  }
+
+
+  .club_page_header {
+    padding: 27px;
+
+    border-radius: 18px;
+  }
+
+
+  .club_page_header h1 {
+    font-size: 34px;
+  }
+
+
+  .club_page_meta {
+    min-width: 75px;
+    min-height: 75px;
+  }
+
+
+  .club_posts,
+  .club_create_post,
+  .club_pagination {
+    width: min(700px, 100%);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .club_page {
+    padding: 15px 12px 45px;
+  }
+
+
+  .club_page_header {
+    margin-bottom: 20px;
+
+    padding: 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    border-radius: 16px;
+  }
+
+
+  .club_page_header h1 {
+    font-size: 30px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .club_page_header p {
+    font-size: 12px;
+  }
+
+
+  .club_page_meta {
+    min-width: 58px;
+    min-height: 42px;
+
+    border-radius: 8px;
+  }
+
+
+  .club_page_meta strong {
+    font-size: 13px;
+  }
+
+
+  .club_create_post {
+    padding: 14px;
+
+    border-radius: 14px;
+  }
+
+
+  .club_create_post textarea {
+    min-height: 90px;
+  }
+
+
+  .club_post_card {
+    border-radius: 15px;
+  }
+
+
+  .club_post_header {
+    min-height: 62px;
+
+    padding: 13px 14px;
+  }
+
+
+  .club_post_description {
+    padding: 16px;
+
+    font-size: 12px;
+  }
+
+
+  .club_post_images img {
+    height: 330px;
+  }
+
+
+  .club_post_images:has(img:nth-child(2)) img {
+    height: 230px;
+  }
+
+
+  .club_post_images:has(img:nth-child(3)) img {
+    height: 190px;
+  }
+
+
+  .club_post_actions {
+    padding: 8px;
+
+    gap: 2px;
+  }
+
+
+  .club_post_actions button {
+    padding: 0 10px;
+
+    font-size: 10px;
+  }
+
+
+  .club_pagination {
+    gap: 8px;
+  }
+
+
+}
+
+
+/* =========================================================
+   CLUB POST IMAGE UPLOAD
+========================================================= */
+
+.club_post_upload_area {
+  margin-top: 14px;
+}
+
+
+.club_post_image_upload_button {
+  width: 100%;
+  min-height: 70px;
+
+  padding: 14px 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  border: 1px dashed #cfcdd0;
+  border-radius: 11px;
+
+  background: #fafafa;
+
+  color: #171319;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.club_post_image_upload_button:hover {
+  background: #f4f4f4;
+
+  border-color: #171319;
+}
+
+
+.club_post_image_upload_button span {
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.club_post_image_upload_button small {
+  color: #99949b;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW GRID
+========================================================= */
+
+.club_post_image_previews {
+  margin-top: 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 7px;
+}
+
+
+.club_post_image_preview {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background: #eeeeee;
+}
+
+
+.club_post_image_preview img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   REMOVE IMAGE BUTTON
+========================================================= */
+
+.club_post_image_preview button {
+  position: absolute;
+
+  top: 6px;
+  right: 6px;
+
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(
+    23,
+    19,
+    25,
+    0.82
+  );
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.club_post_image_preview button:hover {
+  background: #d0ff71;
+
+  color: #171319;
+}
+
+
+/* =========================================================
+   CREATE POST FOOTER
+========================================================= */
+
+.club_create_post_footer {
+  margin-top: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+
+.club_image_count {
+  color: #969197;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .club_post_image_previews {
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 6px;
+  }
+
+
+  .club_post_image_preview button {
+    width: 22px;
+    height: 22px;
+
+    font-size: 15px;
+
+    top: 4px;
+    right: 4px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .club_post_image_previews {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   CLUB EDIT POST OVERLAY
+========================================================= */
+
+.club_edit_overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background: rgba(23, 19, 25, 0.58);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation: clubEditOverlayIn 0.22s ease forwards;
+}
+
+
+/* =========================================================
+   EDIT POST MODAL
+========================================================= */
+
+.club_edit_modal {
+  width: min(680px, 100%);
+
+  max-height: min(820px, 92vh);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #dedcdf;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 24px 70px rgba(23, 19, 25, 0.22),
+    0 8px 24px rgba(23, 19, 25, 0.10);
+
+  animation: clubEditModalIn 0.25s ease forwards;
+}
+
+
+/* =========================================================
+   EDIT HEADER
+========================================================= */
+
+.club_edit_header {
+  flex-shrink: 0;
+
+  min-height: 112px;
+
+  padding: 24px 26px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background: #171319;
+
+  color: #ffffff;
+}
+
+
+.club_edit_header > div {
+  min-width: 0;
+}
+
+
+.club_edit_header span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d0ff71;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+.club_edit_header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  letter-spacing: -0.3px;
+}
+
+
+/* =========================================================
+   HEADER CLOSE BUTTON
+========================================================= */
+
+.club_edit_header > button {
+  flex: 0 0 auto;
+
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.club_edit_header > button:hover {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   EDIT BODY
+========================================================= */
+
+.club_edit_body {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 24px 26px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY SCROLLBAR
+========================================================= */
+
+.club_edit_body::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.club_edit_body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.club_edit_body::-webkit-scrollbar-thumb {
+  background: #d8d6d9;
+
+  border-radius: 20px;
+}
+
+
+.club_edit_body::-webkit-scrollbar-thumb:hover {
+  background: #bdb9be;
+}
+
+
+/* =========================================================
+   DESCRIPTION LABEL
+========================================================= */
+
+.club_edit_body > label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #171319;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION TEXTAREA
+========================================================= */
+
+.club_edit_body > textarea {
+  width: 100%;
+
+  min-height: 125px;
+
+  padding: 13px 14px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  border: 1px solid #dedcdf;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.club_edit_body > textarea::placeholder {
+  color: #aaa6ab;
+}
+
+
+.club_edit_body > textarea:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px rgba(208, 255, 113, 0.20);
+}
+
+
+/* =========================================================
+   EDIT SECTION
+========================================================= */
+
+.club_edit_section {
+  margin-top: 24px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eeeeef;
+}
+
+
+.club_edit_section h3 {
+  margin: 0 0 12px;
+
+  color: #171319;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   IMAGE GRID
+========================================================= */
+
+.club_edit_image_grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+
+/* =========================================================
+   IMAGE ITEM
+========================================================= */
+
+.club_edit_image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #eeeeef;
+
+  border: 1px solid #e2e0e3;
+}
+
+
+.club_edit_image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   REMOVE IMAGE BUTTON
+========================================================= */
+
+.club_edit_image > button {
+  position: absolute;
+
+  top: 7px;
+  right: 7px;
+
+  width: 27px;
+  height: 27px;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  border-radius: 50%;
+
+  background: rgba(23, 19, 25, 0.82);
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.club_edit_image > button:hover {
+  background: #d0ff71;
+
+  color: #171319;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ADD IMAGE UPLOAD AREA
+========================================================= */
+
+.club_edit_upload {
+  min-height: 78px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  border: 1px dashed #c9c6ca;
+
+  border-radius: 11px;
+
+  background: #fafafa;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.club_edit_upload:hover {
+  background: #f5f5f5;
+
+  border-color: #171319;
+
+  transform: translateY(-1px);
+}
+
+
+.club_edit_upload span {
+  color: #171319;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.club_edit_upload small {
+  color: #99949b;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   NEW IMAGE PREVIEW GRID
+========================================================= */
+
+.club_edit_section + .club_edit_image_grid {
+  margin-top: 12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.club_edit_footer {
+  flex-shrink: 0;
+
+  min-height: 72px;
+
+  padding: 14px 26px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  border-top: 1px solid #e9e7e9;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.club_edit_cancel {
+  min-height: 38px;
+
+  padding: 0 17px;
+
+  border: 1px solid #dedcdf;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.club_edit_cancel:hover {
+  background: #f5f4f5;
+
+  border-color: #c8c5c9;
+}
+
+
+/* =========================================================
+   SAVE / UPDATE BUTTON
+========================================================= */
+
+.club_edit_save {
+  min-height: 38px;
+
+  padding: 0 19px;
+
+  border: 1px solid #171319;
+
+  border-radius: 8px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.club_edit_save:hover:not(:disabled) {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+
+.club_edit_save:disabled,
+.club_edit_cancel:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+.club_edit_header button:focus-visible,
+.club_edit_image button:focus-visible,
+.club_edit_cancel:focus-visible,
+.club_edit_save:focus-visible,
+.club_edit_upload:focus-visible {
+  outline: 2px solid #d0ff71;
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+========================================================= */
+
+@keyframes clubEditOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes clubEditModalIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .club_edit_overlay {
+    padding: 16px;
+  }
+
+
+  .club_edit_modal {
+    max-height: 94vh;
+
+    border-radius: 15px;
+  }
+
+
+  .club_edit_header {
+    min-height: 98px;
+
+    padding: 20px;
+  }
+
+
+  .club_edit_body {
+    padding: 20px;
+  }
+
+
+  .club_edit_footer {
+    padding: 13px 20px;
+  }
+
+
+  .club_edit_image_grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .club_edit_overlay {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+
+  .club_edit_modal {
+    width: 100%;
+
+    max-height: 94vh;
+
+    border-radius:
+      17px 17px 0 0;
+  }
+
+
+  .club_edit_header {
+    min-height: 88px;
+
+    padding: 18px;
+  }
+
+
+  .club_edit_header h2 {
+    font-size: 19px;
+  }
+
+
+  .club_edit_header > button {
+    width: 33px;
+    height: 33px;
+  }
+
+
+  .club_edit_body {
+    padding: 18px;
+  }
+
+
+  .club_edit_footer {
+    min-height: 67px;
+
+    padding: 12px 18px;
+  }
+
+
+  .club_edit_image_grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+
+  .club_edit_image > button {
+    width: 24px;
+    height: 24px;
+
+    top: 5px;
+    right: 5px;
+
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 350px) {
+
+  .club_edit_image_grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .club_edit_footer {
+    justify-content: stretch;
+  }
+
+
+  .club_edit_cancel,
+  .club_edit_save {
+    flex: 1;
+  }
+
+}

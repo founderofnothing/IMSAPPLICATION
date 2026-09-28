@@ -1,0 +1,2380 @@
+/* =========================================================
+   PRINCIPAL FACULTY PAGE
+   Reference-based styling
+========================================================= */
+
+.principal-faculty-page {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  background: #86b43d;
+
+  padding: 32px 45px;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   RESET / GLOBAL
+========================================================= */
+
+.principal-faculty-page *,
+.principal-faculty-page *::before,
+.principal-faculty-page *::after {
+  box-sizing: border-box;
+}
+
+.principal-faculty-page button,
+.principal-faculty-page input,
+.principal-faculty-page select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.principal-faculty-loading {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.principal-faculty-header {
+  width: 100%;
+  margin-bottom:22px;
+}
+
+.principal-faculty-header > div {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TOP STATISTICS WRAPPER
+========================================================= */
+
+.faculty_page_top_wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 55px;
+}
+
+
+/* =========================================================
+   LEFT STATIC AREA
+   Heading + Total Faculty
+========================================================= */
+
+.lhs_static_page {
+  flex: 0 0 42%;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 55px;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.principalstc_bar-title {
+  width: 310px;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 47px;
+  line-height: 1.28;
+
+  font-weight: 600;
+
+  letter-spacing: -1.4px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TOTAL FACULTY
+========================================================= */
+
+.principal-faculty-stat-card_stc {
+  min-width: 105px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  padding-bottom: 4px;
+}
+
+
+/* =========================================================
+   TOTAL FACULTY LABEL
+========================================================= */
+
+.card_listerhead_one {
+  display: block;
+
+  white-space: nowrap;
+
+  font-size: 16px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =========================================================
+   TOTAL FACULTY CIRCLE
+========================================================= */
+
+.circle_div_total_faculty {
+  width: 100px;
+  height: 100px;
+
+  border: 7px solid #f4ff19;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+.circle_div_total_faculty_data {
+  font-size: 39px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RIGHT STATISTICS
+========================================================= */
+
+.principal-faculty-statistics {
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(170px, 1fr)
+    minmax(180px, 1fr);
+
+  align-items: center;
+
+  gap: 50px;
+
+  padding-bottom: 23px;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+
+.principal-faculty-stat-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 23px;
+}
+
+
+/* =========================================================
+   STAT LABELS
+========================================================= */
+
+.card_listerhead_two,
+.card_listerhead_three,
+.card_listerhead_four {
+  display: block;
+
+  font-size: 16px;
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =========================================================
+   STAT VALUES
+========================================================= */
+
+.card_listerhead_two_data,
+.card_listerhead_three_data,
+.card_listerhead_four_data {
+  display: block;
+
+  font-size: 47px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MALE / FEMALE
+========================================================= */
+
+.static_card_four {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.card_listerhead_four_sepration {
+  font-size: 45px;
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FACULTY SECTION
+========================================================= */
+
+.principal-faculty-section {
+  width: 100%;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.principal-faculty-filter-bar {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.principal-faculty-search {
+  width: 365px;
+
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+
+.principal_faculty_search_bar {
+  width: 100%;
+  height: 45px;
+
+  padding: 0 48px 0 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 24px;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.principal_faculty_search_bar::placeholder {
+  color: rgba(255, 255, 255, 0.43);
+}
+
+
+.principal_faculty_search_bar:focus {
+  border-color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* magnifying glass */
+
+.principal-faculty-search::after {
+  content: "⌕";
+
+  position: absolute;
+
+  right: 20px;
+  top: 50%;
+
+  transform: translateY(-53%);
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FILTER WRAPPERS
+========================================================= */
+
+.principal-faculty-filter {
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   DROPDOWNS
+========================================================= */
+
+.filter_dropdown_wrapper,
+.filter_dropdown_wrapper_hlg {
+  height: 45px;
+
+  padding: 0 38px 0 20px;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  outline: none;
+
+  appearance: none;
+
+  background-color: transparent;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.7) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.7) 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) 19px,
+    calc(100% - 13px) 19px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.filter_dropdown_wrapper {
+  width: 110px;
+}
+
+
+.filter_dropdown_wrapper_hlg {
+  width: 142px;
+}
+
+
+.filter_dropdown_wrapper:hover,
+.filter_dropdown_wrapper_hlg:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+
+.filter_dropdown_wrapper:focus,
+.filter_dropdown_wrapper_hlg:focus {
+  border-color: #ffffff;
+}
+
+
+/* native select options */
+
+.filter_dropdown_wrapper option,
+.filter_dropdown_wrapper_hlg option {
+  color: #111111;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   RESET BUTTON
+========================================================= */
+
+.principal-faculty-reset-btn {
+  width: 44px;
+  height: 44px;
+
+  margin-left: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  color: #ffffff;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.principal-faculty-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  transform: rotate(-20deg);
+}
+
+
+.reset_icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================================
+   MAIN TABLE + RIGHT CARDS WRAPPER
+========================================================= */
+
+.principal_table_stc_wrapper {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    410px;
+
+  gap: 23px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.principal-faculty-table-wrapper {
+  width: 100%;
+  height: 510px;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #0b0f06;
+}
+
+
+/* =========================================================
+   TABLE SCROLL
+========================================================= */
+
+.principal-faculty-table-scroll {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-x: auto;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(255,255,255,0.12)
+    transparent;
+}
+
+
+/* Chrome scrollbar */
+
+.principal-faculty-table-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+
+.principal-faculty-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.principal-faculty-table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.principal-faculty-table {
+  width: 100%;
+
+  min-width: 820px;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.principal-faculty-table thead {
+  height: 50px;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: #0b0f06;
+}
+
+.principal-faculty-table thead tr {
+  height: 50px;
+}
+
+.principal-faculty-table th {
+  height: 50px;
+
+  padding: 0 14px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  border: none;
+
+  background: #0b0f06;
+}
+
+.table_header_field {
+  margin: 0;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 1.1;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.principal-faculty-table tbody tr {
+  height: 45px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.015);
+
+  transition: background-color 0.15s ease;
+}
+
+.principal-faculty-table td {
+  height: 45px;
+
+  padding: 0 14px;
+
+  border: none;
+
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.table_body_field {
+  margin: 0;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 1.15;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   FACULTY NAME
+========================================================= */
+
+.principal-faculty-name {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.principal-faculty-name img,
+.principal-faculty-avatar {
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 28px;
+
+  border-radius: 50%;
+}
+
+.principal-faculty-name img {
+  object-fit: cover;
+  display: block;
+}
+
+.principal-faculty-avatar {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #d7d7d7;
+
+  color: #555555;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.principal-faculty-pagination {
+  width: 100%;
+
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 18px;
+
+  padding: 0 22px;
+
+  background: #0b0f06;
+}
+
+.principal-faculty-pagination > span {
+  min-width: 30px;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.principal-faculty-pagination strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   PAGINATION BUTTONS
+========================================================= */
+
+.prv_btn_facilty,
+.nxt_btn_facilty {
+  width: 108px;
+  height: 34px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #171b14;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 11px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.prv_btn_facilty:hover:not(:disabled),
+.nxt_btn_facilty:hover:not(:disabled) {
+  background: #22271d;
+}
+
+.prv_btn_facilty:disabled,
+.nxt_btn_facilty:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   RIGHT SIDE FACULTY CARDS
+========================================================= */
+
+.faculty_count_static_wrapper {
+  width: 100%;
+
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   INDIVIDUAL CARD
+========================================================= */
+
+.principal-faculty-stat-card_Sec {
+  width: 100%;
+
+  min-height: 0;
+
+  flex: 1;
+
+  padding: 12px 12px 15px 12px;
+
+  border-radius: 30px;
+
+  background: #f3f5ed;
+
+  color: #080a07;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.faculty_lister_stc_card_hdr {
+  width: 100%;
+
+  min-height: 53px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding-right: 5px;
+}
+
+
+.faculty_lister_stc_card_hdr svg {
+  width: 24px;
+  height: 24px;
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.prince_card_listerhead_two {
+  font-size: 24px;
+
+  line-height: 1.1;
+
+  font-weight: 600;
+
+  color: #080a07;
+}
+
+
+/* =========================================================
+   CARD HEADER AVATAR
+========================================================= */
+
+/*
+   The reference has a circular grey element at
+   the top-left of each card.
+
+   Your JSX doesn't currently contain a separate
+   avatar element, so we create it using a pseudo
+   element on the card header.
+*/
+
+.faculty_lister_stc_card_hdr::before {
+  content: "";
+
+  width: 47px;
+  height: 47px;
+
+  flex: 0 0 47px;
+
+  border-radius: 50%;
+
+  background: #d9d9d9;
+
+  margin-right: 7px;
+}
+
+
+/* keep title and dots positioned correctly */
+
+.faculty_lister_stc_card_hdr {
+  display: grid;
+
+  grid-template-columns: 47px 1fr 30px;
+
+  column-gap: 10px;
+
+  align-items: center;
+}
+
+
+.faculty_lister_stc_card_hdr .prince_card_listerhead_two {
+  grid-column: 2;
+}
+
+
+.faculty_lister_stc_card_hdr > svg {
+  grid-column: 3;
+
+  justify-self: end;
+}
+
+
+/* =========================================================
+   CARD BODY WRAPPER
+========================================================= */
+
+.faculty_stc_container_wrapper {
+  width: 100%;
+
+  height: calc(100% - 53px);
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  padding: 0 15px 0 23px;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.faculty_lister_stc_card_bdy {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  gap:14px;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.faculty_lister_stc_card_bdy_dis {
+  width: 145px;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-size: 16px;
+
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  color: #858585;
+
+  text-transform: none;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.prince_card_listerhead_two_data {
+  display: block;
+
+  margin: 0;
+
+  font-size: 64px;
+
+  line-height: 0.9;
+
+  letter-spacing: -2px;
+
+  font-weight: 600;
+
+  color: #000000;
+}
+
+
+/* =========================================================
+   TOGGLE / ARROW AREA
+========================================================= */
+
+.faculty_toggle_wrapper {
+  width: 91px;
+  height: 44px;
+
+  margin-bottom: 2px;
+
+  border-radius: 25px;
+
+  background: #d8d9d8;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  padding-right: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   YELLOW ARROW HOLDER
+========================================================= */
+
+.faculty_toggle_icon_holder {
+  width: 47px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background: #f5ff12;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #6e6e00;
+
+  flex-shrink: 0;
+}
+
+
+.faculty_toggle_icon_holder svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.principal-faculty-stat-card_Sec {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.principal-faculty-stat-card_Sec:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+
+
+/* =========================================================
+   UG / PG FACULTY MODAL
+   PRINCIPAL THEME
+   Primary Theme: #85B03A
+========================================================= */
+
+.faculty-level-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(24, 35, 15, 0.48);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  animation: facultyModalOverlayIn 0.22s ease-out;
+}
+
+
+/* =========================================================
+   MAIN MODAL
+========================================================= */
+
+.faculty-level-modal {
+  position: relative;
+
+  width: min(1220px, 100%);
+  max-height: min(780px, calc(100vh - 48px));
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(133, 176, 58, 0.22);
+  border-radius: 18px;
+
+  box-shadow:
+    0 30px 80px rgba(36, 52, 18, 0.20),
+    0 10px 30px rgba(36, 52, 18, 0.10);
+
+  animation: facultyModalIn 0.25s ease-out;
+}
+
+
+/* =========================================================
+   TOP ACCENT LINE
+========================================================= */
+
+.faculty-level-modal::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background: #85B03A;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.faculty-level-modal-header {
+  min-height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 24px 26px 20px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e7ecdF;
+}
+
+
+.faculty-level-modal-title-wrapper {
+  min-width: 0;
+}
+
+
+.faculty-level-modal-title-wrapper h2 {
+  margin: 0;
+
+  color: #26331b;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+}
+
+
+.faculty-level-modal-title-wrapper p {
+  margin: 7px 0 0;
+
+  color: #727b68;
+
+  font-size: 13px;
+  font-weight: 450;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.faculty-level-modal-header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FACULTY COUNT
+========================================================= */
+
+.faculty-level-modal-count {
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(133, 176, 58, 0.28);
+  border-radius: 9px;
+
+  background: #f3f8ea;
+
+  color: #557A20;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.faculty-level-modal-close {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #dfe5d8;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #68715f;
+
+  font-size: 22px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.16s ease;
+}
+
+
+.faculty-level-modal-close:hover {
+  background: #f3f8ea;
+
+  border-color: rgba(133, 176, 58, 0.35);
+
+  color: #557A20;
+
+  transform: rotate(3deg);
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.faculty-level-modal-toolbar {
+  display: flex;
+  align-items: center;
+
+  padding: 16px 26px;
+
+  background: #fafcf7;
+
+  border-bottom: 1px solid #e7ecdf;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.faculty-level-modal-search {
+  width: 100%;
+  height: 42px;
+
+  box-sizing: border-box;
+
+  padding: 0 14px;
+
+  border: 1px solid #dfe6d8;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #293321;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+
+.faculty-level-modal-search::placeholder {
+  color: #9aa390;
+
+  font-weight: 450;
+}
+
+
+.faculty-level-modal-search:hover {
+  border-color: #cdd8c3;
+}
+
+
+.faculty-level-modal-search:focus {
+  background: #ffffff;
+
+  border-color: #85B03A;
+
+  box-shadow:
+    0 0 0 3px rgba(133, 176, 58, 0.12);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.faculty-level-modal-table-wrapper {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: auto;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.faculty-level-modal-table {
+  width: 100%;
+
+  min-width: 1080px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  table-layout: auto;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.faculty-level-modal-table thead {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+
+  background: #f5f8ef;
+}
+
+
+.faculty-level-modal-table thead tr {
+  height: 46px;
+}
+
+
+.faculty-level-modal-table th {
+  padding: 0 16px;
+
+  border-bottom: 1px solid #dfe7d5;
+
+  color: #65705b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.055em;
+}
+
+
+.faculty-level-modal-table th:first-child {
+  padding-left: 26px;
+}
+
+
+.faculty-level-modal-table th:last-child {
+  padding-right: 26px;
+}
+
+
+/* =========================================================
+   TABLE BODY ROW
+========================================================= */
+
+.faculty-level-modal-table tbody tr {
+  height: 70px;
+
+  position: relative;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+
+.faculty-level-modal-table tbody tr:hover {
+  background: #f8fbf3;
+
+  box-shadow:
+    inset 4px 0 0 #85B03A;
+}
+
+
+/* =========================================================
+   TABLE CELLS
+========================================================= */
+
+.faculty-level-modal-table td {
+  padding: 11px 16px;
+
+  border-bottom: 1px solid #edf1e9;
+
+  color: #56604f;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+
+.faculty-level-modal-table td:first-child {
+  padding-left: 26px;
+}
+
+
+.faculty-level-modal-table td:last-child {
+  padding-right: 26px;
+}
+
+
+.faculty-level-modal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.faculty-level-modal-profile {
+  width: 40px;
+  height: 40px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid #e5ecdD;
+
+  background: #f3f6ef;
+
+  transition:
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+
+.faculty-level-modal-table tbody tr:hover
+.faculty-level-modal-profile {
+  border-color: #85B03A;
+
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   DEFAULT AVATAR
+========================================================= */
+
+.faculty-level-modal-avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+
+  border: 2px solid #e2ead9;
+
+  background: #f3f8ea;
+
+  color: #66852d;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NORMAL CELL TEXT
+========================================================= */
+
+.faculty-level-modal-cell {
+  color: #535d4c;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   EMPLOYEE ID
+========================================================= */
+
+.faculty-level-modal-table td:nth-child(2)
+.faculty-level-modal-cell {
+  color: #5f704a;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   FACULTY NAME
+========================================================= */
+
+.faculty-level-modal-name {
+  display: inline-block;
+
+  max-width: 210px;
+
+  overflow: hidden;
+
+  color: #26311f;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+.faculty-level-modal-table td:nth-child(4)
+.faculty-level-modal-cell {
+  color: #65705d;
+
+  font-size: 12.5px;
+}
+
+
+/* =========================================================
+   GENDER
+========================================================= */
+
+.faculty-level-modal-table td:nth-child(5) {
+  text-transform: capitalize;
+}
+
+
+.faculty-level-modal-table td:nth-child(5)
+.faculty-level-modal-cell {
+  color: #5c6655;
+
+  font-size: 12.5px;
+}
+
+
+/* =========================================================
+   DESIGNATION
+========================================================= */
+
+.faculty-level-modal-designation {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(133, 176, 58, 0.28);
+
+  border-radius: 7px;
+
+  background: #f4f8ed;
+
+  color: #5d782d;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  text-transform: capitalize;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DEPARTMENT
+========================================================= */
+
+.faculty-level-modal-table td:nth-child(7)
+.faculty-level-modal-cell {
+  color: #4e5d40;
+
+  font-size: 12.5px;
+
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   TABLE HOVER TEXT
+========================================================= */
+
+.faculty-level-modal-table tbody tr:hover
+.faculty-level-modal-name {
+  color: #4f711c;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.faculty-level-modal-table-wrapper::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+
+.faculty-level-modal-table-wrapper::-webkit-scrollbar-track {
+  background: #f7f9f4;
+}
+
+
+.faculty-level-modal-table-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5be;
+
+  border-radius: 10px;
+}
+
+
+.faculty-level-modal-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #aebda0;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.faculty-level-modal-loading {
+  min-height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  color: #68735f;
+
+  font-size: 13px;
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.faculty-level-modal-empty {
+  min-height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  color: #7b8573;
+
+  font-size: 13px;
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.faculty-level-modal-footer {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 12px 26px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #e3e9dc;
+
+  background: #fafcf8;
+
+  color: #7b8572;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CLOSE / CANCEL BUTTON
+========================================================= */
+
+.faculty-level-modal-cancel {
+  height: 34px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d5dfcb;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #5d684f;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.faculty-level-modal-cancel:hover {
+  background: #f3f8ea;
+
+  border-color: #b8c99f;
+
+  color: #557A20;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes facultyModalOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes facultyModalIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .faculty-level-modal-overlay {
+    padding: 15px;
+  }
+
+
+  .faculty-level-modal {
+    max-height: calc(100vh - 30px);
+
+    border-radius: 15px;
+  }
+
+
+  .faculty-level-modal-header {
+    padding: 21px 20px 18px;
+  }
+
+
+  .faculty-level-modal-title-wrapper h2 {
+    font-size: 20px;
+  }
+
+
+  .faculty-level-modal-toolbar {
+    padding: 14px 20px;
+  }
+
+
+  .faculty-level-modal-table {
+    min-width: 1050px;
+  }
+
+
+  .faculty-level-modal-table th:first-child,
+  .faculty-level-modal-table td:first-child {
+    padding-left: 20px;
+  }
+
+
+  .faculty-level-modal-table th:last-child,
+  .faculty-level-modal-table td:last-child {
+    padding-right: 20px;
+  }
+
+
+  .faculty-level-modal-footer {
+    padding: 11px 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .faculty-level-modal-overlay {
+    padding: 8px;
+  }
+
+
+  .faculty-level-modal {
+    max-height: calc(100vh - 16px);
+
+    border-radius: 13px;
+  }
+
+
+  .faculty-level-modal-header {
+    min-height: 76px;
+
+    padding: 18px 15px 15px;
+
+    gap: 12px;
+  }
+
+
+  .faculty-level-modal-title-wrapper h2 {
+    font-size: 18px;
+  }
+
+
+  .faculty-level-modal-title-wrapper p {
+    margin-top: 5px;
+
+    font-size: 11px;
+  }
+
+
+  .faculty-level-modal-count {
+    display: none;
+  }
+
+
+  .faculty-level-modal-close {
+    width: 33px;
+    height: 33px;
+  }
+
+
+  .faculty-level-modal-toolbar {
+    padding: 11px 15px;
+  }
+
+
+  .faculty-level-modal-search {
+    height: 39px;
+
+    font-size: 12px;
+  }
+
+
+  .faculty-level-modal-table {
+    min-width: 1050px;
+  }
+
+
+  .faculty-level-modal-footer {
+    min-height: 54px;
+
+    padding: 10px 15px;
+  }
+
+
+  .faculty-level-modal-footer span {
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .principal-faculty-page {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
+  .faculty_page_top_wrapper {
+    gap: 30px;
+  }
+
+
+  .lhs_static_page {
+    gap: 30px;
+  }
+
+
+  .principalstc_bar-title {
+    width: 270px;
+
+    font-size: 40px;
+  }
+
+
+  .principal-faculty-statistics {
+    gap: 25px;
+  }
+
+
+  .principal_table_stc_wrapper {
+    grid-template-columns:
+      minmax(0, 1fr)
+      350px;
+  }
+
+
+  .principal-faculty-search {
+    width: 320px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .faculty_page_top_wrapper {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .lhs_static_page {
+    width: 100%;
+
+    flex: none;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+  }
+
+
+  .principalstc_bar-title {
+    width: auto;
+
+    max-width: 400px;
+  }
+
+
+  .principal-faculty-statistics {
+    width: 100%;
+
+    padding-bottom: 0;
+  }
+
+
+  .principal_table_stc_wrapper {
+    grid-template-columns: 1fr;
+  }
+
+
+  .faculty_count_static_wrapper {
+    height: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .principal-faculty-stat-card_Sec {
+    height: 260px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .principal-faculty-page {
+    padding: 25px 18px;
+  }
+
+
+  .principalstc_bar-title {
+    font-size: 34px;
+
+    line-height: 1.15;
+  }
+
+
+  .lhs_static_page {
+    gap: 20px;
+  }
+
+
+  .circle_div_total_faculty {
+    width: 85px;
+    height: 85px;
+
+    border-width: 6px;
+  }
+
+
+  .circle_div_total_faculty_data {
+    font-size: 32px;
+  }
+
+
+  .principal-faculty-statistics {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    row-gap: 30px;
+  }
+
+
+  .card_listerhead_two_data,
+  .card_listerhead_three_data,
+  .card_listerhead_four_data {
+    font-size: 38px;
+  }
+
+
+  .principal-faculty-filter-bar {
+    flex-wrap: wrap;
+  }
+
+
+  .principal-faculty-search {
+    width: 100%;
+  }
+
+
+  .filter_dropdown_wrapper,
+  .filter_dropdown_wrapper_hlg {
+    width: 150px;
+  }
+
+
+  .principal-faculty-table-wrapper,
+  .principal-faculty-empty {
+    height: 500px;
+
+    border-radius: 24px;
+  }
+
+
+  .faculty_count_static_wrapper {
+    grid-template-columns: 1fr;
+  }
+
+
+  .principal-faculty-stat-card_Sec {
+    height: 250px;
+
+    border-radius: 24px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .principal-faculty-page {
+    padding: 20px 14px;
+  }
+
+
+  .lhs_static_page {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .principal-faculty-statistics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .principal-faculty-stat-card {
+    gap: 15px;
+  }
+
+
+  .card_listerhead_two,
+  .card_listerhead_three,
+  .card_listerhead_four {
+    font-size: 13px;
+  }
+
+
+  .card_listerhead_two_data,
+  .card_listerhead_three_data,
+  .card_listerhead_four_data {
+    font-size: 34px;
+  }
+
+
+  .principal-faculty-filter-bar {
+    gap: 10px;
+  }
+
+
+  .filter_dropdown_wrapper,
+  .filter_dropdown_wrapper_hlg {
+    flex: 1;
+
+    width: auto;
+
+    min-width: 0;
+  }
+
+
+  .principal-faculty-pagination {
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 12px;
+  }
+
+
+  .prv_btn_facilty,
+  .nxt_btn_facilty {
+    width: 105px;
+  }
+
+
+  .faculty_lister_stc_card_bdy_dis {
+    font-size: 14px;
+  }
+
+
+  .prince_card_listerhead_two_data {
+    font-size: 55px;
+  }
+
+}

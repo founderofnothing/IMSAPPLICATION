@@ -1,0 +1,980 @@
+/* =========================================================
+   STUDENT FEE DETAILS
+   ACCOUNTANT MODULE
+   IMS DESIGN SYSTEM
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.student-fee-details-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 32px;
+
+  background: #f7f7f8;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.student-fee-details-header {
+  margin-bottom: 24px;
+}
+
+.student-fee-details-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.student-fee-details-header button,
+.student-fee-details-page > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 34px;
+
+  margin-bottom: 15px;
+  padding: 0 13px;
+
+  border: 1px solid #dedcdf;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.student-fee-details-header button:hover,
+.student-fee-details-page > button:hover {
+  border-color: #171319;
+
+  background: #171319;
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+.student-fee-details-header h1 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 28px;
+  line-height: 1.25;
+
+  font-weight: 600;
+
+  letter-spacing: -0.4px;
+}
+
+.student-fee-details-header p {
+  margin: 7px 0 0;
+
+  color: #77747a;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   STUDENT PROFILE / INFORMATION
+   ========================================================= */
+
+.student-fee-profile {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 21px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PROFILE INFORMATION ITEM
+   ========================================================= */
+
+.student-fee-profile > div {
+  min-width: 0;
+
+  padding: 14px;
+
+  border: 1px solid #e6e5e7;
+  border-radius: 9px;
+
+  background: #fafafa;
+
+  box-sizing: border-box;
+}
+
+.student-fee-profile span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #89868c;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.student-fee-profile strong {
+  display: block;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   FEE SUMMARY
+   ========================================================= */
+
+.student-fee-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.student-fee-stat {
+  min-width: 0;
+
+  padding: 20px 21px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 12px;
+
+  box-shadow:
+    0 5px 18px rgba(23, 19, 25, 0.035);
+
+  box-sizing: border-box;
+}
+
+.student-fee-stat span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #858188;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.student-fee-stat strong {
+  display: block;
+
+  color: #171319;
+
+  font-size: 22px;
+  line-height: 1.3;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   FEE ITEMS CARD
+   ========================================================= */
+
+.student-fee-items {
+  width: 100%;
+
+  margin-top: 20px;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FEE ITEMS HEADING
+   ========================================================= */
+
+.student-fee-items h2 {
+  margin: 0;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #e5e4e7;
+
+  color: #171319;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   FEE ITEMS TABLE
+   ========================================================= */
+
+.student-fee-items-table {
+  width: 100%;
+
+  min-width: 560px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.student-fee-items-table thead {
+  background: #d9d9d9;
+}
+
+.student-fee-items-table th {
+  height: 46px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid #c9c8ca;
+
+  color: #171319;
+
+  font-size: 10px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.student-fee-items-table td {
+  height: 56px;
+
+  padding: 10px 16px;
+
+  border-bottom: 1px solid #ecebed;
+
+  background: #ffffff;
+
+  color: #555158;
+
+  font-size: 11px;
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+.student-fee-items-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.student-fee-items-table tbody tr {
+  transition: background 0.18s ease;
+}
+
+.student-fee-items-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+
+/* =========================================================
+   SERIAL NUMBER
+   ========================================================= */
+
+.student-fee-items-table td:first-child {
+  width: 60px;
+
+  color: #89868c;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   FEE TITLE
+   ========================================================= */
+
+.student-fee-items-table td:nth-child(2) {
+  color: #333036;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   FEE AMOUNT
+   ========================================================= */
+
+.student-fee-items-table td:last-child {
+  color: #171319;
+
+  font-weight: 600;
+
+  text-align: right;
+}
+
+.student-fee-items-table th:last-child {
+  text-align: right;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.student-fee-items > p {
+  margin: 0;
+
+  padding: 45px 24px;
+
+  color: #858188;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+.student-fee-details-page > p {
+  margin: 0;
+
+  padding: 60px 24px;
+
+  color: #858188;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .student-fee-details-page {
+    padding: 38px 48px;
+  }
+
+  .student-fee-details-header h1 {
+    font-size: 30px;
+  }
+
+  .student-fee-profile {
+    padding: 24px;
+  }
+
+  .student-fee-stat {
+    padding: 22px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .student-fee-profile {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .student-fee-profile > div:last-child {
+    grid-column: span 1;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .student-fee-details-page {
+    padding: 24px 20px;
+  }
+
+  .student-fee-profile {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    padding: 18px;
+  }
+
+  .student-fee-summary {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .student-fee-details-page {
+    padding: 18px 14px;
+  }
+
+  .student-fee-details-header {
+    margin-bottom: 18px;
+  }
+
+  .student-fee-details-header h1 {
+    font-size: 23px;
+  }
+
+  .student-fee-details-header p {
+    font-size: 11px;
+  }
+
+  .student-fee-profile {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    padding: 15px;
+
+    border-radius: 11px;
+  }
+
+  .student-fee-profile > div {
+    padding: 13px;
+  }
+
+  .student-fee-summary {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 17px;
+  }
+
+  .student-fee-stat {
+    padding: 16px 17px;
+
+    border-radius: 10px;
+  }
+
+  .student-fee-stat strong {
+    font-size: 19px;
+  }
+
+  .student-fee-items {
+    margin-top: 17px;
+
+    border-radius: 11px;
+  }
+
+  .student-fee-items h2 {
+    padding: 17px 18px;
+
+    font-size: 14px;
+  }
+
+  .student-fee-items-table {
+    min-width: 520px;
+  }
+
+  .student-fee-items-table th {
+    height: 43px;
+
+    padding: 0 13px;
+  }
+
+  .student-fee-items-table td {
+    height: 53px;
+
+    padding: 9px 13px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .student-fee-details-page {
+    padding: 14px 10px;
+  }
+
+  .student-fee-details-header h1 {
+    font-size: 21px;
+  }
+
+  .student-fee-profile {
+    padding: 13px;
+  }
+
+  .student-fee-stat {
+    padding: 15px;
+  }
+
+  .student-fee-stat strong {
+    font-size: 18px;
+  }
+
+  .student-fee-items h2 {
+    padding: 15px;
+  }
+}
+
+
+/* =========================================================
+   PAYMENT HISTORY
+   ========================================================= */
+
+.student-payment-history {
+  width: 100%;
+
+  margin-top: 20px;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAYMENT HISTORY HEADER
+   ========================================================= */
+
+.student-payment-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #e5e4e7;
+
+  background: #ffffff;
+}
+
+.student-payment-history-header > div {
+  min-width: 0;
+}
+
+.student-payment-history-header h2 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+.student-payment-history-header p {
+  margin: 5px 0 0;
+
+  color: #858188;
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   PAYMENT COUNT BADGE
+   ========================================================= */
+
+.student-payment-count {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 28px;
+
+  padding: 0 11px;
+
+  border-radius: 6px;
+
+  background: #d0ff71;
+
+  color: #171319;
+
+  font-size: 9px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PAYMENT HISTORY TABLE
+   ========================================================= */
+
+.student-payment-history-table {
+  width: 100%;
+
+  min-width: 850px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.student-payment-history-table thead {
+  background: #d9d9d9;
+}
+
+.student-payment-history-table th {
+  height: 46px;
+
+  padding: 0 15px;
+
+  border-bottom: 1px solid #c9c8ca;
+
+  color: #171319;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.student-payment-history-table td {
+  height: 56px;
+
+  padding: 10px 15px;
+
+  border-bottom: 1px solid #ecebed;
+
+  background: #ffffff;
+
+  color: #555158;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+.student-payment-history-table tbody tr {
+  transition: background 0.18s ease;
+}
+
+.student-payment-history-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+.student-payment-history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   SERIAL NUMBER
+   ========================================================= */
+
+.student-payment-history-table td:first-child {
+  width: 45px;
+
+  color: #89868c;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RECEIPT NUMBER
+   ========================================================= */
+
+.student-payment-history-table td:nth-child(2) {
+  color: #171319;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.student-payment-history-table td:nth-child(3) {
+  color: #77747a;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   AMOUNT
+   ========================================================= */
+
+.student-payment-history-table td:nth-child(4) {
+  color: #171319;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PAYMENT MODE
+   ========================================================= */
+
+.student-payment-history-table td:nth-child(5) {
+  color: #555158;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RECEIVED BY
+   ========================================================= */
+
+.student-payment-history-table td:nth-child(6) {
+  color: #333036;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING STATE
+   ========================================================= */
+
+.student-payment-history > p {
+  margin: 0;
+
+  padding: 45px 24px;
+
+  color: #858188;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .student-payment-history {
+    margin-top: 17px;
+
+    border-radius: 11px;
+  }
+
+  .student-payment-history-header {
+    align-items: flex-start;
+
+    padding: 17px 18px;
+  }
+
+  .student-payment-history-header h2 {
+    font-size: 14px;
+  }
+
+  .student-payment-history-header p {
+    max-width: 300px;
+
+    font-size: 9px;
+  }
+
+  .student-payment-count {
+    min-height: 26px;
+
+    padding: 0 9px;
+
+    font-size: 8px;
+  }
+
+  .student-payment-history-table {
+    min-width: 820px;
+  }
+
+  .student-payment-history-table th {
+    height: 43px;
+
+    padding: 0 13px;
+  }
+
+  .student-payment-history-table td {
+    height: 53px;
+
+    padding: 9px 13px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .student-payment-history-header {
+    gap: 12px;
+
+    padding: 15px;
+  }
+
+  .student-payment-history-header h2 {
+    font-size: 13px;
+  }
+
+  .student-payment-count {
+    flex-shrink: 0;
+  }
+
+  .student-payment-history > p {
+    padding: 38px 18px;
+  }
+}

@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+
+# Coverage
+coverage/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Runtime uploads
+server/uploads/
+client/uploads/
+
+# Frontend build/cache
+client/.vite/
+
+# Backend temporary files
+server/tmp/
+
+# Frontend packaged build
+client/dist.zip

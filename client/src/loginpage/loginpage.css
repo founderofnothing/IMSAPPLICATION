@@ -1,0 +1,241 @@
+.login_container{
+    width:99%;
+    height:98vh;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.loginpagebg{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.lhs_login_page_layout {
+    width:48%;
+    height: 100%;
+    /* margin-left: auto;
+    margin-right: auto; */
+    border-radius: 12px;
+    background: white;
+
+    display: flex;
+    justify-content: center;   /* Horizontal center */
+    align-items: flex-end;     /* Bottom */
+}
+
+.lg_page_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 50px; /* Distance from bottom */
+}
+
+.sft_info_wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bflogo_lgpage{
+    width:30px;
+    height:30px;
+}
+
+
+.sft_title_lgpage{
+    font-family:unbounded;
+    text-transform:uppercase;
+    font-weight: 700;
+    font-size:22px;
+    margin-bottom:10px;
+
+}
+
+.shorthandle_of_lgpage{
+    font-family:poppins;
+    font-weight: 500;
+    font-size:16px;
+    margin-top:10px;
+    color:#8D8A8E;
+}
+
+
+
+/* login form section  */
+
+
+.log_form_wrapper{
+    width:40%;
+    height:60%;
+    background:#5656560b;
+    margin-left: auto;
+    margin-right: auto;
+     display: flex;
+     flex-direction: column;
+    justify-content: center;   
+    border-radius:12px;
+
+   
+}
+
+
+
+.lg_user_title{
+    font-family:poppins;
+    color:rgb(245, 245, 245);
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+    justify-content:left;
+}
+
+.login_form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:90%;
+    /* height:70%; */
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.formdfield_two,.formdfield_one{
+    display: flex;
+    flex-direction:column;
+    width:80%;
+    margin-bottom:40px;
+}
+
+
+.lg_page_field_title{
+    color:rgb(218, 218, 218);
+    font-weight:500;
+    font-size:14px;
+    font-family:poppins;
+}
+
+
+.lg_page_input_field{
+    font-family:poppins;
+    color:#dedede;
+    padding:8px 5px;
+    font-weight: 500;
+    border-radius:4px;
+    
+}
+
+
+.lg_submit_btn{
+    background:#D0FF71;
+    border-radius:3px;
+    width:80%;
+    outline:none;
+    border:none;
+    padding: 8px 3px;
+    font-family:poppins;
+    font-weight: 500;
+    font-size:16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap:20px;
+}
+
+.lg_page_icon{
+    width:18px;
+    height:18px;
+}
+
+.sft_info_wrapper_sec{
+    display: none;
+}
+
+@media(max-width:1440px){
+
+
+.log_form_wrapper{
+    width:45%;
+}
+
+
+.lg_submit_btn,.formdfield_two,.formdfield_one{
+    width:90%;
+}
+
+}
+
+
+@media(max-width:768px){
+    .lhs_login_page_layout{
+        display: none;
+    }
+
+
+    .log_form_wrapper{
+        width:75%;
+        padding: 20px 0px;
+    }
+
+
+    .sft_info_wrapper_sec{
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        column-gap:20px;
+    }
+
+
+    .bflogo_lgpage_Sec{
+        width:20px;
+        height:20px;
+    }
+
+    .sft_title_lgpage_sec{
+        font-family:unbounded;
+        color:white;
+        text-transform:uppercase;
+    }
+}
+
+
+
+@media(max-width:677px){
+  
+
+    .lg_user_title{
+        font-size:24px;
+        font-weight: 500;
+    }
+
+
+    .log_form_wrapper{
+        width:85%;
+    }
+
+
+   
+}
+
+@media(max-width:475px){
+  
+.formdfield_two,.formdfield_one,.lg_submit_btn{
+    width:95%;
+}
+
+    .log_form_wrapper{
+        width:95%;
+    }
+}

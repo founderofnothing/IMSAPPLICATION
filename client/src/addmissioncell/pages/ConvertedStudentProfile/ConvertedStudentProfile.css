@@ -1,0 +1,730 @@
+/* =========================================================
+   CONVERTED STUDENT PROFILE
+   Prefix:
+   admissioncell_std_pfp_converted_
+========================================================= */
+
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #f6f7f9;
+    color: #1f2937;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   LOADING / EMPTY STATE
+========================================================= */
+
+.admissioncell_std_pfp_converted_loading,
+.admissioncell_std_pfp_converted_no-data {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-header {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e8eaee;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-cover {
+    width: 100%;
+    height: 150px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2f7 0%,
+            #e5e9ef 50%,
+            #f7f8fa 100%
+        );
+
+    position: relative;
+}
+
+
+/* subtle cover decoration */
+
+.admissioncell_std_pfp_converted_profile-cover::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -80px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   PROFILE MAIN
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-main {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 28px 24px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-image {
+    width: 110px;
+    height: 110px;
+
+    flex-shrink: 0;
+
+    margin-top: -55px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 5px solid #ffffff;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.admissioncell_std_pfp_converted_profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.admissioncell_std_pfp_converted_profile-image span {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef1f5;
+
+    color: #374151;
+
+    font-size: 36px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PROFILE INFO
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-info {
+    margin-left: 20px;
+    padding-top: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.admissioncell_std_pfp_converted_profile-info h2 {
+    margin: 0;
+
+    font-size: 22px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    color: #111827;
+
+    text-transform: capitalize;
+}
+
+
+.admissioncell_std_pfp_converted_profile-info p {
+    margin: 5px 0 3px;
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+    font-weight: 400;
+}
+
+
+.admissioncell_std_pfp_converted_profile-info span {
+    font-size: 12px;
+
+    color: #9ca3af;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.admissioncell_std_pfp_converted_edit-profile-btn {
+    margin-left: auto;
+    margin-top: 12px;
+
+    border: 1px solid #e1e5ea;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    padding: 9px 16px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.admissioncell_std_pfp_converted_edit-profile-btn:hover {
+    background: #f5f6f8;
+
+    border-color: #d4d8de;
+
+    color: #111827;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PROFILE CONTENT
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-content {
+    width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-card {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e8eaee;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 3px 14px rgba(0, 0, 0, 0.025);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.admissioncell_std_pfp_converted_section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eef0f3;
+}
+
+
+.admissioncell_std_pfp_converted_section-heading h3 {
+    margin: 0;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #1f2937;
+}
+
+
+.admissioncell_std_pfp_converted_section-heading span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: #9ca3af;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.admissioncell_std_pfp_converted_info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px 28px;
+}
+
+
+/* =========================================================
+   INFO ITEM
+========================================================= */
+
+.admissioncell_std_pfp_converted_info-item {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.admissioncell_std_pfp_converted_info-item small {
+    font-size: 10px;
+
+    line-height: 1.4;
+
+    color: #9ca3af;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+
+.admissioncell_std_pfp_converted_info-item strong {
+    min-width: 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #374151;
+
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   FULL WIDTH ITEM
+========================================================= */
+
+.admissioncell_std_pfp_converted_full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   QUICK SUMMARY
+========================================================= */
+
+.admissioncell_std_pfp_converted_summary-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 0;
+}
+
+
+.admissioncell_std_pfp_converted_summary-item {
+    min-width: 0;
+
+    padding: 4px 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    border-right: 1px solid #edf0f3;
+}
+
+
+.admissioncell_std_pfp_converted_summary-item:first-child {
+    padding-left: 0;
+}
+
+
+.admissioncell_std_pfp_converted_summary-item:last-child {
+    border-right: none;
+
+    padding-right: 0;
+}
+
+
+.admissioncell_std_pfp_converted_summary-item small {
+    font-size: 10px;
+
+    color: #9ca3af;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    font-weight: 500;
+}
+
+
+.admissioncell_std_pfp_converted_summary-item strong {
+    font-size: 14px;
+
+    color: #1f2937;
+
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admissioncell_std_pfp_converted_status-value {
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 6px;
+
+    background: #f0fdf4;
+
+    color: #15803d !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   FACILITIES / SPECIAL VALUES
+========================================================= */
+
+.admissioncell_std_pfp_converted_info-item strong {
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.admissioncell_std_pfp_converted_profile-card {
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.admissioncell_std_pfp_converted_profile-card:hover {
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.045);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .admissioncell_std_pfp_converted_info-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        row-gap: 20px;
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-item {
+        border-right: none;
+
+        padding: 0 18px;
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-item:nth-child(odd) {
+        padding-left: 0;
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-item:nth-child(even) {
+        border-left: 1px solid #edf0f3;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .admissioncell_std_pfp_converted_profile-page {
+        padding: 16px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-cover {
+        height: 120px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-main {
+        padding: 0 20px 22px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-image {
+        width: 90px;
+        height: 90px;
+
+        margin-top: -45px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-image span {
+        font-size: 30px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-info {
+        margin-left: 15px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-info h2 {
+        font-size: 19px;
+    }
+
+
+    .admissioncell_std_pfp_converted_edit-profile-btn {
+        width: 100%;
+
+        margin-top: 18px;
+        margin-left: 0;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-card {
+        padding: 20px;
+    }
+
+
+    .admissioncell_std_pfp_converted_info-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .admissioncell_std_pfp_converted_full-width {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .admissioncell_std_pfp_converted_profile-page {
+        padding: 10px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-header {
+        border-radius: 12px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-cover {
+        height: 100px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-main {
+        padding: 0 15px 18px;
+
+        display: block;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-image {
+        width: 82px;
+        height: 82px;
+
+        margin-top: -41px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-info {
+        margin-left: 0;
+
+        margin-top: 10px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-info h2 {
+        font-size: 18px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-info p {
+        font-size: 12px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-content {
+        margin-top: 12px;
+
+        gap: 12px;
+    }
+
+
+    .admissioncell_std_pfp_converted_profile-card {
+        padding: 17px;
+
+        border-radius: 11px;
+    }
+
+
+    .admissioncell_std_pfp_converted_section-heading {
+        margin-bottom: 18px;
+    }
+
+
+    .admissioncell_std_pfp_converted_section-heading h3 {
+        font-size: 14px;
+    }
+
+
+    .admissioncell_std_pfp_converted_section-heading span {
+        font-size: 10px;
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .admissioncell_std_pfp_converted_summary-item {
+        padding: 0 !important;
+
+        border-left: none !important;
+    }
+
+
+    .admissioncell_std_pfp_converted_info-item small {
+        font-size: 9px;
+    }
+
+
+    .admissioncell_std_pfp_converted_info-item strong {
+        font-size: 12px;
+    }
+
+}

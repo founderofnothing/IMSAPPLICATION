@@ -1,0 +1,1095 @@
+
+/* =========================================================
+   INTERNAL MARK ENTRY
+   IMS DESIGN SYSTEM
+========================================================= */
+
+.internal-mark-page {
+  width: 100%;
+  min-height: 100%;
+
+  box-sizing: border-box;
+
+  padding: 28px 32px 40px;
+
+  background: #f5f5f3;
+
+  color: #171319;
+
+  font-family: Poppins, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.internal-mark-header {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+
+.internal-mark-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+.internal-mark-header h1 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 650;
+
+  letter-spacing: -0.03em;
+}
+
+
+.internal-mark-header p {
+  margin: 7px 0 0;
+
+  color: rgba(23, 19, 25, 0.48);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.internal-mark-header-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+
+.internal-mark-header-actions button {
+  min-height: 38px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+
+.internal-mark-header-actions button:active {
+  transform: scale(0.97);
+}
+
+
+.internal-mark-save-btn {
+  background: #171319;
+
+  color: #ffffff;
+}
+
+
+.internal-mark-save-btn:hover:not(:disabled) {
+  background: #2b2630;
+}
+
+
+.internal-mark-complete-btn {
+  background: #d0ff71;
+
+  color: #171319;
+}
+
+
+.internal-mark-complete-btn:hover:not(:disabled) {
+  background: #c1f35f;
+}
+
+
+.internal-mark-header-actions button:disabled {
+  opacity: 0.42;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.internal-mark-card {
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding: 21px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.internal-mark-section-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+.internal-mark-section-icon {
+  width: 36px;
+
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #171319;
+
+  color: #d0ff71;
+}
+
+
+.internal-mark-section-icon svg {
+  width: 18px;
+
+  height: 18px;
+}
+
+
+.internal-mark-section-header > div:nth-child(2) {
+  min-width: 0;
+
+  flex: 1;
+}
+
+
+.internal-mark-section-header h2 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 15px;
+
+  line-height: 1.2;
+
+  font-weight: 650;
+
+  letter-spacing: -0.015em;
+}
+
+
+.internal-mark-section-header p {
+  margin: 5px 0 0;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   INFORMATION GRID
+========================================================= */
+
+.internal-mark-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 10px;
+
+  background: rgba(23, 19, 25, 0.07);
+}
+
+
+.internal-mark-info-item {
+  min-width: 0;
+
+  min-height: 76px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 13px 15px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+}
+
+
+.internal-mark-info-item span {
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 8px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.internal-mark-info-item strong {
+  overflow: hidden;
+
+  color: #171319;
+
+  font-size: 11px;
+
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.internal-mark-form-group {
+  width: 100%;
+
+  max-width: 420px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.internal-mark-form-group label {
+  color: rgba(23, 19, 25, 0.48);
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+
+.internal-mark-form-group select {
+  width: 100%;
+
+  height: 42px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.12);
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+.internal-mark-form-group select:hover:not(:disabled) {
+  border-color: rgba(23, 19, 25, 0.25);
+}
+
+
+.internal-mark-form-group select:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px rgba(208, 255, 113, 0.25);
+}
+
+
+.internal-mark-form-group select:disabled {
+  background: #f3f3f1;
+
+  color: rgba(23, 19, 25, 0.4);
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.internal-mark-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(23, 19, 25, 0.25)
+    transparent;
+}
+
+
+.internal-mark-table-wrapper::-webkit-scrollbar {
+  height: 7px;
+}
+
+
+.internal-mark-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.internal-mark-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(23, 19, 25, 0.22);
+
+  border-radius: 20px;
+}
+
+
+.internal-mark-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 19, 25, 0.4);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.internal-mark-table {
+  width: 100%;
+
+  min-width: 1050px;
+
+  border-collapse: collapse;
+
+  table-layout: auto;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.internal-mark-table th {
+  min-width: 130px;
+
+  height: 58px;
+
+  padding: 8px 12px;
+
+  border-bottom: 1px solid rgba(23, 19, 25, 0.08);
+
+  background: #d9d9d9;
+
+  color: #171319;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+
+/* First columns */
+
+.internal-mark-table th:nth-child(1) {
+  width: 45px;
+
+  min-width: 45px;
+
+  text-align: center;
+}
+
+
+.internal-mark-table th:nth-child(2) {
+  min-width: 120px;
+}
+
+
+.internal-mark-table th:nth-child(3) {
+  min-width: 220px;
+}
+
+
+/* Subject heading */
+
+.internal-mark-table th > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.internal-mark-table th > div strong {
+  color: #171319;
+
+  font-size: 9px;
+
+  font-weight: 750;
+}
+
+
+.internal-mark-table th > div span {
+  max-width: 140px;
+
+  overflow: hidden;
+
+  color: rgba(23, 19, 25, 0.55);
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+
+  text-transform: none;
+}
+
+
+.internal-mark-table th > div small {
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  text-transform: none;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.internal-mark-table td {
+  min-height: 62px;
+
+  height: 62px;
+
+  padding: 8px 12px;
+
+  border-bottom: 1px solid rgba(23, 19, 25, 0.06);
+
+  background: #ffffff;
+
+  color: rgba(23, 19, 25, 0.62);
+
+  font-size: 10px;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+
+.internal-mark-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+.internal-mark-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+
+.internal-mark-table tbody tr:hover td {
+  background: #fafcf5;
+}
+
+
+/* =========================================================
+   SERIAL NUMBER
+========================================================= */
+
+.internal-mark-table td:first-child {
+  width: 45px;
+
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   REGISTER NUMBER
+========================================================= */
+
+.internal-mark-table td:nth-child(2) {
+  color: #171319;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   STUDENT
+========================================================= */
+
+.internal-mark-student {
+  min-width: 180px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.internal-mark-student strong {
+  max-width: 230px;
+
+  overflow: hidden;
+
+  color: #171319;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.internal-mark-student span {
+  max-width: 230px;
+
+  overflow: hidden;
+
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 8px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MARK INPUT CELL
+========================================================= */
+
+.internal-mark-input-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+/* =========================================================
+   MARK INPUT
+========================================================= */
+
+.internal-mark-input-cell input {
+  width: 58px;
+
+  height: 32px;
+
+  padding: 0 7px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.12);
+
+  border-radius: 6px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  text-align: center;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+
+.internal-mark-input-cell input:hover:not(:disabled) {
+  border-color: rgba(23, 19, 25, 0.28);
+}
+
+
+.internal-mark-input-cell input:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px rgba(208, 255, 113, 0.3);
+
+  background: #fcfff6;
+}
+
+
+.internal-mark-input-cell input:disabled {
+  background: #f1f1ef;
+
+  color: rgba(23, 19, 25, 0.35);
+
+  cursor: not-allowed;
+}
+
+
+/* Remove number arrows */
+
+.internal-mark-input-cell input::-webkit-outer-spin-button,
+.internal-mark-input-cell input::-webkit-inner-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+
+.internal-mark-input-cell input[type="number"] {
+  appearance: textfield;
+
+  -moz-appearance: textfield;
+}
+
+
+/* =========================================================
+   STATUS SELECT
+========================================================= */
+
+.internal-mark-input-cell select {
+  width: 35px;
+
+  height: 32px;
+
+  padding: 0 3px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.1);
+
+  border-radius: 6px;
+
+  outline: none;
+
+  background: #f3f3f1;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+
+.internal-mark-input-cell select:hover:not(:disabled) {
+  border-color: rgba(23, 19, 25, 0.25);
+
+  background: #ffffff;
+}
+
+
+.internal-mark-input-cell select:focus {
+  border-color: #171319;
+
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px rgba(208, 255, 113, 0.25);
+}
+
+
+.internal-mark-input-cell select:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.internal-mark-loading {
+  width: 100%;
+
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 12px;
+}
+
+
+.internal-mark-loading-small {
+  min-height: 180px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: rgba(23, 19, 25, 0.4);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.internal-mark-empty {
+  width: 100%;
+
+  min-height: 320px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+
+.internal-mark-empty svg {
+  margin-bottom: 14px;
+
+  color: rgba(23, 19, 25, 0.28);
+}
+
+
+.internal-mark-empty h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 16px;
+
+  font-weight: 650;
+}
+
+
+.internal-mark-empty p {
+  max-width: 360px;
+
+  margin: 7px 0 0;
+
+  color: rgba(23, 19, 25, 0.45);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .internal-mark-info-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .internal-mark-page {
+    padding: 24px;
+  }
+
+
+  .internal-mark-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .internal-mark-header-actions {
+    width: 100%;
+  }
+
+
+  .internal-mark-header-actions button {
+    flex: 1;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .internal-mark-page {
+    padding: 20px 16px 30px;
+  }
+
+
+  .internal-mark-card {
+    padding: 18px;
+  }
+
+
+  .internal-mark-header h1 {
+    font-size: 23px;
+  }
+
+
+  .internal-mark-header p {
+    font-size: 11px;
+  }
+
+
+  .internal-mark-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .internal-mark-section-header {
+    align-items: flex-start;
+  }
+
+
+  .internal-mark-form-group {
+    max-width: none;
+  }
+
+
+  .internal-mark-table {
+    min-width: 1050px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .internal-mark-page {
+    padding: 17px 12px 25px;
+  }
+
+
+  .internal-mark-card {
+    padding: 15px;
+
+    border-radius: 12px;
+  }
+
+
+  .internal-mark-header-actions {
+    flex-direction: column;
+  }
+
+
+  .internal-mark-header-actions button {
+    width: 100%;
+
+    flex: none;
+  }
+
+
+  .internal-mark-section-header h2 {
+    font-size: 14px;
+  }
+
+
+  .internal-mark-section-header p {
+    font-size: 9px;
+  }
+
+
+  .internal-mark-info-item {
+    min-height: 68px;
+
+    padding: 11px 13px;
+  }
+
+
+  .internal-mark-table-wrapper {
+    border-radius: 9px;
+  }
+
+}

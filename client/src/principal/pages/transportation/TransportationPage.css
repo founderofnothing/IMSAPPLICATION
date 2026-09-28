@@ -1,0 +1,1979 @@
+/* ============================================================
+   TRANSPORTATION PAGE
+   REFERENCE CANVAS
+   ============================================================ */
+
+
+
+/* =========================================================
+   STUDENT LIST MODAL
+   ========================================================= */
+
+.principal-transportation-students-modal {
+  width: min(1180px, calc(100vw - 80px));
+  max-height: calc(100vh - 80px);
+
+  background: #ffffff;
+
+  border: 1px solid rgba(25, 35, 20, 0.08);
+  border-radius: 18px;
+
+  box-shadow:
+    0 24px 70px rgba(25, 35, 20, 0.16),
+    0 4px 16px rgba(25, 35, 20, 0.06);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  font-family: "Poppins", sans-serif;
+
+  animation: principalStudentModalIn 0.28s ease-out;
+}
+
+
+/* =========================================================
+   MODAL ANIMATION
+   ========================================================= */
+
+@keyframes principalStudentModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.principal-transportation-students-modal
+  .principal-transportation-modal-header {
+
+  min-height: 92px;
+
+  padding: 24px 30px;
+
+  border-bottom: 1px solid rgba(25, 35, 20, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;
+}
+
+
+.principal-transportation-students-modal
+  .principal-transportation-modal-header p {
+
+  margin: 0 0 4px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: #85B03A;
+}
+
+
+.principal-transportation-students-modal
+  .principal-transportation-modal-header h2 {
+
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+
+  color: #20251d;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.principal-transportation-students-modal
+  .principal-transportation-modal-header button {
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(25, 35, 20, 0.09);
+  border-radius: 10px;
+
+  background: #fafbf8;
+
+  color: #596052;
+
+  font-size: 23px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.principal-transportation-students-modal
+  .principal-transportation-modal-header button:hover {
+
+  background: #85B03A;
+  border-color: #85B03A;
+
+  color: #ffffff;
+
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   STUDENT SUMMARY
+   ========================================================= */
+
+.principal-transportation-students-summary {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1.4fr)
+    repeat(3, minmax(130px, 0.7fr));
+
+  gap: 0;
+
+  padding: 18px 30px;
+
+  background: #f8faf5;
+
+  border-bottom: 1px solid rgba(25, 35, 20, 0.07);
+}
+
+
+.principal-transportation-students-summary > div {
+
+  min-height: 48px;
+
+  padding: 2px 22px;
+
+  border-left: 1px solid rgba(25, 35, 20, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.principal-transportation-students-summary > div:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+
+.principal-transportation-students-summary span {
+
+  margin-bottom: 3px;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #8a9182;
+}
+
+
+.principal-transportation-students-summary strong {
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #252b21;
+}
+
+
+/* Highlight occupied count */
+
+.principal-transportation-students-summary
+  > div:nth-child(2) strong {
+
+  color: #85B03A;
+}
+
+
+/* =========================================================
+   STUDENT LIST CONTAINER
+   ========================================================= */
+
+.principal-transportation-students-list {
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 10px 30px 26px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+.principal-transportation-students-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.principal-transportation-students-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.principal-transportation-students-list::-webkit-scrollbar-thumb {
+  background: rgba(133, 176, 58, 0.35);
+
+  border-radius: 10px;
+}
+
+
+.principal-transportation-students-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(133, 176, 58, 0.6);
+}
+
+
+/* =========================================================
+   STUDENT ROW
+   ========================================================= */
+
+.principal-transportation-student-row {
+
+  min-height: 76px;
+
+  display: grid;
+
+  grid-template-columns:
+    48px
+    minmax(190px, 1.6fr)
+    minmax(150px, 1fr)
+    minmax(100px, 0.65fr)
+    minmax(150px, 1fr);
+
+  align-items: center;
+
+  column-gap: 18px;
+
+  padding: 12px 14px;
+
+  border-bottom: 1px solid rgba(25, 35, 20, 0.065);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.principal-transportation-student-row:hover {
+
+  background: #fafcf7;
+
+  transform: translateX(2px);
+}
+
+
+/* Remove border from final row */
+
+.principal-transportation-student-row:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   STUDENT AVATAR
+   ========================================================= */
+
+.principal-transportation-student-avatar {
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #edf3e4;
+
+  border: 1px solid rgba(133, 176, 58, 0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+.principal-transportation-student-avatar img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+.principal-transportation-student-avatar span {
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #668d2d;
+}
+
+
+/* =========================================================
+   STUDENT BASIC INFORMATION
+   ========================================================= */
+
+.principal-transportation-student-info {
+
+  min-width: 0;
+}
+
+
+.principal-transportation-student-info h3 {
+
+  margin: 0 0 3px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #252b21;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.principal-transportation-student-info p {
+
+  margin: 0;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  color: #8a9182;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   ACADEMIC / STOP INFORMATION
+   ========================================================= */
+
+.principal-transportation-student-academic,
+.principal-transportation-student-stop {
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.principal-transportation-student-academic span,
+.principal-transportation-student-stop span {
+
+  margin-bottom: 3px;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #a0a69a;
+}
+
+
+.principal-transportation-student-academic strong,
+.principal-transportation-student-stop strong {
+
+  font-size: 11px;
+  font-weight: 500;
+
+  color: #4d5547;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   EMPTY STUDENT STATE
+   ========================================================= */
+
+.principal-transportation-no-students {
+
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+
+.principal-transportation-no-students-icon {
+
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid rgba(133, 176, 58, 0.2);
+  border-radius: 14px;
+
+  background: #f5f8ef;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #85B03A;
+
+  font-size: 20px;
+}
+
+
+.principal-transportation-no-students h3 {
+
+  margin: 0 0 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #30372b;
+}
+
+
+.principal-transportation-no-students p {
+
+  max-width: 360px;
+
+  margin: 0;
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  color: #90978a;
+}
+
+
+/* =========================================================
+   CAPACITY CARD — CLICKABLE STATE
+   ========================================================= */
+
+.transportation-capacity-card {
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+
+.transportation-capacity-card:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(25, 35, 20, 0.08);
+}
+
+
+.transportation-capacity-card
+  .transportation-card-expand {
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.transportation-capacity-card:hover
+  .transportation-card-expand {
+
+  background: #85B03A;
+  color: #ffffff;
+
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .principal-transportation-students-modal {
+    width: calc(100vw - 40px);
+  }
+
+
+  .principal-transportation-students-summary {
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    padding: 18px 20px;
+  }
+
+
+  .principal-transportation-students-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  .principal-transportation-student-row {
+
+    grid-template-columns:
+      48px
+      minmax(170px, 1.5fr)
+      minmax(120px, 1fr)
+      minmax(80px, 0.6fr);
+
+    column-gap: 14px;
+  }
+
+
+  .principal-transportation-student-row
+    .principal-transportation-student-stop {
+
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .principal-transportation-students-modal {
+
+    width: calc(100vw - 24px);
+
+    max-height: calc(100vh - 24px);
+
+    border-radius: 14px;
+  }
+
+
+  .principal-transportation-students-modal
+    .principal-transportation-modal-header {
+
+    min-height: 76px;
+
+    padding: 18px 20px;
+  }
+
+
+  .principal-transportation-students-modal
+    .principal-transportation-modal-header h2 {
+
+    font-size: 18px;
+  }
+
+
+  .principal-transportation-students-summary {
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0;
+
+    padding: 14px 20px;
+  }
+
+
+  .principal-transportation-students-summary > div {
+
+    padding: 8px 14px;
+
+    border-left: none;
+  }
+
+
+  .principal-transportation-students-summary
+    > div:nth-child(odd) {
+
+    border-right: 1px solid rgba(25, 35, 20, 0.08);
+  }
+
+
+  .principal-transportation-students-list {
+
+    padding: 8px 14px 18px;
+  }
+
+
+  .principal-transportation-student-row {
+
+    grid-template-columns: 44px minmax(0, 1fr);
+
+    column-gap: 12px;
+
+    min-height: 68px;
+
+    padding: 10px 6px;
+  }
+
+
+  .principal-transportation-student-avatar {
+
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .principal-transportation-student-academic,
+  .principal-transportation-student-stop {
+
+    display: none;
+  }
+
+
+  .principal-transportation-student-info h3 {
+
+    font-size: 12px;
+  }
+
+}
+
+
+.principal-transportation-page {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    background: #85b03a;
+
+    font-family: "Poppins", sans-serif;
+
+    color: #171717;
+}
+
+/* ============================================================
+   BUS IMAGE
+   ============================================================ */
+
+.transportation-bus-image {
+    position: absolute;
+
+    z-index: 1;
+
+    /* left: 12.8%; */
+    right:-30%;
+
+    top: 17%;
+
+    width: 88%;
+
+    height: 90%;
+
+    pointer-events: none;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+.transportation-bus-img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: left top;
+
+    filter:
+        drop-shadow(
+            0 18px 20px rgba(34, 49, 20, 0.14)
+        );
+}
+
+
+/* ============================================================
+   VEHICLE IDENTITY
+   ============================================================ */
+
+.transportation-page-header {
+    position: absolute;
+
+    z-index: 20;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.transportation-vehicle-identity {
+    position: absolute;
+
+    left:5%;
+
+    top: 3.5%;
+
+    pointer-events: auto;
+}
+
+
+.transportation-vehicle-year {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.90);
+}
+
+
+.transportation-vehicle-name {
+    margin: 0;
+
+    font-size: clamp(34px, 3.2vw, 48px);
+
+    line-height: 0.98;
+
+    font-weight: 800;
+
+    letter-spacing: -1.8px;
+
+    color: #ffffff;
+
+    text-transform: uppercase;
+}
+
+
+.transportation-vehicle-model {
+    margin: 12px 0 0;
+
+    font-size: 14px;
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.88);
+}
+
+
+/* ============================================================
+   BUS SELECTOR
+   ============================================================ */
+
+.transportation-bus-selector {
+    position: absolute;
+
+    top: 3%;
+
+    right: 2%;
+
+    width: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    pointer-events: auto;
+}
+
+
+.transportation-bus-selector label {
+    font-size: 9px;
+
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    text-transform: uppercase;
+}
+
+
+.transportation-bus-selector select {
+    width: 100%;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 18px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.transportation-bus-selector option {
+    color: #171717;
+
+    background: #ffffff;
+}
+
+
+
+
+/* ============================================================
+   COMMON CARD
+   ============================================================ */
+
+.transportation-card {
+    position: absolute;
+
+    z-index: 10;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+
+    box-shadow:
+        0 12px 30px rgba(35, 45, 20, 0.08);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* ============================================================
+   CAPACITY CARD
+   ============================================================ */
+
+.transportation-capacity-card {
+    top: 13.5%;
+
+    left: 57.1%;
+
+    width: 222px;
+
+    height: 115px;
+
+    padding: 13px 15px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(226, 231, 225, 0.94),
+            rgba(211, 215, 215, 0.88)
+        );
+}
+
+
+.transportation-card-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.transportation-card-heading span {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color: #12140f;
+}
+
+
+.transportation-card-expand {
+    width: 26px;
+
+    height: 26px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: rgba(28, 30, 27, 0.78);
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.transportation-capacity-values {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 12px;
+}
+
+
+.transportation-capacity-value {
+    width: 68px;
+
+    height: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.transportation-capacity-value strong {
+    display: block;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    color: #11130f;
+}
+
+
+.transportation-capacity-value span {
+    margin-top: 7px;
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    color: #555a52;
+}
+
+
+.transportation-capacity-value-primary {
+    border-radius: 6px;
+
+    background: #ffffff;
+}
+
+
+/* ============================================================
+   BUS INFORMATION CARD
+   ============================================================ */
+
+.transportation-bus-info-card {
+    top: 13.5%;
+
+    right: 1.4%;
+
+    width: 25.3%;
+
+    min-width: 330px;
+
+    height: 230px;
+
+    padding: 31px 25px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(226, 239, 193, 0.91) 0%,
+            rgba(219, 226, 218, 0.86) 55%,
+            rgba(205, 208, 208, 0.83) 100%
+        );
+}
+
+
+
+
+.transportation-bus-info-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.transportation-bus-info-title h2 {
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: #10130f;
+
+    text-transform: uppercase;
+}
+
+
+.transportation-bus-info-title p {
+    margin: 6px 0 0;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    color: #5e6359;
+}
+
+
+.transportation-bus-status {
+    min-width: 89px;
+
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 12px;
+
+    border-radius: 20px;
+
+    background: #9bc75e;
+
+    color: #253019;
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+
+
+/* ============================================================
+   BUS INFO GRID
+   ============================================================ */
+
+.transportation-bus-info-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 20px;
+
+    row-gap: 15px;
+
+    margin-top: 45px;
+}
+
+
+.transportation-info-item {
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns: 25px 1fr;
+
+    gap: 9px;
+
+    align-items: start;
+}
+
+
+.transportation-info-icon {
+    width: 25px;
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background: #b7d98a;
+
+    font-size: 12px;
+
+    color: #27311f;
+}
+
+
+.transportation-info-content {
+    min-width: 0;
+}
+
+
+.transportation-info-content span {
+    display: block;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    color: #363b32;
+}
+
+
+.transportation-info-content strong {
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 10px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    color: #555a52;
+}
+
+
+/* ============================================================
+   STOPS CARD
+   ============================================================ */
+
+.transportation-stops-card {
+    right: 1.4%;
+
+    top:39%;
+
+    width: 25.3%;
+
+    min-width: 330px;
+    margin-top:50px;
+overflow-y: scroll;
+    height: 375px;
+
+    padding: 19px 17px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(222, 226, 223, 0.84);
+}
+.transportation-stops-card::-webkit-scrollbar{
+    display:none;
+}
+
+/* ============================================================
+   STOPS HEADER
+   ============================================================ */
+
+.transportation-stops-header {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom:18px;
+}
+
+
+.transportation-stops-header-name,
+.transportation-stops-header-time {
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+}
+
+
+.transportation-stops-header-name {
+    background: #b2cf86;
+}
+
+
+.transportation-stops-header-time {
+    background: #e8ea72;
+}
+
+
+.transportation-stops-header span {
+    font-size: 14px;
+
+    line-height: 1;
+}
+
+
+.transportation-stops-header strong {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #20251b;
+}
+
+
+
+/* ============================================================
+   STOPS LIST
+   ============================================================ */
+
+.transportation-stops-list {
+    width: 100%;
+
+    height: calc(100% - 84px);
+
+    overflow-y: auto;
+
+    padding-right: 1px;
+
+    box-sizing: border-box;
+}
+
+
+.transportation-stops-list::-webkit-scrollbar {
+    width: 3px;
+}
+
+
+.transportation-stops-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.transportation-stops-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background: rgba(30, 35, 25, 0.18);
+}
+
+
+/* ============================================================
+   STOP ROW
+   ============================================================ */
+
+.transportation-stop-row {
+    width: 100%;
+
+    height: 44px;
+
+    margin-bottom: 7px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-columns: 1fr 30px 75px;
+
+    align-items: center;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.43);
+}
+
+
+.transportation-stop-name {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: #3c4138;
+}
+
+
+.transportation-stop-dash {
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #41463d;
+}
+
+
+.transportation-stop-time {
+    text-align: right;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    color: #41463d;
+}
+
+
+.transportation-no-stops {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100%;
+
+    font-size: 10px;
+
+    color: #70756d;
+}
+
+
+/* ============================================================
+   DRIVER CARD
+   ============================================================ */
+
+.transportation-driver-card {
+    left: 4.65%;
+
+    bottom: 2.5%;
+
+    width: 451px;
+
+    height: 248px;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(30, 40, 20, 0.10);
+}
+
+
+/* ============================================================
+   DRIVER COVER
+   ============================================================ */
+
+.transportation-driver-cover {
+    position: relative;
+
+    width: calc(100% - 16px);
+
+    height: 138px;
+
+    margin: 8px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dce2d8,
+            #eef0e8
+        );
+}
+
+
+.transportation-driver-cover-placeholder {
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.45)
+        );
+}
+
+/* ============================================================
+   DRIVER AVATAR
+   ============================================================ */
+
+.transportation-driver-avatar {
+    position: absolute;
+
+    left: 14px;
+
+    top: 52px;
+
+    width: 104px;
+
+    height: 104px;
+
+    padding: 7px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background: #e5e8e4;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.transportation-driver-avatar img,
+.transportation-driver-avatar span {
+    display: flex;
+
+    width: 100%;
+
+    height: 100%;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+.transportation-driver-avatar img {
+    object-fit: cover;
+}
+
+
+.transportation-driver-avatar span {
+    background: #dce1d9;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #41473d;
+}
+
+
+/* ============================================================
+   DRIVER INFORMATION
+   ============================================================ */
+
+.transportation-driver-details {
+    position: absolute;
+
+    left: 24px;
+
+    right: 24px;
+
+    bottom: 17px;
+}
+
+
+.transportation-driver-details p {
+    margin: 0 0 11px;
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: #11140f;
+
+    text-transform: uppercase;
+}
+
+
+.transportation-driver-details h3 {
+    margin: 0;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    color: #686d64;
+
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.transportation-loading {
+    position: absolute;
+
+    z-index: 100;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 14px 20px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    box-shadow:
+        0 10px 30px rgba(20, 30, 10, 0.12);
+
+    font-size: 11px;
+
+    color: #333;
+}
+
+
+/* ============================================================
+   EMPTY
+   ============================================================ */
+
+.transportation-empty {
+    position: absolute;
+
+    z-index: 100;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.92);
+}
+
+
+.transportation-empty h3 {
+    margin: 0 0 8px;
+
+    font-size: 16px;
+}
+
+
+.transportation-empty p {
+    margin: 0;
+
+    font-size: 10px;
+
+    color: #6b7167;
+}
+
+
+/* ============================================================
+   DRIVER MODAL
+   ============================================================ */
+
+.principal-transportation-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(15, 20, 12, 0.40);
+
+    backdrop-filter: blur(6px);
+
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+.principal-transportation-driver-modal {
+    width: min(600px, 100%);
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 25px 70px rgba(20, 25, 15, 0.25);
+}
+
+
+.principal-transportation-modal-header {
+    min-height: 70px;
+
+    padding: 16px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    background: #171a17;
+}
+
+
+.principal-transportation-modal-header p {
+    margin: 0 0 3px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    color: #d0ff71;
+
+    text-transform: uppercase;
+}
+
+
+.principal-transportation-modal-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #ffffff;
+}
+
+
+.principal-transportation-modal-header button {
+    width: 34px;
+
+    height: 34px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.principal-transportation-driver-modal-content {
+    max-height: calc(90vh - 70px);
+
+    overflow-y: auto;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+}
+
+
+.principal-transportation-driver-modal-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.principal-transportation-driver-modal-image {
+    width: 68px;
+
+    height: 68px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #e7ebe4;
+}
+
+
+.principal-transportation-driver-modal-image img,
+.principal-transportation-driver-modal-image span {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.principal-transportation-driver-modal-image img {
+    object-fit: cover;
+}
+
+
+.principal-transportation-driver-modal-image span {
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+.principal-transportation-driver-modal-profile h3 {
+    margin: 0 0 4px;
+
+    font-size: 17px;
+}
+
+
+.principal-transportation-driver-modal-profile p {
+    margin: 0;
+
+    font-size: 10px;
+
+    color: #777d73;
+}
+
+
+.principal-transportation-driver-details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.principal-transportation-driver-details-grid > div {
+    padding: 12px;
+
+    border-radius: 9px;
+
+    background: #f2f4ef;
+}
+
+
+.principal-transportation-driver-details-grid span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    color: #777d73;
+
+    text-transform: uppercase;
+}
+
+
+.principal-transportation-driver-details-grid strong {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #292d27;
+
+    word-break: break-word;
+}
+
+
+/* ============================================================
+   SCREEN FIT
+   ============================================================ */
+
+@media (max-height: 850px) {
+
+    .transportation-capacity-card {
+        top: 8%;
+
+        height: 120px;
+    }
+
+
+    .transportation-bus-info-card {
+        top: 8%;
+
+        height: 285px;
+    }
+
+
+    .transportation-stops-card {
+        top: 45%;
+
+        height: 345px;
+    }
+
+
+    .transportation-driver-card {
+        height: 220px;
+    }
+
+
+    .transportation-driver-cover {
+        height: 120px;
+    }
+
+}
+
+
+@media (max-height: 760px) {
+
+    .transportation-vehicle-name {
+        font-size: 34px;
+    }
+
+
+    .transportation-capacity-card {
+        top: 6%;
+
+        height: 110px;
+    }
+
+
+    .transportation-bus-info-card {
+        top: 6%;
+
+        height: 260px;
+    }
+
+
+    .transportation-bus-info-grid {
+        margin-top: 25px;
+
+        row-gap: 10px;
+    }
+
+
+    .transportation-stops-card {
+        top: 43%;
+
+        height: 310px;
+    }
+
+
+    .transportation-driver-card {
+        height: 195px;
+    }
+
+
+    .transportation-driver-cover {
+        height: 100px;
+    }
+
+
+    .transportation-driver-avatar {
+        width: 86px;
+
+        height: 86px;
+
+        top: 38px;
+    }
+
+}

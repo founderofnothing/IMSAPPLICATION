@@ -1,0 +1,401 @@
+/* =========================================================
+   ATTENDANCE PAGE
+========================================================= */
+
+.attendance-page {
+  width: 100%;
+  min-width: 0;
+  padding: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #1f2937;
+}
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.attendance-filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.attendance-filter select,
+.attendance-filter input {
+  height: 42px;
+  min-width: 190px;
+  padding: 0 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.attendance-filter select:focus,
+.attendance-filter input:focus {
+  border-color: #374151;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.08);
+}
+
+.attendance-filter input {
+  min-width: 170px;
+}
+
+/* =========================================================
+   ATTENDANCE PANEL
+========================================================= */
+
+.attendance-panel {
+  width: 100%;
+  margin-top: 24px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.attendance-panel > p {
+  margin: 0;
+  padding: 28px 10px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* =========================================================
+   ATTENDANCE HEADER
+========================================================= */
+
+.attendance-header {
+  padding: 4px 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-header h3 {
+  margin: 0 0 7px;
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.attendance-header p {
+  margin: 4px 0;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.attendance-header strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* =========================================================
+   BULK CONTROLS
+========================================================= */
+
+.attendance-bulk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-bulk select {
+  height: 40px;
+  min-width: 160px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  outline: none;
+}
+
+.attendance-bulk select:focus {
+  border-color: #374151;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.08);
+}
+
+.attendance-bulk button {
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attendance-bulk button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* =========================================================
+   ATTENDANCE TABLE WRAPPER
+========================================================= */
+
+.attendance-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.attendance-table thead {
+  background: #f8fafc;
+}
+
+.attendance-table th {
+  padding: 13px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.attendance-table th:first-child {
+  width: 170px;
+}
+
+.attendance-table th:last-child {
+  width: 180px;
+}
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.attendance-table td {
+  padding: 13px 15px;
+  border-bottom: 1px solid #f0f1f3;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.attendance-table tbody tr {
+  background: #ffffff;
+  transition: background 0.15s ease;
+}
+
+.attendance-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================================================
+   STUDENT REGISTER NUMBER
+========================================================= */
+
+.attendance-table td:first-child {
+  color: #374151;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STUDENT NAME
+========================================================= */
+
+.attendance-table td:nth-child(2) {
+  color: #1f2937;
+  font-weight: 400;
+}
+
+/* =========================================================
+   STATUS SELECT
+========================================================= */
+
+.attendance-table td select {
+  width: 150px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #374151;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.attendance-table td select:focus {
+  border-color: #374151;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.08);
+}
+
+/* =========================================================
+   ATTENDANCE ACTION
+========================================================= */
+
+.attendance-action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.attendance-action button {
+  min-width: 160px;
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.attendance-action button:hover {
+  background: #1f2937;
+}
+
+.attendance-action button:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   TIMETABLE + ATTENDANCE RESPONSIVE WRAPPER
+========================================================= */
+
+.attendance-page {
+  overflow-x: hidden;
+}
+
+.attendance-panel {
+  overflow-x: auto;
+}
+
+.attendance-table {
+  overflow: hidden;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .attendance-page {
+    padding: 18px;
+  }
+
+  .attendance-filter {
+    flex-wrap: wrap;
+  }
+
+  .attendance-filter select,
+  .attendance-filter input {
+    flex: 1;
+    min-width: 180px;
+  }
+
+  .attendance-panel {
+    padding: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .attendance-page {
+    padding: 12px;
+  }
+
+  .attendance-filter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .attendance-filter select,
+  .attendance-filter input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .attendance-panel {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .attendance-bulk {
+    flex-wrap: wrap;
+  }
+
+  .attendance-bulk select {
+    width: 100%;
+  }
+
+  .attendance-bulk button {
+    flex: 1;
+  }
+
+  .attendance-action {
+    justify-content: stretch;
+  }
+
+  .attendance-action button {
+    width: 100%;
+  }
+
+  .attendance-header h3 {
+    font-size: 15px;
+  }
+}

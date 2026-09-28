@@ -1,0 +1,2044 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+
+/* ============================================================
+   FINANCE PAGE BASE
+============================================================ */
+
+.principal-finance-page {
+    width: 100%;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    /* padding: 24px 32px 32px; */
+background:#85B03A;
+
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+
+.principal-finance-page::-webkit-scrollbar {
+    width: 5px;
+}
+
+.principal-finance-page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.principal-finance-page::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+
+.principal-finance-page-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 18px;
+}
+
+
+.principal-finance-title-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.principal-finance-eyebrow {
+    margin: 0;
+
+    font-size: 9px;
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
+
+    color: #84b13c;
+
+    text-transform: uppercase;
+}
+
+
+.principal-finance-title {
+    margin: 0;
+
+    font-size: 27px;
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+
+    color: rgba(255, 255, 255, 0.95);
+}
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   COMMAND: FILTER BAR
+============================================================ */
+
+.principal-finance-filters {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+}
+
+
+/* ============================================================
+   COMMAND: FILTER
+============================================================ */
+
+.principal-finance-filter {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.principal-finance-filter label {
+    font-size: 9px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.38);
+}
+
+
+/* ============================================================
+   COMMAND: FILTER INPUT + SELECT
+============================================================ */
+
+.principal-finance-filter select,
+.principal-finance-filter input {
+    width: 138px;
+
+    height: 34px;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* ============================================================
+   COMMAND: ACADEMIC YEAR SELECT
+============================================================ */
+
+.principal-finance-filter select {
+    color: #84b13c;
+
+    border-color: rgba(132, 177, 60, 0.28);
+
+    background:
+        rgba(132, 177, 60, 0.055);
+
+    cursor: pointer;
+
+    color-scheme: dark;
+}
+
+
+/* ============================================================
+   COMMAND: ACADEMIC YEAR HOVER
+============================================================ */
+
+.principal-finance-filter select:hover {
+    border-color: rgba(132, 177, 60, 0.48);
+
+    background:
+        rgba(132, 177, 60, 0.08);
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: ACADEMIC YEAR FOCUS
+============================================================ */
+
+.principal-finance-filter select:focus {
+    border-color: rgba(132, 177, 60, 0.70);
+
+    background:
+        rgba(132, 177, 60, 0.08);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 0 2px rgba(132, 177, 60, 0.08);
+}
+
+
+/* ============================================================
+   COMMAND: ACADEMIC YEAR OPTIONS
+============================================================ */
+
+.principal-finance-filter select option {
+    background: #0b0f06;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+}
+
+
+/* Selected option */
+
+.principal-finance-filter select option:checked {
+    background: #84b13c;
+
+    color: #080a06;
+}
+
+
+/* ============================================================
+   COMMAND: DATE INPUTS
+============================================================ */
+
+.principal-finance-filter input {
+    color: rgba(255, 255, 255, 0.72);
+
+    color-scheme: dark;
+}
+
+
+.principal-finance-filter input:hover {
+    border-color: rgba(132, 177, 60, 0.30);
+}
+
+
+.principal-finance-filter input:focus {
+    border-color: rgba(132, 177, 60, 0.65);
+
+    background:
+        rgba(132, 177, 60, 0.045);
+
+    box-shadow:
+        0 0 0 2px rgba(132, 177, 60, 0.06);
+}
+
+
+/* ============================================================
+   COMMAND: CLEAR BUTTON
+============================================================ */
+
+.principal-finance-clear-btn {
+    height: 34px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+
+.principal-finance-clear-btn:hover {
+    background: rgba(132, 177, 60, 0.10);
+
+    border-color: rgba(132, 177, 60, 0.45);
+
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   THREE SUMMARY CARDS
+============================================================ */
+
+.principal-finance-summary-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ============================================================
+   SUMMARY CARD
+============================================================ */
+
+.principal-finance-stat-card {
+    position: relative;
+
+    min-width: 0;
+
+    height: 130px;
+
+    box-sizing: border-box;
+
+    padding: 19px 20px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    background: #f4f6ed;
+
+    color: #080a06;
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.principal-finance-stat-card:hover {
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FIRST SUMMARY CARD
+============================================================ */
+
+.principal-finance-stat-card:nth-child(1) {
+    background: #080a06;
+
+    border-color: rgba(132, 177, 60, 0.32);
+
+    color: #ffffff;
+}
+
+
+.principal-finance-stat-card-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.principal-finance-stat-label {
+    font-size: 10px;
+
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    color: rgba(8, 10, 6, 0.62);
+}
+
+
+.principal-finance-stat-card:nth-child(1)
+.principal-finance-stat-label {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+
+.principal-finance-stat-card-value {
+    margin-top: auto;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -0.045em;
+
+    color: #080a06;
+}
+
+
+.principal-finance-stat-card:nth-child(1)
+.principal-finance-stat-card-value {
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   BOTTOM TWO CARD GRID
+============================================================ */
+
+.principal-finance-bottom-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 0.85fr);
+
+    gap: 12px;
+
+    min-height: 0;
+}
+
+
+/* ============================================================
+   BOTTOM CARD BASE
+============================================================ */
+
+.principal-finance-chart-section,
+.principal-finance-activity-section {
+    position: relative;
+
+    min-width: 0;
+
+    height: 470px;
+
+    box-sizing: border-box;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    background: #0b0f06;
+}
+
+
+/* ============================================================
+   CHART
+============================================================ */
+
+.principal-finance-chart-section {
+    background: #0b0f06;
+}
+
+
+.principal-finance-chart {
+    position: relative;
+
+    width: 100%;
+
+    height: 345px;
+
+    box-sizing: border-box;
+
+    /*
+     * Reduced bottom padding so the
+     * X-axis sits closer to the bars.
+     */
+    padding-top: 32px;
+
+    padding-bottom: 24px;
+}
+
+
+/* ============================================================
+   CHART BAR AREA
+============================================================ */
+
+.principal-finance-chart-bars {
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: space-between;
+
+    /*
+     * Previously 16px.
+     * Smaller spacing gives a tighter chart.
+     */
+    gap: 9px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+
+/* ============================================================
+   CHART COLUMN
+============================================================ */
+
+.principal-finance-chart-column {
+    position: relative;
+
+    flex: 1 1 0;
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-end;
+}
+
+
+/* ============================================================
+   CHART VALUE
+============================================================ */
+
+.principal-finance-chart-value {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 100%;
+
+    transform:
+        translateX(-50%)
+        translateY(-6px);
+
+    white-space: nowrap;
+
+    padding: 4px 7px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 5px;
+
+    background: rgba(11, 15, 6, 0.96);
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.principal-finance-chart-column:hover
+.principal-finance-chart-value {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+}
+
+
+/* ============================================================
+   HIGHEST VALUE
+============================================================ */
+
+.principal-finance-chart-value.always-visible {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+
+    color: #ffffff;
+
+    border-color: rgba(132, 177, 60, 0.35);
+}
+
+
+/* ============================================================
+   CHART BAR
+============================================================ */
+
+.principal-finance-chart-bar {
+    position: relative;
+
+    width: 100%;
+
+    /*
+     * Previously 44px.
+     * Slightly thinner for compact appearance.
+     */
+    max-width: 36px;
+
+    min-height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 4px 4px 1px 1px;
+
+    box-sizing: border-box;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.16) 0px,
+            rgba(255, 255, 255, 0.16) 2px,
+            rgba(255, 255, 255, 0.08) 2px,
+            rgba(255, 255, 255, 0.08) 4px
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.04);
+
+    cursor: pointer;
+
+    transform-origin: bottom;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.principal-finance-chart-bar:hover {
+    transform: scaleX(1.04);
+
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ============================================================
+   HIGHEST CHART BAR
+============================================================ */
+
+.principal-finance-chart-bar.highlight {
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #84b13c 0px,
+            #84b13c 3px,
+            rgba(132, 177, 60, 0.68) 3px,
+            rgba(132, 177, 60, 0.68) 5px
+        );
+
+    border-color: rgba(132, 177, 60, 0.70);
+
+    box-shadow:
+        0 0 14px rgba(132, 177, 60, 0.10);
+}
+
+
+/* ============================================================
+   BAR INNER SLICES
+============================================================ */
+
+.principal-finance-chart-bar::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 7px,
+            rgba(255, 255, 255, 0.035) 7px,
+            rgba(255, 255, 255, 0.035) 8px
+        );
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   CHART DATE / X AXIS LABEL
+============================================================ */
+
+.principal-finance-chart-date {
+    flex-shrink: 0;
+
+    /*
+     * Reduced from 11px.
+     */
+    margin-top: 7px;
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.50);
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   CHART TOOLTIP
+============================================================ */
+
+.principal-finance-chart-tooltip {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 7px);
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
+
+    min-width: max-content;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 7px 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 6px;
+
+    background: rgba(11, 15, 6, 0.97);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 40;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.principal-finance-chart-column:hover
+.principal-finance-chart-tooltip {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.principal-finance-chart-tooltip-date {
+    font-size: 7px;
+
+    color: rgba(255, 255, 255, 0.42);
+}
+
+
+.principal-finance-chart-tooltip-amount {
+    font-size: 9px;
+
+    font-weight: 500;
+
+    color: #84b13c;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+============================================================ */
+
+.principal-finance-empty {
+    width: 100%;
+
+    height: 345px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   HEATMAP WRAPPER
+============================================================ */
+
+.principal-finance-activity-wrapper {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   HEATMAP HEADER
+============================================================ */
+
+.principal-finance-activity-month-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
+}
+
+
+.principal-finance-activity-month-title {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    letter-spacing: -0.025em;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ============================================================
+   MONTH SELECTOR
+============================================================ */
+
+.principal-finance-month-selector {
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+
+.principal-finance-month-selector button {
+    height: 27px;
+
+    padding: 0 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+
+.principal-finance-month-selector button:hover {
+    background: rgba(132, 177, 60, 0.08);
+
+    border-color: rgba(132, 177, 60, 0.30);
+
+    color: #ffffff;
+}
+
+
+.principal-finance-month-selector button.active {
+    background: rgba(132, 177, 60, 0.13);
+
+    border-color: rgba(132, 177, 60, 0.32);
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   HEATMAP WEEKDAYS
+============================================================ */
+
+.principal-finance-activity-weekdays {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 5px;
+
+    margin-bottom: 5px;
+}
+
+
+.principal-finance-activity-weekdays span {
+    text-align: center;
+
+    font-size: 7px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.34);
+}
+
+
+/* ============================================================
+   HEATMAP GRID
+============================================================ */
+
+.principal-finance-activity-grid {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    grid-auto-rows: minmax(38px, 1fr);
+
+    gap: 5px;
+}
+
+
+/* ============================================================
+   HEATMAP CELL
+============================================================ */
+
+.principal-finance-activity-cell {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    padding: 6px;
+
+    border: 1px solid rgba(255, 255, 255, 0.025);
+
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.principal-finance-activity-cell:hover {
+    transform: translateY(-1px);
+
+    border-color: rgba(132, 177, 60, 0.35);
+}
+
+
+.principal-finance-activity-cell.empty {
+    background: transparent;
+
+    border-color: transparent;
+
+    cursor: default;
+}
+
+
+/* ============================================================
+   HEATMAP DATE
+============================================================ */
+
+.principal-finance-activity-date-number {
+    position: absolute;
+
+    top: 5px;
+    right: 6px;
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* ============================================================
+   HEATMAP LEVELS
+============================================================ */
+
+.principal-finance-activity-cell.level-0 {
+    background: rgba(132, 177, 60, 0.025);
+}
+
+
+.principal-finance-activity-cell.level-1 {
+    background: rgba(132, 177, 60, 0.14);
+}
+
+
+.principal-finance-activity-cell.level-2 {
+    background: rgba(132, 177, 60, 0.28);
+}
+
+
+.principal-finance-activity-cell.level-3 {
+    background: rgba(132, 177, 60, 0.48);
+}
+
+
+.principal-finance-activity-cell.level-4 {
+    background: #84b13c;
+
+    border-color: #84b13c;
+}
+
+
+.principal-finance-activity-cell.level-4
+.principal-finance-activity-date-number {
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   HEATMAP LEGEND
+============================================================ */
+
+.principal-finance-activity-legend {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 4px;
+
+    margin-top: 10px;
+}
+
+
+.principal-finance-activity-legend span {
+    font-size: 7px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.30);
+}
+
+
+.principal-finance-activity-legend i {
+    width: 10px;
+    height: 10px;
+
+    display: block;
+
+    border-radius: 2px;
+
+    border: 1px solid rgba(255, 255, 255, 0.025);
+}
+
+
+.principal-finance-activity-legend .level-0 {
+    background: rgba(132, 177, 60, 0.025);
+}
+
+
+.principal-finance-activity-legend .level-1 {
+    background: rgba(132, 177, 60, 0.14);
+}
+
+
+.principal-finance-activity-legend .level-2 {
+    background: rgba(132, 177, 60, 0.28);
+}
+
+
+.principal-finance-activity-legend .level-3 {
+    background: rgba(132, 177, 60, 0.48);
+}
+
+
+.principal-finance-activity-legend .level-4 {
+    background: #84b13c;
+}
+
+
+/* ============================================================
+   HEATMAP HOVER
+============================================================ */
+
+.principal-finance-activity-hover {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 7px);
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
+
+    width: 180px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 8px;
+
+    background: rgba(11, 15, 6, 0.97);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+.principal-finance-activity-cell:hover
+.principal-finance-activity-hover {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.principal-finance-activity-hover-date {
+    margin-bottom: 7px;
+
+    font-size: 7px;
+
+    color: rgba(255, 255, 255, 0.38);
+}
+
+
+.principal-finance-activity-hover-summary {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding-bottom: 8px;
+
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.principal-finance-activity-hover-summary strong {
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: #84b13c;
+}
+
+
+.principal-finance-activity-hover-summary span {
+    font-size: 7px;
+
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+.principal-finance-activity-hover-students {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.principal-finance-activity-hover-student {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+
+.principal-finance-activity-hover-student > div {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.principal-finance-activity-hover-student strong {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+
+.principal-finance-activity-hover-student span {
+    font-size: 7px;
+
+    color: rgba(255, 255, 255, 0.30);
+}
+
+
+.principal-finance-activity-hover-student b {
+    flex-shrink: 0;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.70);
+}
+
+
+.principal-finance-activity-hover-more {
+    margin-top: 8px;
+
+    padding-top: 7px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    font-size: 7px;
+
+    color: rgba(132, 177, 60, 0.80);
+}
+
+
+.principal-finance-activity-hover-hint {
+    margin-top: 8px;
+
+    padding-top: 7px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    font-size: 7px;
+
+    color: rgba(255, 255, 255, 0.22);
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   LOADING
+============================================================ */
+
+.principal-finance-loading {
+    width: 100%;
+
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255, 255, 255, 0.30);
+
+    font-size: 10px;
+}
+
+
+/* ============================================================
+   HEATMAP PAYMENT MODAL
+============================================================ */
+
+.principal-finance-payment-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 9999;
+
+    animation: financeModalOverlayIn 0.2s ease-out;
+}
+
+
+.principal-finance-payment-modal {
+    width: min(700px, 100%);
+
+    max-height: min(650px, 88vh);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #080b06;
+
+    border: 1px solid rgba(132, 177, 60, 0.28);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(132, 177, 60, 0.04);
+
+    color: #ffffff;
+
+    animation: financeModalIn 0.25s ease-out;
+}
+
+
+/* ============================================================
+   MODAL HEADER
+============================================================ */
+
+.principal-finance-payment-modal-header {
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.principal-finance-payment-modal-header h3 {
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.3px;
+
+    color: #ffffff;
+}
+
+
+.principal-finance-payment-modal-header span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* ============================================================
+   MODAL CLOSE
+============================================================ */
+
+.principal-finance-payment-modal-close {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.principal-finance-payment-modal-close:hover {
+    background: rgba(132, 177, 60, 0.12);
+
+    border-color: rgba(132, 177, 60, 0.45);
+
+    color: #84B13C;
+
+    transform: rotate(4deg);
+}
+
+
+/* ============================================================
+   MODAL SUMMARY
+============================================================ */
+
+.principal-finance-payment-modal-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    padding: 14px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.principal-finance-payment-modal-summary > div {
+    min-height: 68px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 11px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+.principal-finance-payment-modal-summary span {
+    margin-bottom: 5px;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    color: rgba(255, 255, 255, 0.42);
+}
+
+
+.principal-finance-payment-modal-summary strong {
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.6px;
+
+    color: #ffffff;
+}
+
+
+.principal-finance-payment-modal-summary > div:first-child strong {
+    color: #84B13C;
+}
+
+
+/* ============================================================
+   MODAL BODY
+============================================================ */
+
+.principal-finance-payment-modal-body {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 0 20px 10px;
+}
+
+
+.principal-finance-payment-modal-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+
+.principal-finance-payment-modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.principal-finance-payment-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(132, 177, 60, 0.35);
+
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   MODAL TABLE HEADER
+============================================================ */
+
+.principal-finance-payment-modal-table-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(170px, 1.5fr)
+        minmax(130px, 1fr)
+        90px;
+
+    align-items: center;
+
+    min-height: 37px;
+
+    background: #080b06;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    color: rgba(255, 255, 255, 0.38);
+}
+
+
+/* ============================================================
+   MODAL STUDENTS
+============================================================ */
+
+.principal-finance-payment-modal-students {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.principal-finance-payment-modal-student {
+    display: grid;
+
+    grid-template-columns:
+        minmax(170px, 1.5fr)
+        minmax(130px, 1fr)
+        90px;
+
+    align-items: center;
+
+    min-height: 55px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+
+    transition: background 0.2s ease;
+}
+
+
+.principal-finance-payment-modal-student:hover {
+    background: rgba(132, 177, 60, 0.055);
+}
+
+
+.principal-finance-payment-modal-student strong {
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.88);
+}
+
+
+.principal-finance-payment-modal-student small {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 8px;
+
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+.principal-finance-payment-modal-student > span {
+    overflow: hidden;
+
+    padding-right: 10px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+.principal-finance-payment-modal-student > b {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-align: right;
+
+    color: #84B13C;
+}
+
+
+/* ============================================================
+   MODAL FOOTER
+============================================================ */
+
+.principal-finance-payment-modal-footer {
+    min-height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding: 12px 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.principal-finance-payment-modal-footer button {
+    min-width: 78px;
+
+    height: 34px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.principal-finance-payment-modal-footer button:hover {
+    background: rgba(132, 177, 60, 0.10);
+
+    border-color: rgba(132, 177, 60, 0.40);
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+
+@keyframes financeModalOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes financeModalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — 1000
+============================================================ */
+
+@media (max-width: 1000px) {
+
+    .principal-finance-page {
+        padding: 22px;
+    }
+
+
+    .principal-finance-page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .principal-finance-filters {
+        width: 100%;
+    }
+
+
+    .principal-finance-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — 700
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .principal-finance-page {
+        padding: 16px;
+    }
+
+
+    .principal-finance-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .principal-finance-filters {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        width: 100%;
+    }
+
+
+    .principal-finance-filter {
+        min-width: 0;
+    }
+
+
+    .principal-finance-filter select,
+    .principal-finance-filter input {
+        width: 100%;
+    }
+
+
+    .principal-finance-clear-btn {
+        width: 100%;
+    }
+
+
+    .principal-finance-chart-section,
+    .principal-finance-activity-section {
+        height: 440px;
+
+        padding: 17px;
+    }
+
+
+    .principal-finance-chart {
+        height: 315px;
+    }
+
+
+    .principal-finance-activity-grid {
+        grid-auto-rows: minmax(34px, 1fr);
+
+        gap: 4px;
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — 480
+============================================================ */
+
+@media (max-width: 480px) {
+
+    .principal-finance-page {
+        padding: 13px;
+    }
+
+
+    .principal-finance-title {
+        font-size: 24px;
+    }
+
+
+    .principal-finance-filters {
+        grid-template-columns: 1fr;
+    }
+
+
+    .principal-finance-stat-card {
+        height: 118px;
+
+        padding: 17px;
+    }
+
+
+    .principal-finance-stat-card-value {
+        font-size: 26px;
+    }
+
+
+    .principal-finance-chart-section,
+    .principal-finance-activity-section {
+        height: 420px;
+
+        padding: 14px;
+    }
+
+
+    .principal-finance-chart {
+        height: 285px;
+    }
+
+
+    .principal-finance-chart-bars {
+        gap: 6px;
+    }
+
+
+    .principal-finance-chart-bar {
+        max-width: 29px;
+    }
+
+
+    .principal-finance-activity-month-title {
+        font-size: 13px;
+    }
+
+
+    .principal-finance-activity-grid {
+        gap: 3px;
+    }
+
+
+    .principal-finance-activity-cell {
+        padding: 5px;
+    }
+
+
+    .principal-finance-activity-date-number {
+        top: 5px;
+
+        right: 5px;
+
+        font-size: 7px;
+    }
+
+}

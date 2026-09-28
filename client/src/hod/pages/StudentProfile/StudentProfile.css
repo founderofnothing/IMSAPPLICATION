@@ -1,0 +1,1286 @@
+/* ==========================================================
+   STUDENT PROFILE
+   ========================================================== */
+
+.student-profile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: rgba(23, 19, 25, 0.32);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ==========================================================
+   PROFILE WRAPPER
+   ========================================================== */
+
+.student-profile-wrapper {
+    width: min(1180px, 100%);
+    height: min(90vh, 900px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 24px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.16);
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.student-profile-header {
+    position: relative;
+
+    flex-shrink: 0;
+
+    padding: 28px 32px;
+
+    background: #171319;
+}
+
+
+/* ==========================================================
+   CLOSE BUTTON
+   ========================================================== */
+
+.student-profile-close {
+    position: absolute;
+
+    top: 20px;
+    right: 22px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.student-profile-close:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.student-profile-close:active {
+    transform: scale(0.94);
+}
+
+
+/* ==========================================================
+   HEADER INFO
+   ========================================================== */
+
+.student-profile-header-info {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding-right: 50px;
+}
+
+
+/* ==========================================================
+   AVATAR
+   ========================================================== */
+
+.student-profile-avatar {
+    width: 76px;
+    height: 76px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    color: #171319;
+}
+
+.student-profile-avatar img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================================
+   EYEBROW
+   ========================================================== */
+
+.student-profile-eyebrow {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    color: #d0ff71;
+}
+
+
+/* ==========================================================
+   HEADER NAME
+   ========================================================== */
+
+.student-profile-header h2 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    color: #ffffff;
+}
+
+.student-profile-header p {
+    margin: 5px 0 0;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.58);
+}
+
+.student-profile-header p strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   TABS
+   ========================================================== */
+
+.student-profile-tabs {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 10px 18px;
+
+    overflow-x: auto;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+
+    scrollbar-width: none;
+}
+
+.student-profile-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ==========================================================
+   TAB
+   ========================================================== */
+
+.student-profile-tab {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 38px;
+
+    padding: 0 15px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #8b8b8b;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.student-profile-tab:hover {
+    background: #f7f7f7;
+    color: #171319;
+}
+
+.student-profile-tab.active {
+    background: #171319;
+
+    color: #ffffff;
+
+    border-color: #171319;
+}
+
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+
+.student-profile-content {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    background: #fafafa;
+
+    scrollbar-width: thin;
+    scrollbar-color: #d5d5d5 transparent;
+}
+
+.student-profile-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.student-profile-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.student-profile-content::-webkit-scrollbar-thumb {
+    background: #d5d5d5;
+    border-radius: 10px;
+}
+
+
+/* ==========================================================
+   SECTION
+   ========================================================== */
+
+.student-profile-section {
+    width: 100%;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+}
+
+
+/* ==========================================================
+   SECTION HEADING
+   ========================================================== */
+
+.student-profile-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.student-profile-section-heading span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #a1a1a1;
+}
+
+.student-profile-section-heading h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #171319;
+}
+
+
+/* ==========================================================
+   PROFILE INFORMATION GRID
+   ========================================================== */
+
+.student-profile-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1px;
+
+    overflow: hidden;
+
+    background: #eeeeee;
+
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+}
+
+
+/* ==========================================================
+   INFO ITEM
+   ========================================================== */
+
+.student-profile-info-item {
+    min-width: 0;
+
+    padding: 16px;
+
+    background: #ffffff;
+}
+
+.student-profile-info-item label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+
+    color: #a0a0a0;
+}
+
+.student-profile-info-item p {
+    margin: 0;
+
+    overflow: hidden;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    color: #171319;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   FEES SUMMARY
+   ========================================================== */
+
+.student-fees-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.student-fees-summary-card {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 17px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+
+    background: #ffffff;
+}
+
+.student-fees-summary-card.dark {
+    background: #171319;
+    border-color: #171319;
+}
+
+.student-fees-summary-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f2f2f2;
+
+    color: #171319;
+}
+
+.student-fees-summary-card.dark
+.student-fees-summary-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #d0ff71;
+}
+
+.student-fees-summary-card span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 10px;
+    color: #999999;
+}
+
+.student-fees-summary-card strong {
+    display: block;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #171319;
+}
+
+.student-fees-summary-card.dark span {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.student-fees-summary-card.dark strong {
+    color: #ffffff;
+}
+
+
+/* ==========================================================
+   TABLE WRAPPERS
+   ========================================================== */
+
+.student-fees-table-wrapper,
+.student-exam-table-wrapper,
+.student-attendance-subject-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid #eeeeee;
+    border-radius: 13px;
+
+    scrollbar-width: thin;
+}
+
+
+/* ==========================================================
+   COMMON TABLE
+   ========================================================== */
+
+.student-fees-table,
+.student-exam-table,
+.student-attendance-table {
+    width: 100%;
+
+    min-width: 700px;
+
+    border-collapse: collapse;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.student-fees-table th,
+.student-exam-table th,
+.student-attendance-table th {
+    padding: 12px 14px;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    color: #8d8d8d;
+
+    white-space: nowrap;
+}
+
+.student-fees-table td,
+.student-exam-table td,
+.student-attendance-table td {
+    padding: 13px 14px;
+
+    border-bottom: 1px solid #f1f1f1;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    color: #555555;
+
+    white-space: nowrap;
+}
+
+.student-fees-table tbody tr:last-child td,
+.student-exam-table tbody tr:last-child td,
+.student-attendance-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.student-fees-table tbody tr:hover,
+.student-exam-table tbody tr:hover,
+.student-attendance-table tbody tr:hover {
+    background: #fafafa;
+}
+
+
+/* ==========================================================
+   FEE AMOUNT
+   ========================================================== */
+
+.student-fees-amount {
+    font-weight: 600 !important;
+    color: #171319 !important;
+}
+
+
+/* ==========================================================
+   PAYMENT MODE
+   ========================================================== */
+
+.student-payment-mode {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    background: #f3f3f3;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    color: #555555;
+}
+
+
+/* ==========================================================
+   EXAM RESULTS
+   ========================================================== */
+
+.student-exam-results {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.student-exam-card {
+    overflow: hidden;
+
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
+
+    background: #ffffff;
+}
+
+
+/* ==========================================================
+   EXAM HEADER
+   ========================================================== */
+
+.student-exam-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    background: #171319;
+}
+
+.student-exam-card-header span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #d0ff71;
+}
+
+.student-exam-card-header h4 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #ffffff;
+}
+
+.student-exam-date {
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    font-size: 9px;
+
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ==========================================================
+   EXAM MARKS
+   ========================================================== */
+
+.student-exam-table-wrapper {
+    border: none;
+    border-radius: 0;
+}
+
+.student-exam-table {
+    min-width: 650px;
+}
+
+.student-exam-table td strong {
+    color: #171319;
+    font-weight: 600;
+}
+
+.student-exam-table td:last-child strong {
+    display: inline-flex;
+
+    min-width: 34px;
+    justify-content: center;
+
+    padding: 4px 7px;
+
+    border-radius: 6px;
+
+    background: #eaf8d5;
+
+    color: #171319;
+}
+
+
+/* ==========================================================
+   ATTENDANCE SUMMARY
+   ========================================================== */
+
+.student-attendance-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.student-attendance-summary-card {
+    padding: 17px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 13px;
+
+    background: #ffffff;
+}
+
+.student-attendance-summary-card span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+
+    color: #999999;
+}
+
+.student-attendance-summary-card strong {
+    font-size: 21px;
+    font-weight: 600;
+
+    color: #171319;
+}
+
+.student-attendance-summary-card.dark {
+    background: #171319;
+    border-color: #171319;
+}
+
+.student-attendance-summary-card.dark span {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.student-attendance-summary-card.dark strong {
+    color: #d0ff71;
+}
+
+
+/* ==========================================================
+   ATTENDANCE SUB-SECTIONS
+   ========================================================== */
+
+.student-attendance-subject-section,
+.student-attendance-day-section {
+    margin-top: 30px;
+}
+
+
+/* ==========================================================
+   ATTENDANCE STATUS
+   ========================================================== */
+
+.attendance-present {
+    font-weight: 600 !important;
+    color: #4d8b18 !important;
+}
+
+.attendance-absent {
+    font-weight: 600 !important;
+    color: #c45b5b !important;
+}
+
+
+/* ==========================================================
+   DAILY ATTENDANCE LIST
+   ========================================================== */
+
+.student-attendance-day-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.student-attendance-day-card {
+    overflow: hidden;
+
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+
+    background: #ffffff;
+}
+
+
+/* ==========================================================
+   DAY HEADER
+   ========================================================== */
+
+.student-attendance-day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.student-attendance-day-header > div {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.student-attendance-day-header strong {
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #171319;
+}
+
+.student-attendance-day-header span {
+    font-size: 10px;
+    color: #999999;
+}
+
+.student-attendance-day-header small {
+    font-size: 9px;
+    color: #999999;
+}
+
+
+/* ==========================================================
+   ATTENDANCE PERIOD GRID
+   ========================================================== */
+
+.student-attendance-period-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+
+    padding: 14px;
+}
+
+
+/* ==========================================================
+   ATTENDANCE PERIOD
+   ========================================================== */
+
+.student-attendance-period {
+    padding: 12px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+.student-attendance-period.present {
+    border-color: #dcefbf;
+    background: #f8fdea;
+}
+
+.student-attendance-period.absent {
+    border-color: #f2dede;
+    background: #fffafa;
+}
+
+
+/* ==========================================================
+   PERIOD NUMBER
+   ========================================================== */
+
+.student-attendance-period-number {
+    margin-bottom: 8px;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    color: #999999;
+}
+
+
+/* ==========================================================
+   PERIOD SUBJECT
+   ========================================================== */
+
+.student-attendance-period-subject {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+}
+
+.student-attendance-period-subject strong {
+    overflow: hidden;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #171319;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.student-attendance-period-subject span {
+    font-size: 9px;
+    color: #999999;
+}
+
+
+/* ==========================================================
+   PERIOD STATUS
+   ========================================================== */
+
+.student-attendance-period-status {
+    margin-top: 10px;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.student-attendance-period.present
+.student-attendance-period-status {
+    color: #4d8b18;
+}
+
+.student-attendance-period.absent
+.student-attendance-period-status {
+    color: #c45b5b;
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+   ========================================================== */
+
+.student-profile-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 180px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border: 1px dashed #dddddd;
+    border-radius: 13px;
+
+    background: #fafafa;
+
+    font-size: 11px;
+
+    color: #999999;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   PAGE LOADING
+   ========================================================== */
+
+.student-profile-page-loading,
+.student-profile-page-empty {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background: #fafafa;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.student-profile-loading-card {
+    padding: 22px 28px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    font-size: 12px;
+
+    color: #777777;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================
+   NOT FOUND
+   ========================================================== */
+
+.student-profile-page-empty > div {
+    padding: 30px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    text-align: center;
+}
+
+.student-profile-page-empty h3 {
+    margin: 0 0 16px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #171319;
+}
+
+.student-profile-page-empty button {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #171319;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .student-profile-overlay {
+        padding: 14px;
+    }
+
+    .student-profile-wrapper {
+        height: 94vh;
+    }
+
+    .student-profile-content {
+        padding: 20px;
+    }
+
+    .student-profile-section {
+        padding: 20px;
+    }
+
+    .student-profile-info-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .student-attendance-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .student-attendance-period-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .student-profile-overlay {
+        padding: 0;
+    }
+
+    .student-profile-wrapper {
+        width: 100%;
+        height: 100vh;
+
+        border-radius: 0;
+
+        border: none;
+    }
+
+    .student-profile-header {
+        padding: 22px 18px;
+    }
+
+    .student-profile-avatar {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 14px;
+    }
+
+    .student-profile-header h2 {
+        font-size: 18px;
+    }
+
+    .student-profile-header p {
+        font-size: 10px;
+    }
+
+    .student-profile-content {
+        padding: 12px;
+    }
+
+    .student-profile-section {
+        padding: 16px;
+
+        border-radius: 13px;
+    }
+
+    .student-profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-profile-info-item {
+        padding: 13px;
+    }
+
+    .student-profile-tabs {
+        padding: 8px;
+    }
+
+    .student-profile-tab {
+        padding: 0 11px;
+
+        font-size: 10px;
+    }
+
+    .student-profile-section-heading h3 {
+        font-size: 16px;
+    }
+
+    .student-fees-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .student-fees-summary-card strong {
+        font-size: 16px;
+    }
+
+    .student-exam-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .student-exam-date {
+        align-self: flex-start;
+    }
+
+    .student-attendance-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+    .student-attendance-summary-card {
+        padding: 13px;
+    }
+
+    .student-attendance-summary-card strong {
+        font-size: 17px;
+    }
+
+    .student-attendance-period-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        padding: 10px;
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 400px) {
+
+    .student-profile-header-info {
+        gap: 11px;
+    }
+
+    .student-profile-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .student-profile-header h2 {
+        font-size: 16px;
+    }
+
+    .student-attendance-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .student-attendance-period-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

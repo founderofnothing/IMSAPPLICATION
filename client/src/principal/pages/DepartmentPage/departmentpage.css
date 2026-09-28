@@ -1,0 +1,2094 @@
+/* =========================================================
+   DEPARTMENT PAGE
+   GLOBAL
+========================================================= */
+
+.department-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 32px 48px;
+
+  background: #f7f8f5;
+
+  font-family: "Poppins", sans-serif;
+  color: #20251d;
+
+  box-sizing: border-box;
+}
+
+.department-page *,
+.department-page *::before,
+.department-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.department-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  margin-bottom: 30px;
+}
+
+.department-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #85b03a;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.department-page-header h1 {
+  margin: 0;
+
+  color: #1f241d;
+
+  font-size: 31px;
+  font-weight: 700;
+
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+.department-page-header p {
+  margin: 8px 0 0;
+
+  max-width: 620px;
+
+  color: #7b8274;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER ACTION AREA
+========================================================= */
+
+.department-header-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   DEPARTMENT SELECTOR
+========================================================= */
+
+.department-selector {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 235px;
+}
+
+.department-selector label {
+  margin-bottom: 6px;
+
+  color: #777d71;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.department-selector select {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 38px 0 13px;
+
+  border: 1px solid #dfe4da;
+  border-radius: 7px;
+
+  outline: none;
+
+  background-color: #ffffff;
+  color: #30372c;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.department-selector select:hover {
+  border-color: #c7d1bd;
+}
+
+.department-selector select:focus {
+  border-color: #85b03a;
+
+  box-shadow:
+    0 0 0 3px rgba(133, 176, 58, 0.10);
+}
+
+.department-selector select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CRUD HEADER ACTIONS
+========================================================= */
+
+.department-crud-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.department-action-btn {
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.department-action-btn span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.department-action-btn:hover {
+  transform: translateY(-1px);
+}
+
+.department-action-btn:active {
+  transform: translateY(0);
+}
+
+.department-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================================
+   RECYCLE HEADER BUTTON
+========================================================= */
+
+.department-action-recycle {
+  border-color: #dfe4da;
+
+  background: #ffffff;
+  color: #636a5d;
+}
+
+.department-action-recycle:hover {
+  border-color: #cbd5c1;
+
+  background: #f8faf6;
+  color: #4f584a;
+}
+
+
+/* =========================================================
+   ADD DEPARTMENT HEADER BUTTON
+========================================================= */
+
+.department-action-add {
+  border-color: #85b03a;
+
+  background: #85b03a;
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(133, 176, 58, 0.16);
+}
+
+.department-action-add:hover {
+  background: #789f34;
+  border-color: #789f34;
+
+  box-shadow:
+    0 7px 18px rgba(133, 176, 58, 0.20);
+}
+
+
+/* =========================================================
+   EMPTY STATE CARD
+========================================================= */
+
+.department-empty-state {
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  border: 1px solid #e2e6de;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+.department-empty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 9px;
+
+  background: #f0f5e9;
+  color: #85b03a;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.department-empty-state h2 {
+  margin: 0;
+
+  color: #30362c;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.department-empty-state p {
+  max-width: 420px;
+
+  margin: 8px 0 0;
+
+  color: #8a9184;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING CARD
+========================================================= */
+
+.department-loading {
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e2e6de;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.department-loading p {
+  margin: 14px 0 0;
+
+  color: #81887b;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+========================================================= */
+
+.department-spinner {
+  width: 26px;
+  height: 26px;
+
+  border: 2px solid #e5eadf;
+  border-top-color: #85b03a;
+
+  border-radius: 50%;
+
+  animation: departmentSpin 0.75s linear infinite;
+}
+
+@keyframes departmentSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   DEPARTMENT IDENTITY CARD
+========================================================= */
+
+.department-identity-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  min-height: 148px;
+
+  padding: 24px 25px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #e0e5db;
+  border-radius: 10px;
+
+  background: #20251d;
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   IDENTITY CARD ACCENT
+========================================================= */
+
+.department-identity-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -70px;
+  bottom: -100px;
+
+  width: 260px;
+  height: 260px;
+
+  border: 1px solid rgba(133, 176, 58, 0.18);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   IDENTITY MAIN
+========================================================= */
+
+.department-identity-main {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  flex: 1;
+}
+
+.department-avatar {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #85b03a;
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.15);
+}
+
+.department-identity-main span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #a8b19f;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+}
+
+.department-identity-main h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 600;
+
+  letter-spacing: -0.4px;
+}
+
+.department-identity-main p {
+  margin: 5px 0 0;
+
+  color: #aeb5a8;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   IDENTITY META
+========================================================= */
+
+.department-identity-meta {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: stretch;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.department-identity-meta > div {
+  min-width: 115px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 20px;
+}
+
+.department-identity-meta span {
+  margin-bottom: 6px;
+
+  color: #899184;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+.department-identity-meta strong {
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   IDENTITY CRUD ACTIONS
+========================================================= */
+
+.department-identity-actions {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.department-identity-actions button {
+  height: 34px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #d9ded5;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.department-identity-actions button:hover {
+  background: rgba(255, 255, 255, 0.10);
+
+  border-color: rgba(255, 255, 255, 0.22);
+
+  color: #ffffff;
+}
+
+.department-identity-actions button:last-child:hover {
+  border-color: rgba(220, 120, 120, 0.40);
+
+  background: rgba(180, 70, 70, 0.12);
+
+  color: #e9b5b5;
+}
+
+
+/* =========================================================
+   MAIN STATISTICS GRID
+========================================================= */
+
+.department-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   STATISTICS CARD
+========================================================= */
+
+.department-stat-card {
+  min-height: 145px;
+
+  padding: 18px;
+
+  border: 1px solid #e1e5dd;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.department-stat-card:hover {
+  border-color: #d2dac9;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(30, 40, 25, 0.05);
+}
+
+
+/* =========================================================
+   STAT CARD TOP
+========================================================= */
+
+.department-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.department-stat-top > span {
+  color: #858c7e;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   STAT CARD ICON
+========================================================= */
+
+.department-stat-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: #f0f5e9;
+  color: #85b03a;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.department-stat-card > strong {
+  display: block;
+
+  color: #252b21;
+
+  font-size: 27px;
+  font-weight: 600;
+
+  line-height: 1;
+  letter-spacing: -0.8px;
+}
+
+.department-stat-card > p {
+  margin: 9px 0 0;
+
+  color: #93998f;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BREAKDOWN GRID
+========================================================= */
+
+.department-breakdown-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   COMMON PANEL CARD
+========================================================= */
+
+.department-panel {
+  padding: 21px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #e1e5dd;
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   PANEL HEADER
+========================================================= */
+
+.department-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #edf0ea;
+}
+
+.department-panel-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8a9184;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+.department-panel-header h3 {
+  margin: 0;
+
+  color: #2a3027;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  letter-spacing: -0.2px;
+}
+
+.department-panel-count {
+  min-width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 8px;
+
+  border-radius: 6px;
+
+  background: #f0f5e9;
+  color: #71952f;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   BREAKDOWN ITEMS
+========================================================= */
+
+.department-breakdown-items {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-top: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid #edf0ea;
+  border-radius: 7px;
+
+  background: #edf0ea;
+}
+
+.department-breakdown-item {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  background: #ffffff;
+}
+
+.department-breakdown-item span {
+  display: block;
+
+  color: #42493e;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.department-breakdown-item small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #999f95;
+
+  font-size: 9px;
+}
+
+.department-breakdown-item strong {
+  color: #2b3228;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PROGRAMME GRID
+========================================================= */
+
+.department-programme-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  padding-top: 16px;
+}
+
+
+/* =========================================================
+   PROGRAMME CARD
+========================================================= */
+
+.department-programme-card {
+  min-height: 130px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 15px;
+
+  border: 1px solid #e4e8e1;
+  border-radius: 8px;
+
+  background: #fbfcfa;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.department-programme-card:hover {
+  border-color: #d1dac7;
+
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.department-programme-card > div:first-child {
+  min-width: 0;
+}
+
+.department-programme-type {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: #85b03a;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.department-programme-card h4 {
+  margin: 0;
+
+  color: #2b3228;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.45;
+}
+
+.department-programme-card p {
+  margin: 5px 0 0;
+
+  color: #92998d;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   PROGRAMME STUDENT COUNT
+========================================================= */
+
+.department-programme-count {
+  min-width: 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  flex-shrink: 0;
+}
+
+.department-programme-count strong {
+  color: #30372c;
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.department-programme-count span {
+  color: #979e92;
+
+  font-size: 8px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CLASS GRID
+========================================================= */
+
+.department-class-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+
+  padding-top: 16px;
+}
+
+
+/* =========================================================
+   CLASS CARD
+========================================================= */
+
+.department-class-card {
+  min-height: 112px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border: 1px solid #e4e8e1;
+  border-radius: 8px;
+
+  background: #fbfcfa;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.department-class-card:hover {
+  border-color: #d1dac7;
+
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.department-class-info {
+  min-width: 0;
+}
+
+.department-class-info > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #85b03a;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.department-class-info h4 {
+  margin: 0;
+
+  color: #30372c;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+.department-class-info p {
+  max-width: 150px;
+
+  margin: 4px 0 0;
+
+  overflow: hidden;
+
+  color: #969d91;
+
+  font-size: 9px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CLASS STUDENT COUNT
+========================================================= */
+
+.department-class-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  flex-shrink: 0;
+}
+
+.department-class-count strong {
+  color: #30372c;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.department-class-count span {
+  color: #979e92;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   NO DATA INSIDE PANELS
+========================================================= */
+
+.department-no-data {
+  grid-column: 1 / -1;
+
+  padding: 35px 20px;
+
+  color: #949b90;
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CRUD MODAL OVERLAY
+========================================================= */
+
+.department-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(24, 29, 22, 0.55);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   ADD / EDIT MODAL CARD
+========================================================= */
+
+.department-modal {
+  width: 100%;
+  max-width: 510px;
+
+  max-height: calc(100vh - 50px);
+
+  overflow-y: auto;
+
+  border: 1px solid #e0e5da;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(25, 30, 22, 0.20);
+
+  animation:
+    departmentModalIn 0.22s ease-out;
+}
+
+@keyframes departmentModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.department-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px 23px;
+
+  border-bottom: 1px solid #edf0ea;
+}
+
+.department-modal-header > div {
+  min-width: 0;
+}
+
+.department-modal-header span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #85b03a;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+}
+
+.department-modal-header h2 {
+  margin: 0;
+
+  color: #272d24;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  letter-spacing: -0.3px;
+}
+
+.department-modal-header p {
+  margin: 5px 0 0;
+
+  color: #8d9488;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MODAL CLOSE BUTTON
+========================================================= */
+
+.department-modal-close {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #e3e7df;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #737a6e;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.department-modal-close:hover {
+  border-color: #d2d9cc;
+
+  background: #f7f9f5;
+
+  color: #343b31;
+}
+
+.department-modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MODAL FORM
+========================================================= */
+
+.department-modal-form {
+  padding: 23px;
+}
+
+
+/* =========================================================
+   FORM FIELD
+========================================================= */
+
+.department-form-field {
+  margin-bottom: 17px;
+}
+
+.department-form-field label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+
+  color: #4b5347;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.department-form-field label span {
+  color: #a1a89c;
+
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.department-form-field input,
+.department-form-field select {
+  width: 100%;
+  height: 43px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dfe4da;
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #343b31;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.department-form-field input::placeholder {
+  color: #adb3aa;
+}
+
+.department-form-field input:hover,
+.department-form-field select:hover {
+  border-color: #cbd4c3;
+}
+
+.department-form-field input:focus,
+.department-form-field select:focus {
+  border-color: #85b03a;
+
+  box-shadow:
+    0 0 0 3px rgba(133, 176, 58, 0.09);
+}
+
+.department-form-field input:disabled,
+.department-form-field select:disabled {
+  background: #f5f7f3;
+
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+.department-form-field small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #a0a69c;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.department-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding-top: 7px;
+}
+
+
+/* =========================================================
+   MODAL CANCEL BUTTON
+========================================================= */
+
+.department-modal-cancel {
+  height: 39px;
+
+  padding: 0 15px;
+
+  border: 1px solid #dfe4da;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #6f776b;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.department-modal-cancel:hover {
+  border-color: #cbd3c5;
+
+  background: #f8faf6;
+
+  color: #454d41;
+}
+
+.department-modal-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MODAL SUBMIT BUTTON
+========================================================= */
+
+.department-modal-submit {
+  min-width: 145px;
+  height: 39px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 15px;
+
+  border: 1px solid #85b03a;
+  border-radius: 6px;
+
+  background: #85b03a;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.department-modal-submit:hover {
+  border-color: #789f34;
+
+  background: #789f34;
+
+  box-shadow:
+    0 5px 14px rgba(133, 176, 58, 0.17);
+}
+
+.department-modal-submit:disabled {
+  border-color: #cfd6c9;
+
+  background: #d6dbd1;
+  color: #ffffff;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   BUTTON LOADING SPINNER
+========================================================= */
+
+.department-button-spinner {
+  width: 12px;
+  height: 12px;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation:
+    departmentSpin 0.7s linear infinite;
+}
+
+
+/* =========================================================
+   RECYCLE BIN MODAL CARD
+========================================================= */
+
+.department-recycle-modal {
+  width: 100%;
+  max-width: 720px;
+
+  max-height: calc(100vh - 50px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #e0e5da;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(25, 30, 22, 0.20);
+
+  animation:
+    departmentModalIn 0.22s ease-out;
+}
+
+
+/* =========================================================
+   RECYCLE LOADING CARD
+========================================================= */
+
+.department-recycle-loading {
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.department-recycle-loading p {
+  margin: 13px 0 0;
+
+  color: #858c80;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   RECYCLE EMPTY CARD
+========================================================= */
+
+.department-recycle-empty {
+  min-height: 270px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.department-recycle-empty-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 8px;
+
+  background: #f1f5ec;
+  color: #85b03a;
+
+  font-size: 18px;
+}
+
+.department-recycle-empty h3 {
+  margin: 0;
+
+  color: #343a30;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.department-recycle-empty p {
+  margin: 6px 0 0;
+
+  color: #959c90;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   RECYCLE LIST
+========================================================= */
+
+.department-recycle-list {
+  max-height: 460px;
+
+  overflow-y: auto;
+
+  padding: 10px 20px 20px;
+}
+
+
+/* =========================================================
+   RECYCLE ITEM CARD
+========================================================= */
+
+.department-recycle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 3px;
+
+  border-bottom: 1px solid #edf0ea;
+}
+
+.department-recycle-item:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   RECYCLE ITEM INFORMATION
+========================================================= */
+
+.department-recycle-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.department-recycle-avatar {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  background: #f0f4eb;
+  color: #719530;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.department-recycle-info > div:last-child {
+  min-width: 0;
+}
+
+.department-recycle-info strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #343a30;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.department-recycle-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  color: #8d9488;
+
+  font-size: 9px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.department-recycle-info small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #a1a79e;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   RECYCLE ACTIONS
+========================================================= */
+
+.department-recycle-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+}
+
+.department-recycle-actions button {
+  height: 32px;
+
+  padding: 0 11px;
+
+  border-radius: 6px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.department-recycle-actions button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESTORE BUTTON
+========================================================= */
+
+.department-restore-btn {
+  border: 1px solid #d5dfca;
+
+  background: #f4f8ef;
+  color: #6d922e;
+}
+
+.department-restore-btn:hover {
+  border-color: #bacaac;
+
+  background: #edf5e4;
+
+  color: #5f8325;
+}
+
+
+/* =========================================================
+   PERMANENT DELETE BUTTON
+========================================================= */
+
+.department-permanent-delete-btn {
+  border: 1px solid #eadada;
+
+  background: #ffffff;
+  color: #a26565;
+}
+
+.department-permanent-delete-btn:hover {
+  border-color: #dfc4c4;
+
+  background: #fcf6f6;
+
+  color: #914e4e;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.department-modal::-webkit-scrollbar,
+.department-recycle-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.department-modal::-webkit-scrollbar-track,
+.department-recycle-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.department-modal::-webkit-scrollbar-thumb,
+.department-recycle-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: #d7ddd1;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .department-page {
+    padding: 24px 24px 40px;
+  }
+
+  .department-page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .department-header-actions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .department-selector {
+    flex: 1;
+  }
+
+  .department-stat-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .department-programme-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .department-class-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   TABLET SMALL
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .department-identity-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .department-identity-main {
+    width: 100%;
+  }
+
+  .department-identity-meta {
+    width: 100%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-left: none;
+
+    padding-top: 16px;
+  }
+
+  .department-identity-meta > div {
+    padding: 0 15px;
+  }
+
+  .department-identity-meta > div:first-child {
+    padding-left: 0;
+  }
+
+  .department-identity-actions {
+    width: 100%;
+
+    justify-content: flex-end;
+  }
+
+  .department-breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-class-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+
+  .department-page {
+    padding: 20px 15px 35px;
+  }
+
+  .department-page-header h1 {
+    font-size: 25px;
+  }
+
+  .department-header-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .department-selector {
+    width: 100%;
+  }
+
+  .department-crud-actions {
+    width: 100%;
+  }
+
+  .department-action-btn {
+    flex: 1;
+  }
+
+  .department-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-identity-card {
+    padding: 19px;
+  }
+
+  .department-identity-main h2 {
+    font-size: 19px;
+  }
+
+  .department-identity-meta {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .department-identity-meta > div {
+    min-width: 0;
+
+    padding: 0 9px;
+  }
+
+  .department-identity-meta strong {
+    overflow: hidden;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .department-identity-actions {
+    justify-content: stretch;
+  }
+
+  .department-identity-actions button {
+    flex: 1;
+  }
+
+  .department-panel {
+    padding: 16px;
+  }
+
+  .department-breakdown-items {
+    grid-template-columns: 1fr;
+  }
+
+  .department-programme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-class-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-modal-overlay {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+  .department-modal,
+  .department-recycle-modal {
+    max-height: 92vh;
+
+    border-radius: 12px 12px 0 0;
+  }
+
+  .department-modal-form {
+    padding: 19px;
+  }
+
+  .department-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .department-modal-actions button {
+    width: 100%;
+  }
+
+  .department-recycle-list {
+    padding: 5px 15px 15px;
+  }
+
+  .department-recycle-item {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .department-recycle-actions {
+    width: 100%;
+  }
+
+  .department-recycle-actions button {
+    flex: 1;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .department-page-header h1 {
+    font-size: 22px;
+  }
+
+  .department-identity-meta {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .department-identity-meta > div,
+  .department-identity-meta > div:first-child {
+    padding: 0;
+  }
+
+  .department-identity-meta span {
+    margin-bottom: 3px;
+  }
+
+  .department-identity-actions {
+    flex-direction: column;
+  }
+
+  .department-identity-actions button {
+    width: 100%;
+  }
+
+  .department-crud-actions {
+    flex-direction: column;
+  }
+
+  .department-action-btn {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,1627 @@
+/* ============================================================
+   COMMAND: PAGE BASE
+   FIND: "COMMAND: PAGE BASE"
+============================================================ */
+
+.principal-student-page {
+  width: 100%;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+
+  padding: 32px 45px;
+
+  background: #86b43d;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+.principal-student-page::-webkit-scrollbar{
+    display: none;
+
+}
+
+/* ============================================================
+   COMMAND: TOP SECTION
+   FIND: "COMMAND: TOP SECTION"
+============================================================ */
+
+.principal-student-overview {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 55px;
+
+  margin-bottom: 24px;
+}
+
+
+/* ============================================================
+   COMMAND: PAGE TITLE
+   FIND: "COMMAND: PAGE TITLE"
+============================================================ */
+
+.principal-student-title-wrapper {
+  flex: 0 0 310px;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.principal-student-title {
+  width: 310px;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 47px;
+  line-height: 1.28;
+
+  font-weight: 600;
+
+  letter-spacing: -1.4px;
+
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: TOP STATISTICS
+   FIND: "COMMAND: TOP STATISTICS"
+============================================================ */
+
+.principal-student-statistics {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content:right;
+  margin-left: auto;
+  margin-right: 10px;
+  justify-content: space-evenly;
+
+  gap: 55px;
+}
+
+
+/* ============================================================
+   COMMAND: TOTAL STUDENTS CARD
+   FIND: "COMMAND: TOTAL STUDENTS CARD"
+============================================================ */
+
+.principal-student-stat-card.total {
+  min-width: 105px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  padding-bottom: 4px;
+}
+
+
+/* ============================================================
+   COMMAND: TOTAL STUDENTS CIRCLE
+   FIND: "COMMAND: TOTAL STUDENTS CIRCLE"
+============================================================ */
+
+.principal-student-stat-card.total
+.principal-student-stat-value {
+  width: 100px;
+  height: 100px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 7px solid #f4ff19;
+
+  border-radius: 50%;
+
+  font-size: 39px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: TOTAL STUDENTS LABEL
+   FIND: "COMMAND: TOTAL STUDENTS LABEL"
+============================================================ */
+
+.principal-student-stat-card.total
+.principal-student-stat-label {
+  order: 2;
+
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ============================================================
+   COMMAND: MALE / FEMALE STAT CARD
+   FIND: "COMMAND: MALE / FEMALE STAT CARD"
+============================================================ */
+
+.principal-student-stat-card:not(.total) {
+  min-width: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  gap: 18px;
+
+  padding-bottom: 4px;
+}
+
+
+/* ============================================================
+   COMMAND: MALE / FEMALE LABEL
+   FIND: "COMMAND: MALE / FEMALE LABEL"
+============================================================ */
+
+.principal-student-stat-card:not(.total)
+.principal-student-stat-label {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ============================================================
+   COMMAND: MALE / FEMALE VALUE
+   FIND: "COMMAND: MALE / FEMALE VALUE"
+============================================================ */
+
+.principal-student-stat-card:not(.total)
+.principal-student-stat-value {
+  margin: 0;
+
+  font-size: 52px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT CONTENT
+   FIND: "COMMAND: STUDENT CONTENT"
+============================================================ */
+
+.principal-student-content {
+  width: 100%;
+}
+
+
+/* ============================================================
+   COMMAND: FILTER BAR
+   FIND: "COMMAND: FILTER BAR"
+============================================================ */
+
+.principal-student-filter-bar {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+/* ============================================================
+   COMMAND: SEARCH
+   FIND: "COMMAND: SEARCH"
+============================================================ */
+
+.principal-student-search {
+  position: relative;
+
+  width: 365px;
+  height: 45px;
+
+  flex-shrink: 0;
+}
+
+
+.principal-student-search input {
+  width: 100%;
+  height: 45px;
+
+  box-sizing: border-box;
+
+  padding: 0 48px 0 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 23px;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+.principal-student-search input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+
+.principal-student-search input:focus {
+  border-color: #ffffff;
+}
+
+
+.principal-student-search-icon {
+  position: absolute;
+
+  top: 50%;
+  right: 16px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 22px;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   COMMAND: DEPARTMENT / GENDER FILTERS
+   FIND: "COMMAND: DEPARTMENT / GENDER FILTERS"
+============================================================ */
+
+.principal-student-filter {
+  position: relative;
+
+  height: 45px;
+
+  flex-shrink: 0;
+}
+
+
+.principal-student-filter select {
+  height: 45px;
+
+  min-width: 110px;
+
+  box-sizing: border-box;
+
+  padding: 0 35px 0 18px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 23px;
+
+  outline: none;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+
+.principal-student-filter::after {
+  content: "⌄";
+
+  position: absolute;
+
+  top: 50%;
+  right: 14px;
+
+  transform: translateY(-58%);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 14px;
+
+  pointer-events: none;
+}
+
+
+.principal-student-filter select option {
+  background: #0b0f06;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: COURSE FILTER
+   FIND: "COMMAND: COURSE FILTER"
+============================================================ */
+
+.principal-student-filter.course-filter {
+  min-width: 110px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 23px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   COMMAND: CLEAR BUTTON
+   FIND: "COMMAND: CLEAR BUTTON"
+============================================================ */
+
+.principal-student-clear-btn {
+  height: 45px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 23px;
+
+  background: #090d05;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+
+.principal-student-clear-btn:hover {
+  background: #000000;
+
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   COMMAND: MAIN CONTENT GRID
+   FIND: "COMMAND: MAIN CONTENT GRID"
+============================================================ */
+
+.principal-student-main-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    410px;
+
+  gap: 23px;
+
+  align-items: stretch;
+}
+
+
+
+/* ============================================================
+   COMMAND: STICKY TABLE HEADER
+============================================================ */
+
+.principal-student-table-scroll {
+  position: relative;
+
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+
+  overflow-x: auto;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(255, 255, 255, 0.15)
+    transparent;
+}
+
+
+/* ============================================================
+   COMMAND: STICKY TABLE HEAD
+============================================================ */
+
+.principal-student-table-head {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  height: 40px;
+
+  background: #0b0f06;
+}
+
+
+/* ============================================================
+   COMMAND: STICKY TABLE HEAD ROW
+============================================================ */
+
+.principal-student-table-head-row {
+  height: 40px;
+}
+
+
+/* ============================================================
+   COMMAND: STICKY TABLE HEADER CELLS
+============================================================ */
+
+.principal-student-table-head-cell {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 21;
+
+  height: 40px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  background: #0b0f06;
+
+  text-align: left;
+  vertical-align: middle;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  white-space: nowrap;
+}
+/* ============================================================
+   COMMAND: STUDENT TABLE SECTION
+   FIND: "COMMAND: STUDENT TABLE SECTION"
+============================================================ */
+
+.principal-student-table-section {
+  width: 100%;
+  height: 510px;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #0b0f06;
+}
+
+
+/* ============================================================
+   COMMAND: TABLE SECTION HEADER
+   FIND: "COMMAND: TABLE SECTION HEADER"
+============================================================ */
+
+.principal-student-table-header {
+  min-height: 50px;
+
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+
+.principal-student-table-header h2 {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+
+.principal-student-table-header span {
+  display: none;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE WRAPPER
+   FIND: "COMMAND: STUDENT TABLE WRAPPER"
+============================================================ */
+
+.principal-student-table-wrapper {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   COMMAND: TABLE SCROLL
+   FIND: "COMMAND: TABLE SCROLL"
+============================================================ */
+
+.principal-student-table-scroll {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-x: auto;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(255, 255, 255, 0.15)
+    transparent;
+}
+
+
+.principal-student-table-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+
+.principal-student-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.principal-student-table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+
+  border-radius: 10px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE
+   FIND: "COMMAND: STUDENT TABLE"
+============================================================ */
+
+.principal-student-table {
+  width: 100%;
+
+  min-width: 850px;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER
+============================================================ */
+
+.principal-student-table-head {
+  height: 40px;
+
+  background: #0b0f06;
+}
+
+
+.principal-student-table-head-row {
+  height: 40px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER CELL
+============================================================ */
+
+.principal-student-table-head-cell {
+  height: 40px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  background: #0b0f06;
+
+  text-align: left;
+  vertical-align: middle;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - SERIAL
+============================================================ */
+
+.principal-student-table-head-cell.serial {
+  width: 55px;
+
+  padding-left: 28px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - REGISTER
+============================================================ */
+
+.principal-student-table-head-cell.register {
+  width: 110px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - NAME
+============================================================ */
+
+.principal-student-table-head-cell.name {
+  width: 180px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - AGE
+============================================================ */
+
+.principal-student-table-head-cell.age {
+  width: 65px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - EMAIL
+============================================================ */
+
+.principal-student-table-head-cell.email {
+  width: 185px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - GENDER
+============================================================ */
+
+.principal-student-table-head-cell.gender {
+  width: 90px;
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT TABLE HEADER - DEPARTMENT
+============================================================ */
+
+.principal-student-table-head-cell.department {
+  width: 150px;
+
+  padding-right: 28px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   COMMAND: TABLE BODY
+   FIND: "COMMAND: TABLE BODY"
+============================================================ */
+
+.principal-student-table tbody tr {
+  height: 45px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.015);
+
+  transition:
+    background-color 0.15s ease;
+}
+
+
+.principal-student-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+
+.principal-student-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+
+.principal-student-table td {
+  height: 45px;
+
+  padding: 0 14px;
+
+  border: none;
+
+  vertical-align: middle;
+
+  overflow: hidden;
+}
+
+
+.principal-student-table td:first-child {
+  padding-left: 28px;
+}
+
+
+/* ============================================================
+   COMMAND: TABLE BODY TEXT
+   FIND: "COMMAND: TABLE BODY TEXT"
+============================================================ */
+
+.student_table_body_field {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 12px;
+  line-height: 1.15;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* ============================================================
+   COMMAND: STUDENT NAME
+   FIND: "COMMAND: STUDENT NAME"
+============================================================ */
+
+.principal-student-name {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.principal-student-name img,
+.principal-student-avatar {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+
+.principal-student-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #d5d5d5;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+.principal-student-name .student_table_body_field {
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COMMAND: GENDER
+   FIND: "COMMAND: GENDER"
+============================================================ */
+
+.principal-student-gender {
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 11px;
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* ============================================================
+   COMMAND: PAGINATION
+   FIND: "COMMAND: PAGINATION"
+============================================================ */
+
+.principal-student-pagination {
+  height: 52px;
+
+  min-height: 52px;
+
+  flex-shrink: 0;
+
+  padding: 0 28px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 32px;
+}
+
+
+.principal-student-pagination button {
+  width: 108px;
+  height: 34px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #1a1f15;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    opacity 0.16s ease;
+}
+
+
+.principal-student-pagination button:hover:not(:disabled) {
+  background: #252b20;
+}
+
+
+.principal-student-pagination button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+.principal-student-pagination span {
+  min-width: 18px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARDS CONTAINER
+   FIND: "COMMAND: PROGRAM CARDS CONTAINER"
+============================================================ */
+
+.principal-student-program-cards {
+  width: 410px;
+  height: 510px;
+
+  display: grid;
+
+  grid-template-rows:
+    1fr
+    1fr;
+
+  gap: 18px;
+
+  min-width: 0;
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD BASE
+   FIND: "COMMAND: PROGRAM CARD BASE"
+============================================================ */
+
+.principal-student-program-card {
+  position: relative;
+
+  min-height: 0;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border-radius: 30px;
+
+  background: #f4f6ed;
+
+  color: #080a06;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.18s ease;
+}
+
+
+.principal-student-program-card:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   COMMAND: UG STUDENT CARD
+   FIND: "COMMAND: UG STUDENT CARD"
+============================================================ */
+
+.principal-student-program-card.ug {
+  /* UG-specific styling can be added here later */
+}
+
+
+/* ============================================================
+   COMMAND: PG STUDENT CARD
+   FIND: "COMMAND: PG STUDENT CARD"
+============================================================ */
+
+.principal-student-program-card.pg {
+  /* PG-specific styling can be added here later */
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD TOP
+   FIND: "COMMAND: PROGRAM CARD TOP"
+============================================================ */
+
+.principal-student-program-card-top {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+
+.principal-student-program-card-top h3 {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  letter-spacing: -0.6px;
+
+  color: #080a06;
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD ICON
+   FIND: "COMMAND: PROGRAM CARD ICON"
+============================================================ */
+
+.principal-student-program-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #d8d8d8;
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD MENU
+   FIND: "COMMAND: PROGRAM CARD MENU"
+============================================================ */
+
+.principal-student-program-menu {
+  width: 34px;
+  height: 34px;
+
+  margin-left: auto;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #080a06;
+
+  font-family: inherit;
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD CONTENT
+   FIND: "COMMAND: PROGRAM CARD CONTENT"
+============================================================ */
+
+.principal-student-program-card-content {
+  position: absolute;
+
+  left: 36px;
+  bottom: 25px;
+
+  right: 30px;
+}
+
+
+.principal-student-program-card-content span {
+  display: block;
+
+  margin-bottom: 22px;
+
+  font-size: 16px;
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  color: #85877f;
+}
+
+
+.principal-student-program-card-content strong {
+  display: block;
+
+  font-size: 64px;
+  line-height: 0.85;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+
+  color: #000000;
+}
+
+
+/* ============================================================
+   COMMAND: PROGRAM CARD ACTION
+   FIND: "COMMAND: PROGRAM CARD ACTION"
+============================================================ */
+
+.principal-student-program-action {
+  position: absolute;
+
+  right: 27px;
+  bottom: 26px;
+
+  width: 91px;
+  height: 43px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 24px;
+
+  background: #d9d9d9;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease;
+}
+
+
+.principal-student-program-action::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 48px;
+  height: 43px;
+
+  border-radius: 50%;
+
+  background: #ffff00;
+}
+
+
+.principal-student-program-action span {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 50%;
+  right: 14px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-52%);
+
+  color: #777777;
+
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+.principal-student-program-action:hover {
+  transform: translateX(2px);
+}
+
+
+/* ============================================================
+   COMMAND: LOADING STATE
+   FIND: "COMMAND: LOADING STATE"
+============================================================ */
+
+.principal-student-loading {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 200px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   COMMAND: EMPTY STATE
+   FIND: "COMMAND: EMPTY STATE"
+============================================================ */
+
+.principal-student-empty {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 200px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   COMMAND: RESPONSIVE - 1200PX
+   FIND: "COMMAND: RESPONSIVE - 1200PX"
+============================================================ */
+
+@media (max-width: 1200px) {
+
+  .principal-student-page {
+    padding: 30px;
+  }
+
+
+  .principal-student-overview {
+    gap: 35px;
+  }
+
+
+  .principal-student-title-wrapper,
+  .principal-student-title {
+    flex-basis: 280px;
+
+    width: 280px;
+  }
+
+
+  .principal-student-title {
+    font-size: 42px;
+  }
+
+
+  .principal-student-statistics {
+    gap: 35px;
+  }
+
+
+  .principal-student-main-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      360px;
+  }
+
+
+  .principal-student-program-cards {
+    width: 360px;
+  }
+
+
+  .principal-student-search {
+    width: 300px;
+  }
+
+}
+
+
+/* ============================================================
+   COMMAND: RESPONSIVE - 950PX
+   FIND: "COMMAND: RESPONSIVE - 950PX"
+============================================================ */
+
+@media (max-width: 950px) {
+
+  .principal-student-page {
+    padding: 25px;
+  }
+
+
+  .principal-student-overview {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 25px;
+  }
+
+
+  .principal-student-title-wrapper,
+  .principal-student-title {
+    width: auto;
+
+    flex-basis: auto;
+  }
+
+
+  .principal-student-statistics {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 25px;
+  }
+
+
+  .principal-student-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .principal-student-program-cards {
+    width: 100%;
+
+    height: 270px;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    grid-template-rows: 1fr;
+  }
+
+
+  .principal-student-table-section {
+    height: 510px;
+  }
+
+
+  .principal-student-filter-bar {
+    flex-wrap: wrap;
+  }
+
+
+  .principal-student-search {
+    width: 100%;
+  }
+
+}
+
+
+/* ============================================================
+   COMMAND: RESPONSIVE - 650PX
+   FIND: "COMMAND: RESPONSIVE - 650PX"
+============================================================ */
+
+@media (max-width: 650px) {
+
+  .principal-student-page {
+    padding: 20px 16px 25px;
+  }
+
+
+  .principal-student-title {
+    font-size: 34px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .principal-student-statistics {
+    display: grid;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 25px;
+  }
+
+
+  .principal-student-stat-card.total {
+    grid-column: 1 / -1;
+  }
+
+
+  .principal-student-filter-bar {
+    display: grid;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 10px;
+  }
+
+
+  .principal-student-search {
+    width: 100%;
+
+    grid-column: 1 / -1;
+  }
+
+
+  .principal-student-filter,
+  .principal-student-filter select,
+  .principal-student-filter.course-filter,
+  .principal-student-clear-btn {
+    width: 100%;
+  }
+
+
+  .principal-student-table-section {
+    height: 500px;
+
+    border-radius: 24px;
+  }
+
+
+
+
+
+
+
+  .principal-student-table-header {
+    padding: 0 22px;
+  }
+
+
+  .principal-student-table th:first-child,
+  .principal-student-table td:first-child {
+    padding-left: 22px;
+  }
+
+
+  .principal-student-pagination {
+    padding: 0 20px;
+
+    gap: 15px;
+  }
+
+
+  .principal-student-pagination button {
+    width: 100px;
+  }
+
+
+  .principal-student-program-cards {
+    height: auto;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows:
+      260px
+      260px;
+  }
+
+
+  .principal-student-program-card {
+    border-radius: 24px;
+  }
+
+}
+
+
+/* ============================================================
+   COMMAND: RESPONSIVE - 420PX
+   FIND: "COMMAND: RESPONSIVE - 420PX"
+============================================================ */
+
+@media (max-width: 420px) {
+
+  .principal-student-title {
+    font-size: 30px;
+  }
+
+
+  .principal-student-statistics {
+    grid-template-columns: 1fr;
+  }
+
+
+  .principal-student-stat-card.total {
+    grid-column: auto;
+  }
+
+
+  .principal-student-filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+
+  .principal-student-search {
+    grid-column: auto;
+  }
+
+
+  .principal-student-program-cards {
+    grid-template-rows:
+      250px
+      250px;
+  }
+
+}

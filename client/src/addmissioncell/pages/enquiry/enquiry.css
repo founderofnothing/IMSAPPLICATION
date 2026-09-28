@@ -1,0 +1,1728 @@
+/* ===========================
+   ENQUIRY POPUP
+=========================== */
+
+
+.enquiry_cta_wrapper{
+    display: flex;
+    column-gap:10px;
+}
+
+.addmissioncell_enquiry_popup_overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(3px);
+    z-index:999;
+}
+
+.addmissioncell_enquiry_form_wrapper{
+    width:760px;
+    max-width:92%;
+    max-height:90vh;
+    background:#1F1F1F;
+    border-radius:12px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+.addmissioncell_enquiryform_header{
+    /* flex-shrink:0; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+
+.addmissioncell_enquiryform_title{
+    font-family:poppins;
+    font-size:20px;
+    font-weight:500;
+    color:#fff;
+    margin:0;
+}
+
+.addmissioncell_enquiry_form_close_icon{
+    width:20px;
+    height:20px;
+    color:#D0FF71;
+    cursor:pointer;
+}
+
+.addmissioncell_enquiry_form_grid{
+    flex:1;
+    overflow-y:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    padding-right:8px;
+    margin: 10px 0px;
+}
+
+.addmissioncell_enquiry_form_field{
+    display:flex;
+    flex-direction:column;
+}
+
+.addmissioncell_enquiry_form_label{
+    font-family:poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#E6E6E6;
+    margin-bottom:6px;
+}
+
+.addmissioncell_enquiry_form_field input,
+.addmissioncell_enquiry_form_field select,
+.addmissioncell_enquiry_form_field textarea{
+    width:100%;
+    padding:9px 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#2B2B2B;
+    color:#fff;
+    font-family:poppins;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+.addmissioncell_enquiry_form_field textarea{
+    resize:none;
+    min-height:95px;
+}
+
+.addmissioncell_enquiry_full_width{
+    grid-column:1/-1;
+}
+
+.addmissioncell_enquiry_full_width button{
+    width:100%;
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:poppins;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.addmissioncell_enquiry_full_width button:hover{
+    opacity:.9;
+}
+
+.addmissioncell_enquiry_full_width button:active{
+    transform:scale(.98);
+}
+
+/* ===========================
+   ENQUIRY POPUP
+=========================== */
+
+
+/* ===========================
+   CONVERT ENQUIRY POPUP
+=========================== */
+
+.addmissioncell_convert_form_grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.addmissioncell_convert_form_field{
+    display:flex;
+    flex-direction:column;
+}
+
+.addmissioncell_convert_form_label{
+    font-family:poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#E6E6E6;
+    margin-bottom:6px;
+}
+
+.addmissioncell_convert_form_field input,
+.addmissioncell_convert_form_field select{
+    width:100%;
+    padding:9px 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#2B2B2B;
+    color:#fff;
+    font-family:poppins;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+.addmissioncell_convert_full_width{
+    grid-column:1/-1;
+}
+
+.addmissioncell_convert_full_width button{
+    width:100%;
+    padding:10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:poppins;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.addmissioncell_convert_full_width button:hover{
+    opacity:.9;
+}
+
+.addmissioncell_convert_full_width button:active{
+    transform:scale(.98);
+}
+
+
+/* ===========================
+   CONVERT ENQUIRY POPUP
+=========================== */
+
+
+
+/* page layout */
+
+/* ==========================================================
+                    PAGE CONTAINER
+========================================================== */
+
+.addmissioncell_enquiry_container{
+    width:98%;
+    margin-left:auto;
+    margin-right:auto;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* ==========================================================
+                    PAGE HEADER
+========================================================== */
+
+.addmissioncell_enquiry_page_header{
+    width:100%;
+    margin-top:20px;
+    background:#171319;
+    border-radius:10px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+.addmissioncell_enquiry_header_left{
+    width:35%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.addmissioncell_enquiry_page_title{
+    font-family:Poppins;
+    font-size:24px;
+    font-weight:600;
+    color:#FFFFFF;
+    margin:0;
+}
+
+.addmissioncell_enquiry_page_subtitle{
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:400;
+    color:#A7A7A7;
+    line-height:22px;
+    margin-top:8px;
+    margin-bottom:18px;
+}
+
+.addmissioncell_enquiry_create_btn{
+    width:180px;
+    height:42px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.addmissioncell_enquiry_create_btn:hover{
+    opacity:.9;
+}
+
+.addmissioncell_enquiry_create_btn:active{
+    transform:scale(.98);
+}
+/* ==========================================================
+                    STATISTICS WRAPPER
+========================================================== */
+
+.addmissioncell_enquiry_statistics_wrapper{
+    width:60%;
+    height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    column-gap:12px;
+}
+
+
+/* ==========================================================
+                    STATISTICS CARD
+========================================================== */
+
+.addmissioncell_enquiry_statistics_card{
+    flex:1;
+    height:100%;
+    background:#1F1F1F;
+    border-radius:8px;
+    padding:16px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+
+/* ==========================================================
+                    CARD HEADER
+========================================================== */
+
+.addmissioncell_enquiry_statistics_header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.addmissioncell_enquiry_statistics_title{
+    margin:0;
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.addmissioncell_enquiry_statistics_icon{
+    width:18px;
+    height:18px;
+    color:#D0FF71;
+}
+
+
+/* ==========================================================
+                    CARD BODY
+========================================================== */
+
+.addmissioncell_enquiry_statistics_body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.addmissioncell_enquiry_statistics_line{
+    display:block;
+    font-family:Poppins;
+    font-size:28px;
+    line-height:18px;
+    color:#D0FF71;
+}
+
+.addmissioncell_enquiry_statistics_value{
+    margin:8px 0 0;
+    font-family:Poppins;
+    font-size:30px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+/* ==========================================================
+                    FILTER WRAPPER
+========================================================== */
+
+.addmissioncell_enquiry_filter_wrapper{
+    width:100%;
+    margin:18px 0 22px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    column-gap:10px;
+    padding-left:120px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    FILTER FIELD
+========================================================== */
+
+.addmissioncell_enquiry_filter_field{
+    width:165px;
+    flex:none;
+}
+
+.addmissioncell_enquiry_filter_field:first-child{
+    width:240px;
+    margin-right:auto;
+}
+
+
+/* ==========================================================
+                    SEARCH
+========================================================== */
+
+.addmissioncell_enquiry_search_input{
+    width:100%;
+    height:36px;
+    padding:0 12px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#FFFFFF;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:500;
+    color:#3A3838;
+    box-sizing:border-box;
+}
+
+.addmissioncell_enquiry_search_input::placeholder{
+    color:#9A9A9A;
+}
+
+
+/* ==========================================================
+                    SELECT
+========================================================== */
+
+.addmissioncell_enquiry_filter_select{
+    width:100%;
+    height:36px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#FFFFFF;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:500;
+    color:#3A3838;
+    cursor:pointer;
+    box-sizing:border-box;
+}
+
+.addmissioncell_enquiry_filter_select:disabled{
+    background:#ECECEC;
+    color:#9A9A9A;
+    cursor:not-allowed;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+                    TABLE WRAPPER
+========================================================== */
+
+.addmissioncell_enquiry_table_wrapper{
+    width:100%;
+    margin-top:10px;
+    border-radius:8px;
+    overflow:hidden;
+    background:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    TABLE
+========================================================== */
+
+.addmissioncell_enquiry_table{
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+
+/* ==========================================================
+                    TABLE HEADER
+========================================================== */
+
+.addmissioncell_enquiry_table_header{
+    background:#D9D9D9;
+}
+
+.addmissioncell_enquiry_table_header th{
+    padding:14px 16px;
+    text-align:left;
+}
+
+.addmissioncell_enquiry_table_heading{
+    margin:0;
+    font-family:Poppins;
+    font-size:12px;
+    font-weight:600;
+    color:#3A3838;
+    text-transform:capitalize;
+}
+
+
+/* ==========================================================
+                    TABLE BODY
+========================================================== */
+
+.addmissioncell_enquiry_table_body td{
+    padding:14px 16px;
+    vertical-align:middle;
+}
+
+
+/* ==========================================================
+                    ZEBRA ROWS
+========================================================== */
+
+.addmissioncell_enquiry_table_row{
+    cursor:pointer;
+    transition:.22s ease;
+}
+
+.addmissioncell_enquiry_table_row:nth-child(odd){
+    background:#FFFFFF;
+}
+
+.addmissioncell_enquiry_table_row:nth-child(even){
+    background:#FAFAFA;
+}
+
+
+/* ==========================================================
+                    ROW HOVER
+========================================================== */
+
+.addmissioncell_enquiry_table_row:hover{
+    background:#F3F8E6;
+}
+
+
+/* ==========================================================
+                    TABLE DATA
+========================================================== */
+
+.addmissioncell_enquiry_table_data{
+    margin:0;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:500;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    EMPTY DATA
+========================================================== */
+
+.addmissioncell_enquiry_no_data{
+    padding:30px;
+    text-align:center;
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:500;
+    color:#7B7B7B;
+}
+
+
+
+
+/* ==========================================================
+                    PAGINATION
+========================================================== */
+
+.addmissioncell_enquiry_pagination_wrapper{
+    width:100%;
+    margin-top:22px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    column-gap:15px;
+}
+
+
+/* ==========================================================
+                    PAGINATION INFO
+========================================================== */
+
+.addmissioncell_enquiry_pagination_info{
+    display:flex;
+    align-items:center;
+    column-gap:6px;
+}
+
+.addmissioncell_enquiry_pagination_info span{
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.addmissioncell_enquiry_pagination_info strong{
+    font-family:Poppins;
+    font-size:14px;
+    font-weight:600;
+    color:#D0FF71;
+}
+
+
+/* ==========================================================
+                    PAGINATION BUTTON
+========================================================== */
+
+.addmissioncell_enquiry_pagination_btn{
+    min-width:90px;
+    height:38px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.addmissioncell_enquiry_pagination_btn:hover{
+    opacity:.9;
+}
+
+.addmissioncell_enquiry_pagination_btn:active{
+    transform:scale(.97);
+}
+
+.addmissioncell_enquiry_pagination_btn:disabled{
+    background:#6F6F6F;
+    color:#D9D9D9;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* =========================================================
+   BULK ENQUIRY POPUP
+========================================================= */
+
+.enquiry-bulk-overlay {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.62);
+
+  backdrop-filter: blur(6px);
+
+  z-index: 99999;
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.enquiry-bulk-popup {
+  width: 680px;
+  max-width: 100%;
+
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #1F1F1F;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.enquiry-bulk-header {
+  min-height: 72px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 20px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  flex-shrink: 0;
+}
+
+
+.enquiry-bulk-title {
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font:
+    600 20px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-subtitle {
+  margin: 5px 0 0;
+
+  color: #AFAFAF;
+
+  font:
+    13px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-close {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #D0FF71;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.enquiry-bulk-close:hover {
+  background: #2B2B2B;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.enquiry-bulk-body {
+  flex: 1;
+
+  overflow-y: auto;
+
+  min-height: 0;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+
+.enquiry-bulk-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.enquiry-bulk-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.enquiry-bulk-body::-webkit-scrollbar-thumb {
+  background: #444;
+
+  border-radius: 10px;
+}
+
+
+.enquiry-bulk-body::-webkit-scrollbar-thumb:hover {
+  background: #D0FF71;
+}
+
+
+.enquiry-bulk-content {
+  width: 100%;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.enquiry-bulk-section {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.enquiry-bulk-section-heading {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.enquiry-bulk-section-heading h4 {
+  margin: 0;
+
+  color: #D0FF71;
+
+  font:
+    600 16px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-section-heading p {
+  margin: 0;
+
+  color: #AFAFAF;
+
+  font:
+    13px Poppins,
+    sans-serif;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FILE UPLOAD
+========================================================= */
+
+.enquiry-bulk-upload-box {
+  width: 100%;
+
+  min-height: 180px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 25px 20px;
+
+  border:
+    2px dashed #444;
+
+  border-radius: 12px;
+
+  background: #2B2B2B;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.enquiry-bulk-upload-box:hover {
+  border-color: #D0FF71;
+
+  background: #303030;
+}
+
+
+.enquiry-bulk-upload-box input {
+  display: none;
+}
+
+
+.enquiry-bulk-upload-icon {
+  font-size: 32px;
+
+  margin-bottom: 8px;
+}
+
+
+.enquiry-bulk-upload-box h5 {
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font:
+    600 15px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-upload-box p {
+  margin: 6px 0 0;
+
+  color: #BDBDBD;
+
+  font:
+    13px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-upload-box span {
+  margin-top: 9px;
+
+  color: #D0FF71;
+
+  font:
+    13px Poppins,
+    sans-serif;
+}
+
+
+/* =========================================================
+   SELECTED FILE
+========================================================= */
+
+.enquiry-bulk-selected-file {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 12px 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 9px;
+
+  background: #242424;
+
+  border:
+    1px solid rgba(208, 255, 113, 0.25);
+}
+
+
+.enquiry-bulk-selected-file div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.enquiry-bulk-selected-file span {
+  color: #D0FF71;
+
+  font:
+    600 11px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-selected-file strong {
+  color: #FFFFFF;
+
+  font:
+    13px Poppins,
+    sans-serif;
+
+  word-break: break-word;
+}
+
+
+.enquiry-bulk-selected-file button {
+  flex-shrink: 0;
+
+  padding: 7px 11px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 7px;
+
+  background: #2B2B2B;
+
+  color: #FF7777;
+
+  font:
+    12px Poppins,
+    sans-serif;
+
+  cursor: pointer;
+}
+
+
+.enquiry-bulk-selected-file button:hover {
+  background: #351F1F;
+}
+
+
+/* =========================================================
+   ACTION
+========================================================= */
+
+.enquiry-bulk-action {
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.enquiry-bulk-upload-button {
+  width: 100%;
+
+  height: 44px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #D0FF71;
+
+  color: #171319;
+
+  font:
+    600 14px Poppins,
+    sans-serif;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+.enquiry-bulk-upload-button:hover {
+  opacity: 0.92;
+}
+
+
+.enquiry-bulk-upload-button:active {
+  transform: scale(0.98);
+}
+
+
+.enquiry-bulk-upload-button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.enquiry-bulk-result {
+  margin-top: 22px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 12px;
+
+  background: #242424;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   RESULT HEADER
+========================================================= */
+
+.enquiry-bulk-result-header {
+  padding: 16px 18px;
+
+  background: #292929;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.enquiry-bulk-result-header h4 {
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font:
+    600 17px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-result-header p {
+  margin: 5px 0 0;
+
+  color: #AFAFAF;
+
+  font:
+    13px Poppins,
+    sans-serif;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.enquiry-bulk-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+
+  padding: 15px;
+}
+
+
+.enquiry-bulk-summary-card {
+  padding: 13px 8px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 9px;
+
+  background: #1F1F1F;
+
+  text-align: center;
+}
+
+
+.enquiry-bulk-summary-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #9F9F9F;
+
+  font:
+    12px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-summary-card strong {
+  color: #FFFFFF;
+
+  font:
+    600 23px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-count-error {
+  color: #FF6B6B !important;
+}
+
+
+.enquiry-bulk-count-warning {
+  color: #D0FF71 !important;
+}
+
+
+/* =========================================================
+   ERROR SECTION
+========================================================= */
+
+.enquiry-bulk-error-section {
+  padding: 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.enquiry-bulk-error-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+
+.enquiry-bulk-error-heading h4 {
+  margin: 0;
+
+  color: #FF6B6B;
+
+  font:
+    600 16px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-error-heading p {
+  margin: 5px 0 0;
+
+  color: #999;
+
+  font:
+    12px Poppins,
+    sans-serif;
+
+  line-height: 1.5;
+}
+
+
+.enquiry-bulk-error-heading > span {
+  min-width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 107, 107, 0.12);
+
+  color: #FF6B6B;
+
+  font:
+    600 12px Poppins,
+    sans-serif;
+}
+
+
+/* =========================================================
+   ERROR LIST
+========================================================= */
+
+.enquiry-bulk-error-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+
+/* =========================================================
+   ERROR CARD
+========================================================= */
+
+.enquiry-bulk-error-card {
+  border:
+    1px solid rgba(255, 107, 107, 0.22);
+
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  background: #211C1C;
+}
+
+
+.enquiry-bulk-error-card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 12px 14px;
+
+  background: #2A2020;
+
+  border-bottom:
+    1px solid rgba(255, 107, 107, 0.12);
+}
+
+
+.enquiry-bulk-error-card-header div {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.enquiry-bulk-error-card-header strong {
+  color: #FF7777;
+
+  font:
+    600 12px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-error-card-header span {
+  color: #FFFFFF;
+
+  font:
+    500 13px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-error-card-header small {
+  color: #999;
+
+  font:
+    11px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-error-card-body {
+  padding: 4px 14px;
+}
+
+
+.enquiry-bulk-error-item {
+  padding: 10px 0;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.enquiry-bulk-error-item:first-child {
+  border-top: none;
+}
+
+
+.enquiry-bulk-error-item strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #FF8B8B;
+
+  font:
+    600 11px Poppins,
+    sans-serif;
+
+  text-transform: capitalize;
+}
+
+
+.enquiry-bulk-error-item p {
+  margin: 0;
+
+  color: #E1E1E1;
+
+  font:
+    13px Poppins,
+    sans-serif;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   WARNING SECTION
+========================================================= */
+
+.enquiry-bulk-warning-section {
+  padding: 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.enquiry-bulk-warning-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+
+.enquiry-bulk-warning-heading h4 {
+  margin: 0;
+
+  color: #D0FF71;
+
+  font:
+    600 16px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-heading p {
+  margin: 5px 0 0;
+
+  color: #999;
+
+  font:
+    12px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-heading > span {
+  min-width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(208, 255, 113, 0.1);
+
+  color: #D0FF71;
+
+  font:
+    600 12px Poppins,
+    sans-serif;
+}
+
+
+/* =========================================================
+   WARNING CARD
+========================================================= */
+
+.enquiry-bulk-warning-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+
+.enquiry-bulk-warning-card {
+  border:
+    1px solid rgba(208, 255, 113, 0.18);
+
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  background: #20251D;
+}
+
+
+.enquiry-bulk-warning-card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 12px 14px;
+
+  background: #272D22;
+}
+
+
+.enquiry-bulk-warning-card-header div {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.enquiry-bulk-warning-card-header strong {
+  color: #D0FF71;
+
+  font:
+    600 12px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-card-header span {
+  color: #FFFFFF;
+
+  font:
+    500 13px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-card-header small {
+  color: #999;
+
+  font:
+    11px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-card-body {
+  padding: 4px 14px;
+}
+
+
+.enquiry-bulk-warning-item {
+  padding: 10px 0;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.enquiry-bulk-warning-item:first-child {
+  border-top: none;
+}
+
+
+.enquiry-bulk-warning-item strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #D0FF71;
+
+  font:
+    600 11px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-warning-item p {
+  margin: 0;
+
+  color: #E1E1E1;
+
+  font:
+    13px Poppins,
+    sans-serif;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER WARNINGS
+========================================================= */
+
+.enquiry-bulk-header-warning-section {
+  padding: 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.enquiry-bulk-header-warning-section h4 {
+  margin: 0 0 12px;
+
+  color: #D0FF71;
+
+  font:
+    600 15px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-header-warning {
+  padding: 10px 12px;
+
+  margin-top: 8px;
+
+  border-radius: 8px;
+
+  background: #292D24;
+
+  border:
+    1px solid rgba(208, 255, 113, 0.12);
+}
+
+
+.enquiry-bulk-header-warning strong {
+  color: #D0FF71;
+
+  font:
+    600 12px Poppins,
+    sans-serif;
+}
+
+
+.enquiry-bulk-header-warning p {
+  margin: 4px 0 0;
+
+  color: #CFCFCF;
+
+  font:
+    12px Poppins,
+    sans-serif;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .enquiry-bulk-overlay {
+    padding: 15px 10px;
+  }
+
+  .enquiry-bulk-popup {
+    width: 100%;
+
+    max-height: 94vh;
+  }
+
+  .enquiry-bulk-header {
+    padding: 13px 15px;
+  }
+
+  .enquiry-bulk-body {
+    padding: 15px;
+  }
+
+  .enquiry-bulk-summary {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .enquiry-bulk-title {
+    font-size: 17px;
+  }
+
+  .enquiry-bulk-subtitle {
+    font-size: 11px;
+  }
+
+  .enquiry-bulk-summary {
+    gap: 7px;
+
+    padding: 12px;
+  }
+
+  .enquiry-bulk-summary-card {
+    padding: 11px 5px;
+  }
+
+  .enquiry-bulk-summary-card strong {
+    font-size: 20px;
+  }
+
+  .enquiry-bulk-error-section,
+  .enquiry-bulk-warning-section {
+    padding: 14px;
+  }
+
+}   

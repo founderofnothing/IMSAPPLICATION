@@ -1,0 +1,2058 @@
+/* ============================================================
+   LIBRARY FACULTY PAGE
+============================================================ */
+
+.library-faculty-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+
+  background: #f7f7f7;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+
+.library-faculty-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.library-faculty-header h1 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.library-faculty-header p {
+  max-width: 650px;
+
+  margin: 7px 0 0;
+
+  color: #777;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   FACULTY LIST SECTION
+============================================================ */
+
+.library-faculty-list-section {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+
+  box-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ============================================================
+   TOOLBAR
+============================================================ */
+
+.library-faculty-toolbar {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 16px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e8e8e8;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+.library-faculty-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.library-faculty-search input {
+  width: 100%;
+  height: 40px;
+
+  padding: 0 13px;
+
+  box-sizing: border-box;
+
+  outline: none;
+
+  border: 1px solid #dedede;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.library-faculty-search input::placeholder {
+  color: #a0a0a0;
+}
+
+.library-faculty-search input:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(208, 255, 113, 0.35);
+}
+
+
+/* ============================================================
+   FACULTY FILTER
+============================================================ */
+
+.library-faculty-filter {
+  width: 190px;
+
+  flex-shrink: 0;
+}
+
+.library-faculty-filter select {
+  width: 100%;
+  height: 40px;
+
+  padding: 0 12px;
+
+  outline: none;
+
+  border: 1px solid #dedede;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.library-faculty-filter select:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(208, 255, 113, 0.35);
+}
+
+
+/* ============================================================
+   CLEAR BUTTON
+============================================================ */
+
+.library-faculty-clear-button {
+  height: 40px;
+
+  padding: 0 15px;
+
+  border: 1px solid #171319;
+  border-radius: 8px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.library-faculty-clear-button:hover {
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* ============================================================
+   FACULTY TABLE WRAPPER
+============================================================ */
+
+.library-faculty-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+/* ============================================================
+   FACULTY TABLE
+============================================================ */
+
+.library-faculty-table {
+  width: 100%;
+  min-width: 850px;
+
+  border-collapse: collapse;
+}
+
+
+/* ============================================================
+   TABLE HEADER
+============================================================ */
+
+.library-faculty-table thead {
+  background: #d9d9d9;
+}
+
+.library-faculty-table th {
+  padding: 12px 14px;
+
+  border-bottom: 1px solid #cfcfcf;
+
+  color: #171319;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   TABLE BODY
+============================================================ */
+
+.library-faculty-table tbody tr {
+  border-bottom: 1px solid #eeeeee;
+
+  transition: background 0.2s ease;
+}
+
+.library-faculty-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.library-faculty-table tbody tr:hover {
+  background: #fafcf6;
+}
+
+.library-faculty-table td {
+  padding: 12px 14px;
+
+  color: #3e3e3e;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  vertical-align: middle;
+}
+
+
+/* ============================================================
+   TABLE NUMBER
+============================================================ */
+
+.library-faculty-table th:first-child,
+.library-faculty-table td:first-child {
+  width: 45px;
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   FACULTY PROFILE
+============================================================ */
+
+.library-faculty-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 210px;
+}
+
+.library-faculty-profile-image,
+.library-faculty-profile-placeholder {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.library-faculty-profile-image {
+  display: block;
+
+  object-fit: cover;
+
+  border: 1px solid #e5e5e5;
+}
+
+.library-faculty-profile-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #171319;
+  color: #d0ff71;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   FACULTY NAME
+============================================================ */
+
+.library-faculty-name {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+.library-faculty-email {
+  margin: 3px 0 0;
+
+  color: #888;
+
+  font-size: 9px;
+
+  line-height: 1.3;
+}
+
+
+/* ============================================================
+   SELECT BUTTON
+============================================================ */
+
+.library-faculty-select-button {
+  min-width: 72px;
+  height: 32px;
+
+  padding: 0 12px;
+
+  border: 1px solid #171319;
+  border-radius: 7px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.library-faculty-select-button:hover {
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* ============================================================
+   LOADING / EMPTY / ERROR
+============================================================ */
+
+.library-faculty-loading,
+.library-faculty-error,
+.library-faculty-empty {
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.library-faculty-loading p,
+.library-faculty-error p,
+.library-faculty-empty p {
+  margin: 5px 0 0;
+
+  color: #777;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.library-faculty-empty h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.library-faculty-error p {
+  color: #c0392b;
+}
+
+.library-faculty-error button,
+.library-faculty-books-state button {
+  height: 34px;
+
+  margin-top: 12px;
+
+  padding: 0 14px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.library-faculty-error button:hover,
+.library-faculty-books-state button:hover {
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* ============================================================
+   SELECTED FACULTY
+============================================================ */
+
+.library-selected-faculty-section {
+  width: 100%;
+
+  margin-top: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8e8;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ============================================================
+   SELECTED FACULTY CARD
+============================================================ */
+
+.library-selected-faculty-card {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.library-selected-faculty-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.library-selected-faculty-profile h2 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.library-selected-faculty-profile p {
+  margin: 3px 0 0;
+
+  color: #777;
+
+  font-size: 10px;
+}
+
+.library-selected-faculty-details {
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+}
+
+.library-selected-faculty-details > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.library-selected-faculty-details span {
+  color: #999;
+
+  font-size: 8px;
+
+  text-transform: uppercase;
+}
+
+.library-selected-faculty-details strong {
+  color: #171319;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   SELECTED FACULTY BOOKS
+============================================================ */
+
+.library-selected-faculty-books {
+  width: 100%;
+}
+
+.library-selected-faculty-books-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.library-selected-faculty-books-header h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.library-selected-faculty-books-header p {
+  margin: 4px 0 0;
+
+  color: #888;
+
+  font-size: 9px;
+}
+
+.library-selected-faculty-books-header > span {
+  flex-shrink: 0;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #171319;
+
+  color: #d0ff71;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   BOOK TABLE WRAPPER
+============================================================ */
+
+.library-faculty-books-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+/* ============================================================
+   BOOK TABLE
+============================================================ */
+
+.library-faculty-books-table {
+  width: 100%;
+  min-width: 850px;
+
+  border-collapse: collapse;
+}
+
+.library-faculty-books-table thead {
+  background: #d9d9d9;
+}
+
+.library-faculty-books-table th {
+  padding: 11px 13px;
+
+  border-bottom: 1px solid #cfcfcf;
+
+  color: #171319;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.library-faculty-books-table td {
+  padding: 12px 13px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: #3e3e3e;
+
+  font-size: 10px;
+
+  vertical-align: middle;
+}
+
+.library-faculty-books-table tbody tr:hover {
+  background: #fafcf6;
+}
+
+.library-faculty-books-table td strong {
+  display: block;
+
+  color: #171319;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.library-faculty-books-table td p {
+  margin: 3px 0 0;
+
+  color: #888;
+
+  font-size: 8px;
+}
+
+
+/* ============================================================
+   BOOK STATUS
+============================================================ */
+
+.library-faculty-status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  background: #eef7df;
+
+  color: #4f6c24;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   RETURN BUTTON
+============================================================ */
+
+.library-faculty-return-button {
+  height: 31px;
+
+  padding: 0 12px;
+
+  border: 1px solid #171319;
+
+  border-radius: 7px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.library-faculty-return-button:hover {
+  background: #d0ff71;
+
+  color: #171319;
+}
+
+.library-faculty-return-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   BOOK STATE
+============================================================ */
+
+.library-faculty-books-state {
+  min-height: 160px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  text-align: center;
+}
+
+.library-faculty-books-state h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 14px;
+}
+
+.library-faculty-books-state p {
+  margin: 5px 0 0;
+
+  color: #888;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   ============================================================
+                     RETURN MODAL
+   ============================================================
+============================================================ */
+
+
+/* ============================================================
+   MODAL OVERLAY
+============================================================ */
+
+.library-return-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(23, 19, 25, 0.78);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation:
+    libraryReturnOverlayIn
+    0.2s ease;
+}
+
+
+/* ============================================================
+   MAIN MODAL
+============================================================ */
+
+.flt_library-return-modal{
+  position: relative;
+
+  width: min(1300px, 100%);
+
+  height: min(620px, calc(100vh - 48px));
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  grid-template-rows:
+    auto
+    1fr;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e2e2e2;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.42);
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  animation:
+    libraryReturnModalIn
+    0.25s ease;
+}
+
+
+/* ============================================================
+   MODAL HEADER
+============================================================ */
+
+.library-return-modal-header {
+  grid-column: 1 / -1;
+
+  grid-row: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 22px;
+
+  box-sizing: border-box;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  border-bottom:
+    1px solid #302c32;
+}
+
+.library-return-modal-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.library-return-modal-header p {
+  margin: 4px 0 0;
+
+  color: #aaa6ac;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.library-return-modal-eyebrow {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #d0ff71;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   CLOSE BUTTON
+============================================================ */
+
+.library-return-modal-close {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid #403a42;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.library-return-modal-close:hover {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+}
+
+
+/* ============================================================
+   LEFT PANEL — BOOK DETAILS
+============================================================ */
+
+.library-return-book-details {
+  grid-column: 1;
+
+  grid-row: 2;
+
+  min-width: 0;
+
+  min-height: 0;
+
+  padding: 22px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  background: #f5f5f5;
+
+  border-right:
+    1px solid #e4e4e4;
+}
+
+
+/* ============================================================
+   BOOK MAIN CARD
+============================================================ */
+
+.library-return-book-main {
+  padding: 18px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5e5e5;
+
+  border-radius: 11px;
+}
+
+.library-return-book-main::before {
+  content: "BOOK";
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+}
+
+.library-return-book-main h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+.library-return-book-main p {
+  margin: 5px 0 0;
+
+  color: #777;
+
+  font-size: 10px;
+}
+
+
+/* ============================================================
+   BOOK META
+============================================================ */
+
+.library-return-book-meta {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 9px;
+
+  margin-top: 10px;
+}
+
+.library-return-book-meta > div {
+  padding: 12px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e6e6e6;
+
+  border-radius: 9px;
+}
+
+.library-return-book-meta span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #999;
+
+  font-size: 8px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+.library-return-book-meta strong {
+  display: block;
+
+  color: #171319;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   RIGHT PANEL
+============================================================ */
+
+.library-return-condition-section {
+  grid-column: 2;
+
+  grid-row: 2;
+
+  min-width: 0;
+
+  min-height: 0;
+
+  padding: 22px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+}
+
+
+/* ============================================================
+   FIELD HEADER
+============================================================ */
+
+.library-return-field-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.library-return-field-header label {
+  color: #171319;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.library-return-field-header span {
+  color: #999;
+
+  font-size: 8px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   CONDITION OPTIONS
+============================================================ */
+
+.library-return-condition-options {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.library-return-condition-option {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #e2e2e2;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.library-return-condition-option:hover {
+  background: #fbfdf7;
+
+  border-color: #bcc6a8;
+}
+
+.library-return-condition-option.active {
+  background: #f8fceb;
+
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(208, 255, 113, 0.5);
+}
+
+
+/* ============================================================
+   RADIO
+============================================================ */
+
+.library-return-condition-radio {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1.5px solid #bdbdbd;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+.library-return-condition-option.active
+.library-return-condition-radio {
+  border-color: #171319;
+}
+
+.library-return-condition-radio span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #171319;
+}
+
+
+/* ============================================================
+   CONDITION TEXT
+============================================================ */
+
+.library-return-condition-option strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #171319;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.library-return-condition-option small {
+  display: block;
+
+  color: #888;
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   REMARKS
+============================================================ */
+
+.library-return-remarks-section {
+  grid-column: 2;
+
+  grid-row: 2;
+
+  align-self: end;
+
+  width: 90%;
+
+  box-sizing: border-box;
+
+  padding:
+    0 22px 68px;
+
+  background: #ffffff;
+}
+
+.library-return-remarks-section textarea {
+  width: 100%;
+
+  min-height: 65px;
+
+  padding: 10px 11px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  outline: none;
+
+  border:
+    1px solid #dedede;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+.library-return-remarks-section textarea::placeholder {
+  color: #aaa;
+}
+
+.library-return-remarks-section textarea:focus {
+  border-color: #171319;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(208, 255, 113, 0.3);
+}
+
+
+/* ============================================================
+   MODAL FOOTER
+============================================================ */
+
+.library-return-modal-footer {
+  grid-column: 2;
+
+  grid-row: 2;
+
+  align-self: end;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    12px 22px 18px;
+
+  background: #ffffff;
+
+  border-top:
+    1px solid #eeeeee;
+}
+
+
+/* ============================================================
+   CANCEL BUTTON
+============================================================ */
+
+.library-return-cancel-button {
+  height: 36px;
+
+  padding: 0 15px;
+
+  border:
+    1px solid #dedede;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #555;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.library-return-cancel-button:hover {
+  border-color: #171319;
+
+  background: #f5f5f5;
+
+  color: #171319;
+}
+
+
+/* ============================================================
+   CONFIRM RETURN BUTTON
+============================================================ */
+
+.library-return-confirm-button {
+  min-width: 125px;
+
+  height: 36px;
+
+  padding: 0 16px;
+
+  border:
+    1px solid #171319;
+
+  border-radius: 8px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.library-return-confirm-button:hover {
+  background: #d0ff71;
+
+  color: #171319;
+}
+
+.library-return-confirm-button:disabled,
+.library-return-cancel-button:disabled,
+.library-return-modal-close:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   MODAL ANIMATION
+============================================================ */
+
+@keyframes libraryReturnOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes libraryReturnModalIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — SELECTED FACULTY
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .library-faculty-page {
+    padding: 18px;
+  }
+
+  .library-selected-faculty-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .library-selected-faculty-details {
+    width: 100%;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — MODAL
+============================================================ */
+
+@media (max-width: 760px) {
+
+  .library-return-modal-overlay {
+    padding: 12px;
+  }
+
+  .library-return-modal {
+    width: 100%;
+
+    height: auto;
+
+    max-height:
+      calc(100vh - 24px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow-y: auto;
+  }
+
+  .library-return-modal-header {
+    flex-shrink: 0;
+  }
+
+  .library-return-book-details {
+    flex-shrink: 0;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid #e4e4e4;
+  }
+
+  .library-return-condition-section {
+    flex-shrink: 0;
+
+    overflow: visible;
+  }
+
+  .library-return-remarks-section {
+    width: 100%;
+
+    padding:
+      0 15px 15px;
+
+    align-self: auto;
+  }
+
+  .library-return-modal-footer {
+    width: 100%;
+
+    padding:
+      12px 15px 15px;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — 700px
+============================================================ */
+
+@media (max-width: 700px) {
+
+  .library-faculty-page {
+    padding: 14px;
+  }
+
+  .library-faculty-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .library-faculty-search,
+  .library-faculty-filter {
+    width: 100%;
+  }
+
+  .library-faculty-clear-button {
+    width: 100%;
+  }
+
+  .library-selected-faculty-details {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — 480px
+============================================================ */
+
+@media (max-width: 480px) {
+
+  .library-faculty-page {
+    padding: 10px;
+  }
+
+  .library-faculty-header h1 {
+    font-size: 19px;
+  }
+
+  .library-faculty-header p {
+    font-size: 10px;
+  }
+
+  .library-faculty-toolbar {
+    padding: 12px;
+  }
+
+  .library-faculty-table th,
+  .library-faculty-table td,
+  .library-faculty-books-table th,
+  .library-faculty-books-table td {
+    padding: 10px 11px;
+  }
+
+  .library-return-modal-overlay {
+    padding: 8px;
+  }
+
+  .library-return-modal {
+    border-radius: 12px;
+  }
+
+  .library-return-modal-header {
+    padding: 15px;
+  }
+
+  .library-return-modal-header h2 {
+    font-size: 15px;
+  }
+
+  .library-return-book-details {
+    padding: 15px;
+  }
+
+  .library-return-book-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .library-return-condition-section {
+    padding: 15px;
+  }
+
+  .library-return-remarks-section {
+    padding:
+      0 15px 15px;
+  }
+
+  .library-return-modal-footer {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+  }
+
+  .library-return-cancel-button,
+  .library-return-confirm-button {
+    width: 100%;
+  }
+
+}
+
+
+/* ============================================================
+   SELECTED FACULTY POPUP
+============================================================ */
+
+.library-selected-faculty-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9998;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(23, 19, 25, 0.72);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  animation:
+    libraryFacultyOverlayIn
+    0.2s ease;
+}
+
+
+/* ============================================================
+   FACULTY MODAL
+============================================================ */
+
+.library-selected-faculty-modal {
+  width: min(1050px, 100%);
+
+  max-height:
+    calc(100vh - 48px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e3e3e3;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.4);
+
+  animation:
+    libraryFacultyModalIn
+    0.25s ease;
+}
+
+
+/* ============================================================
+   FACULTY MODAL HEADER
+============================================================ */
+
+.library-selected-faculty-modal-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 19px 22px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  border-bottom:
+    1px solid #302c32;
+}
+
+.library-selected-faculty-modal-header span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #d0ff71;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.library-selected-faculty-modal-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.library-selected-faculty-modal-header p {
+  margin: 4px 0 0;
+
+  color: #aaa6ac;
+
+  font-size: 9px;
+}
+
+
+/* ============================================================
+   CLOSE BUTTON
+============================================================ */
+
+.library-selected-faculty-modal-close {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid #403a42;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.library-selected-faculty-modal-close:hover {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+}
+
+
+/* ============================================================
+   FACULTY INFORMATION
+============================================================ */
+
+.library-selected-faculty-modal
+.library-selected-faculty-card {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  border-radius: 0;
+
+  border-top: none;
+}
+
+
+/* ============================================================
+   BOOK AREA
+============================================================ */
+
+.library-selected-faculty-modal
+.library-selected-faculty-books {
+  min-height: 0;
+
+  overflow-y: auto;
+}
+
+
+/* ============================================================
+   MODAL FOOTER
+============================================================ */
+
+.library-selected-faculty-modal-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  flex-shrink: 0;
+
+  padding: 13px 20px;
+
+  background: #ffffff;
+
+  border-top:
+    1px solid #eeeeee;
+}
+
+.library-selected-faculty-modal-footer button {
+  height: 34px;
+
+  padding: 0 16px;
+
+  border:
+    1px solid #171319;
+
+  border-radius: 7px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.library-selected-faculty-modal-footer button:hover {
+  background: #d0ff71;
+
+  color: #171319;
+}
+
+
+/* ============================================================
+   ANIMATION
+============================================================ */
+
+@keyframes libraryFacultyOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes libraryFacultyModalIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 760px) {
+
+  .library-selected-faculty-modal-overlay {
+    padding: 12px;
+  }
+
+  .library-selected-faculty-modal {
+    max-height:
+      calc(100vh - 24px);
+
+    border-radius: 12px;
+  }
+
+  .library-selected-faculty-modal-header {
+    padding: 15px;
+  }
+
+  .library-selected-faculty-modal
+  .library-selected-faculty-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .library-selected-faculty-modal
+  .library-selected-faculty-details {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .library-selected-faculty-modal-overlay {
+    padding: 8px;
+  }
+
+  .library-selected-faculty-modal-header {
+    padding: 14px;
+  }
+
+  .library-selected-faculty-modal
+  .library-selected-faculty-books-header {
+    padding: 14px;
+  }
+
+  .library-selected-faculty-modal-footer {
+    padding: 12px 14px;
+  }
+
+}

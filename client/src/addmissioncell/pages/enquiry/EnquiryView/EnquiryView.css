@@ -1,0 +1,723 @@
+/* =========================================================
+   ADMISSION ENQUIRY PROFILE
+   Prefix: admissioncell_enquiery_pfp_
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 30px 30px 60px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #111318;
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-header {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-cover {
+    width: calc(100% - 24px);
+    height: 245px;
+    margin: 12px;
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #eef9fa 0%,
+            #dff2f4 45%,
+            #f6fbfb 100%
+        );
+}
+
+
+/* =========================================================
+   PROFILE MAIN
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 155px;
+    padding: 0 40px 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-image {
+    position: relative;
+    width: 142px;
+    height: 142px;
+    min-width: 142px;
+
+    margin-top: -65px;
+
+    border-radius: 50%;
+    border: 7px solid #ffffff;
+
+    background: #edf1f3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+.admissioncell_enquiery_pfp_profile-image span {
+    font-size: 48px;
+    font-weight: 600;
+    color: #687178;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PROFILE INFO
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-info {
+    margin-left: 25px;
+    padding-top: 12px;
+}
+
+
+.admissioncell_enquiery_pfp_profile-info h2 {
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 1.25;
+
+    font-weight: 600;
+    letter-spacing: -0.6px;
+
+    color: #111318;
+}
+
+
+.admissioncell_enquiery_pfp_profile-info p {
+    margin: 7px 0 3px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: #777d82;
+}
+
+
+.admissioncell_enquiery_pfp_profile-info span {
+    display: block;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #a0a5a9;
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.admissioncell_enquiery_pfp_edit-profile-btn {
+    margin-left: auto;
+    align-self: flex-start;
+
+    margin-top: 18px;
+
+    min-width: 150px;
+    height: 48px;
+
+    padding: 0 22px;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #15171a;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.admissioncell_enquiery_pfp_edit-profile-btn:hover {
+    background: #f7f7f7;
+    border-color: #dddddd;
+}
+
+
+.admissioncell_enquiery_pfp_edit-profile-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-content {
+    width: 100%;
+    margin-top: 22px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.admissioncell_enquiery_pfp_profile-card {
+    width: 100%;
+
+    padding: 30px 32px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.admissioncell_enquiery_pfp_section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 23px;
+
+    border-bottom: 1px solid #f0f0f0;
+}
+
+
+.admissioncell_enquiery_pfp_section-heading h3 {
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    color: #16181b;
+
+    letter-spacing: -0.2px;
+}
+
+
+.admissioncell_enquiery_pfp_section-heading span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #999ea2;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.admissioncell_enquiery_pfp_info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    column-gap: 55px;
+    row-gap: 0;
+
+    padding-top: 6px;
+}
+
+
+/* =========================================================
+   INFO ITEM
+========================================================= */
+
+.admissioncell_enquiery_pfp_info-item {
+    min-width: 0;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+.admissioncell_enquiery_pfp_info-item:nth-last-child(-n + 2) {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   INFO LABEL
+========================================================= */
+
+.admissioncell_enquiery_pfp_info-item small {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    font-weight: 500;
+
+    color: #9a9fa3;
+
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+}
+
+
+/* =========================================================
+   INFO VALUE
+========================================================= */
+
+.admissioncell_enquiery_pfp_info-item strong {
+    display: block;
+
+    max-width: 100%;
+
+    font-size: 14px;
+    line-height: 1.55;
+
+    font-weight: 500;
+
+    color: #202328;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FULL WIDTH ITEM
+========================================================= */
+
+.admissioncell_enquiery_pfp_full-width {
+    grid-column: 1 / -1;
+}
+
+
+.admissioncell_enquiery_pfp_full-width strong {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+========================================================= */
+
+.admissioncell_enquiery_pfp_summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   SUMMARY ITEM
+========================================================= */
+
+.admissioncell_enquiery_pfp_summary-item {
+    min-width: 0;
+
+    padding: 8px 28px;
+
+    border-right: 1px solid #eeeeee;
+}
+
+
+.admissioncell_enquiery_pfp_summary-item:first-child {
+    padding-left: 0;
+}
+
+
+.admissioncell_enquiery_pfp_summary-item:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+
+/* =========================================================
+   SUMMARY LABEL
+========================================================= */
+
+.admissioncell_enquiery_pfp_summary-item small {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: #a0a4a8;
+
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   SUMMARY VALUE
+========================================================= */
+
+.admissioncell_enquiery_pfp_summary-item strong {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #202328;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admissioncell_enquiery_pfp_status-value {
+    color: #18865b !important;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.admissioncell_enquiery_pfp_loading {
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+    color: #8b9094;
+}
+
+
+/* =========================================================
+   NO DATA
+========================================================= */
+
+.admissioncell_enquiery_pfp_no-data {
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+    color: #8b9094;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .admissioncell_enquiery_pfp_profile-page {
+        padding: 22px 20px 45px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-cover {
+        height: 210px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-main {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-image {
+        width: 125px;
+        height: 125px;
+        min-width: 125px;
+
+        margin-top: -55px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-info h2 {
+        font-size: 24px;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        row-gap: 20px;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item {
+        border-right: none;
+        padding: 8px 20px;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item:nth-child(odd) {
+        padding-left: 0;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item:nth-child(even) {
+        border-left: 1px solid #eeeeee;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .admissioncell_enquiery_pfp_profile-page {
+        padding: 14px 12px 35px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-header {
+        border-radius: 18px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-cover {
+        width: calc(100% - 16px);
+        height: 165px;
+
+        margin: 8px;
+
+        border-radius: 15px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-main {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 0 20px 25px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-image {
+        width: 105px;
+        height: 105px;
+        min-width: 105px;
+
+        margin-top: -48px;
+
+        border-width: 5px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-image span {
+        font-size: 35px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-info {
+        margin-left: 0;
+        padding-top: 14px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-info h2 {
+        font-size: 22px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-info p {
+        font-size: 13px;
+    }
+
+
+    .admissioncell_enquiery_pfp_edit-profile-btn {
+        width: 100%;
+        margin-top: 18px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-content {
+        margin-top: 12px;
+        gap: 12px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-card {
+        padding: 23px 20px;
+
+        border-radius: 17px;
+    }
+
+
+    .admissioncell_enquiery_pfp_section-heading {
+        padding-bottom: 18px;
+    }
+
+
+    .admissioncell_enquiery_pfp_section-heading h3 {
+        font-size: 16px;
+    }
+
+
+    .admissioncell_enquiery_pfp_info-grid {
+        grid-template-columns: 1fr;
+
+        column-gap: 0;
+    }
+
+
+    .admissioncell_enquiery_pfp_info-item {
+        padding: 17px 0;
+    }
+
+
+    .admissioncell_enquiery_pfp_info-item:nth-last-child(-n + 2) {
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+
+    .admissioncell_enquiery_pfp_info-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .admissioncell_enquiery_pfp_full-width {
+        grid-column: auto;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-grid {
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item,
+    .admissioncell_enquiery_pfp_summary-item:nth-child(odd),
+    .admissioncell_enquiery_pfp_summary-item:nth-child(even) {
+        padding: 15px 0;
+
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .admissioncell_enquiery_pfp_summary-item strong {
+        white-space: normal;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .admissioncell_enquiery_pfp_profile-page {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-card {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+
+    .admissioncell_enquiery_pfp_profile-info h2 {
+        font-size: 20px;
+    }
+
+}

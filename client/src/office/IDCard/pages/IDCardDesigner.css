@@ -1,0 +1,88 @@
+.id_card_designer {
+  width: 100%;
+  min-height: 100vh;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.id_card_designer_header {
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.id_card_designer_header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   WORKSPACE
+   ============================================================ */
+
+.id_card_designer_workspace {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  min-height: calc(100vh - 64px);
+}
+
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+
+.id_card_toolbar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+}
+
+
+/* ============================================================
+   CANVAS AREA
+   ============================================================ */
+
+.id_card_canvas_area {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  overflow: auto;
+  background: #e9eaec;
+}
+
+
+/* ============================================================
+   FABRIC WRAPPER
+   ============================================================ */
+
+.id_card_fabric_wrapper {
+  position: relative;
+  width: 350px;
+  height: 550px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   PROPERTIES
+   ============================================================ */
+
+.id_card_properties {
+  background: #ffffff;
+  border-left: 1px solid #e5e7eb;
+  padding: 20px;
+}

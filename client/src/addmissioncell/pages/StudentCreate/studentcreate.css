@@ -1,0 +1,456 @@
+.student{
+  width:98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* error card of bulk upload and update */
+
+
+
+.student-create-page {
+  width: 100%;
+}
+
+.student-create-header {
+  margin-bottom: 24px;
+}
+
+.student-create-header h1 {
+  margin: 0;
+}
+
+.student-create-header p {
+  margin-top: 8px;
+}
+
+.student-create-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.student-create-tab {
+  padding: 10px 18px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.student-create-tab.active {
+  background: #111;
+  color: #fff;
+}
+
+.student-create-content {
+  width: 100%;
+}
+
+.student-create-section {
+  width: 100%;
+}
+
+
+/* ====================================== */
+/* BULK UPLOAD RESULT */
+/* ====================================== */
+
+.student-upload-result{
+    margin-top:30px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    background:#ffffff;
+    overflow:hidden;
+}
+
+.student-upload-result-header{
+    padding:20px;
+    border-bottom:1px solid #ececec;
+    background:#f8fafc;
+}
+
+.student-upload-result-header h3{
+    margin:0;
+    font-size:20px;
+    color:#111827;
+}
+
+.student-upload-result-header p{
+    margin-top:8px;
+    color:#6b7280;
+}
+
+.student-upload-summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:16px;
+    padding:20px;
+}
+
+.student-upload-summary-card{
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+    background:#fff;
+}
+
+.student-upload-summary-card span{
+    display:block;
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
+.student-upload-summary-card strong{
+    font-size:28px;
+    color:#111827;
+}
+
+
+/* ====================================== */
+/* WARNING SECTION */
+/* ====================================== */
+
+.student-upload-warning-section{
+    padding:20px;
+    border-top:1px solid #ececec;
+}
+
+.student-upload-warning-section h4{
+    margin:0;
+    font-size:20px;
+    color:#92400e;
+}
+
+.student-upload-warning-section p{
+    margin-top:8px;
+    color:#6b7280;
+}
+
+.student-warning-card{
+    margin-top:18px;
+    border:1px solid #fde68a;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.student-warning-header{
+    padding:14px 18px;
+    background:#fffbeb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.student-warning-header h5{
+    margin:0;
+    font-size:16px;
+}
+
+.student-warning-header span{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.student-warning-item{
+    padding:14px 18px;
+    border-top:1px solid #f3f4f6;
+}
+
+.student-warning-item strong{
+    display:block;
+    color:#92400e;
+    margin-bottom:6px;
+}
+
+.student-warning-item p{
+    margin:0;
+    color:#374151;
+}
+
+.student-warning-item small{
+    display:block;
+    margin-top:8px;
+    color:#6b7280;
+}
+
+
+/* error card of bulk upload and update */
+
+
+
+/* ====================================== */
+/* STUDENT ENTRY CARD */
+/* ====================================== */
+
+/* ====================================== */
+/* POPUP */
+/* ====================================== */
+
+.student-popup-overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(5px);
+    z-index:9999;
+}
+
+.student-popup-wrapper{
+    width:680px;
+    max-width:680px;
+    max-height:88vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    background:#1F1F1F;
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.student-popup-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:5px 20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.student-popup-title{
+    margin:0;
+    color:#fff;
+    font:600 20px Poppins;
+}
+
+.student-popup-subtitle{
+    margin-top:4px;
+    color:#BDBDBD;
+    font:13px Poppins;
+}
+
+.student-popup-close{
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:8px;
+    background:transparent;
+    color:#D0FF71;
+    font-size:18px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.student-popup-close:hover{
+    background:#2B2B2B;
+}
+
+.student-popup-body{
+    flex:1;
+    overflow-y:auto;
+    padding:16px 20px;
+}
+
+.student-popup-bodytwo{
+
+    padding:10px 15px;
+
+
+}
+
+/* ====================================== */
+/* CARD */
+/* ====================================== */
+
+.student-entry-card{
+    background:#1F1F1F;
+    border-radius:12px;
+    padding:8px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.student-entry-section{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.student-entry-section-header{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    margin: 5px 0px;
+}
+
+.student-entry-section-header h3{
+    margin:0;
+    color:#D0FF71;
+    font:600 16px Poppins;
+}
+
+.student-entry-section-header p{
+    margin:0;
+    color:#BDBDBD;
+    font:13px Poppins;
+}
+
+.student-entry-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px 16px;
+}
+
+.student-entry-gridtwo{
+  width:97%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ====================================== */
+/* FORM */
+/* ====================================== */
+
+.student-form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.student-form-group label{
+    margin-bottom:6px;
+    color:#E6E6E6;
+    font:500 13px Poppins;
+}
+
+.student-form-group span{
+    color:#A5A5A5;
+}
+
+.student-form-group input,
+.student-form-group select{
+    width:100%;
+    height:42px;
+    padding:0 12px;
+    background:#2B2B2B;
+    border:1px solid transparent;
+    border-radius:8px;
+    color:#fff;
+    font:14px Poppins;
+    outline:none;
+    transition:.25s;
+    box-sizing:border-box;
+}
+
+.student-form-group input:focus,
+.student-form-group select:focus{
+    border-color:#D0FF71;
+    box-shadow:0 0 0 3px rgba(208,255,113,.12);
+}
+
+/* ====================================== */
+/* FILE UPLOAD */
+/* ====================================== */
+
+.student-upload-box{
+    width:100%;
+    cursor:pointer;
+}
+
+.student-upload-content{
+    border:2px dashed #444;
+    border-radius:12px;
+    background:#2B2B2B;
+    padding:18px 16px;
+    text-align:center;
+    transition:.25s;
+}
+
+.student-upload-content:hover{
+    border-color:#D0FF71;
+    background:#303030;
+}
+
+.student-upload-icon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.student-upload-content h4{
+    margin:0;
+    color:#fff;
+    font:600 15px Poppins;
+}
+
+.student-upload-content p{
+    margin-top:6px;
+    color:#BDBDBD;
+    font:13px Poppins;
+}
+
+.student-upload-content span{
+    display:inline-block;
+    margin-top:8px;
+    color:#D0FF71;
+    font:13px Poppins;
+}
+
+.student-selected-file{
+    margin-top:12px;
+    padding:10px;
+    border-radius:8px;
+    background:#1F1F1F;
+    border:1px solid rgba(208,255,113,.25);
+}
+
+.student-selected-file strong{
+    color:#D0FF71;
+}
+
+.student-selected-file p{
+    margin-top:4px;
+    color:#fff;
+    word-break:break-word;
+}
+
+/* ====================================== */
+/* ACTION */
+/* ====================================== */
+
+.student-entry-actions{
+    margin-top:4px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.student-upload-button{
+    width:100%;
+    height:44px;
+    border:none;
+    border-radius:8px;
+    background:#D0FF71;
+    color:#171319;
+    font:600 14px Poppins;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.student-upload-button:hover{
+    opacity:.92;
+}
+
+.student-upload-button:active{
+    transform:scale(.98);
+}
+
+.student-upload-button:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+/* bulk create form  */

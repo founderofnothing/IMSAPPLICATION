@@ -1,0 +1,47 @@
+.principal_navbar{
+padding-top:15px;
+  width:100%;
+
+}
+
+a{
+  text-decoration: none;
+  color:black;
+  font-family:poppins;
+}
+
+.principal_top_navbar_wrapper{
+  background:#7FA248;
+    display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  column-gap: 20px;
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  padding:0px 15px;
+}
+
+.principal_sidenav_title{
+  padding:8px 12px;
+  /* margin:10px; */
+  /* background:black; */
+  border-radius:15px;
+  color:rgb(50, 50, 50);
+  text-transform: capitalize;
+  font-family:poppins;
+  font-size:12px;
+  font-weight:500;
+
+}
+
+.principal_sidenav_title:hover{
+  background: black;
+  color:white;
+  font-weight:600;
+}
+
+
+
+

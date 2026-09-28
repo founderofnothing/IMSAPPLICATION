@@ -1,0 +1,2129 @@
+/* =========================================================
+   HOD FACULTY PROFILE
+   IMS DESIGN SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.hod_faculty_profile_page {
+  width: 100%;
+  min-height: 100%;
+
+  padding: 28px 32px 45px;
+
+  box-sizing: border-box;
+
+  background: #f5f5f3;
+
+  color: #171319;
+
+  font-family: Poppins, sans-serif;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.hod_faculty_profile_topbar {
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+
+.hod_faculty_back_button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  height: 34px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(23, 19, 25, 0.09);
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #171319;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.hod_faculty_back_button svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+.hod_faculty_back_button:hover {
+  background: #171319;
+
+  border-color: #171319;
+
+  color: #d0ff71;
+}
+
+
+.hod_faculty_back_button:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================================================
+   PROFILE HERO
+========================================================= */
+
+.hod_faculty_profile_header {
+  min-height: 145px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 22px 24px;
+
+  box-sizing: border-box;
+
+  border-radius: 14px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  margin-bottom: 16px;
+}
+
+
+.hod_faculty_profile_header_left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.hod_faculty_profile_avatar {
+  width: 82px;
+
+  height: 82px;
+
+  flex: 0 0 82px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: #29252b;
+
+  border: 2px solid rgba(208, 255, 113, 0.35);
+}
+
+
+.hod_faculty_profile_avatar img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.hod_faculty_profile_avatar_fallback {
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #d0ff71;
+
+  color: #171319;
+
+  font-size: 27px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PROFILE IDENTITY
+========================================================= */
+
+.hod_faculty_profile_identity {
+  min-width: 0;
+}
+
+
+.hod_faculty_profile_identity h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 650;
+
+  letter-spacing: -0.025em;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.hod_faculty_profile_identity p {
+  margin: 6px 0 0;
+
+  color: #d0ff71;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+
+.hod_faculty_profile_identity span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.hod_faculty_profile_status {
+  display: flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+
+.hod_faculty_profile_status span {
+  padding: 7px 11px;
+
+  border: 1px solid rgba(208, 255, 113, 0.25);
+
+  border-radius: 20px;
+
+  background: rgba(208, 255, 113, 0.08);
+
+  color: #d0ff71;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.hod_faculty_profile_card {
+  width: 100%;
+
+  margin-bottom: 14px;
+
+  padding: 20px 21px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 13px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.hod_faculty_profile_section_heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 17px;
+
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid rgba(23, 19, 25, 0.07);
+}
+
+
+.hod_faculty_section_icon {
+  width: 32px;
+
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #171319;
+
+  color: #d0ff71;
+}
+
+
+.hod_faculty_section_icon svg {
+  width: 16px;
+
+  height: 16px;
+}
+
+
+.hod_faculty_profile_section_heading h2 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 13px;
+
+  line-height: 1.3;
+
+  font-weight: 650;
+}
+
+
+.hod_faculty_profile_section_heading p {
+  margin: 3px 0 0;
+
+  color: rgba(23, 19, 25, 0.4);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   INFORMATION GRID
+========================================================= */
+
+.hod_faculty_info_grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 9px;
+
+  background: rgba(23, 19, 25, 0.07);
+}
+
+
+.hod_faculty_info_item {
+  min-width: 0;
+
+  min-height: 70px;
+
+  padding: 13px 14px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+}
+
+
+.hod_faculty_info_item span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 8px;
+
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+.hod_faculty_info_item strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #171319;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   QUALIFICATIONS
+========================================================= */
+
+.hod_faculty_qualification_list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 9px;
+
+  background: rgba(23, 19, 25, 0.07);
+}
+
+
+.hod_faculty_qualification_item {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr
+    1.5fr
+    0.65fr
+    0.8fr;
+
+  gap: 18px;
+
+  padding: 15px;
+
+  background: #ffffff;
+}
+
+
+.hod_faculty_qualification_item h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  font-weight: 650;
+}
+
+
+.hod_faculty_qualification_item p {
+  margin: 4px 0 0;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+.hod_faculty_qualification_item span,
+.hod_faculty_experience_item span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: rgba(23, 19, 25, 0.36);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+.hod_faculty_qualification_item strong,
+.hod_faculty_experience_item strong {
+  color: #171319;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EXPERIENCE SUMMARY
+========================================================= */
+
+.hod_faculty_experience_summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+.hod_faculty_experience_summary > div {
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  background: #171319;
+}
+
+
+.hod_faculty_experience_summary span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+
+.hod_faculty_experience_summary strong {
+  color: #d0ff71;
+
+  font-size: 13px;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   EXPERIENCE LIST
+========================================================= */
+
+.hod_faculty_experience_list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 9px;
+
+  background: rgba(23, 19, 25, 0.07);
+}
+
+
+.hod_faculty_experience_item {
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    1fr
+    1fr
+    0.65fr;
+
+  gap: 18px;
+
+  padding: 15px;
+
+  background: #ffffff;
+}
+
+
+.hod_faculty_experience_item h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  font-weight: 650;
+}
+
+
+.hod_faculty_experience_item p {
+  margin: 4px 0 0;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   RESEARCH STATS
+========================================================= */
+
+.hod_faculty_research_stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  margin-bottom: 17px;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 9px;
+
+  background: rgba(23, 19, 25, 0.07);
+}
+
+
+.hod_faculty_research_stats > div {
+  padding: 15px;
+
+  background: #ffffff;
+}
+
+
+.hod_faculty_research_stats span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+.hod_faculty_research_stats strong {
+  color: #171319;
+
+  font-size: 19px;
+
+  line-height: 1;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   TAG SECTION
+========================================================= */
+
+.hod_faculty_tag_section {
+  margin-top: 15px;
+}
+
+
+.hod_faculty_tag_section > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgba(23, 19, 25, 0.42);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+.hod_faculty_tag_section > div {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+.hod_faculty_tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 25px;
+
+  padding: 0 9px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+
+  border-radius: 6px;
+
+  background: #f5f5f3;
+
+  color: #171319;
+
+  font-size: 9px;
+
+  font-weight: 500;
+}
+
+
+.hod_faculty_tag:hover {
+  background: #171319;
+
+  color: #d0ff71;
+}
+
+
+/* =========================================================
+   ADDRESS
+========================================================= */
+
+.hod_faculty_address_grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+.hod_faculty_address_item {
+  min-height: 110px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(23, 19, 25, 0.07);
+
+  border-radius: 9px;
+
+  background: #f8f8f6;
+}
+
+
+.hod_faculty_address_item > span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: rgba(23, 19, 25, 0.38);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+
+.hod_faculty_address_item p {
+  margin: 0;
+
+  color: rgba(23, 19, 25, 0.7);
+
+  font-size: 10px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   EMPTY INFORMATION
+========================================================= */
+
+.hod_faculty_no_information {
+  min-height: 65px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  background: #f7f7f5;
+
+  color: rgba(23, 19, 25, 0.35);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.hod_faculty_profile_loading {
+  min-height: 400px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: rgba(23, 19, 25, 0.4);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   EMPTY PROFILE
+========================================================= */
+
+.hod_faculty_profile_empty {
+  min-height: 400px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+}
+
+
+.hod_faculty_profile_empty h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.hod_faculty_profile_empty button {
+  height: 35px;
+
+  padding: 0 14px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: #171319;
+
+  color: #d0ff71;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hod_faculty_info_grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .hod_faculty_qualification_item {
+    grid-template-columns:
+      1.3fr
+      1.4fr
+      0.7fr
+      0.8fr;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .hod_faculty_profile_page {
+    padding: 22px 20px 35px;
+  }
+
+
+  .hod_faculty_profile_header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 20px;
+  }
+
+
+  .hod_faculty_profile_status {
+    margin-left: 100px;
+  }
+
+
+  .hod_faculty_qualification_item,
+  .hod_faculty_experience_item {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+  }
+
+
+  .hod_faculty_address_grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .hod_faculty_profile_page {
+    padding: 17px 12px 28px;
+  }
+
+
+  .hod_faculty_profile_header {
+    padding: 17px;
+
+    border-radius: 11px;
+  }
+
+
+  .hod_faculty_profile_header_left {
+    gap: 13px;
+  }
+
+
+  .hod_faculty_profile_avatar {
+    width: 65px;
+
+    height: 65px;
+
+    flex-basis: 65px;
+  }
+
+
+  .hod_faculty_profile_avatar_fallback {
+    font-size: 22px;
+  }
+
+
+  .hod_faculty_profile_identity h1 {
+    max-width: 220px;
+
+    font-size: 19px;
+  }
+
+
+  .hod_faculty_profile_identity p {
+    font-size: 10px;
+  }
+
+
+  .hod_faculty_profile_status {
+    margin-left: 0;
+  }
+
+
+  .hod_faculty_profile_card {
+    padding: 16px;
+
+    border-radius: 10px;
+  }
+
+
+  .hod_faculty_info_grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hod_faculty_experience_summary {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hod_faculty_research_stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hod_faculty_qualification_item,
+  .hod_faculty_experience_item {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+
+  .hod_faculty_profile_section_heading {
+    margin-bottom: 14px;
+  }
+
+
+  .hod_faculty_profile_section_heading h2 {
+    font-size: 12px;
+  }
+
+
+  .hod_faculty_profile_section_heading p {
+    font-size: 8px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hod_faculty_profile_page {
+    padding: 14px 10px 25px;
+  }
+
+
+  .hod_faculty_profile_header_left {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .hod_faculty_profile_identity h1 {
+    max-width: 100%;
+
+    white-space: normal;
+  }
+
+
+  .hod_faculty_profile_card {
+    padding: 13px;
+  }
+
+}
+
+/* =========================================================
+   IMS STANDARD MODAL
+   FACULTY WORK TIMETABLE
+========================================================= */
+
+.ims_modal_overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(23, 19, 25, 0.68);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  animation: imsModalOverlayIn 0.2s ease-out;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.ims_modal {
+  width: 100%;
+  max-width: 1100px;
+
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(23, 19, 25, 0.12);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 30px 80px rgba(23, 19, 25, 0.30),
+    0 10px 30px rgba(23, 19, 25, 0.12);
+
+  animation: imsModalScaleIn 0.24s ease-out;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ims_modal_header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px 28px;
+
+  background: #171319;
+
+  color: #ffffff;
+}
+
+
+.ims_modal_header_content {
+  min-width: 0;
+}
+
+
+.ims_modal_eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d0ff71;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+
+.ims_modal_header_content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+.ims_modal_header_content p {
+  max-width: 650px;
+
+  margin: 8px 0 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.ims_modal_close {
+  flex-shrink: 0;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.ims_modal_close:hover {
+  background: #d0ff71;
+
+  border-color: #d0ff71;
+
+  color: #171319;
+
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.ims_modal_body {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 24px 28px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   FACULTY SUMMARY
+========================================================= */
+
+.ims_timetable_faculty {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 26px;
+
+  padding: 15px;
+
+  border: 1px solid #e6e6e6;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+}
+
+
+.ims_timetable_avatar {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: #171319;
+
+  color: #d0ff71;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+
+.ims_timetable_avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.ims_timetable_faculty_info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.ims_timetable_faculty_info h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.ims_timetable_faculty_info p {
+  margin: 0;
+
+  color: #77737a;
+
+  font-size: 11px;
+}
+
+
+.ims_timetable_faculty_info span {
+  width: fit-content;
+
+  margin-top: 3px;
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  background: #f0f0f0;
+
+  color: #171319;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   WEEK HEADING
+========================================================= */
+
+.ims_timetable_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 14px;
+}
+
+
+.ims_timetable_heading > div:first-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #99949b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+.ims_timetable_heading h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 15px;
+}
+
+
+.ims_timetable_count {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  background: #171319;
+
+  color: #d0ff71;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+.ims_timetable_count span {
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DAYS
+========================================================= */
+
+.ims_timetable_days {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+.ims_timetable_day {
+  overflow: hidden;
+
+  border: 1px solid #e4e4e4;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   DAY HEADER
+========================================================= */
+
+.ims_timetable_day_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 16px;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  background: #f7f7f7;
+}
+
+
+.ims_timetable_day_header strong {
+  color: #171319;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+.ims_timetable_day_header span {
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #77737a;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PERIODS
+========================================================= */
+
+.ims_timetable_periods {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   PERIOD
+========================================================= */
+
+.ims_timetable_period {
+  display: grid;
+
+  grid-template-columns: 76px minmax(0, 1fr);
+
+  min-height: 70px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  transition: background 0.18s ease;
+}
+
+
+.ims_timetable_period:last-child {
+  border-bottom: 0;
+}
+
+
+.ims_timetable_period:hover {
+  background: #fafafa;
+}
+
+
+/* =========================================================
+   PERIOD NUMBER
+========================================================= */
+
+.ims_timetable_period_number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  border-right: 1px solid #eeeeee;
+
+  background: #fafafa;
+}
+
+
+.ims_timetable_period_number span {
+  color: #aaa5ac;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+
+.ims_timetable_period_number strong {
+  color: #171319;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TEACHING CONTENT
+========================================================= */
+
+.ims_timetable_teaching_content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 1.4fr)
+    minmax(180px, 1fr)
+    100px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 12px 18px;
+}
+
+
+/* =========================================================
+   SUBJECT
+========================================================= */
+
+.ims_timetable_subject {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.ims_timetable_subject span,
+.ims_timetable_class span {
+  color: #aaa5ac;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.ims_timetable_subject strong {
+  color: #171319;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.ims_timetable_subject small {
+  color: #77737a;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CLASS
+========================================================= */
+
+.ims_timetable_class {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.ims_timetable_class strong {
+  color: #171319;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.ims_timetable_class small {
+  color: #858188;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   SEMESTER
+========================================================= */
+
+.ims_timetable_semester {
+  width: fit-content;
+
+  margin-left: auto;
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SPECIAL PERIODS
+========================================================= */
+
+.ims_timetable_special {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 14px 18px;
+}
+
+
+.ims_timetable_special_badge {
+  padding: 7px 10px;
+
+  border-radius: 6px;
+
+  background: #eeeeee;
+
+  color: #171319;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+.ims_timetable_special small {
+  color: #aaa5ac;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   BREAK
+========================================================= */
+
+.ims_timetable_period.is-break {
+  background: #fcfcfc;
+}
+
+
+/* =========================================================
+   LUNCH
+========================================================= */
+
+.ims_timetable_period.is-lunch {
+  background: #f8f8f8;
+}
+
+
+.ims_timetable_period.is-lunch
+.ims_timetable_special_badge {
+  background: #171319;
+
+  color: #d0ff71;
+}
+
+
+/* =========================================================
+   FREE
+========================================================= */
+
+.ims_timetable_period.is-free {
+  background: #ffffff;
+}
+
+
+.ims_timetable_period.is-free
+.ims_timetable_special_badge {
+  background: #f4f4f4;
+
+  color: #99949b;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.ims_timetable_empty {
+  padding: 20px;
+
+  text-align: center;
+
+  color: #aaa5ac;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.ims_modal_footer {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 14px 28px;
+
+  border-top: 1px solid #e6e6e6;
+
+  background: #ffffff;
+}
+
+
+.ims_modal_secondary_btn {
+  min-width: 90px;
+
+  padding: 10px 17px;
+
+  border: 1px solid #171319;
+
+  border-radius: 8px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.ims_modal_secondary_btn:hover {
+  background: #d0ff71;
+
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PROFILE HEADER BUTTON
+========================================================= */
+
+.hod_faculty_view_timetable_btn {
+  padding: 9px 14px;
+
+  border: 1px solid #171319;
+
+  border-radius: 8px;
+
+  background: #171319;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.hod_faculty_view_timetable_btn:hover {
+  background: #d0ff71;
+
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+
+.hod_faculty_view_timetable_btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes imsModalOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes imsModalScaleIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ims_modal {
+    max-height: 92vh;
+  }
+
+
+  .ims_modal_header {
+    padding: 20px;
+  }
+
+
+  .ims_modal_body {
+    padding: 20px;
+  }
+
+
+  .ims_modal_footer {
+    padding: 14px 20px;
+  }
+
+
+  .ims_timetable_teaching_content {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 12px;
+  }
+
+
+  .ims_timetable_semester {
+    margin-left: 0;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .ims_modal_overlay {
+    align-items: center;
+
+    padding: 10px;
+  }
+
+
+  .ims_modal {
+    max-height: 95vh;
+
+    border-radius: 15px;
+  }
+
+
+  .ims_modal_header {
+    padding: 18px;
+  }
+
+
+  .ims_modal_header_content h2 {
+    font-size: 19px;
+  }
+
+
+  .ims_modal_header_content p {
+    font-size: 11px;
+  }
+
+
+  .ims_modal_body {
+    padding: 14px;
+  }
+
+
+  .ims_timetable_faculty {
+    padding: 12px;
+  }
+
+
+  .ims_timetable_avatar {
+    width: 44px;
+    height: 44px;
+
+    font-size: 16px;
+  }
+
+
+  .ims_timetable_period {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+
+
+  .ims_timetable_teaching_content {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    padding: 12px;
+  }
+
+
+  .ims_timetable_semester {
+    margin-left: 0;
+  }
+
+
+  .ims_timetable_heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .ims_timetable_count {
+    width: fit-content;
+  }
+
+
+  .ims_modal_footer {
+    padding: 12px 14px;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+
+  .ims_modal_header {
+    gap: 10px;
+
+    padding: 16px;
+  }
+
+
+  .ims_modal_close {
+    width: 32px;
+    height: 32px;
+
+    font-size: 21px;
+  }
+
+
+  .ims_modal_header_content h2 {
+    font-size: 17px;
+  }
+
+
+  .ims_timetable_day_header {
+    padding: 11px 12px;
+  }
+
+
+  .ims_timetable_period_number strong {
+    font-size: 14px;
+  }
+
+
+  .ims_timetable_special {
+    padding: 12px;
+  }
+
+}

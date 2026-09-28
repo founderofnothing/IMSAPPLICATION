@@ -1,0 +1,739 @@
+/* ==========================================================
+                    EXAM HALL PAGE
+========================================================== */
+
+.exam_hall_page{
+    width:98%;
+    margin-left:auto;
+    margin-right:auto;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    font-family:Poppins, sans-serif;
+}
+
+
+/* ==========================================================
+                    PAGE HEADER
+========================================================== */
+
+.exam_hall_header{
+    width:100%;
+    margin-top:20px;
+    background:#171319;
+    border-radius:10px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+.exam_hall_header_content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.exam_hall_header_content h1{
+    margin:0;
+    font-family:Poppins, sans-serif;
+    font-size:24px;
+    font-weight:600;
+    color:#FFFFFF;
+}
+
+.exam_hall_header_content p{
+    margin:8px 0 0;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:400;
+    line-height:22px;
+    color:#A7A7A7;
+}
+
+
+/* ==========================================================
+                    CREATE BUTTON
+========================================================== */
+
+.exam_hall_create_btn{
+    width:160px;
+    height:42px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins, sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.exam_hall_create_btn:hover{
+    opacity:.9;
+}
+
+.exam_hall_create_btn:active{
+    transform:scale(.98);
+}
+
+
+/* ==========================================================
+                    FILTER SECTION
+========================================================== */
+
+.exam_hall_filters{
+    width:100%;
+    margin:18px 0 22px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    column-gap:10px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    SEARCH
+========================================================== */
+
+.exam_hall_search{
+    width:240px;
+    margin-right:auto;
+}
+
+.exam_hall_search input{
+    width:100%;
+    height:36px;
+    padding:0 12px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#FFFFFF;
+    font-family:Poppins, sans-serif;
+    font-size:12px;
+    font-weight:500;
+    color:#3A3838;
+    box-sizing:border-box;
+}
+
+.exam_hall_search input::placeholder{
+    color:#9A9A9A;
+}
+
+.exam_hall_search input:focus{
+    box-shadow:0 0 0 1px #D0FF71;
+}
+
+
+/* ==========================================================
+                    STATUS FILTER
+========================================================== */
+
+.exam_hall_status_filter{
+    width:165px;
+    flex:none;
+}
+
+.exam_hall_status_filter select{
+    width:100%;
+    height:36px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#FFFFFF;
+    font-family:Poppins, sans-serif;
+    font-size:12px;
+    font-weight:500;
+    color:#3A3838;
+    cursor:pointer;
+    box-sizing:border-box;
+}
+
+.exam_hall_status_filter select:focus{
+    box-shadow:0 0 0 1px #D0FF71;
+}
+
+
+/* ==========================================================
+                    TABLE WRAPPER
+========================================================== */
+
+.exam_hall_table_wrapper{
+    width:100%;
+    margin-top:10px;
+    border-radius:8px;
+    overflow:hidden;
+    background:#FFFFFF;
+}
+
+
+/* ==========================================================
+                    TABLE
+========================================================== */
+
+.exam_hall_table{
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+
+/* ==========================================================
+                    TABLE HEADER
+========================================================== */
+
+.exam_hall_table thead{
+    background:#D9D9D9;
+}
+
+.exam_hall_table th{
+    padding:14px 16px;
+    text-align:left;
+    font-family:Poppins, sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:#3A3838;
+    text-transform:capitalize;
+    white-space:nowrap;
+}
+
+
+/* ==========================================================
+                    TABLE BODY
+========================================================== */
+
+.exam_hall_table tbody td{
+    padding:14px 16px;
+    vertical-align:middle;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:#3A3838;
+}
+
+
+/* ==========================================================
+                    TABLE ROW
+========================================================== */
+
+.exam_hall_table tbody tr{
+    transition:.22s ease;
+}
+
+.exam_hall_table tbody tr:nth-child(odd){
+    background:#FFFFFF;
+}
+
+.exam_hall_table tbody tr:nth-child(even){
+    background:#FAFAFA;
+}
+
+.exam_hall_table tbody tr:hover{
+    background:#F3F8E6;
+}
+
+
+/* ==========================================================
+                    STATUS BADGE
+========================================================== */
+
+.exam_hall_status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:72px;
+    padding:5px 10px;
+    border-radius:20px;
+    font-family:Poppins, sans-serif;
+    font-size:11px;
+    font-weight:600;
+    text-transform:capitalize;
+}
+
+.exam_hall_status_active{
+    background:#EAF8D5;
+    color:#557A1E;
+}
+
+.exam_hall_status_inactive{
+    background:#EEEEEE;
+    color:#777777;
+}
+
+
+/* ==========================================================
+                    ACTIONS
+========================================================== */
+
+.exam_hall_actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.exam_hall_actions button{
+    min-width:62px;
+    height:32px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    font-family:Poppins, sans-serif;
+    font-size:11px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.exam_hall_actions button:first-child{
+    background:#D0FF71;
+    color:#171319;
+}
+
+.exam_hall_actions button:last-child{
+    background:#F0F0F0;
+    color:#555555;
+}
+
+.exam_hall_actions button:hover{
+    opacity:.85;
+}
+
+.exam_hall_actions button:active{
+    transform:scale(.97);
+}
+
+.exam_hall_actions button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+
+/* ==========================================================
+                    LOADING / EMPTY
+========================================================== */
+
+.exam_hall_loading,
+.exam_hall_empty{
+    padding:30px !important;
+    text-align:center;
+    font-family:Poppins, sans-serif;
+    font-size:14px !important;
+    font-weight:500 !important;
+    color:#7B7B7B !important;
+}
+
+
+/* ==========================================================
+                    PAGINATION
+========================================================== */
+
+.exam_hall_pagination{
+    width:100%;
+    margin-top:22px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    column-gap:15px;
+    box-sizing:border-box;
+}
+
+.exam_hall_pagination_info{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-family:Poppins, sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.exam_hall_pagination_info strong{
+    font-size:14px;
+    font-weight:600;
+    color:#D0FF71;
+}
+
+.exam_hall_pagination_controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.exam_hall_pagination_controls span{
+    min-width:100px;
+    text-align:center;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.exam_hall_pagination_controls button{
+    min-width:90px;
+    height:38px;
+    padding:0 12px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#D0FF71;
+    color:#171319;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.exam_hall_pagination_controls button:hover{
+    opacity:.9;
+}
+
+.exam_hall_pagination_controls button:active{
+    transform:scale(.97);
+}
+
+.exam_hall_pagination_controls button:disabled{
+    background:#6F6F6F;
+    color:#D9D9D9;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* ==========================================================
+                    MODAL OVERLAY
+========================================================== */
+
+.exam_hall_modal_overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(3px);
+    z-index:999;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    MODAL
+========================================================== */
+
+.exam_hall_modal{
+    width:620px;
+    max-width:92%;
+    max-height:90vh;
+    background:#1F1F1F;
+    border-radius:12px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    MODAL HEADER
+========================================================== */
+
+.exam_hall_modal_header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin:10px 0 18px;
+}
+
+.exam_hall_modal_header h2{
+    margin:0;
+    font-family:Poppins, sans-serif;
+    font-size:20px;
+    font-weight:500;
+    color:#FFFFFF;
+}
+
+.exam_hall_modal_header p{
+    margin:6px 0 0;
+    font-family:Poppins, sans-serif;
+    font-size:12px;
+    font-weight:400;
+    color:#A7A7A7;
+}
+
+.exam_hall_modal_header > button{
+    width:22px;
+    height:22px;
+    padding:0;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:#D0FF71;
+    font-size:24px;
+    line-height:20px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.exam_hall_modal_header > button:hover{
+    opacity:.8;
+}
+
+
+/* ==========================================================
+                    FORM
+========================================================== */
+
+.exam_hall_form{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    overflow-y:auto;
+    padding-right:8px;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    FORM FIELD
+========================================================== */
+
+.exam_hall_form_group{
+    display:flex;
+    flex-direction:column;
+}
+
+.exam_hall_form_group label{
+    margin-bottom:6px;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:#E6E6E6;
+}
+
+.exam_hall_form_group input,
+.exam_hall_form_group select{
+    width:100%;
+    height:40px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    background:#2B2B2B;
+    color:#FFFFFF;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    box-sizing:border-box;
+}
+
+.exam_hall_form_group input::placeholder{
+    color:#888888;
+}
+
+.exam_hall_form_group input:focus,
+.exam_hall_form_group select:focus{
+    box-shadow:0 0 0 1px #D0FF71;
+}
+
+.exam_hall_form_group select{
+    cursor:pointer;
+}
+
+
+/* ==========================================================
+                    FORM ACTIONS
+========================================================== */
+
+.exam_hall_form_actions{
+    grid-column:1 / -1;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+    margin-top:4px;
+}
+
+.exam_hall_form_actions button{
+    min-width:110px;
+    height:40px;
+    padding:0 15px;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    font-family:Poppins, sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.exam_hall_form_actions button:first-child{
+    background:#2B2B2B;
+    color:#D0D0D0;
+}
+
+.exam_hall_form_actions button:last-child{
+    background:#D0FF71;
+    color:#171319;
+}
+
+.exam_hall_form_actions button:hover{
+    opacity:.9;
+}
+
+.exam_hall_form_actions button:active{
+    transform:scale(.98);
+}
+
+.exam_hall_form_actions button:disabled{
+    background:#6F6F6F;
+    color:#D9D9D9;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* ==========================================================
+                    SCROLLBAR
+========================================================== */
+
+.exam_hall_form::-webkit-scrollbar{
+    width:5px;
+}
+
+.exam_hall_form::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.exam_hall_form::-webkit-scrollbar-thumb{
+    background:#555555;
+    border-radius:10px;
+}
+
+.exam_hall_form::-webkit-scrollbar-thumb:hover{
+    background:#707070;
+}
+
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .exam_hall_header{
+        padding:20px;
+    }
+
+    .exam_hall_header_content h1{
+        font-size:22px;
+    }
+
+    .exam_hall_table_wrapper{
+        overflow-x:auto;
+    }
+
+    .exam_hall_table{
+        min-width:760px;
+    }
+
+}
+
+
+@media (max-width:700px){
+
+    .exam_hall_page{
+        width:94%;
+    }
+
+    .exam_hall_header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .exam_hall_create_btn{
+        width:100%;
+    }
+
+    .exam_hall_filters{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .exam_hall_search{
+        width:100%;
+        margin-right:0;
+    }
+
+    .exam_hall_status_filter{
+        width:100%;
+    }
+
+    .exam_hall_pagination{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:12px;
+    }
+
+    .exam_hall_modal{
+        width:100%;
+        max-width:100%;
+        padding:18px;
+    }
+
+    .exam_hall_form{
+        grid-template-columns:1fr;
+    }
+
+    .exam_hall_form_actions{
+        grid-column:1;
+        flex-direction:column-reverse;
+    }
+
+    .exam_hall_form_actions button{
+        width:100%;
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .exam_hall_header_content h1{
+        font-size:20px;
+    }
+
+    .exam_hall_header_content p{
+        font-size:12px;
+        line-height:19px;
+    }
+
+    .exam_hall_modal_header h2{
+        font-size:18px;
+    }
+
+    .exam_hall_pagination{
+        align-items:stretch;
+    }
+
+    .exam_hall_pagination_info{
+        justify-content:center;
+    }
+
+    .exam_hall_pagination_controls{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+}

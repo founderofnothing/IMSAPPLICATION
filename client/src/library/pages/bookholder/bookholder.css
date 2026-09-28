@@ -1,0 +1,502 @@
+/* =========================================================
+   BOOK HOLDER PAGE
+========================================================= */
+
+.library_bookholder_page {
+  width: 98%;
+  margin: 0 auto;
+  padding: 24px 0 40px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #171319;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.library_bookholder_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.library_bookholder_header h2 {
+  margin: 12px 0 4px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #171319;
+}
+
+.library_bookholder_header p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.library_bookholder_back_btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #171319;
+  font: 500 13px "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.library_bookholder_back_btn:hover {
+  color: #6f8f24;
+}
+
+
+/* =========================================================
+   BOOK INFORMATION CARD
+========================================================= */
+
+.library_bookholder_book_card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+
+  margin-bottom: 24px;
+}
+
+.library_bookholder_book_card > div {
+  min-width: 0;
+}
+
+.library_bookholder_book_card span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #8a8a8a;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.library_bookholder_book_card strong {
+  display: block;
+
+  color: #171319;
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   STATUS TABS
+========================================================= */
+
+.library_bookholder_tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.library_bookholder_tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.library_bookholder_tabs button {
+  flex-shrink: 0;
+
+  padding: 10px 17px;
+
+  border: 1px solid #dedede;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #555;
+
+  font: 500 13px "Poppins", sans-serif;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.library_bookholder_tabs button:hover {
+  border-color: #171319;
+  color: #171319;
+}
+
+.library_bookholder_tabs button.active {
+  background: #171319;
+  border-color: #171319;
+  color: #d0ff71;
+}
+
+
+/* =========================================================
+   MAIN HOLDER SECTION
+========================================================= */
+
+.library_bookholder_section {
+  width: 100%;
+
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.library_bookholder_section_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.library_bookholder_section_header h3 {
+  margin: 0;
+
+  color: #171319;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.library_bookholder_section_header p {
+  margin: 5px 0 0;
+
+  color: #858585;
+  font-size: 12px;
+}
+
+.library_bookholder_section_header > span {
+  flex-shrink: 0;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #f1f1f1;
+  color: #555;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.library_bookholder_table_wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.library_bookholder_table {
+  width: 100%;
+  min-width: 950px;
+
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.library_bookholder_table thead {
+  background: #d9d9d9;
+}
+
+.library_bookholder_table th {
+  padding: 12px 14px;
+
+  color: #171319;
+
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.library_bookholder_table td {
+  padding: 14px;
+
+  border-top: 1px solid #eeeeee;
+
+  color: #555;
+
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.library_bookholder_table tbody tr {
+  transition: 0.15s;
+}
+
+.library_bookholder_table tbody tr:hover {
+  background: #fafafa;
+}
+
+
+/* =========================================================
+   BORROWER
+========================================================= */
+
+.library_bookholder_borrower {
+  min-width: 150px;
+}
+
+.library_bookholder_borrower strong {
+  display: block;
+
+  color: #171319;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TYPE BADGE
+========================================================= */
+
+.library_bookholder_type_badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  background: #f1f1f1;
+  color: #444;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.library_bookholder_status_badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* Issued */
+
+.library_bookholder_status_badge.issued {
+  background: #eef8d9;
+  color: #58721d;
+}
+
+
+/* Returned */
+
+.library_bookholder_status_badge.returned {
+  background: #eaf6ef;
+  color: #287344;
+}
+
+
+/* Lost */
+
+.library_bookholder_status_badge.lost {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+
+/* Damaged */
+
+.library_bookholder_status_badge.damaged {
+  background: #fff7e6;
+  color: #a15c00;
+}
+
+
+/* =========================================================
+   TABLE STATE
+========================================================= */
+
+.library_bookholder_table_state {
+  min-height: 180px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+
+  color: #888;
+
+  font-size: 13px;
+  text-align: center;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.library_bookholder_loading {
+  min-height: 300px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   NOT FOUND
+========================================================= */
+
+.library_bookholder_empty {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+}
+
+.library_bookholder_empty h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.library_bookholder_empty button {
+  height: 40px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #171319;
+  color: #d0ff71;
+
+  font: 500 13px "Poppins", sans-serif;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .library_bookholder_book_card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .library_bookholder_page {
+    width: 94%;
+    padding-top: 18px;
+  }
+
+
+  .library_bookholder_header h2 {
+    font-size: 22px;
+  }
+
+
+  .library_bookholder_book_card {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+  }
+
+
+  .library_bookholder_section_header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+  .library_bookholder_section_header > span {
+    align-self: flex-start;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .library_bookholder_book_card {
+    grid-template-columns: 1fr;
+  }
+
+
+  .library_bookholder_tabs button {
+    padding: 9px 13px;
+  }
+
+}

@@ -1,0 +1,971 @@
+/* =========================================================
+   MASTER TIMETABLE LIST
+   IMS VISUAL SYSTEM
+   FONT: POPPINS
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.mastertimetable_list_page {
+  width: 100%;
+  min-height: 100%;
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  background: #f7f7f7;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* Make all controls inherit Poppins */
+
+.mastertimetable_list_page button,
+.mastertimetable_list_page input,
+.mastertimetable_list_page select,
+.mastertimetable_list_page textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.mastertimetable_list_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.mastertimetable_list_header_content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mastertimetable_list_eyebrow {
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 5px;
+
+  background: #d0ff71;
+  color: #171319;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.mastertimetable_list_header h1 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.mastertimetable_list_header p {
+  margin: 2px 0 0;
+
+  color: #77727a;
+
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+   ========================================================= */
+
+.mastertimetable_list_add_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding: 0 17px;
+
+  border: 1px solid #171319;
+  border-radius: 7px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mastertimetable_list_add_btn:hover {
+  background: #d0ff71;
+  border-color: #d0ff71;
+
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+.mastertimetable_list_add_btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.mastertimetable_list_empty {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  max-width: 600px;
+
+  margin: 70px auto;
+  padding: 55px 30px;
+
+  border: 1px solid #dedede;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 30px rgba(23, 19, 25, 0.05);
+
+  animation:
+    mastertimetable_list_fade_in
+    0.3s ease;
+}
+
+.mastertimetable_list_empty_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+
+  background: #171319;
+  color: #d0ff71;
+}
+
+.mastertimetable_list_empty h2 {
+  margin: 0 0 8px;
+
+  color: #171319;
+
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.mastertimetable_list_empty p {
+  max-width: 440px;
+
+  margin: 0 0 24px;
+
+  color: #77727a;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.mastertimetable_list_empty_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 0 15px;
+
+  border: 1px solid #171319;
+  border-radius: 7px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.mastertimetable_list_empty_btn:hover {
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* =========================================================
+   LIST CONTAINER
+   ========================================================= */
+
+.mastertimetable_list_container {
+  overflow: hidden;
+
+  border: 1px solid #dedede;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(23, 19, 25, 0.04);
+
+  animation:
+    mastertimetable_list_fade_in
+    0.35s ease;
+}
+
+.mastertimetable_list_container_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 72px;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  background: #ffffff;
+}
+
+.mastertimetable_list_container_header h2 {
+  margin: 0 0 4px;
+
+  color: #171319;
+
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.mastertimetable_list_container_header span {
+  color: #88838a;
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   CARDS GRID
+   ========================================================= */
+
+.mastertimetable_cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(390px, 1fr)
+    );
+
+  gap: 16px;
+
+  padding: 20px;
+}
+
+
+/* =========================================================
+   TIMETABLE CARD
+   ========================================================= */
+
+.mastertimetable_card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #dedede;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mastertimetable_card:hover {
+  border-color: #bdbdbd;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(23, 19, 25, 0.08);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.mastertimetable_card_top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+.mastertimetable_card_title {
+  min-width: 0;
+}
+
+.mastertimetable_card_eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d0ff71;
+
+  font-size: 9px;
+  line-height: 1.2;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mastertimetable_card_title h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   SEMESTER BADGE
+   ========================================================= */
+
+.mastertimetable_semester_badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 52px;
+  height: 27px;
+
+  padding: 0 9px;
+
+  border-radius: 5px;
+
+  background: #d0ff71;
+  color: #171319;
+
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+.mastertimetable_semester_even {
+  background: #ffffff;
+  color: #171319;
+}
+
+
+/* =========================================================
+   CARD INFORMATION
+   ========================================================= */
+
+.mastertimetable_card_information {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  border-bottom: 1px solid #e5e5e5;
+
+  background: #ffffff;
+}
+
+.mastertimetable_card_info_item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+
+  padding: 15px;
+
+  border-right: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.mastertimetable_card_info_item:nth-child(2n) {
+  border-right: none;
+}
+
+.mastertimetable_card_info_item:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   INFORMATION ICON
+   ========================================================= */
+
+.mastertimetable_card_info_icon {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 7px;
+
+  background: #f0f0f0;
+  color: #171319;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.mastertimetable_card_info_item:hover
+.mastertimetable_card_info_icon {
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* =========================================================
+   INFORMATION TEXT
+   ========================================================= */
+
+.mastertimetable_card_info_item > div:last-child {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.mastertimetable_card_info_item span {
+  margin-bottom: 3px;
+
+  color: #8a858c;
+
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.mastertimetable_card_info_item strong {
+  min-width: 0;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+   ========================================================= */
+
+.mastertimetable_card_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  min-height: 58px;
+
+  padding: 10px 15px;
+
+  background: #ffffff;
+}
+
+.mastertimetable_card_id {
+  min-width: 0;
+
+  color: #99949a;
+
+  font-size: 9px;
+  line-height: 1.4;
+  font-weight: 400;
+
+  font-family: "Poppins", sans-serif;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mastertimetable_card_actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+   ========================================================= */
+
+.mastertimetable_card_actions > button:not(
+  .mastertimetable_delete_btn
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #171319;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mastertimetable_card_actions > button:not(
+  .mastertimetable_delete_btn
+):hover {
+  border-color: #171319;
+
+  background: #d0ff71;
+  color: #171319;
+
+  transform: translateY(-1px);
+}
+
+.mastertimetable_card_actions > button:not(
+  .mastertimetable_delete_btn
+):active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+.mastertimetable_delete_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  min-height: 34px;
+
+  padding: 0 10px;
+
+  border: 1px solid #dedede;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.mastertimetable_delete_btn:hover {
+  border-color: #171319;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+.mastertimetable_delete_btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.mastertimetable_list_loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 330px;
+
+  border: 1px solid #dedede;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(23, 19, 25, 0.04);
+
+  animation:
+    mastertimetable_list_fade_in
+    0.3s ease;
+}
+
+.mastertimetable_loading_spinner {
+  width: 30px;
+  height: 30px;
+
+  margin-bottom: 13px;
+
+  border: 3px solid #e5e5e5;
+  border-top-color: #171319;
+
+  border-radius: 50%;
+
+  animation:
+    mastertimetable_spin
+    0.8s linear infinite;
+}
+
+.mastertimetable_list_loading p {
+  margin: 0;
+
+  color: #77727a;
+
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes mastertimetable_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mastertimetable_list_fade_in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .mastertimetable_list_page {
+    padding: 34px;
+  }
+
+  .mastertimetable_list_header h1 {
+    font-size: 30px;
+  }
+
+  .mastertimetable_cards {
+    grid-template-columns:
+      repeat(
+        auto-fill,
+        minmax(420px, 1fr)
+      );
+
+    gap: 18px;
+
+    padding: 24px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .mastertimetable_list_page {
+    padding: 22px;
+  }
+
+  .mastertimetable_cards {
+    grid-template-columns:
+      repeat(
+        auto-fill,
+        minmax(320px, 1fr)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .mastertimetable_list_page {
+    padding: 16px;
+  }
+
+  .mastertimetable_list_header {
+    align-items: stretch;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+  }
+
+  .mastertimetable_list_header h1 {
+    font-size: 24px;
+  }
+
+  .mastertimetable_list_header p {
+    font-size: 12px;
+  }
+
+  .mastertimetable_list_add_btn {
+    width: 100%;
+  }
+
+  .mastertimetable_cards {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    padding: 12px;
+  }
+
+  .mastertimetable_list_container_header {
+    min-height: 64px;
+
+    padding: 0 15px;
+  }
+
+  .mastertimetable_card_information {
+    grid-template-columns: 1fr;
+  }
+
+  .mastertimetable_card_info_item,
+  .mastertimetable_card_info_item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .mastertimetable_card_info_item,
+  .mastertimetable_card_info_item:nth-last-child(-n + 2) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .mastertimetable_card_info_item:last-child {
+    border-bottom: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .mastertimetable_list_page {
+    padding: 12px;
+  }
+
+  .mastertimetable_list_header h1 {
+    font-size: 21px;
+  }
+
+  .mastertimetable_list_header p {
+    font-size: 11px;
+  }
+
+  .mastertimetable_list_container_header {
+    padding: 0 14px;
+  }
+
+  .mastertimetable_cards {
+    padding: 10px;
+  }
+
+  .mastertimetable_card_top {
+    padding: 15px;
+  }
+
+  .mastertimetable_card_title h3 {
+    font-size: 14px;
+  }
+
+  .mastertimetable_card_information {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mastertimetable_card_info_item {
+    gap: 8px;
+
+    padding: 12px 10px;
+  }
+
+  .mastertimetable_card_info_icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mastertimetable_card_info_item span {
+    font-size: 8px;
+  }
+
+  .mastertimetable_card_info_item strong {
+    font-size: 10px;
+  }
+
+  .mastertimetable_card_footer {
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 12px;
+  }
+
+  .mastertimetable_card_actions {
+    width: 100%;
+  }
+
+  .mastertimetable_card_actions button {
+    flex: 1;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .mastertimetable_list_page {
+    padding: 10px;
+  }
+
+  .mastertimetable_cards {
+    padding: 8px;
+  }
+
+  .mastertimetable_card_top {
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .mastertimetable_card_title h3 {
+    font-size: 13px;
+  }
+
+  .mastertimetable_semester_badge {
+    min-width: 45px;
+    height: 24px;
+
+    padding: 0 7px;
+
+    font-size: 8px;
+  }
+
+}

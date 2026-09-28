@@ -1,0 +1,6 @@
+.id_card_fabric_wrapper {
+  position: relative;
+  width: 350px;
+  height: 550px;
+  flex-shrink: 0;
+}

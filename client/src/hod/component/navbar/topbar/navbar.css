@@ -1,0 +1,166 @@
+.hod_user-top_navbar{
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:row;
+    padding-left:15px;
+    padding-right:15px;
+    margin-top:10px;
+}
+
+.hod_topbar_user_dashboard_field{
+    font-family:poppins;
+    font-weight:600;
+    font-size:24px;
+    margin-top:5px;
+    margin-bottom:5px;
+    text-transform:capitalize;
+}
+
+.hod_user-details{
+    display: flex;
+}
+
+
+.hod_rhs_nav_Sec{
+    display:flex;
+    align-items: center;
+    column-gap:10px;
+    outline:  1px solid whitesmoke;
+    border-radius:18px;
+   padding: 5px 5px;
+    height:fit-content;
+}
+
+.hod_user_pfp{
+    background:#A19E9E;
+    width:25px;
+    height:25px;
+    border-radius:20px;
+}
+
+.hod_user_name{
+    font-family:poppins;
+    font-weight:500;
+    font-size:14px;
+    color:#A19E9E;
+    margin-top:3px;
+    margin-bottom:3px;
+    text-transform: capitalize;
+}
+
+
+.hod_menu_icon {
+  display: none;
+  cursor: pointer;
+}
+
+.hod_user-details{
+  display: flex;
+  align-items: center;
+  width:100%;
+  justify-content: space-between
+}
+
+@media (max-width:978px) {
+
+  .hod_user-top_navbar{
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+width:99%;
+margin-left: auto;
+margin-right: auto;
+       background:#171319;
+    margin-top:0px;
+     /* border-top-left-radius:12px;
+  border-top-right-radius:12px;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:0px; */
+
+  }
+  .hod_menu_icon {
+    display: block;
+    padding:2px;
+    font-size: 28px;
+    color:white;
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+  }
+
+  .hod_navbar_lhs{
+    display: flex;
+    align-items: center;
+    column-gap:30px;
+  }
+
+  .hod_logout_btn{
+    display:none;
+  }
+
+  .hod_topbar_user_dashboard_field{
+    color: white;
+    font-weight:400;
+  }
+  .hod_rhs_nav_Sec{
+    padding:5px 8px;
+      outline:  1px solid rgb(65, 65, 65);
+  }
+
+  .hod_navbar_lhs{
+  width:98%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction:row-reverse;
+}
+
+.hod_rhs_nav_Sec{
+  display:none;
+}
+
+}
+
+@media(max-width:702px){
+    .hod_user-top_navbar{
+width:99%;
+margin-left: auto;
+margin-right: auto;
+       background:#171319;
+    padding:10px 10px;
+   
+}
+
+
+
+.hod_topbar_user_dashboard_field{
+  font-size:22px;
+  font-weight:500;
+}
+
+.hod_user_name{
+  font-size:14px;
+}
+
+
+
+
+
+}
+
+
+@media(max-width:589px){
+  .hod_topbar_user_dashboard_field{
+  font-size:18px;
+  font-weight:500;
+}
+
+.hod_user_name{
+  font-size:12px;
+}
+
+}
+
+

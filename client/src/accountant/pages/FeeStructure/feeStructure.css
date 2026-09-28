@@ -1,0 +1,1427 @@
+/* =========================================================
+   FEE STRUCTURE
+   IMS ACCOUNTANT MODULE
+   ========================================================= */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
+
+
+/* =========================================================
+   ROOT / PAGE
+   ========================================================= */
+
+.fee-structure-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px;
+  background: #f7f7f8;
+  color: #171319;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.fee-structure-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.fee-structure-header > div {
+  min-width: 0;
+}
+
+.fee-structure-header h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: #171319;
+}
+
+.fee-structure-header p {
+  margin: 7px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #77747a;
+}
+
+
+/* =========================================================
+   RECYCLE BIN
+   ========================================================= */
+
+.recyclebin_wraapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  margin-bottom: 24px;
+  padding: 10px 15px;
+
+  border: 1px solid #dedde0;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #171319;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.recyclebin_wraapper:hover {
+  background: #171319;
+  border-color: #171319;
+  color: #d0ff71;
+  transform: translateY(-1px);
+}
+
+.recyclebin_wraapper h3 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   MAIN FORM CARD
+   ========================================================= */
+
+.fee-structure-content {
+  width: 100%;
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 20px rgba(23, 19, 25, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.fee-structure-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 20px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 600;
+  color: #171319;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS
+   ========================================================= */
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-height: 44px;
+
+  padding: 0 13px;
+
+  border: 1px solid #dcdadd;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa7ac;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #171319;
+  box-shadow: 0 0 0 3px rgba(23, 19, 25, 0.06);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group select:disabled {
+  background: #f3f2f4;
+  color: #aaa7ac;
+  border-color: #e4e2e5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FEE ITEMS SECTION
+   ========================================================= */
+
+.fee-items-section {
+  grid-column: 1 / -1;
+
+  margin-top: 6px;
+  padding: 22px;
+
+  background: #fafafa;
+  border: 1px solid #e6e5e7;
+  border-radius: 12px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FEE ITEMS HEADER
+   ========================================================= */
+
+.fee-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.fee-items-header h3 {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  font-weight: 600;
+  color: #171319;
+}
+
+
+/* =========================================================
+   ADD FEE BUTTON
+   ========================================================= */
+
+.fee-items-header button {
+  min-height: 36px;
+
+  padding: 0 14px;
+
+  border: 1px solid #171319;
+  border-radius: 7px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.fee-items-header button:hover {
+  background: #d0ff71;
+  color: #171319;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FEE ITEM ROW
+   ========================================================= */
+
+.fee-item-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px auto;
+  align-items: end;
+  gap: 14px;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid #e5e4e6;
+}
+
+.fee-item-row:last-of-type {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   REMOVE BUTTON
+   ========================================================= */
+
+.fee-item-row > button {
+  min-height: 44px;
+
+  padding: 0 13px;
+
+  border: 1px solid #dedcdf;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #666269;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.fee-item-row > button:hover {
+  border-color: #171319;
+  background: #171319;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TOTAL
+   ========================================================= */
+
+.fee-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid #dcdadd;
+}
+
+.fee-total span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #77747a;
+}
+
+.fee-total strong {
+  min-width: 130px;
+
+  font-size: 20px;
+  line-height: 1.2;
+
+  font-weight: 600;
+  text-align: right;
+
+  color: #171319;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.fee-structure-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  padding-top: 4px;
+}
+
+.fee-structure-actions button {
+  min-height: 44px;
+
+  padding: 0 22px;
+
+  border: 1px solid #171319;
+  border-radius: 8px;
+
+  background: #171319;
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.fee-structure-actions button:hover:not(:disabled) {
+  background: #d0ff71;
+  color: #171319;
+  transform: translateY(-1px);
+}
+
+.fee-structure-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FEE STRUCTURE LIST
+   ========================================================= */
+
+.fee-structure-list {
+  width: 100%;
+  margin-top: 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 20px rgba(23, 19, 25, 0.04);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   LIST HEADER
+   ========================================================= */
+
+.fee-structure-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 21px 24px;
+
+  border-bottom: 1px solid #e5e4e7;
+}
+
+.fee-structure-list-header h2 {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  font-weight: 600;
+  color: #171319;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.fee-structure-list {
+  overflow-x: auto;
+}
+
+.fee-structure-list table {
+  width: 100%;
+  min-width: 1050px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.fee-structure-list thead {
+  background: #d9d9d9;
+}
+
+.fee-structure-list th {
+  height: 46px;
+
+  padding: 0 15px;
+
+  border-bottom: 1px solid #c9c8ca;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.3;
+
+  font-weight: 600;
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.fee-structure-list td {
+  height: 58px;
+
+  padding: 10px 15px;
+
+  border-bottom: 1px solid #ecebed;
+
+  background: #ffffff;
+
+  color: #555158;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+.fee-structure-list tbody tr {
+  transition: background 0.18s ease;
+}
+
+.fee-structure-list tbody tr:hover td {
+  background: #fafafa;
+}
+
+.fee-structure-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   TABLE AMOUNT
+   ========================================================= */
+
+.fee-structure-list td:nth-child(8) {
+  color: #171319;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLE ACTIONS
+   ========================================================= */
+
+.fee-structure-list td:last-child {
+  width: 150px;
+}
+
+.fee-structure-list td:last-child button {
+  min-height: 32px;
+
+  margin-right: 7px;
+  padding: 0 11px;
+
+  border: 1px solid #dedcdf;
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #171319;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.fee-structure-list td:last-child button:first-child:hover {
+  border-color: #171319;
+  background: #171319;
+  color: #ffffff;
+}
+
+.fee-structure-list td:last-child button:last-child:hover {
+  border-color: #171319;
+  background: #d0ff71;
+  color: #171319;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING STATE
+   ========================================================= */
+
+.fee-structure-list > p {
+  margin: 0;
+  padding: 45px 24px;
+
+  text-align: center;
+
+  color: #858188;
+
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   =========================================================
+   REUSABLE IMS POPUP SYSTEM
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   POPUP OVERLAY
+   ========================================================= */
+
+.ims-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(23, 19, 25, 0.58);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  box-sizing: border-box;
+
+  animation: imsPopupOverlayIn 0.22s ease forwards;
+}
+
+
+/* =========================================================
+   POPUP MODAL
+   ========================================================= */
+
+.ims-popup {
+  position: relative;
+
+  width: min(720px, 100%);
+  max-height: calc(100vh - 48px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(23, 19, 25, 0.08);
+  border-radius: 16px;
+
+  box-shadow:
+    0 25px 70px rgba(23, 19, 25, 0.22),
+    0 8px 25px rgba(23, 19, 25, 0.08);
+
+  animation: imsPopupScaleIn 0.25s ease forwards;
+}
+
+
+/* =========================================================
+   POPUP HEADER
+   ========================================================= */
+
+.ims-popup-header {
+  position: relative;
+
+  flex-shrink: 0;
+
+  padding: 24px 60px 23px 26px;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+.ims-popup-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d0ff71;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.ims-popup-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 20px;
+  line-height: 1.35;
+
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.ims-popup-header p {
+  max-width: 580px;
+
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 11px;
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   POPUP CLOSE
+   ========================================================= */
+
+.ims-popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ims-popup-close:hover {
+  background: #d0ff71;
+  border-color: #d0ff71;
+  color: #171319;
+}
+
+
+/* =========================================================
+   POPUP BODY
+   ========================================================= */
+
+.ims-popup-body {
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 24px 26px;
+
+  background: #ffffff;
+
+  scrollbar-width: thin;
+  scrollbar-color: #c8c7c9 transparent;
+}
+
+.ims-popup-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ims-popup-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ims-popup-body::-webkit-scrollbar-thumb {
+  background: #c8c7c9;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   POPUP INFORMATION SECTION
+   ========================================================= */
+
+.ims-popup-section {
+  margin-bottom: 24px;
+}
+
+.ims-popup-section:last-child {
+  margin-bottom: 0;
+}
+
+.ims-popup-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #e5e4e7;
+}
+
+.ims-popup-section-header h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+.ims-popup-section-description {
+  margin: -5px 0 14px;
+
+  color: #77747a;
+
+  font-size: 10px;
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   PROFILE / AVATAR
+   ========================================================= */
+
+.ims-popup-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 15px;
+
+  border: 1px solid #e5e4e7;
+  border-radius: 10px;
+
+  background: #fafafa;
+}
+
+.ims-popup-avatar {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: #171319;
+  color: #d0ff71;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ims-popup-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.ims-popup-profile-info {
+  min-width: 0;
+}
+
+.ims-popup-profile-info h3 {
+  margin: 0;
+
+  color: #171319;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+.ims-popup-profile-info p {
+  margin: 3px 0 0;
+
+  color: #77747a;
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   LABEL / VALUE GRID
+   ========================================================= */
+
+.ims-popup-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ims-popup-meta {
+  padding: 12px 13px;
+
+  border: 1px solid #e7e6e8;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.ims-popup-meta-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #89868c;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.ims-popup-meta-value {
+  display: block;
+
+  color: #171319;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   COUNT BADGE
+   ========================================================= */
+
+.ims-popup-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+
+  padding: 0 8px;
+
+  border-radius: 6px;
+
+  background: #d0ff71;
+  color: #171319;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   POPUP TABLE
+   ========================================================= */
+
+.ims-popup-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #e3e2e4;
+  border-radius: 9px;
+}
+
+.ims-popup-table {
+  width: 100%;
+  min-width: 520px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.ims-popup-table thead {
+  background: #d9d9d9;
+}
+
+.ims-popup-table th {
+  height: 42px;
+
+  padding: 0 12px;
+
+  color: #171319;
+
+  border-bottom: 1px solid #c9c8ca;
+
+  font-size: 9px;
+  line-height: 1.3;
+
+  font-weight: 600;
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.ims-popup-table td {
+  min-height: 45px;
+
+  padding: 10px 12px;
+
+  color: #555158;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #ecebed;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 400;
+}
+
+.ims-popup-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ims-popup-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+
+/* =========================================================
+   POPUP FORM
+   ========================================================= */
+
+.ims-popup-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.ims-popup-form .form-group {
+  min-width: 0;
+}
+
+.ims-popup-form .full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   POPUP FOOTER
+   ========================================================= */
+
+.ims-popup-footer {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+
+  padding: 15px 22px;
+
+  border-top: 1px solid #e4e3e5;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   POPUP BUTTONS
+   ========================================================= */
+
+.ims-popup-btn {
+  min-height: 38px;
+
+  padding: 0 16px;
+
+  border-radius: 7px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ims-popup-btn-primary {
+  border: 1px solid #171319;
+
+  background: #171319;
+  color: #ffffff;
+}
+
+.ims-popup-btn-primary:hover {
+  background: #d0ff71;
+  color: #171319;
+  transform: translateY(-1px);
+}
+
+.ims-popup-btn-secondary {
+  border: 1px solid #dedcdf;
+
+  background: #ffffff;
+  color: #171319;
+}
+
+.ims-popup-btn-secondary:hover {
+  border-color: #171319;
+  background: #171319;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NESTED POPUP
+   ========================================================= */
+
+.ims-popup-overlay.nested {
+  z-index: 1100;
+
+  background: rgba(23, 19, 25, 0.68);
+}
+
+.ims-popup.nested {
+  width: min(620px, 100%);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes imsPopupOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imsPopupScaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .fee-structure-page {
+    padding: 38px 48px;
+  }
+
+  .fee-structure-header h1 {
+    font-size: 30px;
+  }
+
+  .fee-structure-content {
+    padding: 32px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .fee-structure-page {
+    padding: 24px;
+  }
+
+  .fee-structure-content {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-items-section,
+  .fee-structure-actions {
+    grid-column: 1;
+  }
+
+  .fee-item-row {
+    grid-template-columns: minmax(0, 1fr) 160px auto;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .fee-structure-page {
+    padding: 18px 14px;
+  }
+
+  .fee-structure-header {
+    margin-bottom: 18px;
+  }
+
+  .fee-structure-header h1 {
+    font-size: 23px;
+  }
+
+  .fee-structure-header p {
+    font-size: 11px;
+  }
+
+  .recyclebin_wraapper {
+    margin-bottom: 18px;
+  }
+
+  .fee-structure-content {
+    padding: 18px;
+    border-radius: 11px;
+  }
+
+  .fee-items-section {
+    padding: 15px;
+  }
+
+  .fee-items-header {
+    align-items: flex-start;
+  }
+
+  .fee-item-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fee-item-row > button {
+    width: fit-content;
+  }
+
+  .fee-total {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .fee-total strong {
+    min-width: auto;
+    font-size: 18px;
+  }
+
+  .fee-structure-actions {
+    justify-content: stretch;
+  }
+
+  .fee-structure-actions button {
+    width: 100%;
+  }
+
+  .fee-structure-list-header {
+    padding: 17px 18px;
+  }
+
+  .fee-structure-list {
+    border-radius: 11px;
+  }
+
+
+  /* =========================
+     POPUP MOBILE
+     ========================= */
+
+  .ims-popup-overlay {
+    align-items: flex-end;
+
+    padding: 10px;
+  }
+
+  .ims-popup {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+
+    border-radius: 14px;
+  }
+
+  .ims-popup-header {
+    padding: 21px 55px 20px 20px;
+  }
+
+  .ims-popup-header h2 {
+    font-size: 17px;
+  }
+
+  .ims-popup-header p {
+    font-size: 10px;
+  }
+
+  .ims-popup-body {
+    padding: 20px;
+  }
+
+  .ims-popup-footer {
+    padding: 13px 16px;
+  }
+
+  .ims-popup-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ims-popup-form {
+    grid-template-columns: 1fr;
+  }
+
+  .ims-popup-form .full-width {
+    grid-column: 1;
+  }
+
+  .ims-popup-footer .ims-popup-btn {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .fee-structure-page {
+    padding: 14px 10px;
+  }
+
+  .fee-structure-content {
+    padding: 14px;
+  }
+
+  .fee-items-section {
+    padding: 12px;
+  }
+
+  .ims-popup-overlay {
+    padding: 6px;
+  }
+
+  .ims-popup {
+    max-height: calc(100vh - 12px);
+    border-radius: 12px;
+  }
+
+  .ims-popup-header {
+    padding: 18px 50px 17px 17px;
+  }
+
+  .ims-popup-body {
+    padding: 17px;
+  }
+
+  .ims-popup-footer {
+    padding: 11px;
+  }
+
+  .ims-popup-footer .ims-popup-btn {
+    padding: 0 10px;
+  }
+}
