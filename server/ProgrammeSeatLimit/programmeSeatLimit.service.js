@@ -1,480 +1,534 @@
-import mongoose from "mongoose";
 import ProgrammeSeatLimit from "./ProgrammeSeatLimit.model.js";
 import Institution from "../institution/institution.model.js";
+import Department from "../department/department.model.js";
 import Programme from "../programme/programme.model.js";
 import Batch from "../batch/batch.model.js";
 
-/**
- * CREATE PROGRAMME SEAT LIMIT
- */
-export const createProgrammeSeatLimitService = async (data) => {
-  try {
-    const {
-      institutionId,
-      programmeId,
-      batchId,
-      seatLimit,
-    } = data;
 
-    // -----------------------------------------
-    // Validate ObjectIds
-    // -----------------------------------------
-    if (!mongoose.Types.ObjectId.isValid(institutionId)) {
-      throw new Error("Invalid institution ID");
-    }
+// ============================================================
+// CREATE PROGRAMME SEAT LIMIT
+// ============================================================
+export const createProgrammeSeatLimitService = async (
+  seatLimitData
+) => {
 
-    if (!mongoose.Types.ObjectId.isValid(programmeId)) {
-      throw new Error("Invalid programme ID");
-    }
+  const {
+    institutionId,
+    programmeId,
+    batchId,
+    seatLimit,
+  } = seatLimitData;
 
-    if (!mongoose.Types.ObjectId.isValid(batchId)) {
-      throw new Error("Invalid batch ID");
-    }
 
-    // -----------------------------------------
-    // Validate seat limit
-    // -----------------------------------------
-    if (
-      seatLimit === undefined ||
-      seatLimit === null ||
-      !Number.isInteger(Number(seatLimit)) ||
-      Number(seatLimit) < 1
-    ) {
-      throw new Error("Seat limit must be a whole number greater than 0");
-    }
+  // ==========================================================
+  // VALIDATE REQUIRED DATA
+  // ==========================================================
 
-    // -----------------------------------------
-    // Check Institution
-    // -----------------------------------------
-    const institution = await Institution.findOne({
+  if (!institutionId) {
+    throw new Error(
+      "Institution is required"
+    );
+  }
+
+  if (!programmeId) {
+    throw new Error(
+      "Programme is required"
+    );
+  }
+
+  if (!batchId) {
+    throw new Error(
+      "Batch is required"
+    );
+  }
+
+  if (
+    seatLimit === undefined ||
+    seatLimit === null
+  ) {
+    throw new Error(
+      "Seat limit is required"
+    );
+  }
+
+
+  // ==========================================================
+  // VALIDATE SEAT LIMIT
+  // ==========================================================
+
+  if (
+    !Number.isInteger(
+      Number(seatLimit)
+    ) ||
+    Number(seatLimit) < 1
+  ) {
+    throw new Error(
+      "Seat limit must be a whole number greater than 0"
+    );
+  }
+
+
+  // ==========================================================
+  // CHECK INSTITUTION
+  // ==========================================================
+
+  const institution =
+    await Institution.findOne({
       _id: institutionId,
       isDeleted: false,
     });
 
-    if (!institution) {
-      throw new Error("Institution not found");
-    }
+  if (!institution) {
+    throw new Error(
+      "Institution not found"
+    );
+  }
 
-    // -----------------------------------------
-    // Check Programme
-    // -----------------------------------------
-    const programme = await Programme.findOne({
+
+  // ==========================================================
+  // CHECK PROGRAMME
+  // ==========================================================
+
+  const programme =
+    await Programme.findOne({
       _id: programmeId,
       isDeleted: false,
     });
 
-    if (!programme) {
-      throw new Error("Programme not found");
-    }
+  if (!programme) {
+    throw new Error(
+      "Programme not found"
+    );
+  }
 
-    // -----------------------------------------
-    // Check Batch
-    // -----------------------------------------
-    const batch = await Batch.findOne({
-      _id: batchId,
-      institutionId,
-      isDeleted: false,
-    });
 
-    if (!batch) {
-      throw new Error(
-        "Batch not found or batch does not belong to the selected institution"
-      );
-    }
+  // ==========================================================
+  // CHECK PROGRAMME'S DEPARTMENT
+  // ==========================================================
 
-    // -----------------------------------------
-    // Check Programme belongs to Institution
-    // -----------------------------------------
-    const department = await mongoose.model("Department").findOne({
+  const department =
+    await Department.findOne({
       _id: programme.department,
-      institutionId,
+      institution: institutionId,
       isDeleted: false,
     });
 
-    if (!department) {
-      throw new Error(
-        "Programme does not belong to the selected institution"
-      );
-    }
+  if (!department) {
+    throw new Error(
+      "Programme does not belong to the selected institution"
+    );
+  }
 
-    // -----------------------------------------
-    // Check duplicate configuration
-    // -----------------------------------------
-    const existingSeatLimit = await ProgrammeSeatLimit.findOne({
-      programmeId,
-      batchId,
+
+  // ==========================================================
+  // CHECK BATCH
+  // ==========================================================
+
+  const batch =
+    await Batch.findOne({
+      _id: batchId,
+      institutionId: institutionId,
+      isDeleted: false,
     });
 
-    if (existingSeatLimit) {
-      if (existingSeatLimit.isDeleted) {
-        throw new Error(
-          "A deleted seat-limit configuration already exists for this programme and batch. Restore it instead."
-        );
-      }
+  if (!batch) {
+    throw new Error(
+      "Batch does not belong to the selected institution"
+    );
+  }
 
+
+  // ==========================================================
+  // CHECK DUPLICATE PROGRAMME + BATCH
+  // ==========================================================
+
+  const existingSeatLimit =
+    await ProgrammeSeatLimit.findOne({
+      programmeId: programmeId,
+      batchId: batchId,
+    });
+
+  if (existingSeatLimit) {
+
+    if (existingSeatLimit.isDeleted) {
       throw new Error(
-        "Seat limit already exists for this programme and batch"
+        "A deleted seat limit already exists for this programme and batch. Please restore it instead."
       );
     }
 
-    // -----------------------------------------
-    // Create Seat Limit
-    // -----------------------------------------
-    const seatLimitRecord = await ProgrammeSeatLimit.create({
-      institutionId,
-      programmeId,
-      batchId,
+    throw new Error(
+      "Seat limit already exists for this programme and batch"
+    );
+  }
+
+
+  // ==========================================================
+  // CREATE SEAT LIMIT
+  // ==========================================================
+
+  const seatLimitRecord =
+    await ProgrammeSeatLimit.create({
+      institutionId: institutionId,
+      programmeId: programmeId,
+      batchId: batchId,
       seatLimit: Number(seatLimit),
     });
 
-    // -----------------------------------------
-    // Return populated document
-    // -----------------------------------------
-    const result = await ProgrammeSeatLimit.findById(
+
+  // ==========================================================
+  // RETURN POPULATED DATA
+  // ==========================================================
+
+  const createdSeatLimit =
+    await ProgrammeSeatLimit.findById(
       seatLimitRecord._id
     )
-      .populate("institutionId", "institutionName")
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
       .populate(
         "programmeId",
-        "programmeName programmeCode programmeType"
+        "programmeName programmeCode programmeType duration"
       )
       .populate(
         "batchId",
         "batchName admissionYear graduationYear currentYear status"
       );
 
-    return result;
-  } catch (error) {
-    throw error;
-  }
+
+  return createdSeatLimit;
 };
 
 
-/**
- * GET ALL ACTIVE PROGRAMME SEAT LIMITS
- */
-export const getAllProgrammeSeatLimitsService = async (
-  institutionId
-) => {
-  try {
-    const filter = {
-      isDeleted: false,
-    };
+// ============================================================
+// GET ALL PROGRAMME SEAT LIMITS
+// ============================================================
+export const getAllProgrammeSeatLimitsService = async () => {
 
-    // Optional institution filter
-    if (institutionId) {
-      if (!mongoose.Types.ObjectId.isValid(institutionId)) {
-        throw new Error("Invalid institution ID");
-      }
-
-      filter.institutionId = institutionId;
-    }
-
-    const seatLimits = await ProgrammeSeatLimit.find(filter)
-      .populate("institutionId", "institutionName")
-      .populate(
-        "programmeId",
-        "programmeName programmeCode programmeType"
-      )
-      .populate(
-        "batchId",
-        "batchName admissionYear graduationYear currentYear status"
-      )
-      .sort({ createdAt: -1 });
-
-    return seatLimits;
-  } catch (error) {
-    throw error;
-  }
-};
-
-
-/**
- * GET SINGLE PROGRAMME SEAT LIMIT
- */
-export const getProgrammeSeatLimitByIdService = async (id) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      throw new Error("Invalid programme seat limit ID");
-    }
-
-    const seatLimit = await ProgrammeSeatLimit.findOne({
-      _id: id,
+  const seatLimits =
+    await ProgrammeSeatLimit.find({
       isDeleted: false,
     })
-      .populate("institutionId", "institutionName")
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
       .populate(
         "programmeId",
-        "programmeName programmeCode programmeType"
+        "programmeName programmeCode programmeType duration"
+      )
+      .populate(
+        "batchId",
+        "batchName admissionYear graduationYear currentYear status"
+      )
+      .sort({
+        createdAt: -1,
+      });
+
+
+  return seatLimits;
+};
+
+
+// ============================================================
+// GET SINGLE PROGRAMME SEAT LIMIT
+// ============================================================
+export const getProgrammeSeatLimitByIdService = async (
+  seatLimitId
+) => {
+
+  const seatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: seatLimitId,
+      isDeleted: false,
+    })
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
+      .populate(
+        "programmeId",
+        "programmeName programmeCode programmeType duration"
       )
       .populate(
         "batchId",
         "batchName admissionYear graduationYear currentYear status"
       );
 
-    if (!seatLimit) {
-      throw new Error("Programme seat limit not found");
-    }
 
-    return seatLimit;
-  } catch (error) {
-    throw error;
+  if (!seatLimit) {
+    throw new Error(
+      "Programme seat limit not found"
+    );
   }
+
+
+  return seatLimit;
 };
 
 
-/**
- * UPDATE PROGRAMME SEAT LIMIT
- */
+// ============================================================
+// UPDATE PROGRAMME SEAT LIMIT
+// ============================================================
 export const updateProgrammeSeatLimitService = async (
-  id,
-  data
+  seatLimitId,
+  updateData
 ) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      throw new Error("Invalid programme seat limit ID");
-    }
 
-    const {
-      institutionId,
-      programmeId,
-      batchId,
-      seatLimit,
-    } = data;
+  // ==========================================================
+  // CHECK EXISTING SEAT LIMIT
+  // ==========================================================
 
-    // -----------------------------------------
-    // Find existing record
-    // -----------------------------------------
-    const existingSeatLimit =
-      await ProgrammeSeatLimit.findOne({
-        _id: id,
-        isDeleted: false,
-      });
+  const existingSeatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: seatLimitId,
+      isDeleted: false,
+    });
 
-    if (!existingSeatLimit) {
-      throw new Error("Programme seat limit not found");
-    }
+  if (!existingSeatLimit) {
+    throw new Error(
+      "Programme seat limit not found"
+    );
+  }
 
-    // -----------------------------------------
-    // Validate seat limit
-    // -----------------------------------------
-    if (
-      seatLimit !== undefined &&
-      (
-        !Number.isInteger(Number(seatLimit)) ||
-        Number(seatLimit) < 1
-      )
-    ) {
-      throw new Error(
-        "Seat limit must be a whole number greater than 0"
-      );
-    }
 
-    // -----------------------------------------
-    // Determine final values
-    // -----------------------------------------
-    const finalInstitutionId =
-      institutionId || existingSeatLimit.institutionId;
+  // ==========================================================
+  // GET UPDATE VALUES
+  // ==========================================================
 
-    const finalProgrammeId =
-      programmeId || existingSeatLimit.programmeId;
+  const {
+    institutionId,
+    programmeId,
+    batchId,
+    seatLimit,
+  } = updateData;
 
-    const finalBatchId =
-      batchId || existingSeatLimit.batchId;
 
-    // -----------------------------------------
-    // Validate ObjectIds
-    // -----------------------------------------
-    if (
-      !mongoose.Types.ObjectId.isValid(
-        finalInstitutionId
-      )
-    ) {
-      throw new Error("Invalid institution ID");
-    }
+  // ==========================================================
+  // PREPARE FINAL VALUES
+  // ==========================================================
 
-    if (
-      !mongoose.Types.ObjectId.isValid(
-        finalProgrammeId
-      )
-    ) {
-      throw new Error("Invalid programme ID");
-    }
+  const finalInstitutionId =
+    institutionId ||
+    existingSeatLimit.institutionId;
 
-    if (
-      !mongoose.Types.ObjectId.isValid(
-        finalBatchId
-      )
-    ) {
-      throw new Error("Invalid batch ID");
-    }
+  const finalProgrammeId =
+    programmeId ||
+    existingSeatLimit.programmeId;
 
-    // -----------------------------------------
-    // Check Institution
-    // -----------------------------------------
-    const institution = await Institution.findOne({
+  const finalBatchId =
+    batchId ||
+    existingSeatLimit.batchId;
+
+  const finalSeatLimit =
+    seatLimit !== undefined
+      ? seatLimit
+      : existingSeatLimit.seatLimit;
+
+
+  // ==========================================================
+  // VALIDATE SEAT LIMIT
+  // ==========================================================
+
+  if (
+    !Number.isInteger(
+      Number(finalSeatLimit)
+    ) ||
+    Number(finalSeatLimit) < 1
+  ) {
+    throw new Error(
+      "Seat limit must be a whole number greater than 0"
+    );
+  }
+
+
+  // ==========================================================
+  // CHECK INSTITUTION
+  // ==========================================================
+
+  const institution =
+    await Institution.findOne({
       _id: finalInstitutionId,
       isDeleted: false,
     });
 
-    if (!institution) {
-      throw new Error("Institution not found");
-    }
+  if (!institution) {
+    throw new Error(
+      "Institution not found"
+    );
+  }
 
-    // -----------------------------------------
-    // Check Programme
-    // -----------------------------------------
-    const programme = await Programme.findOne({
+
+  // ==========================================================
+  // CHECK PROGRAMME
+  // ==========================================================
+
+  const programme =
+    await Programme.findOne({
       _id: finalProgrammeId,
       isDeleted: false,
     });
 
-    if (!programme) {
-      throw new Error("Programme not found");
-    }
+  if (!programme) {
+    throw new Error(
+      "Programme not found"
+    );
+  }
 
-    // -----------------------------------------
-    // Check Batch
-    // -----------------------------------------
-    const batch = await Batch.findOne({
+
+  // ==========================================================
+  // CHECK PROGRAMME → DEPARTMENT → INSTITUTION
+  // ==========================================================
+
+  const department =
+    await Department.findOne({
+      _id: programme.department,
+      institution: finalInstitutionId,
+      isDeleted: false,
+    });
+
+  if (!department) {
+    throw new Error(
+      "Programme does not belong to the selected institution"
+    );
+  }
+
+
+  // ==========================================================
+  // CHECK BATCH → INSTITUTION
+  // ==========================================================
+
+  const batch =
+    await Batch.findOne({
       _id: finalBatchId,
       institutionId: finalInstitutionId,
       isDeleted: false,
     });
 
-    if (!batch) {
-      throw new Error(
-        "Batch not found or batch does not belong to the selected institution"
-      );
-    }
+  if (!batch) {
+    throw new Error(
+      "Batch does not belong to the selected institution"
+    );
+  }
 
-    // -----------------------------------------
-    // Check Programme belongs to Institution
-    // -----------------------------------------
-    const department = await mongoose.model("Department").findOne({
-      _id: programme.department,
-      institutionId: finalInstitutionId,
-      isDeleted: false,
-    });
 
-    if (!department) {
-      throw new Error(
-        "Programme does not belong to the selected institution"
-      );
-    }
+  // ==========================================================
+  // CHECK DUPLICATE PROGRAMME + BATCH
+  // ==========================================================
 
-    // -----------------------------------------
-    // Check duplicate configuration
-    // -----------------------------------------
-    const duplicate = await ProgrammeSeatLimit.findOne({
-      _id: { $ne: id },
+  const duplicateSeatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: {
+        $ne: seatLimitId,
+      },
+
       programmeId: finalProgrammeId,
+
       batchId: finalBatchId,
+
       isDeleted: false,
     });
 
-    if (duplicate) {
-      throw new Error(
-        "Another seat-limit configuration already exists for this programme and batch"
-      );
-    }
+  if (duplicateSeatLimit) {
+    throw new Error(
+      "Seat limit already exists for this programme and batch"
+    );
+  }
 
-    // -----------------------------------------
-    // Update
-    // -----------------------------------------
-    existingSeatLimit.institutionId =
-      finalInstitutionId;
 
-    existingSeatLimit.programmeId =
-      finalProgrammeId;
+  // ==========================================================
+  // UPDATE
+  // ==========================================================
 
-    existingSeatLimit.batchId =
-      finalBatchId;
+  const updatedSeatLimit =
+    await ProgrammeSeatLimit.findByIdAndUpdate(
+      seatLimitId,
+      {
+        institutionId:
+          finalInstitutionId,
 
-    if (seatLimit !== undefined) {
-      existingSeatLimit.seatLimit =
-        Number(seatLimit);
-    }
+        programmeId:
+          finalProgrammeId,
 
-    await existingSeatLimit.save();
+        batchId:
+          finalBatchId,
 
-    // -----------------------------------------
-    // Return populated document
-    // -----------------------------------------
-    const result = await ProgrammeSeatLimit.findById(
-      existingSeatLimit._id
+        seatLimit:
+          Number(finalSeatLimit),
+      },
+      {
+        returnDocument: "after",
+        runValidators: true,
+      }
     )
-      .populate("institutionId", "institutionName")
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
       .populate(
         "programmeId",
-        "programmeName programmeCode programmeType"
+        "programmeName programmeCode programmeType duration"
       )
       .populate(
         "batchId",
         "batchName admissionYear graduationYear currentYear status"
       );
 
-    return result;
-  } catch (error) {
-    throw error;
-  }
+
+  return updatedSeatLimit;
 };
 
 
-/**
- * SOFT DELETE PROGRAMME SEAT LIMIT
- */
-export const deleteProgrammeSeatLimitService = async (id) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      throw new Error("Invalid programme seat limit ID");
-    }
-
-    const seatLimit = await ProgrammeSeatLimit.findOne({
-      _id: id,
+// ============================================================
+// DELETE PROGRAMME SEAT LIMIT
+// SOFT DELETE
+// ============================================================
+export const deleteProgrammeSeatLimitService = async (
+  seatLimitId
+) => {
+  const seatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: seatLimitId,
       isDeleted: false,
     });
 
-    if (!seatLimit) {
-      throw new Error("Programme seat limit not found");
-    }
-
-    seatLimit.isDeleted = true;
-    seatLimit.deletedAt = new Date();
-
-    await seatLimit.save();
-
-    return seatLimit;
-  } catch (error) {
-    throw error;
+  if (!seatLimit) {
+    throw new Error(
+      "Programme seat limit not found"
+    );
   }
+
+  const deletedSeatLimit =
+    await ProgrammeSeatLimit.findByIdAndUpdate(
+      seatLimitId,
+      {
+        isDeleted: true,
+        deletedAt: new Date(),
+      },
+      {
+        returnDocument: "after",
+      }
+    );
+
+  return deletedSeatLimit;
 };
 
-
-/**
- * GET ALL DELETED PROGRAMME SEAT LIMITS
- */
-export const getDeletedProgrammeSeatLimitsService = async (
-  institutionId
-) => {
-  try {
-    const filter = {
+// ============================================================
+// GET DELETED PROGRAMME SEAT LIMITS
+// ============================================================
+export const getDeletedProgrammeSeatLimitsService = async () => {
+  const seatLimits =
+    await ProgrammeSeatLimit.find({
       isDeleted: true,
-    };
-
-    if (institutionId) {
-      if (!mongoose.Types.ObjectId.isValid(institutionId)) {
-        throw new Error("Invalid institution ID");
-      }
-
-      filter.institutionId = institutionId;
-    }
-
-    const seatLimits = await ProgrammeSeatLimit.find(filter)
-      .populate("institutionId", "institutionName")
+    })
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
       .populate(
         "programmeId",
-        "programmeName programmeCode programmeType"
+        "programmeName programmeCode programmeType duration"
       )
       .populate(
         "batchId",
@@ -482,109 +536,93 @@ export const getDeletedProgrammeSeatLimitsService = async (
       )
       .sort({ deletedAt: -1 });
 
-    return seatLimits;
-  } catch (error) {
-    throw error;
-  }
+  return seatLimits;
 };
 
 
-/**
- * RESTORE PROGRAMME SEAT LIMIT
- */
-export const restoreProgrammeSeatLimitService = async (id) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      throw new Error("Invalid programme seat limit ID");
-    }
+// ============================================================
+// PERMANENT DELETE PROGRAMME SEAT LIMIT
+// ============================================================
 
-    const seatLimit = await ProgrammeSeatLimit.findOne({
-      _id: id,
-      isDeleted: true,
-    });
+export const permanentDeleteProgrammeSeatLimitService =
+  async (seatLimitId) => {
+    const seatLimit =
+      await ProgrammeSeatLimit.findById(
+        seatLimitId
+      );
 
     if (!seatLimit) {
       throw new Error(
-        "Deleted programme seat limit not found"
+        "Programme seat limit not found"
       );
     }
 
-    // -----------------------------------------
-    // Check if another active configuration
-    // already exists
-    // -----------------------------------------
-    const existingActive =
-      await ProgrammeSeatLimit.findOne({
-        _id: { $ne: id },
-        programmeId: seatLimit.programmeId,
-        batchId: seatLimit.batchId,
+    const deletedSeatLimit =
+      await ProgrammeSeatLimit.findByIdAndDelete(
+        seatLimitId
+      );
+
+    return deletedSeatLimit;
+  };
+
+
+// ============================================================
+// RESTORE PROGRAMME SEAT LIMIT
+// ============================================================
+export const restoreProgrammeSeatLimitService = async (
+  seatLimitId
+) => {
+  const seatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: seatLimitId,
+      isDeleted: true,
+    });
+
+  if (!seatLimit) {
+    throw new Error(
+      "Deleted programme seat limit not found"
+    );
+  }
+
+  // Check whether another active seat limit
+  // already exists for the same programme + batch
+  const existingActiveSeatLimit =
+    await ProgrammeSeatLimit.findOne({
+      _id: { $ne: seatLimitId },
+      programmeId: seatLimit.programmeId,
+      batchId: seatLimit.batchId,
+      isDeleted: false,
+    });
+
+  if (existingActiveSeatLimit) {
+    throw new Error(
+      "An active seat limit already exists for this programme and batch. The deleted record cannot be restored."
+    );
+  }
+
+  const restoredSeatLimit =
+    await ProgrammeSeatLimit.findByIdAndUpdate(
+      seatLimitId,
+      {
         isDeleted: false,
-      });
-
-    if (existingActive) {
-      throw new Error(
-        "An active seat-limit configuration already exists for this programme and batch"
-      );
-    }
-
-    seatLimit.isDeleted = false;
-    seatLimit.deletedAt = null;
-
-    await seatLimit.save();
-
-    const result = await ProgrammeSeatLimit.findById(
-      seatLimit._id
+        deletedAt: null,
+      },
+      {
+        returnDocument: "after",
+      }
     )
-      .populate("institutionId", "institutionName")
+      .populate(
+        "institutionId",
+        "institutionName institutionCode"
+      )
       .populate(
         "programmeId",
-        "programmeName programmeCode programmeType"
+        "programmeName programmeCode programmeType duration"
       )
       .populate(
         "batchId",
         "batchName admissionYear graduationYear currentYear status"
       );
 
-    return result;
-  } catch (error) {
-    throw error;
-  }
+  return restoredSeatLimit;
 };
-
-
-/**
- * PERMANENT DELETE PROGRAMME SEAT LIMIT
- */
-export const permanentDeleteProgrammeSeatLimitService =
-  async (id) => {
-    try {
-      if (!mongoose.Types.ObjectId.isValid(id)) {
-        throw new Error(
-          "Invalid programme seat limit ID"
-        );
-      }
-
-      const seatLimit =
-        await ProgrammeSeatLimit.findOne({
-          _id: id,
-          isDeleted: true,
-        });
-
-      if (!seatLimit) {
-        throw new Error(
-          "Deleted programme seat limit not found"
-        );
-      }
-
-      await ProgrammeSeatLimit.deleteOne({
-        _id: id,
-      });
-
-      return {
-        message:
-          "Programme seat limit permanently deleted",
-      };
-    } catch (error) {
-      throw error;
-    }
-  };

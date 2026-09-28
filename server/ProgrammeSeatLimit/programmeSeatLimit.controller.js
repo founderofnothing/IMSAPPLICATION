@@ -9,20 +9,25 @@ import {
   permanentDeleteProgrammeSeatLimitService,
 } from "./programmeSeatLimit.service.js";
 
+// ============================================================
+// CREATE PROGRAMME SEAT LIMIT
+// ============================================================
 
-/**
- * CREATE PROGRAMME SEAT LIMIT
- * POST /api/programme-seat-limit
- */
-export const createProgrammeSeatLimit = async (req, res) => {
+export const createProgrammeSeatLimit = async (
+  req,
+  res
+) => {
   try {
     const seatLimit =
-      await createProgrammeSeatLimitService(req.body);
+      await createProgrammeSeatLimitService(
+        req.body
+      );
 
     return res.status(201).json({
       success: true,
-      message: "Programme seat limit created successfully",
-      data: seatLimit,
+      message:
+        "Programme seat limit created successfully",
+      seatLimit,
     });
   } catch (error) {
     console.error(
@@ -37,29 +42,22 @@ export const createProgrammeSeatLimit = async (req, res) => {
   }
 };
 
+// ============================================================
+// GET ALL PROGRAMME SEAT LIMITS
+// ============================================================
 
-/**
- * GET ALL ACTIVE PROGRAMME SEAT LIMITS
- * GET /api/programme-seat-limit
- *
- * Optional:
- * ?institutionId=xxxxxxxx
- */
-export const getAllProgrammeSeatLimits = async (req, res) => {
+export const getAllProgrammeSeatLimits = async (
+  req,
+  res
+) => {
   try {
-    const { institutionId } = req.query;
-
     const seatLimits =
-      await getAllProgrammeSeatLimitsService(
-        institutionId
-      );
+      await getAllProgrammeSeatLimitsService();
 
     return res.status(200).json({
       success: true,
-      message:
-        "Programme seat limits fetched successfully",
       count: seatLimits.length,
-      data: seatLimits,
+      seatLimits,
     });
   } catch (error) {
     console.error(
@@ -67,18 +65,15 @@ export const getAllProgrammeSeatLimits = async (req, res) => {
       error
     );
 
-    return res.status(400).json({
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
-
-
-/**
- * GET SINGLE PROGRAMME SEAT LIMIT
- * GET /api/programme-seat-limit/:id
- */
+// ============================================================
+// GET PROGRAMME SEAT LIMIT BY ID
+// ============================================================
 export const getProgrammeSeatLimitById = async (
   req,
   res
@@ -91,13 +86,11 @@ export const getProgrammeSeatLimitById = async (
 
     return res.status(200).json({
       success: true,
-      message:
-        "Programme seat limit fetched successfully",
-      data: seatLimit,
+      seatLimit,
     });
   } catch (error) {
     console.error(
-      "Get Programme Seat Limit By ID Error:",
+      "Get Programme Seat Limit Error:",
       error
     );
 
@@ -108,11 +101,9 @@ export const getProgrammeSeatLimitById = async (
   }
 };
 
-
-/**
- * UPDATE PROGRAMME SEAT LIMIT
- * PUT /api/programme-seat-limit/:id
- */
+// ============================================================
+// UPDATE PROGRAMME SEAT LIMIT
+// ============================================================
 export const updateProgrammeSeatLimit = async (
   req,
   res
@@ -120,7 +111,7 @@ export const updateProgrammeSeatLimit = async (
   try {
     const { id } = req.params;
 
-    const updatedSeatLimit =
+    const seatLimit =
       await updateProgrammeSeatLimitService(
         id,
         req.body
@@ -130,7 +121,7 @@ export const updateProgrammeSeatLimit = async (
       success: true,
       message:
         "Programme seat limit updated successfully",
-      data: updatedSeatLimit,
+      seatLimit,
     });
   } catch (error) {
     console.error(
@@ -145,11 +136,9 @@ export const updateProgrammeSeatLimit = async (
   }
 };
 
-
-/**
- * SOFT DELETE PROGRAMME SEAT LIMIT
- * DELETE /api/programme-seat-limit/:id
- */
+// ============================================================
+// SOFT DELETE PROGRAMME SEAT LIMIT
+// ============================================================
 export const deleteProgrammeSeatLimit = async (
   req,
   res
@@ -157,14 +146,14 @@ export const deleteProgrammeSeatLimit = async (
   try {
     const { id } = req.params;
 
-    const deletedSeatLimit =
+    const seatLimit =
       await deleteProgrammeSeatLimitService(id);
 
     return res.status(200).json({
       success: true,
       message:
         "Programme seat limit deleted successfully",
-      data: deletedSeatLimit,
+      seatLimit,
     });
   } catch (error) {
     console.error(
@@ -172,39 +161,28 @@ export const deleteProgrammeSeatLimit = async (
       error
     );
 
-    return res.status(400).json({
+    return res.status(404).json({
       success: false,
       message: error.message,
     });
   }
 };
 
-
-/**
- * GET DELETED PROGRAMME SEAT LIMITS
- * GET /api/programme-seat-limit/deleted
- *
- * Optional:
- * ?institutionId=xxxxxxxx
- */
+// ============================================================
+// GET DELETED PROGRAMME SEAT LIMITS
+// ============================================================
 export const getDeletedProgrammeSeatLimits = async (
   req,
   res
 ) => {
   try {
-    const { institutionId } = req.query;
-
     const seatLimits =
-      await getDeletedProgrammeSeatLimitsService(
-        institutionId
-      );
+      await getDeletedProgrammeSeatLimitsService();
 
     return res.status(200).json({
       success: true,
-      message:
-        "Deleted programme seat limits fetched successfully",
       count: seatLimits.length,
-      data: seatLimits,
+      seatLimits,
     });
   } catch (error) {
     console.error(
@@ -212,18 +190,16 @@ export const getDeletedProgrammeSeatLimits = async (
       error
     );
 
-    return res.status(400).json({
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
 
-
-/**
- * RESTORE PROGRAMME SEAT LIMIT
- * PATCH /api/programme-seat-limit/:id/restore
- */
+// ============================================================
+// RESTORE PROGRAMME SEAT LIMIT
+// ============================================================
 export const restoreProgrammeSeatLimit = async (
   req,
   res
@@ -231,14 +207,14 @@ export const restoreProgrammeSeatLimit = async (
   try {
     const { id } = req.params;
 
-    const restoredSeatLimit =
+    const seatLimit =
       await restoreProgrammeSeatLimitService(id);
 
     return res.status(200).json({
       success: true,
       message:
         "Programme seat limit restored successfully",
-      data: restoredSeatLimit,
+      seatLimit,
     });
   } catch (error) {
     console.error(
@@ -253,36 +229,34 @@ export const restoreProgrammeSeatLimit = async (
   }
 };
 
+// ============================================================
+// PERMANENT DELETE PROGRAMME SEAT LIMIT
+// ============================================================
+export const permanentDeleteProgrammeSeatLimit =
+  async (req, res) => {
+    try {
+      const { id } = req.params;
 
-/**
- * PERMANENT DELETE PROGRAMME SEAT LIMIT
- * DELETE /api/programme-seat-limit/:id/permanent
- */
-export const permanentDeleteProgrammeSeatLimit = async (
-  req,
-  res
-) => {
-  try {
-    const { id } = req.params;
+      const seatLimit =
+        await permanentDeleteProgrammeSeatLimitService(
+          id
+        );
 
-    const result =
-      await permanentDeleteProgrammeSeatLimitService(id);
+      return res.status(200).json({
+        success: true,
+        message:
+          "Programme seat limit permanently deleted",
+        seatLimit,
+      });
+    } catch (error) {
+      console.error(
+        "Permanent Delete Programme Seat Limit Error:",
+        error
+      );
 
-    return res.status(200).json({
-      success: true,
-      message:
-        "Programme seat limit permanently deleted",
-      data: result,
-    });
-  } catch (error) {
-    console.error(
-      "Permanent Delete Programme Seat Limit Error:",
-      error
-    );
-
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };

@@ -145,7 +145,10 @@ app.use("/api/departments", departmentRoutes);
 
 app.use("/api/programmes", programmeRoutes);
 
-app.use("/api/programme-seat-limit",programmeSeatLimitRoutes);
+app.use(
+  "/api/programme-seat-limits",
+  programmeSeatLimitRoutes
+);
 
 app.use("/api/classes", classRoutes);
 
