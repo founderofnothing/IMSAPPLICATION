@@ -536,7 +536,8 @@ export const saveStudentExamMarks =
 
     }
 
-  };
+  }; 
+  // new repo
   // get exam paper result
   export const getStudentExamMarks =
   async (req, res) => {
