@@ -66,6 +66,17 @@ const subjectSchema = new mongoose.Schema(
       ],
     },
 
+    // ==================== SYLLABUS ====================
+
+    syllabusType: {
+      type: String,
+      enum: [
+        "CURRENT",
+        "OLD",
+      ],
+      default: "CURRENT",
+    },
+
     // ==================== STATUS ====================
 
     isActive: {
@@ -132,6 +143,7 @@ subjectSchema.index({
 subjectSchema.index(
   {
     programmeId: 1,
+    syllabusType: 1,
     studyYear: 1,
     semesterNumber: 1,
     subjectName: 1,
@@ -149,6 +161,7 @@ subjectSchema.index(
 subjectSchema.index(
   {
     programmeId: 1,
+    syllabusType: 1,
     studyYear: 1,
     semesterNumber: 1,
     subjectCode: 1,

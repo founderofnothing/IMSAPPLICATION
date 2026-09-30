@@ -1,5 +1,4 @@
-import { 
-  
+import {
   createInstitutionService,
   getAllInstitutionsService,
   getInstitutionByIdService,
@@ -12,125 +11,151 @@ import {
   getDepartmentsByInstitutionService,
 } from "./institution.service.js";
 
+// =====================================================
+// CREATE INSTITUTION
+// =====================================================
 
-
-
-
-// create institution
-export const createInstitution = async (req, res) => {
+export const createInstitution = async (
+  req,
+  res
+) => {
   try {
     const institution =
-      await createInstitutionService(req.body);
+      await createInstitutionService(
+        req.body
+      );
 
     return res.status(201).json({
       success: true,
-      message: "Institution created successfully",
+      message:
+        "Institution created successfully",
       data: institution,
     });
-
   } catch (error) {
+    console.error(
+      "CREATE INSTITUTION ERROR:",
+      error
+    );
+
     return res.status(400).json({
       success: false,
       message: error.message,
     });
   }
 };
-// get all institution 
-export const getAllInstitutions = async (req, res) => {
+
+// =====================================================
+// GET ALL INSTITUTIONS
+// =====================================================
+
+export const getAllInstitutions =
+  async (req, res) => {
     try {
       const institutions =
         await getAllInstitutionsService();
-  
+
       return res.status(200).json({
         success: true,
         count: institutions.length,
         data: institutions,
       });
-  
     } catch (error) {
+      console.error(
+        "GET ALL INSTITUTIONS ERROR:",
+        error
+      );
+
       return res.status(500).json({
         success: false,
         message: error.message,
       });
     }
-};
-//   get single institution by id 
-export const getInstitutionById = async (
-    req,
-    res
-  ) => {
+  };
+
+// =====================================================
+// GET SINGLE INSTITUTION
+// =====================================================
+
+export const getInstitutionById =
+  async (req, res) => {
     try {
       const institution =
         await getInstitutionByIdService(
           req.params.id
         );
-  
+
       return res.status(200).json({
         success: true,
         data: institution,
       });
-  
     } catch (error) {
       return res.status(404).json({
         success: false,
         message: error.message,
       });
     }
-};
+  };
 
-// update institution 
-export const updateInstitution = async (
-  req,
-  res
-) => {
-  try {
+// =====================================================
+// UPDATE INSTITUTION
+// =====================================================
 
-    const institution =
-      await updateInstitutionService(
-        req.params.id,
-        req.body
+export const updateInstitution =
+  async (req, res) => {
+    try {
+      const institution =
+        await updateInstitutionService(
+          req.params.id,
+          req.body
+        );
+
+      return res.status(200).json({
+        success: true,
+        message:
+          "Institution updated successfully",
+        data: institution,
+      });
+    } catch (error) {
+      console.error(
+        "UPDATE INSTITUTION ERROR:",
+        error
       );
 
-    return res.status(200).json({
-      success: true,
-      message:
-        "Institution updated successfully",
-      data: institution,
-    });
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
 
-  } catch (error) {
+// =====================================================
+// DELETE INSTITUTION
+// =====================================================
 
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-
-  }
-};
-// delete institution function 
-export const deleteInstitution = async (
-    req,
-    res
-  ) => {
+export const deleteInstitution =
+  async (req, res) => {
     try {
       await deleteInstitutionService(
         req.params.id
       );
-  
+
       return res.status(200).json({
         success: true,
         message:
           "Institution deleted successfully",
       });
-  
     } catch (error) {
       return res.status(404).json({
         success: false,
         message: error.message,
       });
     }
-};  
-// get all deleted insitution 
+  };
+
+// =====================================================
+// GET DELETED INSTITUTIONS
+// =====================================================
+
 export const getDeletedInstitutions =
   async (req, res) => {
     try {
@@ -142,15 +167,18 @@ export const getDeletedInstitutions =
         count: institutions.length,
         data: institutions,
       });
-
     } catch (error) {
       return res.status(500).json({
         success: false,
         message: error.message,
       });
     }
-};
-// restore the deleted institution
+  };
+
+// =====================================================
+// RESTORE INSTITUTION
+// =====================================================
+
 export const restoreInstitution =
   async (req, res) => {
     try {
@@ -165,15 +193,18 @@ export const restoreInstitution =
           "Institution restored successfully.",
         data: institution,
       });
-
     } catch (error) {
       return res.status(400).json({
         success: false,
         message: error.message,
       });
     }
-};
-// delete the insitution from the db
+  };
+
+// =====================================================
+// PERMANENT DELETE INSTITUTION
+// =====================================================
+
 export const permanentDeleteInstitution =
   async (req, res) => {
     try {
@@ -186,74 +217,80 @@ export const permanentDeleteInstitution =
         message:
           "Institution permanently deleted.",
       });
-
     } catch (error) {
       return res.status(404).json({
         success: false,
         message: error.message,
       });
     }
-};
+  };
 
+// =====================================================
+// GET MY INSTITUTION FROM JWT
+// =====================================================
 
-
-
-
-
-
-
-
-
-
-
-//   // GET INSTITUTION FROM JWT
-
-export const getMyInstitution = async (
-    req,
-    res
-  ) => {
+export const getMyInstitution =
+  async (req, res) => {
     try {
+      if (
+        !req.user ||
+        !req.user.institution
+      ) {
+        return res.status(401).json({
+          success: false,
+          message:
+            "Institution information is missing from authentication.",
+        });
+      }
+
       const institution =
         await getMyInstitutionService(
           req.user.institution
         );
-  
+
       return res.status(200).json({
         success: true,
         data: institution,
       });
-  
     } catch (error) {
+      console.error(
+        "GET MY INSTITUTION ERROR:",
+        error
+      );
+
       return res.status(500).json({
         success: false,
         message: error.message,
       });
     }
-};
+  };
 
+// =====================================================
+// GET DEPARTMENTS BY INSTITUTION
+// =====================================================
 
-  // get dpt by int id
-  export const getDepartmentsByInstitution = async (
-  req,
-  res
-) => {
-  try {
-    const { institutionId } = req.params;
+export const getDepartmentsByInstitution =
+  async (req, res) => {
+    try {
+      const {
+        institutionId,
+      } = req.params;
 
-    const departments =
-      await getDepartmentsByInstitutionService(
-        institutionId
-      );
+      const departments =
+        await getDepartmentsByInstitutionService(
+          institutionId
+        );
 
-    return res.status(200).json({
-      success: true,
-      message: "Departments fetched successfully",
-      data: departments,
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+      return res.status(200).json({
+        success: true,
+        message:
+          "Departments fetched successfully",
+        data: departments,
+      });
+    } catch (error) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };

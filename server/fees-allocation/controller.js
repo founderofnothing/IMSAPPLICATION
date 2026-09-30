@@ -12,6 +12,7 @@ import {
   getStudentFeeAllocationService,
   collectFeePaymentService,
 searchStudentFeeAllocationService,
+getManagementStudentPaymentHistoryService,
 
   getStudentPaymentHistoryService,
 getPrincipalFinanceService,
@@ -307,7 +308,6 @@ export const assignFeesToStudents =
   };
 
   // ==================== RESET FEE ALLOCATION ====================
-
 export const resetFeeAllocation =
   async (req, res) => {
 
@@ -360,7 +360,6 @@ export const resetFeeAllocation =
 
     }
   };
-
 //   get fees alocation by class id 
 // ==================== GET CLASS FEE ALLOCATIONS ====================
 export const getClassFeeAllocations =
@@ -448,9 +447,6 @@ export const getClassFeeAllocations =
       });
     }
   };
-
-
-
 //  ==================== GET STUDENT FEE ALLOCATION ====================
 export const getStudentFeeAllocation =
   async (req, res) => {
@@ -531,7 +527,6 @@ export const getStudentFeeAllocation =
       });
     }
   };
-
 //   payment function
 // ==================== COLLECT FEE PAYMENT ====================
 export const collectFeePayment =
@@ -610,9 +605,7 @@ export const collectFeePayment =
       });
     }
   };
-
   // ==================== SEARCH STUDENT FEE ====================
-
 export const searchStudentFeeAllocation =
   async (req, res) => {
 
@@ -661,17 +654,104 @@ export const searchStudentFeeAllocation =
 
   };
 
+
+// ==================== MANAGEMENT - STUDENT PAYMENT HISTORY ====================
+
+export const getManagementStudentPaymentHistory = async (
+  req,
+  res
+) => {
+  try {
+    const result =
+      await getManagementStudentPaymentHistoryService(
+        req.params.studentId,
+        req.query.academicYear
+      );
+
+    return res.status(200).json({
+      success: true,
+
+      student: {
+        studentId:
+          result.student?._id,
+
+        registerNumber:
+          result.student?.registerNumber,
+
+        studentName:
+          result.student?.studentName,
+
+        studentEmail:
+          result.student?.studentEmail,
+      },
+
+      totalPayments:
+        result.totalPayments,
+
+      totalPaid:
+        result.totalPaid,
+
+      data:
+        result.payments.map(
+          (payment) => ({
+            paymentId:
+              payment._id,
+
+            receiptNumber:
+              payment.receiptNumber,
+
+            academicYear:
+              payment.academicYear,
+
+            amount:
+              payment.amount,
+
+            paymentMode:
+              payment.paymentMode,
+
+            receivedBy:
+              payment.receivedBy
+                ?.fullName,
+
+            remarks:
+              payment.remarks,
+
+            paidAt:
+              payment.paidAt,
+
+            allocation:
+              payment.studentFeeAllocationId,
+          })
+        ),
+    });
+
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+
+      message:
+        error.message,
+    });
+  }
+};
+
+
+
 //  ==================== GET STUDENT PAYMENT HISTORY ====================
-export const getStudentPaymentHistory =
-  async (req, res) => {
-    try {
+export const getStudentPaymentHistory = async (
+  req,
+  res
+) => {
+  try {
+    const result =
+      await getStudentPaymentHistoryService(
+        req.params.studentId,
+        req.query.academicYear
+      );
 
-      const result =
-     await getStudentPaymentHistoryService(
-  req.params.studentId,
-  req.query.academicYear
-);
+    // ==================== FEES HIDDEN ====================
 
+    if (!result.feesVisible) {
       return res.status(200).json({
         success: true,
 
@@ -680,73 +760,99 @@ export const getStudentPaymentHistory =
             result.student?._id,
 
           registerNumber:
-            result.student
-              ?.registerNumber,
+            result.student?.registerNumber,
 
           studentName:
-            result.student
-              ?.studentName,
+            result.student?.studentName,
 
           studentEmail:
-            result.student
-              ?.studentEmail,
+            result.student?.studentEmail,
         },
 
-        totalPayments:
-          result.totalPayments,
+        feesVisible: false,
 
-        totalPaid:
-          result.totalPaid,
+        totalPayments: "N/A",
 
-        data:
-          result.payments.map(
-            (payment) => ({
-              paymentId:
-                payment._id,
+        totalPaid: "N/A",
 
-              receiptNumber:
-                payment.receiptNumber,
-
-              academicYear:
-                payment.academicYear,
-
-              amount:
-                payment.amount,
-
-              paymentMode:
-                payment.paymentMode,
-
-              receivedBy:
-                payment.receivedBy
-                  ?.fullName,
-
-              remarks:
-                payment.remarks,
-
-              paidAt:
-                payment.paidAt,
-
-              allocation:
-                payment.studentFeeAllocationId,
-            })
-          ),
-      });
-
-    } catch (error) {
-
-      return res.status(400).json({
-        success: false,
-
-        message:
-          error.message,
+        data: "N/A",
       });
     }
-  };
+
+    // ==================== FEES VISIBLE ====================
+
+    return res.status(200).json({
+      success: true,
+
+      student: {
+        studentId:
+          result.student?._id,
+
+        registerNumber:
+          result.student?.registerNumber,
+
+        studentName:
+          result.student?.studentName,
+
+        studentEmail:
+          result.student?.studentEmail,
+      },
+
+      feesVisible: true,
+
+      totalPayments:
+        result.totalPayments,
+
+      totalPaid:
+        result.totalPaid,
+
+      data:
+        result.payments.map(
+          (payment) => ({
+            paymentId:
+              payment._id,
+
+            receiptNumber:
+              payment.receiptNumber,
+
+            academicYear:
+              payment.academicYear,
+
+            amount:
+              payment.amount,
+
+            paymentMode:
+              payment.paymentMode,
+
+            receivedBy:
+              payment.receivedBy
+                ?.fullName,
+
+            remarks:
+              payment.remarks,
+
+            paidAt:
+              payment.paidAt,
+
+            allocation:
+              payment.studentFeeAllocationId,
+          })
+        ),
+    });
+
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+
+      message:
+        error.message,
+    });
+  }
+};
 
 
 
 // principal finance report 
-// ==================== PRINCIPAL FINANCE DASHBOARD ====================
 // ==================== PRINCIPAL FINANCE DASHBOARD ====================
 
 export const getFinanceDashboard =
@@ -820,8 +926,6 @@ export const getFinanceDashboard =
     }
 
   };
-
-
   // hod finance report 
 // ==================== HOD FINANCE DASHBOARD ====================
 export const getDepartmentFinanceDashboard =
@@ -861,9 +965,6 @@ const result =
       });
     }
   };
-
-
-//
 //  ==================== SUPREME ADMIN FINANCE DASHBOARD ====================
 export const admgetFinanceDashboard =
   async (req, res) => {
@@ -907,13 +1008,9 @@ export const admgetFinanceDashboard =
       });
     }
   };
-
-
-
 // ==========================================================
 // PRINCIPAL FINANCE DASHBOARD
 // ==========================================================
-
 export const getPrincipalFinance =
   async (
     req,

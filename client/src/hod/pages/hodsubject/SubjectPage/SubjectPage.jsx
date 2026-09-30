@@ -1,1210 +1,1408 @@
-import React, { useEffect, useState } from "react";
-import API from "./../../../../api/axios";
-import { toast } from "react-toastify";
-import { NavLink } from "react-router-dom";
+import React,{useEffect,useState} from "react";
+import API from "../../../../api/axios";
+import {toast} from "react-toastify";
 import "./SubjectPage.css";
 
-const SubjectPage = () => {
-
-  // ==================== STATE ====================
-
-  const [programmes, setProgrammes] =
-    useState([]);
-
-  const [loading, setLoading] =
-    useState(false);
-
-    // ==================== PROGRAMME STRUCTURE ====================
-
-const [selectedProgramme, setSelectedProgramme] =
-  useState(null);
-
-const [programmeStructure, setProgrammeStructure] =
-  useState(null);
-
-const [showStructureModal, setShowStructureModal] =
-  useState(false);
-
-const [structureLoading, setStructureLoading] =
-  useState(false);
-
-  // ==================== SUBJECTS ====================
-
-const [selectedStudyYear, setSelectedStudyYear] =
-  useState(null);
-
-const [selectedSemester, setSelectedSemester] =
-  useState(null);
-
-const [subjects, setSubjects] =
-  useState([]);
-
-const [subjectLoading, setSubjectLoading] =
-  useState(false);
-
-
-  const [structureExists, setStructureExists] =
-  useState(false);
-
-
-const [editingSubject, setEditingSubject] =
-  useState(null);
-
-const [subjectForm, setSubjectForm] =
-  useState({
-
-    subjectName: "",
-
-    subjectCode: "",
-
-    subjectScore: "",
-
-    subjectType: "Major",
-
-  });
-
-  // ================= SUBJECT POPUP =================
-
-const [showSubjectPopup, setShowSubjectPopup] =
-  useState(false);
-
-const [subjectMode, setSubjectMode] =
-  useState("create");
-
-
-
-const resetSubjectForm = () => {
-
-  setSubjectForm({
-
-    subjectName: "",
-
-    subjectCode: "",
-
-    subjectScore: "",
-
-    subjectType: "Major",
-
-  });
-
-};
-  // ==================== FETCH PROGRAMMES ====================
-
-  const fetchProgrammes = async () => {
-
-    try {
-
-      setLoading(true);
-
-      const response =
-        await API.get(
-          "/programmes/my-department"
-        );
-
-      setProgrammes(
-        response.data.data || []
-      );
-
-    } catch (error) {
-
-      toast.error(
-
-        error.response?.data?.message ||
-
-        "Failed to fetch programmes."
-
-      );
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  };
-
-
-// ==================== CREATE PROGRAMME STRUCTURE ====================
-const createProgrammeStructure = async () => {
-
-  if (!selectedProgramme?._id) {
-
-    toast.error(
-      "Please select a programme first."
-    );
-
-    return;
-  }
-
-  try {
-
-    setStructureLoading(true);
-
-    const response = await API.post(
-      "/subjects/create-structure",
-      {
-        programmeId:
-          selectedProgramme._id,
-      }
-    );
-
-    console.log(
-      "PROGRAMME STRUCTURE CREATED:",
-      response.data
-    );
-
-    toast.success(
-      response.data?.message ||
-      "Programme structure created successfully."
-    );
-
-    // Structure now exists
-    setStructureExists(true);
-
-    // Refresh the newly created structure
-    await fetchProgrammeStructure(
-      selectedProgramme
-    );
-
-  } catch (error) {
-
-    console.error(
-      "CREATE PROGRAMME STRUCTURE ERROR:",
-      error
-    );
-
-    toast.error(
-      error.response?.data?.message ||
-      error.message ||
-      "Failed to create programme structure."
-    );
-
-  } finally {
-
-    setStructureLoading(false);
-
-  }
-
-};
-
-
-  // ==================== FETCH PROGRAMME STRUCTURE ====================
-// ==================== FETCH PROGRAMME STRUCTURE ====================
-const fetchProgrammeStructure = async (programme) => {
-
-  try {
-
-    setStructureLoading(true);
-
-    setSelectedProgramme(programme);
-
-    const response = await API.get(
-      `/subjects/programme/${programme._id}`
-    );
-
-    setProgrammeStructure(
-      response.data.data
-    );
-
-    setStructureExists(true);
-
-    setShowStructureModal(true);
-
-  } catch (error) {
-
-    // Structure does not exist yet
-    if (
-      error.response?.status === 404 &&
-      error.response?.data?.message ===
-        "Programme structure not found."
-    ) {
-
-      setProgrammeStructure(null);
-
-      setStructureExists(false);
-
-      setShowStructureModal(true);
-
-      return;
-    }
-
-    toast.error(
-      error.response?.data?.message ||
-      "Failed to load programme structure."
-    );
-
-  } finally {
-
-    setStructureLoading(false);
-
-  }
-
-};
-
-
-
-const addSemester = async (studyYear) => {
-
-  try {
-
-   await API.patch(
-  `/subjects/${selectedProgramme._id}/add-semester`,
-  {
-    studyYear,
-  }
+const SubjectPage=()=>{
+const [programmes,setProgrammes]=useState([]);
+const [loading,setLoading]=useState(false);
+
+const [selectedProgramme,setSelectedProgramme]=useState(null);
+const [programmeStructure,setProgrammeStructure]=useState(null);
+const [structureExists,setStructureExists]=useState(false);
+const [showStructureModal,setShowStructureModal]=useState(false);
+const [structureLoading,setStructureLoading]=useState(false);
+
+const [selectedStudyYear,setSelectedStudyYear]=useState(null);
+const [selectedSemester,setSelectedSemester]=useState(null);
+
+const [selectedSyllabusType,setSelectedSyllabusType]=useState("CURRENT");
+
+const [subjects,setSubjects]=useState([]);
+const [subjectLoading,setSubjectLoading]=useState(false);
+
+const [showSubjectPopup,setShowSubjectPopup]=useState(false);
+const [subjectMode,setSubjectMode]=useState("create");
+const [editingSubject,setEditingSubject]=useState(null);
+
+const [subjectForm,setSubjectForm]=useState({
+subjectName:"",
+subjectCode:"",
+subjectScore:"",
+subjectType:"Major"
+});
+
+/* =========================================================
+   FETCH PROGRAMMES
+========================================================= */
+
+const fetchProgrammes=async()=>{
+try{
+setLoading(true);
+
+const response=await API.get(
+"/programmes/my-department"
 );
 
-    toast.success(
-      "Semester added successfully."
-    );
-
-    fetchProgrammeStructure(
-      selectedProgramme
-    );
-
-  } catch (error) {
-
-    toast.error(
-
-      error.response?.data?.message ||
-
-      "Failed to add semester."
-
-    );
-
-  }
-
-};
-
-const removeSemester = async (
-  studyYear,
-  semesterNumber
-) => {
-
-  try {
-
-   await API.patch(
-  `/subjects/${selectedProgramme._id}/remove-semester`,
-  {
-    studyYear,
-    semesterNumber,
-  }
+setProgrammes(
+response.data.data||[]
 );
 
-    toast.success(
-      "Semester removed successfully."
-    );
+}catch(error){
+console.error(
+"FETCH PROGRAMMES ERROR:",
+error
+);
 
-    fetchProgrammeStructure(
-      selectedProgramme
-    );
+toast.error(
+error.response?.data?.message||
+"Failed to fetch programmes."
+);
 
-  } catch (error) {
-
-    toast.error(
-
-      error.response?.data?.message ||
-
-      "Failed to remove semester."
-
-    );
-
-  }
-
-};
-// ==================== FETCH SUBJECTS ====================
-const fetchSubjects = async (
-  studyYear,
-  semesterNumber
-) => {
-
-  try {
-
-    setSubjectLoading(true);
-
-const response =
-  await API.get(
-    `/subjects/getsubject/programme/${selectedProgramme._id}/study-year/${studyYear}/semester/${semesterNumber}`
-  );
-
-    setSelectedStudyYear(
-      studyYear
-    );
-
-    setSelectedSemester(
-      semesterNumber
-    );
-
-    setSubjects(
-      response.data.data || []
-    );
-
-  } catch (error) {
-
-    toast.error(
-
-      error.response?.data?.message ||
-
-      "Failed to fetch subjects."
-
-    );
-
-  } finally {
-
-    setSubjectLoading(false);
-
-  }
-
+}finally{
+setLoading(false);
+}
 };
 
+/* =========================================================
+   FETCH PROGRAMME STRUCTURE
+========================================================= */
 
-// ==================== SAVE / UPDATE SUBJECT ====================
-const saveSubject = async () => {
+const fetchProgrammeStructure=async(programme)=>{
+try{
+setStructureLoading(true);
 
-  try {
+setSelectedProgramme(programme);
 
-    if (editingSubject) {
+const response=await API.get(
+`/subjects/programme/${programme._id}`
+);
 
-      // ==================== UPDATE ====================
+setProgrammeStructure(
+response.data.data
+);
 
-      await API.put(
+setStructureExists(true);
 
-        `/subjects/update/${editingSubject._id}`,
+setSelectedStudyYear(null);
+setSelectedSemester(null);
+setSelectedSyllabusType("CURRENT");
+setSubjects([]);
 
-        {
+setShowStructureModal(true);
 
-          subjectName:
-            subjectForm.subjectName,
+}catch(error){
 
-          subjectCode:
-            subjectForm.subjectCode,
+if(
+error.response?.status===404&&
+error.response?.data?.message===
+"Programme structure not found."
+){
+setProgrammeStructure(null);
+setStructureExists(false);
 
-          subjectScore:
-            Number(subjectForm.subjectScore),
+setSelectedStudyYear(null);
+setSelectedSemester(null);
+setSelectedSyllabusType("CURRENT");
+setSubjects([]);
 
-          subjectType:
-            subjectForm.subjectType,
+setShowStructureModal(true);
 
-          isActive: true,
+return;
+}
 
-        }
+console.error(
+"FETCH PROGRAMME STRUCTURE ERROR:",
+error
+);
 
-      );
+toast.error(
+error.response?.data?.message||
+"Failed to load programme structure."
+);
 
-      toast.success(
-        "Subject updated successfully."
-      );
-
-    } else {
-
-      // ==================== CREATE ====================
-
-      await API.post(
-
-        "/subjects/create",
-
-        {
-
-          programmeId:
-            selectedProgramme._id,
-
-          studyYear:
-            selectedStudyYear,
-
-          semesterNumber:
-            selectedSemester,
-
-          subjectName:
-            subjectForm.subjectName,
-
-          subjectCode:
-            subjectForm.subjectCode,
-
-          subjectScore:
-            Number(subjectForm.subjectScore),
-
-          subjectType:
-            subjectForm.subjectType,
-
-        }
-
-      );
-
-      toast.success(
-        "Subject created successfully."
-      );
-
-    }
-
-    // ==================== RESET ====================
-
-  setShowSubjectPopup(false);
-
-    setEditingSubject(null);
-
-    setSubjectForm({
-
-      subjectName: "",
-
-      subjectCode: "",
-
-      subjectScore: "",
-
-      subjectType: "Major",
-
-    });
-
-    fetchSubjects(
-
-      selectedStudyYear,
-
-      selectedSemester
-
-    );
-
-  } catch (error) {
-
-    toast.error(
-
-      error.response?.data?.message ||
-
-      "Operation failed."
-
-    );
-
-  }
-
+}finally{
+setStructureLoading(false);
+}
 };
 
-// ==================== EDIT SUBJECT ====================
-const handleEditSubject = (
-  subject
-) => {
+/* =========================================================
+   CREATE PROGRAMME STRUCTURE
+========================================================= */
 
-  setEditingSubject(subject);
+const createProgrammeStructure=async()=>{
+if(!selectedProgramme?._id){
+toast.error(
+"Please select a programme first."
+);
+return;
+}
 
-  setSubjectForm({
+try{
+setStructureLoading(true);
 
-    subjectName:
-      subject.subjectName,
+const response=await API.post(
+"/subjects/create-structure",
+{
+programmeId:selectedProgramme._id
+}
+);
 
-    subjectCode:
-      subject.subjectCode,
+toast.success(
+response.data?.message||
+"Programme structure created successfully."
+);
 
-    subjectScore:
-      subject.subjectScore,
+setStructureExists(true);
 
-    subjectType:
-      subject.subjectType,
+await fetchProgrammeStructure(
+selectedProgramme
+);
 
-  });
+}catch(error){
+console.error(
+"CREATE PROGRAMME STRUCTURE ERROR:",
+error
+);
 
- setSubjectMode("update");
+toast.error(
+error.response?.data?.message||
+error.message||
+"Failed to create programme structure."
+);
 
-setShowSubjectPopup(true);
-
+}finally{
+setStructureLoading(false);
+}
 };
 
-// ==================== DELETE SUBJECT ====================
-const handleDeleteSubject = async (
-  subjectId
-) => {
+/* =========================================================
+   ADD SEMESTER
+========================================================= */
 
-  const confirmDelete =
-    window.confirm(
-      "Are you sure you want to delete this subject?"
-    );
+const addSemester=async(studyYear)=>{
+if(!selectedProgramme?._id)return;
 
-  if (!confirmDelete) return;
+try{
+setStructureLoading(true);
 
-  try {
+await API.patch(
+`/subjects/${selectedProgramme._id}/add-semester`,
+{
+studyYear
+}
+);
 
-    await API.delete(
-      `/subjects/delete/${subjectId}`
-    );
+toast.success(
+"Semester added successfully."
+);
 
-    toast.success(
-      "Subject deleted successfully."
-    );
+await fetchProgrammeStructure(
+selectedProgramme
+);
 
-    fetchSubjects(
-      selectedStudyYear,
-      selectedSemester
-    );
+}catch(error){
+console.error(
+"ADD SEMESTER ERROR:",
+error
+);
 
-  } catch (error) {
+toast.error(
+error.response?.data?.message||
+"Failed to add semester."
+);
 
-    toast.error(
-
-      error.response?.data?.message ||
-
-      "Failed to delete subject."
-
-    );
-
-  }
-
+}finally{
+setStructureLoading(false);
+}
 };
-  // ==================== INITIAL LOAD ====================
 
-  useEffect(() => {
+/* =========================================================
+   REMOVE SEMESTER
+========================================================= */
 
-    fetchProgrammes();
+const removeSemester=async(
+studyYear,
+semesterNumber
+)=>{
+if(!selectedProgramme?._id)return;
 
-  }, []);
+try{
+setStructureLoading(true);
 
-  // ==================== UI ====================
+await API.patch(
+`/subjects/${selectedProgramme._id}/remove-semester`,
+{
+studyYear,
+semesterNumber
+}
+);
 
-  return (
+toast.success(
+"Semester removed successfully."
+);
 
-    <div className="subject-page">
+if(
+selectedStudyYear===studyYear&&
+selectedSemester===semesterNumber
+){
+setSelectedStudyYear(null);
+setSelectedSemester(null);
+setSubjects([]);
+}
 
-      {/* ==================== HEADER ==================== */}
-<NavLink to="/hod/SubjectPage/bin" className="subject_recyclebin">
-  <h2>recycle bin</h2>
-</NavLink>
-      <div className="page-header">
+await fetchProgrammeStructure(
+selectedProgramme
+);
 
-        <h2>
-          Subject Management
-        </h2>
+}catch(error){
+console.error(
+"REMOVE SEMESTER ERROR:",
+error
+);
 
-        <p>
-          Select a programme to manage
-          semesters and subjects.
-        </p>
+toast.error(
+error.response?.data?.message||
+"Failed to remove semester."
+);
 
-      </div>
+}finally{
+setStructureLoading(false);
+}
+};
 
-      {/* ==================== PROGRAMMES ==================== */}
+/* =========================================================
+   FETCH SUBJECTS
+========================================================= */
 
-      <div className="programme-list">
+const fetchSubjects=async(
+studyYear,
+semesterNumber,
+syllabusType=selectedSyllabusType
+)=>{
+if(!selectedProgramme?._id)return;
 
-        {
+try{
+setSubjectLoading(true);
 
-          loading ? (
+const response=await API.get(
+`/subjects/getsubject/programme/${selectedProgramme._id}/study-year/${studyYear}/semester/${semesterNumber}?syllabusType=${syllabusType}`
+);
 
-            <h4>
-              Loading Programmes...
-            </h4>
+setSelectedStudyYear(studyYear);
+setSelectedSemester(semesterNumber);
 
-          ) : programmes.length === 0 ? (
+setSubjects(
+response.data.data||[]
+);
 
-            <h4>
-              No programmes found.
-            </h4>
+}catch(error){
+console.error(
+"FETCH SUBJECTS ERROR:",
+error
+);
 
-          ) : (
+setSubjects([]);
 
-            programmes.map(
+toast.error(
+error.response?.data?.message||
+"Failed to fetch subjects."
+);
 
-              (programme) => (
+}finally{
+setSubjectLoading(false);
+}
+};
 
-             <div
-  key={programme._id}
-  className="programme-card"
-  onClick={() =>
-    fetchProgrammeStructure(
-      programme
-    )
-  }
+/* =========================================================
+   SEMESTER CLICK
+========================================================= */
+
+const handleSemesterClick=(
+studyYear,
+semesterNumber
+)=>{
+setSelectedStudyYear(studyYear);
+setSelectedSemester(semesterNumber);
+
+setSelectedSyllabusType(
+"CURRENT"
+);
+
+fetchSubjects(
+studyYear,
+semesterNumber,
+"CURRENT"
+);
+};
+
+/* =========================================================
+   SYLLABUS CHANGE
+========================================================= */
+
+const handleSyllabusChange=(
+syllabusType
+)=>{
+if(
+selectedStudyYear===null||
+selectedSemester===null
+){
+return;
+}
+
+setSelectedSyllabusType(
+syllabusType
+);
+
+fetchSubjects(
+selectedStudyYear,
+selectedSemester,
+syllabusType
+);
+};
+
+/* =========================================================
+   RESET SUBJECT FORM
+========================================================= */
+
+const resetSubjectForm=()=>{
+setSubjectForm({
+subjectName:"",
+subjectCode:"",
+subjectScore:"",
+subjectType:"Major"
+});
+};
+
+/* =========================================================
+   OPEN CREATE SUBJECT
+========================================================= */
+
+const openCreateSubject=()=>{
+if(
+selectedStudyYear===null||
+selectedSemester===null
+){
+toast.error(
+"Please select a semester first."
+);
+return;
+}
+
+setEditingSubject(null);
+
+setSubjectMode(
+"create"
+);
+
+resetSubjectForm();
+
+setShowSubjectPopup(
+true
+);
+};
+
+/* =========================================================
+   OPEN EDIT SUBJECT
+========================================================= */
+
+const openEditSubject=(subject)=>{
+setEditingSubject(subject);
+
+setSubjectMode(
+"update"
+);
+
+setSubjectForm({
+subjectName:
+subject.subjectName||"",
+
+subjectCode:
+subject.subjectCode||"",
+
+subjectScore:
+subject.subjectScore??"",
+
+subjectType:
+subject.subjectType||"Major"
+});
+
+setShowSubjectPopup(
+true
+);
+};
+
+/* =========================================================
+   CLOSE SUBJECT POPUP
+========================================================= */
+
+const closeSubjectPopup=()=>{
+setShowSubjectPopup(false);
+
+setEditingSubject(null);
+
+resetSubjectForm();
+};
+
+/* =========================================================
+   SAVE / UPDATE SUBJECT
+========================================================= */
+
+const saveSubject=async()=>{
+if(
+!selectedProgramme?._id||
+selectedStudyYear===null||
+selectedSemester===null
+){
+toast.error(
+"Please select a semester first."
+);
+return;
+}
+
+if(
+!subjectForm.subjectName.trim()
+){
+toast.error(
+"Subject name is required."
+);
+return;
+}
+
+if(
+!subjectForm.subjectCode.trim()
+){
+toast.error(
+"Subject code is required."
+);
+return;
+}
+
+if(
+!subjectForm.subjectScore
+){
+toast.error(
+"Maximum marks is required."
+);
+return;
+}
+
+try{
+
+/* ============================
+   UPDATE
+============================ */
+
+if(editingSubject){
+
+await API.put(
+`/subjects/update/${editingSubject._id}`,
+{
+subjectName:
+subjectForm.subjectName.trim(),
+
+subjectCode:
+subjectForm.subjectCode
+.trim()
+.toUpperCase(),
+
+subjectScore:
+Number(
+subjectForm.subjectScore
+),
+
+subjectType:
+subjectForm.subjectType,
+
+isActive:true
+}
+);
+
+toast.success(
+"Subject updated successfully."
+);
+
+}
+
+/* ============================
+   CREATE
+============================ */
+
+else{
+
+await API.post(
+"/subjects/create",
+{
+programmeId:
+selectedProgramme._id,
+
+studyYear:
+selectedStudyYear,
+
+semesterNumber:
+selectedSemester,
+
+subjectName:
+subjectForm.subjectName.trim(),
+
+subjectCode:
+subjectForm.subjectCode
+.trim()
+.toUpperCase(),
+
+subjectScore:
+Number(
+subjectForm.subjectScore
+),
+
+subjectType:
+subjectForm.subjectType,
+
+syllabusType:
+selectedSyllabusType
+}
+);
+
+toast.success(
+`${selectedSyllabusType==="CURRENT"
+?"Current"
+:"Old"} syllabus subject created successfully.`
+);
+
+}
+
+closeSubjectPopup();
+
+await fetchSubjects(
+selectedStudyYear,
+selectedSemester,
+selectedSyllabusType
+);
+
+}catch(error){
+console.error(
+"SAVE SUBJECT ERROR:",
+error
+);
+
+toast.error(
+error.response?.data?.message||
+"Operation failed."
+);
+}
+};
+
+/* =========================================================
+   DELETE SUBJECT
+========================================================= */
+
+const handleDeleteSubject=async(
+subjectId
+)=>{
+const confirmed=
+window.confirm(
+"Are you sure you want to delete this subject?"
+);
+
+if(!confirmed)return;
+
+try{
+
+await API.delete(
+`/subjects/delete/${subjectId}`
+);
+
+toast.success(
+"Subject deleted successfully."
+);
+
+await fetchSubjects(
+selectedStudyYear,
+selectedSemester,
+selectedSyllabusType
+);
+
+}catch(error){
+console.error(
+"DELETE SUBJECT ERROR:",
+error
+);
+
+toast.error(
+error.response?.data?.message||
+"Failed to delete subject."
+);
+}
+};
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+useEffect(()=>{
+fetchProgrammes();
+},[]);
+
+/* =========================================================
+   UI
+========================================================= */
+
+return(
+<>
+{/* =====================================================
+    PORTRAIT ROTATE SCREEN
+===================================================== */}
+
+<div className="rotate-device-screen">
+
+<div className="rotate-device-content">
+
+<div className="rotate-device-illustration">
+
+<div className="rotate-phone-portrait"></div>
+
+<div className="rotate-arrow"></div>
+
+<div className="rotate-phone-landscape"></div>
+
+</div>
+
+<h2 className="rotate-device-title">
+ROTATE PHONE
+</h2>
+
+<p className="rotate-device-description">
+This application works best in landscape mode
+</p>
+
+</div>
+
+</div>
+
+{/* =====================================================
+    MAIN SUBJECT PAGE
+===================================================== */}
+
+<div className="subject-page">
+
+{/* ===================================================
+    PAGE HEADER
+=================================================== */}
+
+<div className="subject-page-header">
+
+<div>
+
+<h1>
+Subject Management
+</h1>
+
+<p>
+Manage programme semesters and syllabus subjects.
+</p>
+
+</div>
+
+</div>
+
+{/* ===================================================
+    PROGRAMMES
+=================================================== */}
+
+<div className="programme-list">
+
+{loading?(
+<div className="page-loading">
+
+<h3>
+Loading Programmes...
+</h3>
+
+</div>
+):programmes.length===0?(
+<div className="page-empty">
+
+<h3>
+No programmes found.
+</h3>
+
+</div>
+):(
+programmes.map(
+(programme)=>(
+<button
+type="button"
+key={programme._id}
+className="programme-card"
+onClick={()=>
+fetchProgrammeStructure(
+programme
+)
+}
 >
 
-                  <h3>
-                    {programme.programmeName}
-                  </h3>
+<h3>
+{programme.programmeName}
+</h3>
 
-                  <p>
+<div className="programme-card-code">
+{programme.programmeCode}
+</div>
 
-                    Code :
+<div className="programme-card-meta">
 
-                    {" "}
+<span>
+Type
+</span>
 
-                    {programme.programmeCode}
+<strong>
+{programme.programmeType}
+</strong>
 
-                  </p>
+</div>
 
-                  <p>
+<div className="programme-card-meta">
 
-                    Type :
+<span>
+Duration
+</span>
 
-                    {" "}
+<strong>
+{programme.duration} Years
+</strong>
 
-                    {programme.programmeType}
+</div>
 
-                  </p>
+</button>
+)
+)
+)}
 
-                  <p>
+</div>
 
-                    Duration :
+{/* ===================================================
+    PROGRAMME STRUCTURE MODAL
+=================================================== */}
 
-                    {" "}
-
-                    {programme.duration}
-
-                    {" "}
-
-                    Years
-
-                  </p>
-
-                </div>
-
-              )
-
-            )
-
-          )
-
-        }
-
-      </div>
-
-      {
-showStructureModal && (
+{showStructureModal&&(
+<div className="structure-modal-overlay">
 
 <div className="structure-modal">
 
-<div className="hod_subject_structure_wrapper">
+<div className="structure-layout">
 
-  {/* ================= LEFT PANEL ================= */}
+{/* =================================================
+    LEFT SIDEBAR
+================================================= */}
 
-  <div className="hod_subject_left_panel">
+<aside className="structure-sidebar">
 
-    <div className="hod_subject_modal_header">
-
-      <div>
-
-        <h2>
-
-          {selectedProgramme?.programmeName}
-
-        </h2>
-
-        <p>
-
-          Subject Structure
-
-        </p>
-
-      </div>
-
-      <button
-        onClick={() =>
-          setShowStructureModal(false)
-        }
-      >
-
-        ✕
-
-      </button>
-
-    </div>
-
-{
-  structureLoading ? (
-
-    <div className="hod_subject_structure_loading">
-
-      <h3>Loading...</h3>
-
-    </div>
-
-  ) : !structureExists ? (
-
-    <div className="hod_subject_structure_empty">
-
-      <h3>
-        Programme Structure Not Created
-      </h3>
-
-      <p>
-        This programme does not have an academic
-        structure yet.
-      </p>
-
-      <button
-        className="hod_subject_create_structure_btn"
-        onClick={createProgrammeStructure}
-      >
-        + Create Programme Structure
-      </button>
-
-    </div>
-
-  ) : (
-
-    programmeStructure?.structure?.map(
-
-      (year) => (
-
-        <div
-          key={year.studyYear}
-          className="hod_subject_year_card"
-        >
-
-          <div className="hod_subject_year_header">
-
-            <h3>
-              Year {year.studyYear}
-            </h3>
-
-            <button
-              onClick={() =>
-                addSemester(year.studyYear)
-              }
-            >
-              + Semester
-            </button>
-
-          </div>
-
-          <div className="hod_subject_semester_list">
-
-            {
-              year.semesters.length === 0 ? (
-
-                <p>
-                  No Semester
-                </p>
-
-              ) : (
-
-                year.semesters.map(
-
-                  (semester) => (
-
-                    <div
-                      key={semester.semesterNumber}
-                      className="hod_subject_semester_item"
-                    >
-
-                      <button
-                        className="hod_subject_semester_btn"
-                        onClick={() =>
-                          fetchSubjects(
-                            year.studyYear,
-                            semester.semesterNumber
-                          )
-                        }
-                      >
-                        Semester {semester.semesterNumber}
-                      </button>
-
-                      <button
-                        className="hod_subject_remove_semester"
-                        onClick={() =>
-                          removeSemester(
-                            year.studyYear,
-                            semester.semesterNumber
-                          )
-                        }
-                      >
-                        ✕
-                      </button>
-
-                    </div>
-
-                  )
-
-                )
-
-              )
-            }
-
-          </div>
-
-        </div>
-
-      )
-
-    )
-
-  )
-} 
-
-  </div>
-
-  {/* ================= RIGHT PANEL ================= */}
-
-  <div className="hod_subject_right_panel">
-
-<div className="hod_subject_right_header">
-
-  <div>
-
-    <h2>
-
-      {selectedSemester
-        ? `Year ${selectedStudyYear} • Semester ${selectedSemester}`
-        : "Select a Semester"}
-
-    </h2>
-
-    <p>
-
-      Manage subjects for the selected semester.
-
-    </p>
-
-  </div>
-
-  {selectedSemester && (
-
-    <button
-      className="hod_subject_add_subject_btn"
-onClick={() => {
-
-  resetSubjectForm();
-
-  setEditingSubject(null);
-
-  setSubjectMode("create");
-
-  setShowSubjectPopup(true);
-
-}}
-    >
-
-      + Add Subject
-
-    </button>
-
-  )}
-
-</div>
-
-
-<div className="hod_subject_workspace">
-
-  {selectedSemester === null ? (
-
-    <div className="hod_subject_empty_state">
-
-      <h3>Select a Semester</h3>
-
-      <p>
-        Choose a semester from the left panel to manage subjects.
-      </p>
-
-    </div>
-
-  ) : subjectLoading ? (
-
-    <div className="hod_subject_loading">
-
-      <h3>Loading Subjects...</h3>
-
-    </div>
-
-  ) : (
-
-    <>
-
-      {/* ================= SUBJECT FORM ================= */}
-
-   
-
-      {/* ================= SUBJECT LIST ================= */}
-
-      <div className="hod_subject_list_wrapper">
-
-        {subjects.length === 0 ? (
-
-          <div className="hod_subject_empty_state">
-
-            <h3>No Subjects</h3>
-
-            <p>
-              Create your first subject for this semester.
-            </p>
-
-          </div>
-
-        ) : (
-
-subjects.map((subject) => (
-
-  <div
-    key={subject._id}
-    className="hod_subject_card"
-  >
-
-    <div className="hod_subject_card_top">
-
-      <div>
-
-        <h3>
-
-          {subject.subjectCode}
-
-        </h3>
-
-        <p>
-
-          {subject.subjectName}
-
-        </p>
-
-      </div>
-
-      <span className="hod_subject_type">
-
-        {subject.subjectType}
-
-      </span>
-
-    </div>
-
-    <div className="hod_subject_card_bottom">
-
-      <div className="hod_subject_marks">
-
-        Maximum Marks :
-
-        <strong>
-
-          {" "}
-
-          {subject.subjectScore}
-
-        </strong>
-
-      </div>
-
-      <div className="hod_subject_actions">
-
-        <button
-          className="hod_subject_edit_btn"
-          onClick={() =>
-            handleEditSubject(subject)
-          }
-        >
-
-          ✏ Edit
-
-        </button>
-
-        <button
-          className="hod_subject_delete_btn"
-          onClick={() =>
-            handleDeleteSubject(subject._id)
-          }
-        >
-
-          🗑 Delete
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-))
-
-        )}
-
-      </div>
-
-    </>
-
-  )}
-
-</div>
-
-
-  </div>
-
-</div>
-
-
-</div>
-
-)
-}
-
-
-{
-showSubjectPopup && (
-
-<div className="hod_subject_popup_overlay">
-
-<div className="hod_subject_popup_wrapper">
-
-{/* Header */}
-
-<div className="hod_subject_popup_header">
+<div className="structure-sidebar-header">
 
 <div>
 
 <h2>
+{selectedProgramme?.programmeName}
+</h2>
 
-{subjectMode==="create"
+<p>
+Programme Structure
+</p>
 
-? "Create Subject"
+</div>
 
-: "Update Subject"}
+<button
+type="button"
+className="modal-close-btn"
+onClick={()=>
+setShowStructureModal(false)
+}
+>
+×
+</button>
+
+</div>
+
+{/* ===============================================
+    STRUCTURE CONTENT
+=============================================== */}
+
+{structureLoading?(
+<div className="structure-loading">
+
+<p>
+Loading...
+</p>
+
+</div>
+):!structureExists?(
+<div className="structure-empty">
+
+<h3>
+Programme Structure Not Created
+</h3>
+
+<p>
+This programme does not have an academic structure yet.
+</p>
+
+<button
+type="button"
+className="create-structure-btn"
+onClick={
+createProgrammeStructure
+}
+>
++ Create Programme Structure
+</button>
+
+</div>
+):(
+<div className="structure-years">
+
+{programmeStructure?.structure?.map(
+(year)=>(
+<div
+className="year-section"
+key={year.studyYear}
+>
+
+<div className="year-section-header">
+
+<h3>
+Year {year.studyYear}
+</h3>
+
+<button
+type="button"
+onClick={()=>
+addSemester(
+year.studyYear
+)
+}
+>
++ Semester
+</button>
+
+</div>
+
+<div className="semester-list">
+
+{year.semesters?.length===0?(
+<p className="no-semesters">
+No Semester
+</p>
+):(
+year.semesters.map(
+(semester)=>(
+<div
+className="semester-row"
+key={
+semester.semesterNumber
+}
+>
+
+<button
+type="button"
+className={`semester-btn ${
+selectedStudyYear===
+year.studyYear&&
+selectedSemester===
+semester.semesterNumber
+?"active"
+:""
+}`}
+onClick={()=>
+handleSemesterClick(
+year.studyYear,
+semester.semesterNumber
+)
+}
+>
+Semester {
+semester.semesterNumber
+}
+</button>
+
+<button
+type="button"
+className="remove-semester-btn"
+onClick={()=>
+removeSemester(
+year.studyYear,
+semester.semesterNumber
+)
+}
+>
+×
+</button>
+
+</div>
+)
+)
+)}
+
+</div>
+
+</div>
+)
+)}
+
+</div>
+)}
+
+</aside>
+
+{/* =================================================
+    RIGHT SUBJECT WORKSPACE
+================================================= */}
+
+<section className="subject-workspace">
+
+{/* ===============================================
+    SUBJECT HEADER
+=============================================== */}
+
+<div className="subject-workspace-header">
+
+<div className="subject-heading">
+
+<h2>
+
+{selectedSemester
+?`Year ${selectedStudyYear} • Semester ${selectedSemester}`
+:"Select a Semester"}
 
 </h2>
 
 <p>
 
-Manage semester subjects
+{selectedSemester
+?`Manage ${
+selectedSyllabusType==="CURRENT"
+?"current"
+:"old"
+} syllabus subjects.`
+:"Choose a semester to manage subjects."}
+
+</p>
+
+</div>
+
+{/* =============================================
+    SYLLABUS + ADD BUTTONS
+============================================= */}
+
+{selectedSemester&&(
+<div className="subject-header-actions">
+
+<div className="syllabus-switch">
+
+<button
+type="button"
+className={
+selectedSyllabusType===
+"CURRENT"
+?"active"
+:""
+}
+onClick={()=>
+handleSyllabusChange(
+"CURRENT"
+)
+}
+>
+Current Syllabus
+</button>
+
+<button
+type="button"
+className={
+selectedSyllabusType===
+"OLD"
+?"active"
+:""
+}
+onClick={()=>
+handleSyllabusChange(
+"OLD"
+)
+}
+>
+Old Syllabus
+</button>
+
+</div>
+
+<button
+type="button"
+className="add-subject-btn"
+onClick={
+openCreateSubject
+}
+>
++ Add Subject
+</button>
+
+</div>
+)}
+
+</div>
+
+{/* ===============================================
+    SUBJECT WORKSPACE
+=============================================== */}
+
+<div className="subject-workspace-content">
+
+{/* =============================================
+    NO SEMESTER
+============================================= */}
+
+{selectedSemester===null?(
+<div className="workspace-empty">
+
+<div className="workspace-empty-icon">
+📚
+</div>
+
+<h3>
+Select a Semester
+</h3>
+
+<p>
+Choose a semester from the left panel to manage its subjects.
+</p>
+
+</div>
+
+):subjectLoading?(
+<div className="workspace-loading">
+
+<div className="loading-spinner"></div>
+
+<p>
+Loading Subjects...
+</p>
+
+</div>
+
+):subjects.length===0?(
+<div className="workspace-empty">
+
+<div className="workspace-empty-icon">
+
+{selectedSyllabusType===
+"CURRENT"
+?"📘"
+:"📕"}
+
+</div>
+
+<h3>
+
+No {
+selectedSyllabusType===
+"CURRENT"
+?"Current"
+:"Old"
+} Syllabus Subjects
+
+</h3>
+
+<p>
+There are no subjects created for this syllabus in the selected semester.
+</p>
+
+<button
+type="button"
+className="empty-add-btn"
+onClick={
+openCreateSubject
+}
+>
++ Create {
+selectedSyllabusType===
+"CURRENT"
+?"Current"
+:"Old"
+} Subject
+</button>
+
+</div>
+
+):(
+<div className="subject-list">
+
+{subjects.map(
+(subject)=>(
+<article
+className="subject-card"
+key={subject._id}
+>
+
+<div className="subject-card-top">
+
+<div className="subject-info">
+
+<span className="subject-code">
+{subject.subjectCode}
+</span>
+
+<h3>
+{subject.subjectName}
+</h3>
+
+</div>
+
+<span className="subject-type">
+{subject.subjectType}
+</span>
+
+</div>
+
+<div className="subject-card-bottom">
+
+<div className="subject-score">
+
+<span>
+Maximum Marks
+</span>
+
+<strong>
+{subject.subjectScore}
+</strong>
+
+</div>
+
+<div className="subject-actions">
+
+<button
+type="button"
+className="edit-subject-btn"
+onClick={()=>
+openEditSubject(
+subject
+)
+}
+>
+Edit
+</button>
+
+<button
+type="button"
+className="delete-subject-btn"
+onClick={()=>
+handleDeleteSubject(
+subject._id
+)
+}
+>
+Delete
+</button>
+
+</div>
+
+</div>
+
+</article>
+)
+)}
+
+</div>
+)}
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+</div>
+)}
+
+{/* =====================================================
+    CREATE / UPDATE SUBJECT POPUP
+===================================================== */}
+
+{showSubjectPopup&&(
+<div className="subject-popup-overlay">
+
+<div className="subject-popup">
+
+{/* ===============================================
+    POPUP HEADER
+=============================================== */}
+
+<div className="subject-popup-header">
+
+<div>
+
+<div className="popup-syllabus-badge">
+
+{selectedSyllabusType===
+"CURRENT"
+?"CURRENT SYLLABUS"
+:"OLD SYLLABUS"}
+
+</div>
+
+<h2>
+
+{subjectMode==="create"
+?"Create Subject"
+:"Update Subject"}
+
+</h2>
+
+<p>
+
+{subjectMode==="create"
+?`This subject will be created under the ${
+selectedSyllabusType==="CURRENT"
+?"current"
+:"old"
+} syllabus.`
+:"Update the selected subject details."}
 
 </p>
 
 </div>
 
 <button
-
-onClick={()=>{
-
-setShowSubjectPopup(false);
-
-resetSubjectForm();
-
-setEditingSubject(null);
-
-}}
-
+type="button"
+className="popup-close-btn"
+onClick={
+closeSubjectPopup
+}
 >
-
-✕
-
+×
 </button>
 
 </div>
 
-{/* Body */}
+{/* ===============================================
+    POPUP BODY
+=============================================== */}
 
-<div className="hod_subject_popup_body">
+<div className="subject-popup-body">
 
-<div className="hod_subject_popup_grid">
+<div className="subject-form-grid">
 
-<div className="hod_subject_popup_field">
+{/* SUBJECT NAME */}
+
+<div className="form-field full-width">
 
 <label>
-
 Subject Name
-
 </label>
 
 <input
-
-value={subjectForm.subjectName}
-
-onChange={(e)=>
-
-setSubjectForm({
-
-...subjectForm,
-
-subjectName:e.target.value,
-
-})
-
+type="text"
+value={
+subjectForm.subjectName
 }
-
+placeholder="Enter subject name"
+onChange={(e)=>
+setSubjectForm(
+(prev)=>({
+...prev,
+subjectName:
+e.target.value
+})
+)
+}
 />
 
 </div>
 
-<div className="hod_subject_popup_field">
+{/* SUBJECT CODE */}
+
+<div className="form-field">
 
 <label>
-
 Subject Code
-
 </label>
 
 <input
-
-value={subjectForm.subjectCode}
-
-onChange={(e)=>
-
-setSubjectForm({
-
-...subjectForm,
-
-subjectCode:e.target.value.toUpperCase(),
-
-})
-
+type="text"
+value={
+subjectForm.subjectCode
 }
-
+placeholder="Enter subject code"
+onChange={(e)=>
+setSubjectForm(
+(prev)=>({
+...prev,
+subjectCode:
+e.target.value
+.toUpperCase()
+})
+)
+}
 />
 
 </div>
 
-<div className="hod_subject_popup_field">
+{/* MAXIMUM MARKS */}
+
+<div className="form-field">
 
 <label>
-
 Maximum Marks
-
 </label>
 
 <input
-
 type="number"
-
-value={subjectForm.subjectScore}
-
-onChange={(e)=>
-
-setSubjectForm({
-
-...subjectForm,
-
-subjectScore:e.target.value,
-
-})
-
+min="1"
+value={
+subjectForm.subjectScore
 }
-
+placeholder="100"
+onChange={(e)=>
+setSubjectForm(
+(prev)=>({
+...prev,
+subjectScore:
+e.target.value
+})
+)
+}
 />
 
 </div>
 
-<div className="hod_subject_popup_field">
+{/* SUBJECT TYPE */}
+
+<div className="form-field full-width">
 
 <label>
-
 Subject Type
-
 </label>
 
 <select
-
-value={subjectForm.subjectType}
-
-onChange={(e)=>
-
-setSubjectForm({
-
-...subjectForm,
-
-subjectType:e.target.value,
-
-})
-
+value={
+subjectForm.subjectType
 }
-
+onChange={(e)=>
+setSubjectForm(
+(prev)=>({
+...prev,
+subjectType:
+e.target.value
+})
+)
+}
 >
 
 <option value="Major">
-
 Major
-
 </option>
 
 <option value="Non-Major">
-
 Non-Major
-
 </option>
 
 </select>
@@ -1215,52 +1413,46 @@ Non-Major
 
 </div>
 
-{/* Footer */}
+{/* ===============================================
+    POPUP FOOTER
+=============================================== */}
 
-<div className="hod_subject_popup_footer">
-
-<button
-
-className="hod_subject_cancel_btn"
-
-onClick={()=>{
-
-setShowSubjectPopup(false);
-
-resetSubjectForm();
-
-setEditingSubject(null);
-
-}}
-
->
-
-Cancel
-
-</button>
+<div className="subject-popup-footer">
 
 <button
-  className="hod_subject_save_btn"
-  onClick={saveSubject}
->
-  {subjectMode === "create"
-    ? "Create Subject"
-    : "Update Subject"}
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-)
+type="button"
+className="cancel-btn"
+onClick={
+closeSubjectPopup
 }
+>
+Cancel
+</button>
 
-    </div>
+<button
+type="button"
+className="save-btn"
+onClick={
+saveSubject
+}
+>
+{
+subjectMode==="create"
+?"Create Subject"
+:"Update Subject"
+}
+</button>
 
-  );
+</div>
 
+</div>
+
+</div>
+)}
+
+</div>
+</>
+);
 };
 
 export default SubjectPage;

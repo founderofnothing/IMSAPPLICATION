@@ -32,6 +32,33 @@ const studentSchema = new mongoose.Schema(
   default: null,
 },
 
+    // ==================== ACADEMIC ENTRY & SYLLABUS ====================
+
+    entryType: {
+      type: String,
+      enum: [
+        "NORMAL",
+        "LATER_ENTRY",
+        "LATER_JOIN",
+      ],
+      default: "NORMAL",
+    },
+
+    syllabusType: {
+      type: String,
+      enum: [
+        "CURRENT",
+        "OLD",
+      ],
+      default: "CURRENT",
+    },
+
+    arrangementNumber: {
+      type: Number,
+      min: 1,
+      default: null,
+    },
+
     // Identification
     applicationNumber: {
          type: String,

@@ -15,6 +15,7 @@ import {
   getStudentFeeAllocation,
   collectFeePayment,
   searchStudentFeeAllocation,
+  getManagementStudentPaymentHistory,
   getStudentPaymentHistory,
 
   getFinanceDashboard,
@@ -111,6 +112,22 @@ router.get(
 );
 //  payment function
 router.post("/payment",protect,authorize("non_teaching_faculty"),collectFeePayment);
+
+
+
+
+router.get(
+  "/payment/management/student/:studentId",
+  protect,
+  authorize(
+    "non_teaching_faculty",
+    "teaching_faculty"
+  ),
+  getStudentPaymentHistory
+
+);
+
+
 // PAYMENT HISTORY
 router.get(
   "/payment/student/:studentId",
@@ -119,7 +136,8 @@ router.get(
     "non_teaching_faculty",
     "teaching_faculty"
   ),
-  getStudentPaymentHistory
+    getManagementStudentPaymentHistory
+
 );
 
 router.get(

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import FeeStructure from "./model/feeStructure.model.js";
 import Class from "../class/class.model.js";
-
+import Institution from "../institution/institution.model.js"
 import StudentFeeAllocation from "./model/studentFeeAllocation.model.js";
 import Student from "../student/student.model.js"
 import FeePayment from "../fees-allocation/model/feePayment.model.js"
@@ -2169,32 +2169,37 @@ export const searchStudentFeeAllocationService =
   };
 
 
-  // PAYMENT HISTORY  of student 
-// ==================== STUDENT PAYMENT HISTORY ====================
-export const getStudentPaymentHistoryService = async (
+
+
+  // ==================== MANAGEMENT - STUDENT PAYMENT HISTORY ====================
+
+export const getManagementStudentPaymentHistoryService = async (
   studentId,
   academicYear
 ) => {
-
   // ==================== VALIDATE STUDENT ID ====================
 
-  if (
-    !mongoose.Types.ObjectId.isValid(
-      studentId
-    )
-  ) {
-    throw new Error(
-      "Invalid student ID."
-    );
+  if (!mongoose.Types.ObjectId.isValid(studentId)) {
+    throw new Error("Invalid student ID.");
   }
 
+  // ==================== FETCH STUDENT ====================
+
+  const student = await Student.findById(studentId)
+    .select(
+      "institutionId registerNumber studentName studentEmail"
+    )
+    .lean();
+
+  if (!student) {
+    throw new Error("Student not found.");
+  }
 
   // ==================== BUILD QUERY ====================
 
   const query = {
     studentId,
   };
-
 
   // Optional academic year filter
   if (
@@ -2205,13 +2210,127 @@ export const getStudentPaymentHistoryService = async (
       academicYear.trim();
   }
 
+  // ==================== FETCH PAYMENTS ====================
+
+  const payments = await FeePayment.find(query)
+    .populate(
+      "studentId",
+      "registerNumber studentName studentEmail"
+    )
+    .populate(
+      "receivedBy",
+      "fullName"
+    )
+    .populate(
+      "studentFeeAllocationId",
+      "academicYear totalAmount paidAmount pendingAmount status"
+    )
+    .sort({
+      paidAt: -1,
+    })
+    .lean();
+
+  // ==================== NO PAYMENT HISTORY ====================
+
+  if (payments.length === 0) {
+    throw new Error(
+      "No payment history found."
+    );
+  }
+
+  // ==================== CALCULATE TOTAL PAID ====================
+
+  const totalPaid = payments.reduce(
+    (sum, payment) =>
+      sum + payment.amount,
+    0
+  );
+
+  // ==================== RETURN ====================
+
+  return {
+    student,
+
+    totalPayments:
+      payments.length,
+
+    totalPaid,
+
+    payments,
+  };
+};
+
+  // PAYMENT HISTORY  of student 
+// ==================== STUDENT PAYMENT HISTORY ====================
+export const getStudentPaymentHistoryService = async (
+  studentId,
+  academicYear
+) => {
+  // ==================== VALIDATE STUDENT ID ====================
+
+  if (!mongoose.Types.ObjectId.isValid(studentId)) {
+    throw new Error("Invalid student ID.");
+  }
+
+  // ==================== FETCH STUDENT ====================
+
+  const student = await Student.findById(studentId)
+    .select(
+      "institutionId registerNumber studentName studentEmail"
+    )
+    .lean();
+
+  if (!student) {
+    throw new Error("Student not found.");
+  }
+
+  // ==================== FETCH INSTITUTION ====================
+
+  const institution = await Institution.findById(
+    student.institutionId
+  )
+    .select("finance.showStudentFees")
+    .lean();
+
+  if (!institution) {
+    throw new Error("Institution not found.");
+  }
+
+  // ==================== CHECK FEE VISIBILITY ====================
+
+  if (!institution.finance?.showStudentFees) {
+    return {
+      student,
+
+      feesVisible: false,
+
+      totalPayments: "N/A",
+
+      totalPaid: "N/A",
+
+      payments: "N/A",
+    };
+  }
+
+  // ==================== BUILD QUERY ====================
+
+  const query = {
+    studentId,
+  };
+
+  // Optional academic year filter
+  if (
+    academicYear &&
+    academicYear.trim()
+  ) {
+    query.academicYear =
+      academicYear.trim();
+  }
 
   // ==================== FETCH PAYMENTS ====================
 
   const payments =
-    await FeePayment.find(
-      query
-    )
+    await FeePayment.find(query)
       .populate(
         "studentId",
         "registerNumber studentName studentEmail"
@@ -2229,17 +2348,13 @@ export const getStudentPaymentHistoryService = async (
       })
       .lean();
 
-
   // ==================== NO PAYMENT HISTORY ====================
 
-  if (
-    payments.length === 0
-  ) {
+  if (payments.length === 0) {
     throw new Error(
       "No payment history found."
     );
   }
-
 
   // ==================== CALCULATE TOTAL PAID ====================
 
@@ -2250,12 +2365,12 @@ export const getStudentPaymentHistoryService = async (
       0
     );
 
-
   // ==================== RETURN ====================
 
   return {
-    student:
-      payments[0].studentId,
+    student,
+
+    feesVisible: true,
 
     totalPayments:
       payments.length,
@@ -2270,9 +2385,6 @@ export const getStudentPaymentHistoryService = async (
 
   // principal finance report 
 // ==================== PRINCIPAL FINANCE DASHBOARD ====================
-
-// ==================== PRINCIPAL FINANCE DASHBOARD ====================
-
 export const getFinanceDashboardService = async (
   filters,
   institutionId
@@ -3239,7 +3351,6 @@ export const getFinanceDashboardService = async (
 
   // hod finance report 
 // ==================== HOD FINANCE DASHBOARD ====================
-
 export const getDepartmentFinanceDashboardService = async (
   filters,
   institutionId,
@@ -3775,7 +3886,6 @@ export const getDepartmentFinanceDashboardService = async (
 
 
 // ================== ERP FINANCE DASHBOARD ====================
-
 export const admgetFinanceDashboardService = async (
   filters
 ) => {
@@ -4423,7 +4533,6 @@ export const admgetFinanceDashboardService = async (
 // ==========================================================
 // PRINCIPAL FINANCE DASHBOARD
 // ==========================================================
-
 export const getPrincipalFinanceService = async ({
   institutionId,
   academicYear,

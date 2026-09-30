@@ -19,13 +19,8 @@ import {
 } from "./subject.service.js";
 
 
-
-
-
-
-
-
 // ==================== CREATE PROGRAMME STRUCTURE ====================
+
 export const createProgrammeStructure =
   async (req, res) => {
 
@@ -33,11 +28,8 @@ export const createProgrammeStructure =
 
       const programmeStructure =
         await createProgrammeStructureService(
-
           req.body.programmeId,
-
           req.user
-
         );
 
       return res.status(201).json({
@@ -66,7 +58,10 @@ export const createProgrammeStructure =
     }
 
   };
-  // ==================== ADD SEMESTER ====================
+
+
+// ==================== ADD SEMESTER ====================
+
 export const addSemester =
   async (req, res) => {
 
@@ -107,7 +102,10 @@ export const addSemester =
     }
 
   };
-  // ==================== REMOVE SEMESTER ====================
+
+
+// ==================== REMOVE SEMESTER ====================
+
 export const removeSemester =
   async (req, res) => {
 
@@ -150,7 +148,10 @@ export const removeSemester =
     }
 
   };
-  // ==================== GET PROGRAMME STRUCTURE ====================
+
+
+// ==================== GET PROGRAMME STRUCTURE ====================
+
 export const getProgrammeStructure =
   async (req, res) => {
 
@@ -186,8 +187,7 @@ export const getProgrammeStructure =
   };
 
 
-
-  // ==================== CREATE SUBJECT ====================
+// ==================== CREATE SUBJECT ====================
 
 export const createSubject = async (
   req,
@@ -231,7 +231,9 @@ export const createSubject = async (
   }
 
 };
-// get subject 
+
+
+// ==================== GET SUBJECTS ====================
 export const getSubjects = async (
   req,
   res
@@ -246,7 +248,9 @@ export const getSubjects = async (
 
         req.params.studyYear,
 
-        req.params.semesterNumber
+        req.params.semesterNumber,
+
+        req.query.syllabusType
 
       );
 
@@ -278,7 +282,8 @@ export const getSubjects = async (
 };
 
 
-// update subject 
+// ==================== UPDATE SUBJECT ====================
+
 export const updateSubject = async (
   req,
   res
@@ -322,6 +327,7 @@ export const updateSubject = async (
 
 };
 
+
 // ==================== DELETE SUBJECT ====================
 
 export const deleteSubject = async (
@@ -360,32 +366,50 @@ export const deleteSubject = async (
   }
 
 };
+// ==================== RESTORE SUBJECT ====================
 
+export const restoreSubject = async (
+  req,
+  res
+) => {
 
-
-export const restoreSubject = async (req, res) => {
   try {
 
-    const subject = await restoreSubjectService(req.params.id);
+    const subject =
+      await restoreSubjectService(
+        req.params.id
+      );
 
     return res.status(200).json({
+
       success: true,
-      message: "Subject restored successfully.",
-      data: subject,
+
+      message:
+        "Subject restored successfully.",
+
+      data:
+        subject,
+
     });
 
   } catch (error) {
 
     return res.status(400).json({
+
       success: false,
-      message: error.message,
+
+      message:
+        error.message,
+
     });
 
   }
+
 };
 
 
 // ==================== GET DELETED SUBJECTS ====================
+
 export const getDeletedSubjects =
   async (
     req,
@@ -424,10 +448,10 @@ export const getDeletedSubjects =
 
     }
 
-};
+  };
 
 
-
+// ==================== PERMANENT DELETE SUBJECT ====================
 
 export const permanentDeleteSubject =
   async (
@@ -463,12 +487,11 @@ export const permanentDeleteSubject =
 
     }
 
-};
+  };
 
 
 // ==================== UPDATE CURRENT SEMESTER ====================
 
-// ==================== UPDATE CURRENT SEMESTER ====================
 export const updateCurrentSemester = async (
   req,
   res
@@ -488,27 +511,44 @@ export const updateCurrentSemester = async (
 
     const programmeStructure =
       await updateCurrentSemesterService(
+
         req.params.programmeId,
+
         req.params.batchId,
+
         req.body.semesterNumber
+
       );
 
     return res.status(200).json({
+
       success: true,
+
       message:
         "Current semester updated successfully.",
-      data: programmeStructure,
+
+      data:
+        programmeStructure,
+
     });
 
   } catch (error) {
 
     return res.status(400).json({
+
       success: false,
-      message: error.message,
+
+      message:
+        error.message,
+
     });
 
   }
+
 };
+
+
+// ==================== GET PROGRAMME BATCHES ====================
 
 export const getProgrammeBatches = async (
   req,
@@ -526,9 +566,11 @@ export const getProgrammeBatches = async (
 
       success: true,
 
-      count: batches.length,
+      count:
+        batches.length,
 
-      data: batches,
+      data:
+        batches,
 
     });
 
@@ -538,7 +580,8 @@ export const getProgrammeBatches = async (
 
       success: false,
 
-      message: error.message,
+      message:
+        error.message,
 
     });
 
@@ -546,8 +589,6 @@ export const getProgrammeBatches = async (
 
 };
 
-
-// ==================== GET CURRENT SEMESTER SUBJECTS ====================
 
 // ==================== GET CURRENT SEMESTER SUBJECTS ====================
 
@@ -586,11 +627,3 @@ export const getCurrentSemesterSubjects =
     }
 
   };
-
-
-
-
-
-
-
-

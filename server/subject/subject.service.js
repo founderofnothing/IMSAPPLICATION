@@ -617,7 +617,22 @@ export const getProgrammeStructureService =
 
 
 
-// ==================== CREATE SUBJECT ====================
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========================================================
+// CREATE SUBJECT
+// ========================================================
 
 export const createSubjectService = async (
   subjectData,
@@ -632,10 +647,24 @@ export const createSubjectService = async (
     subjectCode,
     subjectScore,
     subjectType,
+    syllabusType = "CURRENT",
   } = subjectData;
 
 
-  // ==================== VALIDATE PROGRAMME ID ====================
+  // ========================================================
+  // VALIDATE SYLLABUS TYPE
+  // ========================================================
+
+  if (!["CURRENT", "OLD"].includes(syllabusType)) {
+    throw new Error(
+      "Invalid syllabus type. Use CURRENT or OLD."
+    );
+  }
+
+
+  // ========================================================
+  // VALIDATE PROGRAMME ID
+  // ========================================================
 
   if (
     !mongoose.Types.ObjectId.isValid(
@@ -648,7 +677,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== VALIDATE STUDY YEAR ====================
+  // ========================================================
+  // VALIDATE STUDY YEAR
+  // ========================================================
 
   if (
     !Number.isInteger(
@@ -662,7 +693,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== VALIDATE SEMESTER ====================
+  // ========================================================
+  // VALIDATE SEMESTER
+  // ========================================================
 
   if (
     !Number.isInteger(
@@ -676,7 +709,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== FIND PROGRAMME ====================
+  // ========================================================
+  // FIND PROGRAMME
+  // ========================================================
 
   const programme =
     await Programme.findOne({
@@ -687,6 +722,7 @@ export const createSubjectService = async (
 
     });
 
+
   if (!programme) {
 
     throw new Error(
@@ -696,7 +732,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== FIND PROGRAMME STRUCTURE ====================
+  // ========================================================
+  // FIND PROGRAMME STRUCTURE
+  // ========================================================
 
   const programmeStructure =
     await ProgrammeStructure.findOne({
@@ -709,6 +747,7 @@ export const createSubjectService = async (
 
     });
 
+
   if (!programmeStructure) {
 
     throw new Error(
@@ -718,7 +757,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== FIND STUDY YEAR ====================
+  // ========================================================
+  // FIND STUDY YEAR
+  // ========================================================
 
   const yearStructure =
     programmeStructure.structure.find(
@@ -729,6 +770,7 @@ export const createSubjectService = async (
 
     );
 
+
   if (!yearStructure) {
 
     throw new Error(
@@ -738,7 +780,9 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== FIND SEMESTER ====================
+  // ========================================================
+  // FIND SEMESTER
+  // ========================================================
 
   const semester =
     yearStructure.semesters.find(
@@ -749,6 +793,7 @@ export const createSubjectService = async (
 
     );
 
+
   if (!semester) {
 
     throw new Error(
@@ -758,7 +803,26 @@ export const createSubjectService = async (
   }
 
 
-  // ==================== CHECK DUPLICATE SUBJECT CODE ====================
+  // ========================================================
+  // NORMALIZE SUBJECT DATA
+  // ========================================================
+
+  const normalizedSubjectCode =
+    subjectCode
+      .trim()
+      .toUpperCase();
+
+  const normalizedSubjectName =
+    subjectName
+      .trim();
+
+
+  // ========================================================
+  // CHECK DUPLICATE SUBJECT CODE
+  //
+  // IMPORTANT:
+  // CURRENT and OLD are treated separately.
+  // ========================================================
 
   const existingSubject =
     await Subject.findOne({
@@ -771,25 +835,28 @@ export const createSubjectService = async (
       semesterNumber:
         Number(semesterNumber),
 
+      syllabusType,
+
       subjectCode:
-        subjectCode
-          .trim()
-          .toUpperCase(),
+        normalizedSubjectCode,
 
       isDeleted: false,
 
     });
 
+
   if (existingSubject) {
 
     throw new Error(
-      "Subject code already exists for this semester."
+      `Subject code already exists for this ${syllabusType} syllabus in this semester.`
     );
 
   }
 
 
-  // ==================== CHECK DUPLICATE SUBJECT NAME ====================
+  // ========================================================
+  // CHECK DUPLICATE SUBJECT NAME
+  // ========================================================
 
   const existingSubjectName =
     await Subject.findOne({
@@ -802,23 +869,28 @@ export const createSubjectService = async (
       semesterNumber:
         Number(semesterNumber),
 
+      syllabusType,
+
       subjectName:
-        subjectName.trim(),
+        normalizedSubjectName,
 
       isDeleted: false,
 
     });
 
+
   if (existingSubjectName) {
 
     throw new Error(
-      "Subject name already exists for this semester."
+      `Subject name already exists for this ${syllabusType} syllabus in this semester.`
     );
 
   }
 
 
-  // ==================== CREATE SUBJECT ====================
+  // ========================================================
+  // CREATE SUBJECT
+  // ========================================================
 
   const subject =
     await Subject.create({
@@ -838,17 +910,17 @@ export const createSubjectService = async (
         Number(semesterNumber),
 
       subjectName:
-        subjectName.trim(),
+        normalizedSubjectName,
 
       subjectCode:
-        subjectCode
-          .trim()
-          .toUpperCase(),
+        normalizedSubjectCode,
 
       subjectScore:
         Number(subjectScore),
 
       subjectType,
+
+      syllabusType,
 
       createdBy:
         user.userId,
@@ -856,13 +928,18 @@ export const createSubjectService = async (
     });
 
 
-  // ==================== RETURN ====================
+  // ========================================================
+  // RETURN
+  // ========================================================
 
   return subject;
 
 };
 
-// ==================== GET SUBJECTS ====================
+
+// ========================================================
+// GET SUBJECTS
+// ========================================================
 
 export const getSubjectsService =
   async (
@@ -871,32 +948,83 @@ export const getSubjectsService =
 
     studyYear,
 
-    semesterNumber
+    semesterNumber,
+
+    syllabusType = "CURRENT"
 
   ) => {
+
+
+    // ======================================================
+    // VALIDATE SYLLABUS TYPE
+    // ======================================================
+
+    if (
+      !["CURRENT", "OLD"].includes(
+        syllabusType
+      )
+    ) {
+
+      throw new Error(
+        "Invalid syllabus type. Use CURRENT or OLD."
+      );
+
+    }
+
+
+    // ======================================================
+    // VALIDATE PROGRAMME ID
+    // ======================================================
+
+    if (
+      !mongoose.Types.ObjectId.isValid(
+        programmeId
+      )
+    ) {
+
+      throw new Error(
+        "Invalid programme ID."
+      );
+
+    }
+
+
+    // ======================================================
+    // FETCH SUBJECTS
+    // ======================================================
 
     const subjects =
       await Subject.find({
 
         programmeId,
 
-        studyYear,
+        studyYear:
+          Number(studyYear),
 
-        semesterNumber,
+        semesterNumber:
+          Number(semesterNumber),
+
+        syllabusType,
 
         isDeleted: false,
 
       })
-        .sort({
+      .sort({
 
-          subjectCode: 1,
+        subjectCode: 1,
 
-        });
+      });
+
 
     return subjects;
 
 };
-// ==================== UPDATE SUBJECT ====================
+
+
+// ========================================================
+// UPDATE SUBJECT
+// ========================================================
+
 export const updateSubjectService =
   async (
 
@@ -905,6 +1033,28 @@ export const updateSubjectService =
     updateData
 
   ) => {
+
+
+    // ======================================================
+    // VALIDATE SUBJECT ID
+    // ======================================================
+
+    if (
+      !mongoose.Types.ObjectId.isValid(
+        subjectId
+      )
+    ) {
+
+      throw new Error(
+        "Invalid subject ID."
+      );
+
+    }
+
+
+    // ======================================================
+    // FIND SUBJECT
+    // ======================================================
 
     const subject =
       await Subject.findOne({
@@ -915,27 +1065,200 @@ export const updateSubjectService =
 
       });
 
+
     if (!subject) {
+
       throw new Error(
         "Subject not found."
       );
+
     }
 
-    Object.assign(
-      subject,
-      updateData
-    );
+
+    // ======================================================
+    // PREPARE UPDATED VALUES
+    // ======================================================
+
+    const programmeId =
+      updateData.programmeId ??
+      subject.programmeId;
+
+    const studyYear =
+      updateData.studyYear ??
+      subject.studyYear;
+
+    const semesterNumber =
+      updateData.semesterNumber ??
+      subject.semesterNumber;
+
+    const syllabusType =
+      updateData.syllabusType ??
+      subject.syllabusType ??
+      "CURRENT";
+
+    const subjectCode =
+      updateData.subjectCode !== undefined
+        ? updateData.subjectCode
+            .trim()
+            .toUpperCase()
+        : subject.subjectCode;
+
+    const subjectName =
+      updateData.subjectName !== undefined
+        ? updateData.subjectName.trim()
+        : subject.subjectName;
+
+
+    // ======================================================
+    // VALIDATE SYLLABUS TYPE
+    // ======================================================
+
+    if (
+      !["CURRENT", "OLD"].includes(
+        syllabusType
+      )
+    ) {
+
+      throw new Error(
+        "Invalid syllabus type. Use CURRENT or OLD."
+      );
+
+    }
+
+
+    // ======================================================
+    // CHECK DUPLICATE SUBJECT CODE
+    // ======================================================
+
+    const duplicateCode =
+      await Subject.findOne({
+
+        _id: {
+          $ne: subjectId,
+        },
+
+        programmeId,
+
+        studyYear:
+          Number(studyYear),
+
+        semesterNumber:
+          Number(semesterNumber),
+
+        syllabusType,
+
+        subjectCode,
+
+        isDeleted: false,
+
+      });
+
+
+    if (duplicateCode) {
+
+      throw new Error(
+        `Subject code already exists for this ${syllabusType} syllabus in this semester.`
+      );
+
+    }
+
+
+    // ======================================================
+    // CHECK DUPLICATE SUBJECT NAME
+    // ======================================================
+
+    const duplicateName =
+      await Subject.findOne({
+
+        _id: {
+          $ne: subjectId,
+        },
+
+        programmeId,
+
+        studyYear:
+          Number(studyYear),
+
+        semesterNumber:
+          Number(semesterNumber),
+
+        syllabusType,
+
+        subjectName,
+
+        isDeleted: false,
+
+      });
+
+
+    if (duplicateName) {
+
+      throw new Error(
+        `Subject name already exists for this ${syllabusType} syllabus in this semester.`
+      );
+
+    }
+
+
+    // ======================================================
+    // UPDATE SUBJECT
+    // ======================================================
+
+    subject.programmeId =
+      programmeId;
+
+    subject.studyYear =
+      Number(studyYear);
+
+    subject.semesterNumber =
+      Number(semesterNumber);
+
+    subject.subjectName =
+      subjectName;
+
+    subject.subjectCode =
+      subjectCode;
+
+    subject.subjectScore =
+      updateData.subjectScore !== undefined
+        ? Number(updateData.subjectScore)
+        : subject.subjectScore;
+
+    subject.subjectType =
+      updateData.subjectType ??
+      subject.subjectType;
+
+    subject.syllabusType =
+      syllabusType;
+
+
+    // ======================================================
+    // SAVE
+    // ======================================================
 
     await subject.save();
+
+
+    // ======================================================
+    // RETURN
+    // ======================================================
 
     return subject;
 
 };
-// ==================== SOFT DELETE SUBJECT ====================
+
+
+// ========================================================
+// DELETE SUBJECT
+// ========================================================
 
 export const deleteSubjectService = async (
   subjectId
 ) => {
+
+  // ======================================================
+  // FIND SUBJECT
+  // ======================================================
 
   const subject =
     await Subject.findOne({
@@ -946,11 +1269,19 @@ export const deleteSubjectService = async (
 
     });
 
+
   if (!subject) {
+
     throw new Error(
       "Subject not found."
     );
+
   }
+
+
+  // ======================================================
+  // SOFT DELETE
+  // ======================================================
 
   subject.isActive = false;
 
@@ -959,118 +1290,183 @@ export const deleteSubjectService = async (
   subject.deletedAt =
     new Date();
 
+
   await subject.save();
+
 
   return subject;
 
 };
 
 
-// ==================== RESTORE SUBJECT ====================
-export const restoreSubjectService = async (
-  subjectId
-) => {
+// ========================================================
+// RESTORE SUBJECT
+// ========================================================
 
-  // ==================== FIND DELETED SUBJECT ====================
+export const restoreSubjectService =
+  async (
+    subjectId
+  ) => {
 
-  const subject =
-    await Subject.findOne({
 
-      _id: subjectId,
+    // ====================================================
+    // FIND DELETED SUBJECT
+    // ====================================================
 
-      isDeleted: true,
+    const subject =
+      await Subject.findOne({
 
-    });
+        _id: subjectId,
 
-  if (!subject) {
-    throw new Error(
-      "Deleted subject not found."
-    );
-  }
+        isDeleted: true,
 
-  // ==================== CHECK DUPLICATE SUBJECT CODE ====================
+      });
 
-  const existingCode =
-    await Subject.findOne({
 
-      programmeId:
-        subject.programmeId,
+    if (!subject) {
 
-      studyYear:
-        subject.studyYear,
+      throw new Error(
+        "Deleted subject not found."
+      );
 
-      semesterNumber:
-        subject.semesterNumber,
+    }
 
-      subjectCode:
-        subject.subjectCode,
 
-      isDeleted: false,
+    // ====================================================
+    // GET SYLLABUS TYPE
+    // ====================================================
 
-    });
+    const syllabusType =
+      subject.syllabusType ??
+      "CURRENT";
 
-  if (existingCode) {
-    throw new Error(
-      "Cannot restore. Another subject with the same code already exists."
-    );
-  }
 
-  // ==================== CHECK DUPLICATE SUBJECT NAME ====================
+    // ====================================================
+    // CHECK DUPLICATE SUBJECT CODE
+    // ====================================================
 
-  const existingName =
-    await Subject.findOne({
+    const existingCode =
+      await Subject.findOne({
 
-      programmeId:
-        subject.programmeId,
+        _id: {
+          $ne: subjectId,
+        },
 
-      studyYear:
-        subject.studyYear,
+        programmeId:
+          subject.programmeId,
 
-      semesterNumber:
-        subject.semesterNumber,
+        studyYear:
+          subject.studyYear,
 
-      subjectName:
-        subject.subjectName,
+        semesterNumber:
+          subject.semesterNumber,
 
-      isDeleted: false,
+        syllabusType,
 
-    });
+        subjectCode:
+          subject.subjectCode,
 
-  if (existingName) {
-    throw new Error(
-      "Cannot restore. Another subject with the same name already exists."
-    );
-  }
+        isDeleted: false,
 
-  // ==================== RESTORE SUBJECT ====================
+      });
 
-  subject.isActive = true;
 
-  subject.isDeleted = false;
+    if (existingCode) {
 
-  subject.deletedAt = null;
+      throw new Error(
+        `Cannot restore. Another ${syllabusType} syllabus subject with the same code already exists.`
+      );
 
-  await subject.save();
+    }
 
-  // ==================== RETURN ====================
 
-  return subject;
+    // ====================================================
+    // CHECK DUPLICATE SUBJECT NAME
+    // ====================================================
+
+    const existingName =
+      await Subject.findOne({
+
+        _id: {
+          $ne: subjectId,
+        },
+
+        programmeId:
+          subject.programmeId,
+
+        studyYear:
+          subject.studyYear,
+
+        semesterNumber:
+          subject.semesterNumber,
+
+        syllabusType,
+
+        subjectName:
+          subject.subjectName,
+
+        isDeleted: false,
+
+      });
+
+
+    if (existingName) {
+
+      throw new Error(
+        `Cannot restore. Another ${syllabusType} syllabus subject with the same name already exists.`
+      );
+
+    }
+
+
+    // ====================================================
+    // RESTORE
+    // ====================================================
+
+    subject.isActive = true;
+
+    subject.isDeleted = false;
+
+    subject.deletedAt = null;
+
+
+    await subject.save();
+
+
+    // ====================================================
+    // RETURN
+    // ====================================================
+
+    return subject;
 
 };
 
-// ==================== GET DELETED SUBJECTS ====================
+
+// ========================================================
+// GET DELETED SUBJECTS
+// ========================================================
+
 export const getDeletedSubjectsService =
-  async (user) => {
+  async (
+    user
+  ) => {
 
-    // ==================== VALIDATE USER ====================
+    // ====================================================
+    // VALIDATE USER
+    // ====================================================
 
     if (!user.department) {
+
       throw new Error(
         "Department not found in token."
       );
+
     }
 
-    // ==================== FETCH DELETED SUBJECTS ====================
+
+    // ====================================================
+    // FETCH DELETED SUBJECTS
+    // ====================================================
 
     const subjects =
       await Subject.find({
@@ -1081,7 +1477,6 @@ export const getDeletedSubjectsService =
         isDeleted: true,
 
       })
-
       .populate(
 
         "programmeId",
@@ -1089,23 +1484,31 @@ export const getDeletedSubjectsService =
         "programmeName programmeCode"
 
       )
-
       .sort({
 
         deletedAt: -1,
 
       });
 
+
     return subjects;
 
 };
 
 
-// ==================== PERMANENT DELETE SUBJECT ====================
+// ========================================================
+// PERMANENT DELETE SUBJECT
+// ========================================================
+
 export const permanentDeleteSubjectService =
   async (
     subjectId
   ) => {
+
+
+    // ====================================================
+    // FIND DELETED SUBJECT
+    // ====================================================
 
     const subject =
       await Subject.findOne({
@@ -1116,15 +1519,24 @@ export const permanentDeleteSubjectService =
 
       });
 
+
     if (!subject) {
+
       throw new Error(
         "Deleted subject not found."
       );
+
     }
+
+
+    // ====================================================
+    // PERMANENT DELETE
+    // ====================================================
 
     await Subject.findByIdAndDelete(
       subjectId
     );
+
 
     return subject;
 
@@ -1132,7 +1544,6 @@ export const permanentDeleteSubjectService =
 
 
 
-// ==================== UPDATE CURRENT SEMESTER ====================
 // ==================== UPDATE CURRENT SEMESTER ====================
 
 export const updateCurrentSemesterService = async (

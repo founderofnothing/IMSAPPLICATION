@@ -10,109 +10,204 @@ import Batch from "../batch/batch.model.js"
 import Student from "./student.model.js";
 import StudentTransport from "./../transport/models/studentTransport.model.js";
 
+
+
+
+
+
+
+
+
 // create student function 
-export const createStudentService =
-  async (
-    studentData,
-    user
-  ) => {
-// Validate Institution
+export const createStudentService = async (
+  studentData,
+  user
+) => {
+  // ============================================================
+  // VALIDATE INSTITUTION
+  // ============================================================
 
-studentData.institutionId =
-  user.institution;
+  studentData.institutionId = user.institution;
 
-const institution =
-  await Institution.findById(
+  const institution = await Institution.findById(
     user.institution
   );
 
-if (!institution) {
-  throw new Error(
-    "Institution not found."
-  );
-}
+  if (!institution) {
+    throw new Error("Institution not found.");
+  }
 
-// Generate Application Number
+  // ============================================================
+  // GENERATE APPLICATION NUMBER
+  // ============================================================
 
-// Generate Application Number
-
-const totalStudents =
-  await Student.countDocuments({
-    institutionId:
-      studentData.institutionId,
+  const totalStudents = await Student.countDocuments({
+    institutionId: studentData.institutionId,
   });
 
-const nextNumber =
-  totalStudents + 1;
+  const nextNumber = totalStudents + 1;
 
-studentData.applicationNumber =
-  `${
-    institution.institutionCode.toUpperCase()
-  }${String(
-    nextNumber
-  ).padStart(4, "0")}`;
+  studentData.applicationNumber =
+    `${institution.institutionCode.toUpperCase()}${String(
+      nextNumber
+    ).padStart(4, "0")}`;
 
-     // Validate Batch
+  // ============================================================
+  // VALIDATE BATCH
+  // ============================================================
 
-if (studentData.batchId) {
-  const batch =
-    await Batch.findOne({
-      _id:
-        studentData.batchId,
-
-      isDeleted:
-        false,
+  if (studentData.batchId) {
+    const batch = await Batch.findOne({
+      _id: studentData.batchId,
+      isDeleted: false,
     });
 
-  if (!batch) {
-    throw new Error(
-      "Batch not found."
-    );
+    if (!batch) {
+      throw new Error("Batch not found.");
+    }
   }
-}
-  // Check duplicate register number (only if provided)
+
+  // ============================================================
+  // ENTRY TYPE
+  // ============================================================
+
+  if (studentData.entryType) {
+    const allowedEntryTypes = [
+      "NORMAL",
+      "LATER_ENTRY",
+      "LATER_JOIN",
+    ];
+
+    if (
+      !allowedEntryTypes.includes(
+        studentData.entryType
+      )
+    ) {
+      throw new Error(
+        "Invalid entry type. Allowed values: NORMAL, LATER_ENTRY, LATER_JOIN."
+      );
+    }
+  } else {
+    studentData.entryType = "NORMAL";
+  }
+
+  // ============================================================
+  // SYLLABUS TYPE
+  // ============================================================
+
+  if (studentData.syllabusType) {
+    const allowedSyllabusTypes = [
+      "CURRENT",
+      "OLD",
+    ];
+
+    if (
+      !allowedSyllabusTypes.includes(
+        studentData.syllabusType
+      )
+    ) {
+      throw new Error(
+        "Invalid syllabus type. Allowed values: CURRENT, OLD."
+      );
+    }
+  } else {
+    studentData.syllabusType = "CURRENT";
+  }
+
+  // ============================================================
+  // ARRANGEMENT NUMBER
+  // ============================================================
+
+  if (
+    studentData.arrangementNumber !== undefined &&
+    studentData.arrangementNumber !== null &&
+    studentData.arrangementNumber !== ""
+  ) {
+    const arrangementNumber = Number(
+      studentData.arrangementNumber
+    );
+
+    if (
+      !Number.isInteger(arrangementNumber) ||
+      arrangementNumber < 1
+    ) {
+      throw new Error(
+        "Arrangement number must be a positive whole number."
+      );
+    }
+
+    studentData.arrangementNumber =
+      arrangementNumber;
+  } else {
+    studentData.arrangementNumber = null;
+  }
+
+  // ============================================================
+  // CHECK DUPLICATE REGISTER NUMBER
+  // ============================================================
+
   if (studentData.registerNumber) {
-    const existingRegister = await Student.findOne({
-      registerNumber: studentData.registerNumber,
-    });
+    const existingRegister =
+      await Student.findOne({
+        registerNumber:
+          studentData.registerNumber,
+      });
 
     if (existingRegister) {
-      throw new Error("Register number already exists.");
+      throw new Error(
+        "Register number already exists."
+      );
     }
   }
 
-  // Check duplicate student email (only if provided)
+  // ============================================================
+  // CHECK DUPLICATE STUDENT EMAIL
+  // ============================================================
+
   if (studentData.studentEmail) {
-    const existingEmail = await Student.findOne({
-      studentEmail: studentData.studentEmail.toLowerCase().trim(),
-    });
+    studentData.studentEmail =
+      studentData.studentEmail
+        .toLowerCase()
+        .trim();
+
+    const existingEmail =
+      await Student.findOne({
+        studentEmail:
+          studentData.studentEmail,
+      });
 
     if (existingEmail) {
-      throw new Error("Student email already exists.");
+      throw new Error(
+        "Student email already exists."
+      );
     }
-
-    // Normalize email before saving
-    studentData.studentEmail = studentData.studentEmail
-      .toLowerCase()
-      .trim();
   }
 
-studentData.studentType =
-  studentData.studentType
-    ?.trim()
-    .toUpperCase();
+  // ============================================================
+  // NORMALIZE STUDENT TYPE
+  // ============================================================
 
-// NEW
-// Keep class assignment if provided
-studentData.classId =
-  studentData.classId || null;
+  studentData.studentType =
+    studentData.studentType
+      ?.trim()
+      .toUpperCase();
 
-// Create student
-const student = await Student.create(
-  studentData
-);
+  // ============================================================
+  // CLASS ASSIGNMENT
+  // ============================================================
 
-return student;
+  studentData.classId =
+    studentData.classId || null;
+
+  // ============================================================
+  // CREATE STUDENT
+  // ============================================================
+
+  const student = await Student.create(
+    studentData
+  );
+
+  return student;
 };
 // get all student (all)
 export const getAllStudentsService = async ({
@@ -345,120 +440,242 @@ export const getSingleStudentService = async (studentId) => {
   return student;
 };
 // update student function 
-export const updateStudentService = async (studentId, updateData) => {
-  // Validate student ID
-  if (!mongoose.Types.ObjectId.isValid(studentId)) {
-    throw new Error("Invalid student ID.");
-  }
-
-  // Check if student exists
-  const existingStudent = await Student.findById(studentId);
-
-  if (!existingStudent) {
-    throw new Error("Student not found.");
-  }
-
-  // Normalize email
-  if (updateData.studentEmail) {
-    updateData.studentEmail = updateData.studentEmail
-      .toLowerCase()
-      .trim();
-  }
-
-  // ----------------------------------------------------
-  // Application Number Check
-  // ----------------------------------------------------
-
-  if (
-    updateData.applicationNumber &&
-    updateData.applicationNumber !== existingStudent.applicationNumber
-  ) {
-    const existingApplication = await Student.findOne({
-      applicationNumber: updateData.applicationNumber,
-    });
-
-    if (existingApplication) {
-      throw new Error("This application number is already occupied.");
-    }
-  }
-
-  // ----------------------------------------------------
-  // Register Number Check
-  // ----------------------------------------------------
-
-  if (
-    updateData.registerNumber &&
-    updateData.registerNumber !== existingStudent.registerNumber
-  ) {
-    const existingRegister = await Student.findOne({
-      registerNumber: updateData.registerNumber,
-    });
-
-    if (existingRegister) {
-      throw new Error("This register number is already occupied.");
-    }
-  }
-
-  // ----------------------------------------------------
-  // Student Email Check
-  // ----------------------------------------------------
-
-  if (
-    updateData.studentEmail &&
-    updateData.studentEmail !== existingStudent.studentEmail
-  ) {
-    const existingEmail = await Student.findOne({
-      studentEmail: updateData.studentEmail,
-    });
-
-    if (existingEmail) {
-      throw new Error("This email address is already occupied.");
-    }
-  }
-
-  // ----------------------------------------------------
-// Batch Validation
-// ----------------------------------------------------
-
-if (updateData.batchId) {
+export const updateStudentService = async (
+  studentId,
+  updateData
+) => {
+  // ============================================================
+  // VALIDATE STUDENT ID
+  // ============================================================
 
   if (
     !mongoose.Types.ObjectId.isValid(
-      updateData.batchId
+      studentId
     )
   ) {
     throw new Error(
-      "Invalid batch ID."
+      "Invalid student ID."
     );
   }
 
-  const batch =
-    await Batch.findOne({
-      _id:
-        updateData.batchId,
+  // ============================================================
+  // CHECK STUDENT EXISTS
+  // ============================================================
 
-      isDeleted:
-        false,
-    });
+  const existingStudent =
+    await Student.findById(studentId);
 
-  if (!batch) {
+  if (!existingStudent) {
     throw new Error(
-      "Batch not found."
+      "Student not found."
     );
   }
-}
-  // ----------------------------------------------------
-  // Update Student
-  // ----------------------------------------------------
 
-  const updatedStudent = await Student.findByIdAndUpdate(
-    studentId,
-    updateData,
-    {
-      returnDocument: "after",
-      runValidators: true,
+  // ============================================================
+  // NORMALIZE EMAIL
+  // ============================================================
+
+  if (updateData.studentEmail) {
+    updateData.studentEmail =
+      updateData.studentEmail
+        .toLowerCase()
+        .trim();
+  }
+
+  // ============================================================
+  // APPLICATION NUMBER CHECK
+  // ============================================================
+
+  if (
+    updateData.applicationNumber &&
+    updateData.applicationNumber !==
+      existingStudent.applicationNumber
+  ) {
+    const existingApplication =
+      await Student.findOne({
+        applicationNumber:
+          updateData.applicationNumber,
+        _id: {
+          $ne: studentId,
+        },
+      });
+
+    if (existingApplication) {
+      throw new Error(
+        "This application number is already occupied."
+      );
     }
-  );
+  }
+
+  // ============================================================
+  // REGISTER NUMBER CHECK
+  // ============================================================
+
+  if (
+    updateData.registerNumber &&
+    updateData.registerNumber !==
+      existingStudent.registerNumber
+  ) {
+    const existingRegister =
+      await Student.findOne({
+        registerNumber:
+          updateData.registerNumber,
+        _id: {
+          $ne: studentId,
+        },
+      });
+
+    if (existingRegister) {
+      throw new Error(
+        "This register number is already occupied."
+      );
+    }
+  }
+
+  // ============================================================
+  // STUDENT EMAIL CHECK
+  // ============================================================
+
+  if (
+    updateData.studentEmail &&
+    updateData.studentEmail !==
+      existingStudent.studentEmail
+  ) {
+    const existingEmail =
+      await Student.findOne({
+        studentEmail:
+          updateData.studentEmail,
+        _id: {
+          $ne: studentId,
+        },
+      });
+
+    if (existingEmail) {
+      throw new Error(
+        "This email address is already occupied."
+      );
+    }
+  }
+
+  // ============================================================
+  // BATCH VALIDATION
+  // ============================================================
+
+  if (updateData.batchId) {
+    if (
+      !mongoose.Types.ObjectId.isValid(
+        updateData.batchId
+      )
+    ) {
+      throw new Error(
+        "Invalid batch ID."
+      );
+    }
+
+    const batch =
+      await Batch.findOne({
+        _id: updateData.batchId,
+        isDeleted: false,
+      });
+
+    if (!batch) {
+      throw new Error(
+        "Batch not found."
+      );
+    }
+  }
+
+  // ============================================================
+  // ENTRY TYPE VALIDATION
+  // ============================================================
+
+  if (
+    updateData.entryType !== undefined
+  ) {
+    const allowedEntryTypes = [
+      "NORMAL",
+      "LATER_ENTRY",
+      "LATER_JOIN",
+    ];
+
+    if (
+      !allowedEntryTypes.includes(
+        updateData.entryType
+      )
+    ) {
+      throw new Error(
+        "Invalid entry type. Allowed values: NORMAL, LATER_ENTRY, LATER_JOIN."
+      );
+    }
+  }
+
+  // ============================================================
+  // SYLLABUS TYPE VALIDATION
+  // ============================================================
+
+  if (
+    updateData.syllabusType !== undefined
+  ) {
+    const allowedSyllabusTypes = [
+      "CURRENT",
+      "OLD",
+    ];
+
+    if (
+      !allowedSyllabusTypes.includes(
+        updateData.syllabusType
+      )
+    ) {
+      throw new Error(
+        "Invalid syllabus type. Allowed values: CURRENT, OLD."
+      );
+    }
+  }
+
+  // ============================================================
+  // ARRANGEMENT NUMBER VALIDATION
+  // ============================================================
+
+  if (
+    updateData.arrangementNumber !==
+      undefined &&
+    updateData.arrangementNumber !==
+      null &&
+    updateData.arrangementNumber !== ""
+  ) {
+    const arrangementNumber =
+      Number(
+        updateData.arrangementNumber
+      );
+
+    if (
+      !Number.isInteger(
+        arrangementNumber
+      ) ||
+      arrangementNumber < 1
+    ) {
+      throw new Error(
+        "Arrangement number must be a positive whole number."
+      );
+    }
+
+    updateData.arrangementNumber =
+      arrangementNumber;
+  }
+
+  // ============================================================
+  // UPDATE STUDENT
+  // ============================================================
+
+  const updatedStudent =
+    await Student.findByIdAndUpdate(
+      studentId,
+      updateData,
+      {
+        returnDocument: "after",
+        runValidators: true,
+      }
+    );
 
   return updatedStudent;
 };

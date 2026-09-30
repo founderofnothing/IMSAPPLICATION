@@ -20,7 +20,7 @@ import transportRoutes from "./transport/transport.routes.js";
 import examRoutes from "./exams/exam.route.js"
 import timetableRoutes from "./timetable/timetable.route.js"
 import CalendarRoutes from "./academic-calendar/route.js"
-import  AttendanceRoutes from "./attendance/route.js";
+// import  AttendanceRoutes from "./attendance/route.js";
 import feeallocationRoutes from "./fees-allocation/route.js"
 import enquiryRoutes from "./enquiry/enquiry.routes.js"
 
@@ -174,7 +174,7 @@ app.use("/api/timetable",timetableRoutes)
 
 app.use("/api/calendar",CalendarRoutes)
 
-app.use("/api/Attendance",AttendanceRoutes)
+// app.use("/api/Attendance",AttendanceRoutes)
 
 app.use("/api/fees-allocation",feeallocationRoutes)
 

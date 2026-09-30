@@ -1,14 +1,24 @@
 import mongoose from "mongoose";
 
-// ==================== PERIOD SCHEMA ====================
+// =====================================================
+// PERIOD SCHEMA
+// =====================================================
 
 const periodSchema = new mongoose.Schema(
   {
+    // ===================================================
+    // PERIOD
+    // ===================================================
+
     periodNumber: {
       type: Number,
       required: true,
       min: 1,
     },
+
+    // ===================================================
+    // SUBJECT
+    // ===================================================
 
     subjectId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -16,10 +26,24 @@ const periodSchema = new mongoose.Schema(
       required: true,
     },
 
-    facultyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+    // ===================================================
+    // ATTENDANCE
+    // ===================================================
+
+    attendanceRequired: {
+      type: Boolean,
+      default: false,
+    },
+
+    attendanceType: {
+      type: String,
+      enum: [
+        "FULL_DAY",
+        "MORNING",
+        "AFTERNOON",
+        "HOUR_BASED",
+      ],
+      default: null,
     },
   },
   {
@@ -27,111 +51,118 @@ const periodSchema = new mongoose.Schema(
   }
 );
 
-// ==================== DAY ORDER SCHEMA ====================
+// =====================================================
+// DAY ORDER SCHEMA
+// =====================================================
 
-const dayOrderSchema =
-  new mongoose.Schema(
-    {
-      dayOrder: {
-        type: Number,
-        required: true,
-        min: 1,
-      },
-
-      periods: {
-        type: [periodSchema],
-        default: [],
-      },
+const dayOrderSchema = new mongoose.Schema(
+  {
+    dayOrder: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 6,
     },
-    {
-      _id: false,
-    }
-  );
 
-// ==================== PERIOD CONFIGURATION ====================
-
-const periodConfigurationSchema =
-  new mongoose.Schema(
-    {
-      periodNumber: {
-        type: Number,
-        required: true,
-        min: 1,
-      },
-
-      periodType: {
-        type: String,
-        enum: [
-          "Teaching",
-          "Break",
-          "Lunch",
-        ],
-        default: "Teaching",
-      },
+    periods: {
+      type: [periodSchema],
+      default: [],
     },
-    {
-      _id: false,
-    }
-  );
+  },
+  {
+    _id: false,
+  }
+);
 
-// ==================== TIMETABLE SCHEMA ====================
+// =====================================================
+// PERIOD CONFIGURATION SCHEMA
+// =====================================================
 
-const timetableSchema =
-  new mongoose.Schema(
-    {
-      // ==================== ORGANIZATION ====================
-
-      institutionId: {
-        type:
-          mongoose.Schema.Types.ObjectId,
-        ref: "Institution",
-        required: true,
-      },
-
-      departmentId: {
-        type:
-          mongoose.Schema.Types.ObjectId,
-        ref: "Department",
-        required: true,
-      },
-
-      classId: {
-        type:
-          mongoose.Schema.Types.ObjectId,
-        ref: "Class",
-        required: true,
-        unique: true,
-      },
-
-      currentSemester: {
-        type: Number,
-        required: true,
-        min: 1,
-      },
-
-      // ==================== PERIOD CONFIGURATION ====================
-
-      periodConfiguration: {
-        type: [
-          periodConfigurationSchema,
-        ],
-        default: [],
-      },
-
-      // ==================== TIMETABLE ====================
-
-      timetable: {
-        type: [dayOrderSchema],
-        default: [],
-      },
+const periodConfigurationSchema = new mongoose.Schema(
+  {
+    periodNumber: {
+      type: Number,
+      required: true,
+      min: 1,
     },
-    {
-      timestamps: true,
-      versionKey: false,
-    }
-  );
 
-// ==================== FILTER INDEXES ====================
+    periodType: {
+      type: String,
+      enum: [
+        "Teaching",
+        "Break",
+        "Lunch",
+      ],
+      default: "Teaching",
+    },
+  },
+  {
+    _id: false,
+  }
+);
+
+// =====================================================
+// MASTER TIMETABLE SCHEMA
+// =====================================================
+
+const timetableSchema = new mongoose.Schema(
+  {
+    // ===================================================
+    // ORGANIZATION
+    // ===================================================
+
+    institutionId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Institution",
+      required: true,
+    },
+
+    departmentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Department",
+      required: true,
+    },
+
+    classId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Class",
+      required: true,
+      unique: true,
+    },
+
+    currentSemester: {
+      type: Number,
+      required: true,
+      min: 1,
+    },
+
+    // ===================================================
+    // PERIOD CONFIGURATION
+    // ===================================================
+
+    periodConfiguration: {
+      type: [periodConfigurationSchema],
+      default: [],
+    },
+
+    // ===================================================
+    // MASTER TIMETABLE
+    // ===================================================
+
+    timetable: {
+      type: [dayOrderSchema],
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
+
+// =====================================================
+// INDEXES
+// =====================================================
 
 timetableSchema.index({
   institutionId: 1,
@@ -148,6 +179,10 @@ timetableSchema.index({
 timetableSchema.index({
   currentSemester: 1,
 });
+
+// =====================================================
+// EXPORT
+// =====================================================
 
 export default mongoose.model(
   "Timetable",
